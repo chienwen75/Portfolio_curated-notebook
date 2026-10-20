@@ -562,10 +562,10 @@
     
       /* 4. Compact all welcome text */
       .welcome-copy {
-        font-size: clamp(10.5px, 2.9vh, 14px);
-        line-height: 1.08;
-        margin: 0;
-        white-space: pre-line;
+      font-size: clamp(13px, 3.5vh, 17px);
+      line-height: 1.15;
+      margin: 0;
+      white-space: pre-line;
       }
     
       /* 5. Keep email link from overflowing */
@@ -645,8 +645,7 @@
   @media (max-width: 1000px) and (orientation: landscape) {
     .welcome-copy .contact-line {
       display: block;
-      white-space: nowrap;
-      font-size: clamp(9px, 2.2vh, 12px);
+      white-space: normal;
       letter-spacing: -0.02em;
     }
   }
@@ -735,9 +734,15 @@ It is a pleasure to have you in the next chapter.</p>
 
     const projects = {
       competition: [
-        { name:'2023 Taiwan Cannes Young Lion', eyebrow:'01 / Competition', awards:['Student Category · 1st Place','Professional Category · 4th'], media:'Presentation Board', tone:'gold', mediaType:'board', mediaSrc:'assets/2023台灣坎城青年獅_presentation board.jpg', brief:'', thinking:'' },
-        { name:'2024 DigiAsia × 4A Taiwan Youth Competition', eyebrow:'02 / Competition', awards:['Professional Category · 1st Place'], media:'Presentation Board', tone:'lime', mediaType:'board', mediaSrc:'assets/2024 創意戰鬥營_presentation board.jpg', brief:'', thinking:'' },
-        { name:'2025 MAD STARS NEW STARS', eyebrow:'03 / Competition', awards:['Executive Chairman’s Special Award'], media:'Presentation Board', tone:'rose', mediaType:'board', mediaSrc:'assets/2025 New Star_presentation board.jpg', brief:'', thinking:'' }
+        { name:'2023 Taiwan Cannes Young Lion', eyebrow:'01 / Competition', awards:['Student Category · 1st Place','Professional Category · 4th'], media:'Presentation Board', tone:'gold', mediaType:'board', mediaSrc:'assets/2023台灣坎城青年獅_presentation board.jpg', 
+         brief:'Following the pandemic, many people in Taiwan were unaware of the damage to their lung health. The challenge was to raise awareness of lung function and encourage more people to take action through early screening.', 
+         thinking:'Lung health is complex, and its problems are often invisible, making early screening feel unnecessary. To make the issue relatable, we borrowed the concept of “Qi” from Kung Fu. In Chinese, “Qi” means both air and vital energy. Even a Kung Fu master cannot perform a single move without enough Qi. We turned this cultural insight into an interactive website, allowing people to experience firsthand the limitations of poor lung capacity.' },
+        { name:'2024 DigiAsia × 4A Taiwan Youth Competition', eyebrow:'02 / Competition', awards:['Professional Category · 1st Place'], media:'Presentation Board', tone:'lime', mediaType:'board', mediaSrc:'assets/2024 創意戰鬥營_presentation board.jpg', 
+         brief:'Explore how generative AI can transform the digital creative industry through the AI4U initiative.', 
+         thinking:'AI should do more than improve efficiency. It should extend the reach of creativity to people often overlooked. In Taiwan's aging society, dementia is increasingly common. While regular conversation can help maintain communication abilities, not every family can afford daily therapy or provide constant companionship. We envisioned an AI companion that engages older adults with dementia in guided daily conversations, making cognitive and language stimulation more accessible to families who need it most.' },
+        { name:'2025 MAD STARS NEW STARS', eyebrow:'03 / Competition', awards:['Executive Chairman’s Special Award'], media:'Presentation Board', tone:'rose', mediaType:'board', mediaSrc:'assets/2025 New Star_presentation board.jpg', 
+         brief:'Develop a public campaign to overcome fear and foster engagement in the age of artificial intelligence.', 
+         thinking:'We started by questioning why people fear things. We realized that many fears are learned rather than experienced. Long before most people encountered AI firsthand, Hollywood had already cast it as a villain threatening humanity. That hardly seemed fair to AI! So we decided to give AI a voice of its own, hosting a press conference where it could defend itself, explain its intentions, and show how it could improve everyday life.' }
       ],
       work: [
         { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'assets/康貝特200P EX｜動力火車完整版.mp4', videoUrl:'', objective:'', strategy:'', idea:'' },

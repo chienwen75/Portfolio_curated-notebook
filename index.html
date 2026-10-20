@@ -237,6 +237,19 @@
     .future-panel .future-inner { max-width:790px; }
     /* Use an ordinary landscape website proportion, not a flattened strip. */
     .future-panel--emo .future-inner { max-width:min(100%, 630px); }
+    /* Keep images and videos in their original aspect ratio */
+    .real-media-frame,
+    .work-media .real-media-frame {
+      aspect-ratio: auto;
+      height: auto;
+    }
+    
+    .real-media-frame img,
+    .real-media-frame video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
     @media (max-height: 700px) and (min-width:1001px) {
       .future-panel--emo .future-inner { max-width:min(100%, 490px); }
     }
@@ -439,18 +452,18 @@ It is a pleasure to have you in the next chapter.</p>
 
     const projects = {
       competition: [
-        { name:'2023 Taiwan Cannes Young Lion', eyebrow:'01 / Competition', awards:['Student Category · 1st Place','Professional Category · 4th'], media:'Presentation Board', tone:'gold', mediaType:'board', mediaSrc:'', brief:'', thinking:'' },
-        { name:'2024 DigiAsia × 4A Taiwan Youth Competition', eyebrow:'02 / Competition', awards:['Professional Category · 1st Place'], media:'Presentation Board', tone:'lime', mediaType:'board', mediaSrc:'', brief:'', thinking:'' },
-        { name:'2025 MAD STARS NEW STARS', eyebrow:'03 / Competition', awards:['Executive Chairman’s Special Award'], media:'Presentation Board', tone:'rose', mediaType:'board', mediaSrc:'', brief:'', thinking:'' }
+        { name:'2023 Taiwan Cannes Young Lion', eyebrow:'01 / Competition', awards:['Student Category · 1st Place','Professional Category · 4th'], media:'Presentation Board', tone:'gold', mediaType:'board', mediaSrc:'assets/2023台灣坎城青年獅_presentation board.jpg', brief:'', thinking:'' },
+        { name:'2024 DigiAsia × 4A Taiwan Youth Competition', eyebrow:'02 / Competition', awards:['Professional Category · 1st Place'], media:'Presentation Board', tone:'lime', mediaType:'board', mediaSrc:'assets/2024 創意戰鬥營_presentation board.jpg', brief:'', thinking:'' },
+        { name:'2025 MAD STARS NEW STARS', eyebrow:'03 / Competition', awards:['Executive Chairman’s Special Award'], media:'Presentation Board', tone:'rose', mediaType:'board', mediaSrc:'assets/2025 New Star_presentation board.jpg', brief:'', thinking:'' }
       ],
       work: [
-        { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'', videoUrl:'', objective:'', strategy:'', idea:'' },
-        { name:'OREO COSMIC RADIO WAVE', eyebrow:'02 / Selected Work', media:'Project Image', tone:'sky', mediaType:'image', mediaSrc:'', objective:'', strategy:'', idea:'' },
-        { name:'MAZDA CX-3 — My Elegant Comrade', eyebrow:'03 / Selected Work', media:'Embedded Video', tone:'peach', mediaType:'video', mediaSrc:'', videoUrl:'', objective:'', strategy:'', idea:'' }
+        { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'assets/康貝特200P EX｜動力火車完整版.mp4', videoUrl:'', objective:'', strategy:'', idea:'' },
+        { name:'OREO COSMIC RADIO WAVE', eyebrow:'02 / Selected Work', media:'Project Image', tone:'sky', mediaType:'image', mediaSrc:'assets/OREO Cosmic Wave.jpg', objective:'', strategy:'', idea:'' },
+        { name:'MAZDA CX-3 — My Elegant Comrade', eyebrow:'03 / Selected Work', media:'Embedded Video', tone:'peach', mediaType:'video', mediaSrc:'assets/Mazda CX-3_我的優雅戰友.mp4', videoUrl:'', objective:'', strategy:'', idea:'' }
       ],
       future: [
-        { name:'EmoTogether', eyebrow:'01 / Future Project', media:'EmoTogether Interactive Demo', tone:'sky', mediaType:'embed', embedUrl:'', background:'', insight:'', experiment:'' },
-        { name:'Being Here', eyebrow:'02 / Future Project', media:'Concept Image', tone:'lavender', mediaType:'image', mediaSrc:'', background:'', insight:'', experiment:'' }
+        { name:'EmoTogether', eyebrow:'01 / Future Project', media:'EmoTogether Interactive Demo', tone:'sky', mediaType:'embed', embedUrl:'https://chienwen75.github.io/EmoTogether/', background:'', insight:'', experiment:'' },
+        { name:'Being Here', eyebrow:'02 / Future Project', media:'Concept Image', tone:'lavender', mediaType:'image', mediaSrc:'assets/Being Here.jpg', background:'', insight:'', experiment:'' }
       ]
     };
 

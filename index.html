@@ -573,6 +573,83 @@
         overflow-wrap: anywhere;
       }
     }
+    
+    /* Desktop cover: move welcome paper upward */
+    @media (min-width: 1001px) {
+      .welcome-sheet {
+        top: 29%;
+        bottom: 9%;
+      }
+    }
+
+    
+    /* Cover tabs: match the opened notebook tabs */
+    .cover-tabs .edge-tab {
+      right: -35px;
+      width: 54px;
+      height: 85px;
+      padding: 9px 5px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 19px;
+      letter-spacing: 0.01em;
+      line-height: 1.04;
+      border-radius: 1px 6px 7px 1px;
+      transform: rotate(2deg);
+    }
+    
+    .cover-tabs .edge-tab--competition {
+      top: 23%;
+      clip-path: none;
+      --tab-rotate: 2deg;
+    }
+    
+    .cover-tabs .edge-tab--work {
+      top: 43%;
+      --tab-rotate: 2deg;
+    }
+    
+    .cover-tabs .edge-tab--future {
+      top: 63%;
+      height: 109px;
+      clip-path: none;
+      --tab-rotate: 2deg;
+    }
+    
+    /* Match tab dimensions on landscape phones */
+    @media (max-width: 1000px) and (orientation: landscape) {
+      .cover-tabs .edge-tab {
+        right: -23px;
+        width: 43px;
+        height: 61px;
+        padding: 5px 3px;
+        font-size: 15px;
+      }
+    
+      .cover-tabs .edge-tab--competition {
+        top: 22%;
+      }
+    
+      .cover-tabs .edge-tab--work {
+        top: 44%;
+      }
+    
+      .cover-tabs .edge-tab--future {
+        top: 67%;
+        height: 79px;
+      }
+    }
+
+    
+  /* Contact line on mobile landscape */
+  @media (max-width: 1000px) and (orientation: landscape) {
+    .welcome-copy .contact-line {
+      display: block;
+      white-space: nowrap;
+      font-size: clamp(9px, 2.2vh, 12px);
+      letter-spacing: -0.02em;
+    }
+  }
 
   </style>
 </head>
@@ -590,7 +667,9 @@ Welcome to my curated notebook aka portfolio.
 
 I am a copywriter and creative strategist, currently working toward becoming a creative technologist.
 
-Hope you will have some fun walking through my works. If anything catches your interest, don't hesitate, plz contact me: <a href="mailto:madderwen2@gmail.com">madderwen2@gmail.com</a>.
+Hope you will have some fun walking through my works.
+
+<span class="contact-line">If anything catches your interest, feel free to contact me: <a href="mailto:madderwen2@gmail.com">madderwen2@gmail.com</a>.</span>
 
 It is a pleasure to have you in the next chapter.</p>
         </div>

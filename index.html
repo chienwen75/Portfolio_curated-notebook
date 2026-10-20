@@ -436,12 +436,98 @@
       max-height: 38vh;
       object-fit: contain;
     }
+    
+    /* ==========================================
+       NOTEBOOK UPDATE - OCT 20
+       ========================================== */
+    
+    /* 1. Remove dotted spine line */
+    .center-spine {
+      display: none !important;
+    }
+    
+    /* 2. Keep home icon upright */
+    .spread-tabs .edge-tab--home svg {
+      transform: rotate(0deg) !important;
+    }
+    
+    /* 3. Future Project: two-page layout */
+    .project-panel.future-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: clamp(49px, 6.5vw, 99px);
+      align-items: start;
+      padding: 11px clamp(30px, 4.1vw, 66px) 54px;
+    }
+    
+    .future-panel .project-left,
+    .future-panel .project-right {
+      min-width: 0;
+    }
+    
+    /* Align explanation fields with Work page */
+    .future-panel .project-right.work-fields {
+      padding-top: 30px;
+    }
+    
+    /* Remove old centered width restrictions */
+    .future-panel .project-left {
+      width: 100%;
+      max-width: none;
+    }
+    
+    /* EmoTogether: fit within left notebook page */
+    .future-panel--emo .browser-shell {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    
+    .future-panel--emo .embedded-site {
+      display: block;
+      width: 150%;
+      height: 405px;
+      max-width: none;
+      min-height: 0;
+      aspect-ratio: auto;
+      transform: scale(0.666667);
+      transform-origin: top left;
+      margin-bottom: -135px;
+    }
+    
+    /* Being Here: retain original image ratio */
+    .future-panel:not(.future-panel--emo) .real-media-frame {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      margin: 0;
+    }
+    
+    .future-panel:not(.future-panel--emo) .real-media-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 38vh;
+      object-fit: contain;
+    }
+    
+    /* Landscape mobile adjustments */
+    @media (max-width: 1000px) and (orientation: landscape) {
+      .project-panel.future-panel {
+        padding-top: 6px;
+        padding-bottom: 47px;
+      }
+    
+      .future-panel .project-right.work-fields {
+        padding-top: 5px;
+      }
+    }
 
   </style>
 </head>
 <body>
   <div class="table" aria-hidden="true"><div class="table-line one"></div><div class="table-line two"></div></div>
-  <div class="scene-label" aria-hidden="true">CURATED NOTEBOOK · DEMO 02</div>
   <div class="scene-number" aria-hidden="true">LIU CHIEN-WEN</div>
   <main class="scene" id="scene">
     <section class="book closed-book" id="closedBook" aria-label="Notebook cover">
@@ -642,10 +728,30 @@ It is a pleasure to have you in the next chapter.</p>
         <div class="browser-top"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">EmoTogether · Interactive Demo</span></div>
         ${url?`<iframe title="EmoTogether interactive experience" class="embedded-site" src="${url}" allow="camera; microphone; autoplay; fullscreen" allowfullscreen loading="eager"></iframe><a class="site-fallback-link" href="${url}" target="_blank" rel="noopener noreferrer">Open EmoTogether in a new tab ↗</a>`:`<button class="embedded-placeholder" type="button" data-media="${escapeHTML(p.media)}" data-project="${escapeHTML(p.name)}" data-tone="sky"><strong>EmoTogether</strong><span>Interactive Website · 16:9 Demo Slot</span><small>Your real interactive website will be shown here.</small></button>`}
       </div>`:media(p,'future-image');
-      return `<article class="project-panel future-panel ${isEmo?'future-panel--emo':''}" aria-label="${escapeHTML(p.name)}"><div class="future-inner">
-        <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p><div class="future-heading"><h2>${escapeHTML(p.name)}</h2>${isEmo?'<span class="demo-chip">DEMO</span>':''}</div>
-        ${mediaHTML}<div class="future-notes">${field('Background',p.background)}${field('Insight',p.insight)}${field('Experiment',p.experiment)}</div>
-      </div></article>`;
+      
+      return `
+        <article class="project-panel future-panel ${isEmo ? 'future-panel--emo' : ''}"
+                 aria-label="${escapeHTML(p.name)}">
+
+          <div class="project-left">
+            <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
+
+            <div class="future-heading">
+              <h2>${escapeHTML(p.name)}</h2>
+              ${isEmo ? '<span class="demo-chip">DEMO</span>' : ''}
+            </div>
+
+            ${mediaHTML}
+          </div>
+
+          <div class="project-right work-fields">
+            ${field('Background', p.background)}
+            ${field('Insight', p.insight)}
+            ${field('Experiment', p.experiment)}
+          </div>
+
+        </article>`;
+
     }
 
     function tabClass(id) { return id === 'future' ? 'future' : id; }

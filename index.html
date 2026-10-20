@@ -578,7 +578,7 @@
     @media (min-width: 1001px) {
       .welcome-sheet {
         top: 29%;
-        bottom: 9%;
+        bottom: 4%;
       }
     }
 
@@ -649,7 +649,15 @@
       letter-spacing: -0.02em;
     }
   }
-
+  /* Caption below selected Work images */
+  .work-caption {
+    margin: 12px 0 0;
+    font-family: var(--body);
+    font-size: 11px;
+    line-height: 1.5;
+    color: #77776e;
+    font-style: italic;
+  }
   </style>
 </head>
 <body>
@@ -745,13 +753,28 @@ It is a pleasure to have you in the next chapter.</p>
          thinking:'We started by questioning why people fear things. We realized that many fears are learned rather than experienced. Long before most people encountered AI firsthand, Hollywood had already cast it as a villain threatening humanity. That hardly seemed fair to AI! So we decided to give AI a voice of its own, hosting a press conference where it could defend itself, explain its intentions, and show how it could improve everyday life.' }
       ],
       work: [
-        { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'assets/康貝特200P EX｜動力火車完整版.mp4', videoUrl:'', objective:'', strategy:'', idea:'' },
-        { name:'OREO COSMIC RADIO WAVE', eyebrow:'02 / Selected Work', media:'Project Image', tone:'sky', mediaType:'image', mediaSrc:'assets/OREO Cosmic Wave.jpg', objective:'', strategy:'', idea:'' },
-        { name:'MAZDA CX-3 — My Elegant Comrade', eyebrow:'03 / Selected Work', media:'Embedded Video', tone:'peach', mediaType:'video', mediaSrc:'assets/Mazda CX-3_我的優雅戰友.mp4', videoUrl:'', objective:'', strategy:'', idea:'' }
+        { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'assets/康貝特200P EX｜動力火車完整版.mp4', videoUrl:'', 
+         objective:'Raise awareness of Combat 200P EX among its target audience of middle-aged working professionals in Taiwan.', 
+         strategy:'Energy drink market in Taiwan is crowded with both products and advertisements. With a stronger energy boost than most competitors, Combat 200P EX needed to make that advantage unforgettable within seconds. Our challenge was to make its superior energizing effect stick in consumers’ minds, so that when they stood in front of a convenience store shelf, Combat would be their instinctive choice.', 
+         idea:'We teamed up with Power Station, one of Taiwan’s most energetic pop duos, to create an irresistibly catchy commercial jingle embedded with alpha waves. The goal? Make viewers remember Combat 200P EX and feel energized just by watching the ad.' },
+        { name:'OREO COSMIC RADIO WAVE', eyebrow:'02 / Selected Work', media:'Project Image', tone:'sky', mediaType:'image', mediaSrc:'assets/OREO Cosmic Wave.jpg', caption:"Selected by the client from submissions across VML’s APAC offices; ultimately not produced.",
+         objective:'Build awareness of Oreo’s new cosmic-themed flavors among Gen Z consumers in the Chinese market.', 
+         strategy:'Building on the APAC campaign’s theme of the universe as a symbol of dreams, we uncovered a cultural distinction: unlike younger generations elsewhere, Chinese Gen Z aren’t necessarily dreaming of space travel. Instead, they believe in speaking their ambitions aloud, both to motivate themselves and attract people who can help. So we decided to help them make their loudest wish ever—loud enough for the entire universe to hear!', 
+         idea:'We added a wishing QR code to Oreo packaging, letting consumers submit their dreams to be transmitted into space through an Oreo-shaped radio telescope, with the entire process livestreamed for everyone on Earth to witness.' },
+        { name:'MAZDA CX-3 — My Elegant Comrade', eyebrow:'03 / Selected Work', media:'Embedded Video', tone:'peach', mediaType:'video', mediaSrc:'assets/Mazda CX-3_我的優雅戰友.mp4', videoUrl:'', 
+         objective:'Drive sales of the Mazda CX-3 in Taiwan by positioning it as a stylish, elegant choice.', 
+         strategy:'Customer data revealed that CX-3 owners were more likely to be young women than those of other Mazda models. They earned above-average incomes, but not enough to escape the demands of work. For these women, elegance wasn’t a luxury born of having time to spare. It was something they fought to maintain amid the chaos of everyday life. Elegance wasn’t effortless—it was hard-earned.', 
+         idea:'We portrayed the daily battles of modern urban women, showing how the Mazda CX-3 helps them move gracefully between demanding roles and situations, maintaining their composure and elegance no matter how hectic life gets.' }
       ],
       future: [
-        { name:'EmoTogether', eyebrow:'01 / Future Project', media:'EmoTogether Interactive Demo', tone:'sky', mediaType:'embed', embedUrl:'https://chienwen75.github.io/EmoTogether/', background:'', insight:'', experiment:'' },
-        { name:'Being Here', eyebrow:'02 / Future Project', media:'Concept Image', tone:'lavender', mediaType:'image', mediaSrc:'assets/Being Here.jpg', background:'', insight:'', experiment:'' }
+        { name:'EmoTogether', eyebrow:'01 / Future Project', media:'EmoTogether Interactive Demo', tone:'sky', mediaType:'embed', embedUrl:'https://chienwen75.github.io/EmoTogether/', 
+         background:'Talking to AI has become a common way to cope with loneliness. Yet, because AI isn’t human, relying on it for emotional support over time may risk distancing people from real-world relationships.', 
+         insight:'If AI learns from data created by real people, could we turn interacting with AI into an experience that makes us feel more connected to humanity, rather than further isolated from it?', 
+         experiment:'Emotions are deeply personal yet universally shared. I used AI to create music inspired by expressions of joy, anger, and sadness from musicians worldwide. By responding to users’ facial expressions with corresponding music, AI becomes a bridge to others who share their feelings.' },
+        { name:'Being Here', eyebrow:'02 / Future Project', media:'Concept Image', tone:'lavender', mediaType:'image', mediaSrc:'assets/Being Here.jpg', 
+         background:'Parents often establish trust funds to financially protect their children after they’re gone. Yet, growing up requires more than financial security. Children also long for their parents’ presence, guidance, and the chance to truly know who their parents were.', 
+         insight:'Death takes away the chance to get to know someone firsthand. But what if we could prepare future moments of connection in advance, allowing the relationship between parents and children to keep growing even after death?', 
+         experiment:'Using AI simulations, I help parents imagine the support their children might need at future milestones, such as turning 18, graduating, or getting married. Parents can then record personal messages in advance, delivered when those moments finally arrive.' }
       ]
     };
 
@@ -851,8 +874,22 @@ It is a pleasure to have you in the next chapter.</p>
     }
     function renderWork(p) {
       return `<article class="project-panel" aria-label="${escapeHTML(p.name)}">
-        <div class="project-left"><p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p><h2 class="project-name">${escapeHTML(p.name)}</h2><div class="work-media">${media(p)}</div></div>
-        <div class="project-right work-fields">${field('Objective',p.objective)}${field('Strategy',p.strategy)}${field('Idea',p.idea)}</div>
+        <div class="project-left">
+          <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
+          <h2 class="project-name">${escapeHTML(p.name)}</h2>
+    
+          <div class="work-media">${media(p)}</div>
+    
+          ${p.caption
+            ? `<p class="work-caption">${escapeHTML(p.caption)}</p>`
+            : ''}
+        </div>
+    
+        <div class="project-right work-fields">
+          ${field('Objective', p.objective)}
+          ${field('Strategy', p.strategy)}
+          ${field('Idea', p.idea)}
+        </div>
       </article>`;
     }
     function renderFuture(p) {

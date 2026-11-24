@@ -21,7 +21,7 @@
       --paper-warm: #f1eadb;
       --wood-1: #c5a787;
       --wood-2: #a98363;
-      /* Updated Sticky Tab Palette:
+      /* Sticky Tab Palette:
          Soft Ground (Sage Green) -> Playful Works (Warm Yellow) -> Thoughtful Dreams (Sky Blue) */
       --soft-ground: #b6ce98;
       --playful-works: #efce60;
@@ -208,14 +208,26 @@
       position: relative; width: 100%; height: 100%;
       border: 1px solid #8d8271; border-radius: 7px 12px 13px 7px; overflow: hidden;
       display: flex; flex-direction: column;
-      background:
-        radial-gradient(ellipse at 48% 55%, rgba(101,91,64,.075), transparent 5%),
-        linear-gradient(90deg, #ece5d7 0%, #faf8f1 3%, #fbf9f2 47%, #e9e2d5 49.5%, #d7cebf 50%, #f5f2e9 51.5%, #fcfaf4 96%, #e9e3d7 100%);
+      background-color: #e6ede1;
+      background-image:
+        radial-gradient(ellipse at 48% 55%, rgba(78, 96, 72, .065), transparent 12%),
+        linear-gradient(90deg, #d4dfd0 0%, #e5ede0 3%, #e8efe3 47%, #d5dfd0 49.5%, #c2cec0 50%, #e1eadc 51.5%, #e9f0e4 96%, #d4dfd0 100%);
       box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
     }
+    /* Sage-green grid notebook paper lines across Soft Ground, Playful Works & Thoughtful Dreams */
+    .spread-paper::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.72) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.72) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: 12px 12px;
+    }
     .spread-paper::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .19;
-      background: repeating-linear-gradient(0deg, transparent 0px, transparent 32px, rgba(120,105,77,.060) 33px);
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .22;
+      background:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(96, 118, 88, .04) 4px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(255, 255, 255, .08) 4px);
     }
     .center-spine { display: none !important; }
 
@@ -275,12 +287,11 @@
       padding: clamp(14px, 2.2vh, 24px) clamp(18px, 2.4vw, 34px);
     }
 
-    /* Fine-Liner Botanical Grass & Shrub Illustrations (簽字筆植物與草叢插畫) */
+    /* Botanical Grass & Wildflower Illustrations (綠色基底＋黃白粉小花插畫) */
     .sg-grass {
       position: absolute;
       pointer-events: none;
-      color: #2c312b;
-      opacity: 0.9;
+      opacity: 0.96;
       z-index: 2;
     }
     .sg-grass svg {
@@ -289,13 +300,13 @@
       height: auto;
       overflow: visible;
     }
-    /* Scattered organically per user's layout arrows without overlapping cutouts or text */
-    .sg-grass--top-center { top: 2.2%; right: 11%; width: clamp(108px, 11.4vw, 156px); transform: rotate(1.6deg); }
-    .sg-grass--lower-left { bottom: 19%; left: 3%; width: clamp(96px, 10.2vw, 140px); transform: rotate(-2.4deg); }
-    .sg-grass--lower-inner { bottom: 7.5%; right: 3.5%; width: clamp(92px, 9.8vw, 134px); transform: rotate(1.4deg); }
-    .sg-grass--upper-inner { top: 13.5%; left: 3.6%; width: clamp(104px, 11vw, 150px); transform: rotate(-1.8deg); }
-    .sg-grass--mid-right { top: 41%; right: 3%; width: clamp(94px, 10vw, 136px); transform: rotate(2.2deg); }
-    .sg-grass--bottom-right { bottom: 4%; right: 5.5%; width: clamp(124px, 13vw, 178px); transform: rotate(-1.2deg); }
+    /* Scattered organically around the cutouts without overlapping photos or text */
+    .sg-grass--top-center { top: 1.5%; right: 8.5%; width: clamp(124px, 12.6vw, 172px); transform: rotate(1.4deg); }
+    .sg-grass--lower-left { bottom: 18%; left: 2.6%; width: clamp(102px, 10.5vw, 144px); transform: rotate(-2.2deg); }
+    .sg-grass--lower-inner { bottom: 4.8%; right: 1.8%; width: clamp(92px, 9.5vw, 130px); transform: rotate(1.2deg); }
+    .sg-grass--upper-inner { top: 12.5%; left: 3.2%; width: clamp(112px, 11.6vw, 158px); transform: rotate(-1.8deg); }
+    .sg-grass--mid-right { top: 39%; right: 2.2%; width: clamp(106px, 11vw, 150px); transform: rotate(2.0deg); }
+    .sg-grass--bottom-right { bottom: 3.8%; right: 5.2%; width: clamp(148px, 15.2vw, 208px); transform: rotate(-1.2deg); }
 
     /* Anchored Hero Collage Clusters (keeps handwritten copy tightly hugging each cutout) */
     .sg-cluster {
@@ -307,16 +318,10 @@
       max-width: 100%;
     }
     .sg-cluster--left {
-      transform: translate(1.5%, 0.5%);
+      transform: translate(1.5%, -2.0%);
     }
     .sg-cluster--right {
-      transform: translate(-1%, 0%);
-    }
-    .sg-cluster--left {
-      transform: translate(3%, -1%);
-    }
-    .sg-cluster--right {
-      transform: translate(-2%, 0%);
+      transform: translate(-1.8%, -1.0%);
     }
 
     /* Cutout Photographic Objects (~2.5x visual area) with Hand-Drawn Fine-Liner Contours */
@@ -332,7 +337,7 @@
       filter: drop-shadow(0 10px 18px rgba(45, 34, 20, 0.16));
     }
 
-    /* Left Page: own bi.monthly Vol.01 Magazine (~2.5x area) */
+    /* Left Page: own bi.monthly Vol.01 Magazine */
     .sg-item--own {
       width: clamp(215px, 22.8vw, 300px);
       max-height: 55vh;
@@ -357,7 +362,7 @@
       object-fit: cover;
     }
 
-    /* Right Page: 桂有光 Osmanthus Tea Brand (~2.5x area) */
+    /* Right Page: 桂有光 Osmanthus Tea Brand */
     .sg-item--tea {
       width: clamp(215px, 22.4vw, 292px);
       max-height: 44vh;
@@ -522,22 +527,31 @@
       align-items: flex-start;
     }
     .sg-copy--own {
-      margin-top: 10px;
-      align-self: center;
-      margin-left: 2%;
+      margin-top: clamp(20px, 2.9vh, 32px);
+      align-self: flex-start;
+      margin-left: -4%;
       transform: rotate(-1.4deg);
     }
     .sg-copy--tea-top {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       align-self: flex-start;
-      margin-left: 4%;
+      margin-left: calc(2% + 12px);
       transform: rotate(-1.1deg);
     }
     .sg-copy--tea-bottom {
-      margin-top: 8px;
-      align-self: flex-start;
-      margin-left: 8%;
-      transform: rotate(-1.5deg);
+      margin-top: clamp(20px, 3.0vh, 34px);
+      align-self: flex-end;
+      transform: translateX(12%) rotate(-1.6deg);
+    }
+    .sg-copy--tea-bottom {
+      margin-top: clamp(20px, 3.0vh, 34px);
+      align-self: flex-end;
+      transform: translateX(16%) rotate(-1.6deg);
+    }
+    .sg-copy--tea-bottom .hw-line {
+      font-size: clamp(27px, 2.65vw, 37px);
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
     .hw-line {
@@ -548,7 +562,7 @@
       font-size: clamp(21px, 2.02vw, 28px);
       line-height: 1.16;
       letter-spacing: 0.005em;
-      color: #232722;
+      color: var(--line-color, #232722);
       margin-left: var(--indent, 0px);
       transform: rotate(var(--rot, 0deg));
       transform-origin: left center;
@@ -560,6 +574,38 @@
     .hw-space {
       display: inline-block;
       width: 0.27em;
+    }
+    /* Animated Playful-Works yellow marker underline under "alone together" */
+    .hw-highlight-target {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+    .hw-underline-svg {
+      position: absolute;
+      left: -2%;
+      right: -1%;
+      bottom: -0.14em;
+      width: 103%;
+      height: 0.34em;
+      overflow: visible;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hw-underline-path {
+      fill: none;
+      stroke: var(--playful-works);
+      stroke-width: 5.2;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    .soft-ground-spread.is-writing .hw-underline-path {
+      animation: underlineSwipeDraw 0.42s cubic-bezier(0.22, 0.08, 0.25, 1) var(--u-delay, 1.5s) forwards;
+    }
+    @keyframes underlineSwipeDraw {
+      from { stroke-dashoffset: 1; }
+      to { stroke-dashoffset: 0; }
     }
     /* Character-by-character diagonal pen-stroke reveal with generous padding so ascenders/descenders never clip */
     .hw-glyph {
@@ -758,7 +804,7 @@
     /* FIXED FOOTER / SLIDE CONTROLS */
     .book-footer {
       position: absolute; bottom: 0; left: 0; right: 0; height: 50px; z-index: 7;
-      background: linear-gradient(0deg, rgba(249,247,239,.99) 0%, rgba(249,247,239,.89) 75%, rgba(249,247,239,0) 100%);
+      background: linear-gradient(0deg, rgba(232, 239, 227, .98) 0%, rgba(232, 239, 227, .88) 75%, rgba(232, 239, 227, 0) 100%);
       display: flex; align-items: center; justify-content: center; gap: 13px; padding-top: 10px;
     }
     .foot-arrow {
@@ -836,16 +882,17 @@
       .sg-page { padding: 8px 12px; }
       .sg-item--own { width: clamp(134px, 19.5vw, 185px); max-height: 52vh; }
       .sg-item--tea { width: clamp(136px, 19.5vw, 185px); max-height: 40vh; }
-      .sg-copy--own { margin-top: 6px; }
-      .sg-copy--tea-top { margin-bottom: 5px; }
-      .sg-copy--tea-bottom { margin-top: 5px; }
+      .sg-copy--own { margin-top: 11px; }
+      .sg-copy--tea-top { margin-bottom: 5px; margin-left: 12px; }
+      .sg-copy--tea-bottom { margin-top: 11px; transform: translateX(10%) rotate(-1.6deg); }
+      .sg-copy--tea-bottom .hw-line { font-size: clamp(19px, 4.4vh, 25px); }
       .hw-line { font-size: clamp(15px, 3.5vh, 21px); line-height: 1.12; }
-      .sg-grass--top-center { width: 76px; right: 8%; }
-      .sg-grass--lower-left { width: 66px; bottom: 16%; left: 2%; }
-      .sg-grass--lower-inner { width: 62px; bottom: 5%; right: 2%; }
-      .sg-grass--upper-inner { width: 72px; top: 10%; left: 2%; }
-      .sg-grass--mid-right { width: 64px; right: 2%; }
-      .sg-grass--bottom-right { width: 84px; bottom: 3%; right: 4%; }
+      .sg-grass--top-center { width: 84px; right: 7%; }
+      .sg-grass--lower-left { width: 68px; bottom: 16%; left: 2%; }
+      .sg-grass--lower-inner { width: 62px; bottom: 4%; right: 1.5%; }
+      .sg-grass--upper-inner { width: 76px; top: 9%; left: 2%; }
+      .sg-grass--mid-right { width: 72px; right: 1.5%; }
+      .sg-grass--bottom-right { width: 98px; bottom: 3%; right: 4%; }
       .sg-replay-btn { width: 25px; height: 25px; right: 14px; bottom: 12px; font-size: 14px; }
 
       .spread-header { flex-basis: 63px; padding-top: 9px; padding-bottom: 6px; }
@@ -884,10 +931,23 @@
       .hw-glyph {
         clip-path: none !important;
       }
+      .hw-underline-path {
+        stroke-dashoffset: 0 !important;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Shared subtle crayon/textured edge filter for botanical grass tufts -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="botanicalCrayon" x="-8%" y="-8%" width="116%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="2" seed="7" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.15" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
   <div class="table" aria-hidden="true"><div class="table-line one"></div><div class="table-line two"></div></div>
   <div class="scene-number" aria-hidden="true">LIU CHIEN-WEN</div>
 
@@ -1106,222 +1166,451 @@ It is a pleasure to have you in the next chapter.</p>
       ]
     };
 
-    /* Detailed Botanical Fine-Liner Ink Illustrations (six distinct wildflower, fern, reed & scalloped bush compositions) */
+    /* Botanical Grass & Wildflower Tufts matching user's 5-tuft reference sheet
+       (All 5 tufts appear; Tuft #2 appears twice across the 6 positions) */
     const grassTufts = {
-      /* 1. Top-Center (Left Page): Wildflower Spikes, Cup Blossoms, Arching Seed Grasses & Base Scribble */
-      topCenter: `<svg viewBox="0 0 185 110" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M40 93 C31 79 21 68 11 61" stroke-width="1.35"/>
-          <path d="M43 93 C35 76 28 62 22 50" stroke-width="1.3"/>
-          <path d="M22 50 C18 46 18 41 21 40 C23 42 25 40 27 42 C28 45 25 48 22 50 Z" stroke-width="1.1"/>
-          <path d="M46 93 C41 75 37 61 34 48" stroke-width="1.3"/>
-          <path d="M34 48 C30 44 30 39 33 38 C35 40 37 38 39 40 C40 43 37 46 34 48 Z" stroke-width="1.1"/>
-          <path d="M49 93 C47 77 46 64 46 53" stroke-width="1.25"/>
-          <path d="M46 53 C43 49 43 45 46 44 C48 46 50 45 51 47 C51 50 49 52 46 53 Z" stroke-width="1.05"/>
-          <path d="M36 93 C28 84 20 77 12 73" stroke-width="1.15"/>
+      /* Tuft #2 (Appearance 1 — Top-Center on Left Page): Fountain grass blades with pink tulips, white daisies & yellow star sprays */
+      topCenter: `<svg viewBox="0 0 190 165" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Slender flower & spray stems -->
+          <path d="M84 148 Q54 102 20 64" stroke="#5c9338" stroke-width="1.5"/>
+          <path d="M88 148 Q64 114 33 84" stroke="#5c9338" stroke-width="1.55"/>
+          <path d="M91 148 Q74 102 53 59" stroke="#568c34" stroke-width="1.65"/>
+          <path d="M94 148 Q84 82 72 24" stroke="#5c9338" stroke-width="1.5"/>
+          <path d="M96 148 Q94 94 92 44" stroke="#568c34" stroke-width="1.65"/>
+          <path d="M99 148 Q108 95 118 45" stroke="#568c34" stroke-width="1.65"/>
+          <path d="M101 148 Q119 86 136 30" stroke="#5c9338" stroke-width="1.5"/>
+          <path d="M103 148 Q123 102 142 60" stroke="#568c34" stroke-width="1.6"/>
+          <path d="M105 148 Q134 108 160 74" stroke="#568c34" stroke-width="1.6"/>
+          <path d="M107 148 Q138 118 168 96" stroke="#5c9338" stroke-width="1.45"/>
 
-          <path d="M68 88 C63 66 57 48 51 34" stroke-width="1.35"/>
-          <path d="M80 86 C77 60 74 37 72 17" stroke-width="1.4"/>
-          <path d="M93 87 C93 62 94 40 96 21" stroke-width="1.4"/>
-          <path d="M104 89 C107 69 111 52 116 37" stroke-width="1.3"/>
+          <!-- Sweeping green fountain grass blades (back darker layer) -->
+          <path d="M84 154 C66 130 44 116 20 116 C45 123 64 136 81 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
+          <path d="M107 154 C125 130 147 116 171 116 C146 123 127 136 110 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
+          <path d="M87 154 C71 122 52 100 31 93 C53 106 70 126 84 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
+          <path d="M104 154 C120 122 139 100 160 93 C138 106 121 126 107 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
 
-          <path d="M51 34 c-3-3 1-6 3-3 c3-2 5 2 2 4 M55 42 c-4-2-1-6 2-4 M49 46 c-4-1-2-6 1-4 M58 51 c-4-2-1-6 2-4 M52 56 c-4-1-2-6 1-4" stroke-width="1.05"/>
-          <path d="M72 17 c-3-3 1-6 3-3 c3-2 5 2 2 4 M70 25 c-4-1-2-6 1-4 M76 28 c-4-2-1-6 2-4 M71 35 c-4-1-2-6 1-4 M77 39 c-4-2-1-6 2-4 M72 46 c-4-1-2-6 1-4 M79 50 c-4-2-1-6 2-4" stroke-width="1.1"/>
-          <path d="M96 21 c-3-3 1-6 3-3 c3-2 5 2 2 4 M93 30 c-4-1-2-6 1-4 M99 33 c-4-2-1-6 2-4 M92 41 c-4-1-2-6 1-4 M98 45 c-4-2-1-6 2-4 M92 52 c-4-1-2-6 1-4" stroke-width="1.1"/>
-          <path d="M116 37 c-3-3 1-6 3-3 M113 46 c-4-1-2-6 1-4 M118 50 c-4-2-1-6 2-4" stroke-width="1.05"/>
+          <!-- Sweeping green fountain grass blades (front bright layer + pale highlights) -->
+          <path d="M89 154 C77 116 64 86 48 69 C65 92 77 120 87 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
+          <path d="M102 154 C114 116 127 86 143 69 C126 92 114 120 104 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
+          <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
+          <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
+          <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="0.95"/>
 
-          <path d="M56 89 l4-6 4 5 5-7 4 6 5-6 4 5 5-6 4 6 5-5 4 6" stroke-width="1.15"/>
-          <path d="M62 79 l4-5 4 4 5-6 4 5 5-5 4 4 4-5 3 5" stroke-width="1.05"/>
-          <path d="M68 69 l3-4 4 4 4-5 4 4 4-4 3 4" stroke-width="1.0"/>
+          <!-- Pale sage-cream inner blade highlights -->
+          <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.35"/>
+          <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.4"/>
+          <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.45"/>
+          <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.4"/>
+          <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.35"/>
 
-          <path d="M115 92 C117 69 121 47 128 28" stroke-width="1.4"/>
-          <path d="M128 28 C129 23 131 20 132 18 C131 22 130 26 128 28 Z" stroke-width="1.25"/>
-          <path d="M121 92 C126 71 134 52 145 36" stroke-width="1.4"/>
-          <path d="M145 36 C148 31 151 28 153 26 C151 30 148 34 145 36 Z" stroke-width="1.25"/>
-          <path d="M127 92 C135 75 146 60 159 48" stroke-width="1.35"/>
-          <path d="M159 48 C163 44 166 42 168 41 C165 44 162 47 159 48 Z" stroke-width="1.2"/>
-          <path d="M133 92 C143 79 154 69 167 61" stroke-width="1.25"/>
-          <path d="M111 92 C110 77 110 64 112 52" stroke-width="1.15"/>
+          <!-- Yellow bud & star-flower sprays -->
+          <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.7">
+            <ellipse cx="36" cy="83" rx="1.6" ry="2.6" transform="rotate(-35 36 83)"/>
+            <ellipse cx="28" cy="74" rx="1.6" ry="2.6" transform="rotate(-35 28 74)"/>
+            <g transform="translate(19,63)">
+              <path d="M0-5.5 L1.4-1.6 L5.2-1.6 L2.1 0.8 L3.2 4.6 L0 2.3 L-3.2 4.6 L-2.1 0.8 L-5.2-1.6 L-1.4-1.6 Z"/>
+            </g>
+            <ellipse cx="79" cy="54" rx="1.5" ry="2.5" transform="rotate(-12 79 54)"/>
+            <ellipse cx="76" cy="43" rx="1.5" ry="2.5" transform="rotate(-12 76 43)"/>
+            <ellipse cx="74" cy="33" rx="1.5" ry="2.5" transform="rotate(-12 74 33)"/>
+            <g transform="translate(72,22)">
+              <path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/>
+            </g>
+            <ellipse cx="123" cy="58" rx="1.5" ry="2.5" transform="rotate(18 123 58)"/>
+            <ellipse cx="128" cy="48" rx="1.5" ry="2.5" transform="rotate(18 128 48)"/>
+            <ellipse cx="132" cy="39" rx="1.5" ry="2.5" transform="rotate(18 132 39)"/>
+            <g transform="translate(136,29)">
+              <path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/>
+            </g>
+            <g transform="translate(169,95)">
+              <path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/>
+            </g>
+          </g>
 
-          <path d="M22 94 C44 93 68 93.5 92 94" stroke-width="1.3"/>
-          <path d="M102 94 C122 93.5 142 93.5 160 94" stroke-width="1.3"/>
-          <path d="M35 98 C50 97.5 64 98 78 98.5" stroke-width="0.95"/>
+          <!-- Pink tulip blossoms (3) -->
+          <g transform="translate(52,57) rotate(-14)">
+            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
+          <g transform="translate(118,43) rotate(10)">
+            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
+          <g transform="translate(161,72) rotate(26)">
+            <path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.5 3.5 C-2.8 -1.8 -1 -6.5 0 -8.8 C1 -6.5 2.8 -1.8 2.5 3.5" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
 
-          <circle cx="17" cy="52" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="42" cy="34" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="84" cy="14" r="1.15" fill="currentColor" stroke="none"/>
-          <circle cx="107" cy="24" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="141" cy="24" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="163" cy="34" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="174" cy="52" r="0.95" fill="currentColor" stroke="none"/>
+          <!-- White daisies with golden centers (3) -->
+          <g transform="translate(32,83)">
+            <ellipse cx="0" cy="-6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(60 5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.2" cy="3" rx="2.3" ry="4.2" transform="rotate(120 5.2 3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.2" cy="3" rx="2.3" ry="4.2" transform="rotate(60 -5.2 3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(120 -5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.7" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
+          <g transform="translate(92,43)">
+            <ellipse cx="0" cy="-6.4" rx="2.4" ry="4.5" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.5" cy="-3.2" rx="2.4" ry="4.5" transform="rotate(60 5.5 -3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.5" cy="3.2" rx="2.4" ry="4.5" transform="rotate(120 5.5 3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="6.4" rx="2.4" ry="4.5" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.5" cy="3.2" rx="2.4" ry="4.5" transform="rotate(60 -5.5 3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.5" cy="-3.2" rx="2.4" ry="4.5" transform="rotate(120 -5.5 -3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.9" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
+          <g transform="translate(143,58)">
+            <ellipse cx="0" cy="-5.8" rx="2.2" ry="4" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5" cy="-2.9" rx="2.2" ry="4" transform="rotate(60 5 -2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5" cy="2.9" rx="2.2" ry="4" transform="rotate(120 5 2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="5.8" rx="2.2" ry="4" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5" cy="2.9" rx="2.2" ry="4" transform="rotate(60 -5 2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5" cy="-2.9" rx="2.2" ry="4" transform="rotate(120 -5 -2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.6" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
         </g>
       </svg>`,
 
-      /* 2. Lower-Left (Left Page): Scalloped Cloud Shrub + Feathered Fern Fronds & Wild Berries */
-      lowerLeft: `<svg viewBox="0 0 164 94" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Left feathery fern frond -->
-          <path d="M34 76 C26 57 18 41 10 28" stroke-width="1.35"/>
-          <path d="M26 58 l-7-4 M28 58 l5-6 M22 49 l-7-3 M24 49 l5-6 M18 40 l-6-3 M19 40 l4-5 M14 33 l-5-2 M15 33 l3-4" stroke-width="1.1"/>
-          <!-- Slender grass blades -->
-          <path d="M39 76 C35 58 33 42 33 26" stroke-width="1.4"/>
-          <path d="M43 76 C43 56 45 38 49 22" stroke-width="1.35"/>
-          <path d="M29 76 C22 66 15 58 7 53" stroke-width="1.2"/>
-
-          <!-- Scalloped ink shrub with layered foliage texture -->
-          <path d="M54 76 C48 71 49 62 56 60 C53 51 60 43 68 45 C71 35 83 33 89 41 C95 33 107 35 110 44 C118 42 126 50 123 59 C130 61 132 71 125 76" stroke-width="1.5"/>
-          <path d="M65 63 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M81 52 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M98 64 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
-          <path d="M74 71 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
-
-          <!-- Right delicate seed sprigs -->
-          <path d="M132 76 C136 62 142 50 150 40" stroke-width="1.3"/>
-          <path d="M136 76 C142 66 149 58 157 53" stroke-width="1.2"/>
-
-          <!-- Broken ground dashes & ink dots -->
-          <path d="M14 77.5 C38 76.5 64 77 90 77.5" stroke-width="1.3"/>
-          <path d="M100 77.5 C120 77 138 77 154 77.5" stroke-width="1.25"/>
-          <path d="M48 81.5 C68 81 88 81 106 81.5" stroke-width="0.95"/>
-          <circle cx="24" cy="24" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="42" cy="19" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="62" cy="31" r="1.0" fill="currentColor" stroke="none"/>
-          <circle cx="144" cy="33" r="1.05" fill="currentColor" stroke="none"/>
+      /* Tuft #3 (Lower-Left on Left Page): Lush rounded mound of mottled lobed green leaves */
+      lowerLeft: `<svg viewBox="0 0 175 125" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(52,52) rotate(-24)">
+            <path d="M0 24 C-14 22 -22 10 -15 2 C-22 -5 -16 -17 -7 -14 C-6 -24 6 -24 7 -14 C16 -17 22 -5 15 2 C22 10 14 22 0 24 Z" fill="#4f8334" stroke="#396324" stroke-width="1.15"/>
+            <path d="M0 17 C-8 15 -12 7 -8 1 C-11 -4 -8 -11 -3 -9 C-2 -15 2 -15 3 -9 C8 -11 11 -4 8 1 C12 7 8 15 0 17 Z" fill="#82b559" stroke="none"/>
+            <path d="M0 22 L0 -12 M0 8 L-9 0 M0 8 L9 0" fill="none" stroke="#396324" stroke-width="0.9"/>
+          </g>
+          <g transform="translate(118,50) rotate(26)">
+            <path d="M0 24 C-14 22 -22 10 -15 2 C-22 -5 -16 -17 -7 -14 C-6 -24 6 -24 7 -14 C16 -17 22 -5 15 2 C22 10 14 22 0 24 Z" fill="#4f8334" stroke="#396324" stroke-width="1.15"/>
+            <path d="M0 17 C-8 15 -12 7 -8 1 C-11 -4 -8 -11 -3 -9 C-2 -15 2 -15 3 -9 C8 -11 11 -4 8 1 C12 7 8 15 0 17 Z" fill="#82b559" stroke="none"/>
+            <path d="M0 22 L0 -12 M0 8 L-9 0 M0 8 L9 0" fill="none" stroke="#396324" stroke-width="0.9"/>
+          </g>
+          <g transform="translate(86,42)">
+            <path d="M0 25 C-15 23 -23 11 -16 2 C-23 -6 -17 -18 -7 -15 C-6 -25 6 -25 7 -15 C17 -18 23 -6 16 2 C23 11 15 23 0 25 Z" fill="#588e3b" stroke="#3c6826" stroke-width="1.15"/>
+            <path d="M0 18 C-9 16 -13 7 -9 1 C-12 -4 -9 -12 -3 -10 C-2 -16 2 -16 3 -10 C9 -12 12 -4 9 1 C13 7 9 16 0 18 Z" fill="#93c468" stroke="none"/>
+            <path d="M0 23 L0 -13 M0 8 L-10 0 M0 8 L10 0" fill="none" stroke="#3c6826" stroke-width="0.9"/>
+          </g>
+          <g transform="translate(36,80) rotate(-42)">
+            <path d="M0 22 C-13 20 -20 9 -14 2 C-20 -5 -15 -16 -6 -13 C-5 -22 5 -22 6 -13 C15 -16 20 -5 14 2 C20 9 13 20 0 22 Z" fill="#629a40" stroke="#417029" stroke-width="1.15"/>
+            <path d="M0 15 C-7 13 -11 6 -7 1 C-10 -4 -7 -10 -3 -8 C-2 -14 2 -14 3 -8 C7 -10 10 -4 7 1 C11 6 7 13 0 15 Z" fill="#a2cf76" stroke="none"/>
+            <path d="M0 20 L0 -11 M0 7 L-8 0 M0 7 L8 0" fill="none" stroke="#417029" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(136,78) rotate(44)">
+            <path d="M0 22 C-13 20 -20 9 -14 2 C-20 -5 -15 -16 -6 -13 C-5 -22 5 -22 6 -13 C15 -16 20 -5 14 2 C20 9 13 20 0 22 Z" fill="#629a40" stroke="#417029" stroke-width="1.15"/>
+            <path d="M0 15 C-7 13 -11 6 -7 1 C-10 -4 -7 -10 -3 -8 C-2 -14 2 -14 3 -8 C7 -10 10 -4 7 1 C11 6 7 13 0 15 Z" fill="#a2cf76" stroke="none"/>
+            <path d="M0 20 L0 -11 M0 7 L-8 0 M0 7 L8 0" fill="none" stroke="#417029" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(64,72) rotate(-14)">
+            <path d="M0 23 C-14 21 -21 10 -14 2 C-21 -5 -15 -16 -6 -13 C-5 -23 5 -23 6 -13 C15 -16 21 -5 14 2 C21 10 14 21 0 23 Z" fill="#6aa346" stroke="#44742b" stroke-width="1.15"/>
+            <path d="M0 16 C-8 14 -12 7 -8 1 C-11 -4 -8 -11 -3 -9 C-2 -15 2 -15 3 -9 C8 -11 11 -4 8 1 C12 7 8 14 0 16 Z" fill="#aed783" stroke="none"/>
+            <path d="M0 21 L0 -12 M0 8 L-9 0 M0 8 L9 0" fill="none" stroke="#44742b" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(108,71) rotate(16)">
+            <path d="M0 23 C-14 21 -21 10 -14 2 C-21 -5 -15 -16 -6 -13 C-5 -23 5 -23 6 -13 C15 -16 21 -5 14 2 C21 10 14 21 0 23 Z" fill="#6aa346" stroke="#44742b" stroke-width="1.15"/>
+            <path d="M0 16 C-8 14 -12 7 -8 1 C-11 -4 -8 -11 -3 -9 C-2 -15 2 -15 3 -9 C8 -11 11 -4 8 1 C12 7 8 14 0 16 Z" fill="#aed783" stroke="none"/>
+            <path d="M0 21 L0 -12 M0 8 L-9 0 M0 8 L9 0" fill="none" stroke="#44742b" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(56,95) rotate(-25)">
+            <path d="M0 19 C-11 17 -17 8 -12 2 C-17 -4 -13 -13 -5 -11 C-4 -19 4 -19 5 -11 C13 -13 17 -4 12 2 C17 8 11 17 0 19 Z" fill="#5b913b" stroke="#3c6826" stroke-width="1.1"/>
+            <path d="M0 13 C-6 11 -9 5 -6 1 C-8 -3 -6 -8 -2 -7 C-1 -12 1 -12 2 -7 C6 -8 8 -3 6 1 C9 5 6 11 0 13 Z" fill="#98c86d" stroke="none"/>
+            <path d="M0 17 L0 -9 M0 6 L-7 0 M0 6 L7 0" fill="none" stroke="#3c6826" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(86,93)">
+            <path d="M0 21 C-13 19 -19 9 -13 2 C-19 -5 -14 -15 -6 -12 C-5 -21 5 -21 6 -12 C14 -15 19 -5 13 2 C19 9 13 19 0 21 Z" fill="#72ab4d" stroke="#47782d" stroke-width="1.15"/>
+            <path d="M0 15 C-7 13 -11 6 -7 1 C-10 -4 -7 -10 -3 -8 C-2 -14 2 -14 3 -8 C7 -10 10 -4 7 1 C11 6 7 13 0 15 Z" fill="#b7de8e" stroke="none"/>
+            <path d="M0 19 L0 -11 M0 7 L-8 0 M0 7 L8 0" fill="none" stroke="#47782d" stroke-width="0.85"/>
+          </g>
+          <g transform="translate(116,95) rotate(24)">
+            <path d="M0 19 C-11 17 -17 8 -12 2 C-17 -4 -13 -13 -5 -11 C-4 -19 4 -19 5 -11 C13 -13 17 -4 12 2 C17 8 11 17 0 19 Z" fill="#5b913b" stroke="#3c6826" stroke-width="1.1"/>
+            <path d="M0 13 C-6 11 -9 5 -6 1 C-8 -3 -6 -8 -2 -7 C-1 -12 1 -12 2 -7 C6 -8 8 -3 6 1 C9 5 6 11 0 13 Z" fill="#98c86d" stroke="none"/>
+            <path d="M0 17 L0 -9 M0 6 L-7 0 M0 6 L7 0" fill="none" stroke="#3c6826" stroke-width="0.85"/>
+          </g>
         </g>
       </svg>`,
 
-      /* 3. Lower-Inner (Left Page, right of caption): Nodding Bellflowers, Seed Plumes & Leaf Tufts */
-      lowerInner: `<svg viewBox="0 0 156 92" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Left grass blades & bellflower stem -->
-          <path d="M44 74 C36 60 27 49 17 41" stroke-width="1.3"/>
-          <path d="M49 74 C44 55 41 38 40 22" stroke-width="1.4"/>
-          <!-- Nodding bellflower blossoms -->
-          <path d="M40 22 C35 23 32 27 33 31 C36 30 38 31 40 30 C41 27 41 24 40 22 Z" stroke-width="1.1"/>
-          <path d="M42 33 C37 34 35 38 36 41 C38 40 40 41 42 40" stroke-width="1.05"/>
-
-          <!-- Center tall seed-plume grass stalks -->
-          <path d="M56 74 C55 52 57 32 61 14" stroke-width="1.45"/>
-          <path d="M61 14 c-2 3-3 7-3 10 M61 14 c2 3 3 7 2 10 M60 20 c-3 2-4 5-4 8 M61 20 c3 2 4 5 3 8" stroke-width="1.05"/>
-
-          <path d="M63 74 C66 53 72 34 80 18" stroke-width="1.4"/>
-          <path d="M80 18 c-2 3-4 6-4 9 M80 18 c1 3 2 7 1 10 M78 24 c-3 2-4 5-4 8 M79 24 c2 2 3 5 2 8" stroke-width="1.05"/>
-
-          <!-- Small low foliage cluster -->
-          <path d="M72 74 C70 67 74 61 80 63 C83 56 91 56 94 62 C100 60 105 66 102 74" stroke-width="1.35"/>
-          <path d="M80 68 c2-2 4-2 5 1 c2-2 4-2 5 1" stroke-width="1.0"/>
-
-          <!-- Right arching grass blades -->
-          <path d="M104 74 C110 58 118 45 128 34" stroke-width="1.35"/>
-          <path d="M110 74 C118 62 127 52 138 46" stroke-width="1.25"/>
-          <path d="M115 74 C124 66 134 61 144 58" stroke-width="1.15"/>
-
-          <!-- Broken ground lines & stipple dots -->
-          <path d="M22 75.5 C48 74.5 76 75 102 75.5" stroke-width="1.3"/>
-          <path d="M110 75.5 C124 75 136 75 146 75.5" stroke-width="1.2"/>
-          <path d="M46 79.5 C66 79 86 79 104 79.5" stroke-width="0.95"/>
-          <circle cx="29" cy="31" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="51" cy="15" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="71" cy="14" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="94" cy="26" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="122" cy="28" r="1.0" fill="currentColor" stroke="none"/>
+      /* Tuft #4 (Lower-Inner on Left Page): Spiky radial starburst tuft of sharp green blades with glowing pale-green center */
+      lowerInner: `<svg viewBox="0 0 165 130" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g stroke-linejoin="round">
+          <g fill="#4c8030" stroke="#3b6723" stroke-width="0.6">
+            <polygon points="82,114 14,98 80,108"/>
+            <polygon points="82,114 18,74 79,106"/>
+            <polygon points="82,114 29,51 78,104"/>
+            <polygon points="82,114 45,32 79,103"/>
+            <polygon points="82,114 64,19 80,102"/>
+            <polygon points="82,114 82,14 84,102"/>
+            <polygon points="82,114 101,19 85,102"/>
+            <polygon points="82,114 120,32 86,103"/>
+            <polygon points="82,114 136,51 87,104"/>
+            <polygon points="82,114 147,74 86,106"/>
+            <polygon points="82,114 151,98 85,108"/>
+          </g>
+          <g fill="#68a243" stroke="#4a7b2d" stroke-width="0.55">
+            <polygon points="82,114 21,87 79,108"/>
+            <polygon points="82,114 26,64 79,106"/>
+            <polygon points="82,114 39,43 79,104"/>
+            <polygon points="82,114 56,27 80,103"/>
+            <polygon points="82,114 74,18 81,102"/>
+            <polygon points="82,114 91,18 83,102"/>
+            <polygon points="82,114 109,27 85,103"/>
+            <polygon points="82,114 126,43 86,104"/>
+            <polygon points="82,114 139,64 86,106"/>
+            <polygon points="82,114 144,87 86,108"/>
+            <polygon points="82,114 12,110 81,111"/>
+            <polygon points="82,114 153,110 84,111"/>
+          </g>
+          <g fill="#b5d887" stroke="none">
+            <polygon points="82,114 36,96 80,110"/>
+            <polygon points="82,114 42,74 80,108"/>
+            <polygon points="82,114 52,55 80,106"/>
+            <polygon points="82,114 66,41 81,105"/>
+            <polygon points="82,114 82,34 83,105"/>
+            <polygon points="82,114 98,41 84,105"/>
+            <polygon points="82,114 112,55 85,106"/>
+            <polygon points="82,114 122,74 85,108"/>
+            <polygon points="82,114 128,96 85,110"/>
+          </g>
+          <g fill="#dfecc6" stroke="none">
+            <polygon points="82,114 55,89 81,111"/>
+            <polygon points="82,114 64,69 81,109"/>
+            <polygon points="82,114 76,58 82,108"/>
+            <polygon points="82,114 89,58 83,108"/>
+            <polygon points="82,114 101,69 84,109"/>
+            <polygon points="82,114 110,89 84,111"/>
+          </g>
         </g>
       </svg>`,
 
-      /* 4. Upper-Inner (Right Page, left of "A fading village."): Layered Bush, Foxglove Spike & Seed Stalks */
-      upperInner: `<svg viewBox="0 0 176 98" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Left scalloped ink bush with foliage squiggles -->
-          <path d="M20 78 C14 73 15 64 22 62 C19 54 26 46 34 48 C37 39 48 37 54 44 C60 36 72 38 75 47 C83 45 90 53 87 61 C94 63 96 73 89 78" stroke-width="1.5"/>
-          <path d="M31 65 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M47 55 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M64 66 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
-          <path d="M40 73 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
-
-          <!-- Center wildflower spike with looped petals -->
-          <path d="M103 78 C101 56 100 37 102 18" stroke-width="1.45"/>
-          <path d="M102 18 c-3-3 1-6 3-3 c3-2 5 2 2 4 M99 27 c-4-1-2-6 1-4 M105 30 c-4-2-1-6 2-4 M99 38 c-4-1-2-6 1-4 M105 42 c-4-2-1-6 2-4 M99 49 c-4-1-2-6 1-4" stroke-width="1.1"/>
-
-          <!-- Right arching seed-head grass stalks -->
-          <path d="M111 78 C114 56 119 37 127 20" stroke-width="1.45"/>
-          <path d="M127 20 C129 15 131 12 133 10 C131 14 129 18 127 20 Z" stroke-width="1.25"/>
-          <path d="M117 78 C123 60 131 45 142 33" stroke-width="1.4"/>
-          <path d="M142 33 C145 29 148 26 150 25 C147 28 145 31 142 33 Z" stroke-width="1.2"/>
-          <path d="M123 78 C132 65 142 55 154 48" stroke-width="1.25"/>
-          <path d="M97 78 C93 65 89 54 84 45" stroke-width="1.2"/>
-
-          <!-- Broken ground lines -->
-          <path d="M14 79.5 C42 78.5 72 79 98 79.5" stroke-width="1.3"/>
-          <path d="M106 79.5 C126 79 144 79 162 79.5" stroke-width="1.25"/>
-          <path d="M36 83.5 C56 83 78 83 96 83.5" stroke-width="0.95"/>
-
-          <circle cx="92" cy="27" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="115" cy="16" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="139" cy="22" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="156" cy="38" r="1.0" fill="currentColor" stroke="none"/>
+      /* Tuft #5 (Upper-Inner on Right Page): Delicate airy trailing fern & tendril vine stems */
+      upperInner: `<svg viewBox="0 0 185 135" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <g fill="none" stroke="#538933" stroke-width="1.75">
+            <path d="M84 122 C66 98 52 72 48 44 C46 34 38 30 34 35 C31 39 36 44 40 41"/>
+            <path d="M88 122 C86 88 92 54 108 20"/>
+            <path d="M92 122 C104 94 122 68 148 54 C156 50 162 42 156 37 C151 33 146 39 150 43"/>
+            <path d="M104 98 C122 92 138 94 152 86 C158 82 156 75 150 77 C146 78 147 83 151 83"/>
+          </g>
+          <g fill="#6ba344" stroke="#45752a" stroke-width="0.85">
+            <ellipse cx="67" cy="106" rx="4.8" ry="2.4" transform="rotate(-18 67 106)"/>
+            <ellipse cx="78" cy="100" rx="4.8" ry="2.4" transform="rotate(-55 78 100)"/>
+            <ellipse cx="57" cy="91" rx="5.2" ry="2.5" transform="rotate(-12 57 91)"/>
+            <ellipse cx="69" cy="84" rx="5.2" ry="2.5" transform="rotate(-48 69 84)"/>
+            <ellipse cx="49" cy="75" rx="5.2" ry="2.5" transform="rotate(-6 49 75)"/>
+            <ellipse cx="61" cy="68" rx="5.2" ry="2.5" transform="rotate(-44 61 68)"/>
+            <ellipse cx="43" cy="59" rx="4.8" ry="2.3" transform="rotate(4 43 59)"/>
+            <ellipse cx="55" cy="53" rx="4.8" ry="2.3" transform="rotate(-38 55 53)"/>
+          </g>
+          <g fill="#73ac4b" stroke="#48792c" stroke-width="0.85">
+            <ellipse cx="81" cy="94" rx="5.5" ry="2.5" transform="rotate(-12 81 94)"/>
+            <ellipse cx="94" cy="94" rx="5.5" ry="2.5" transform="rotate(14 94 94)"/>
+            <ellipse cx="82" cy="80" rx="6" ry="2.6" transform="rotate(-10 82 80)"/>
+            <ellipse cx="96" cy="80" rx="6" ry="2.6" transform="rotate(16 96 80)"/>
+            <ellipse cx="84" cy="66" rx="6" ry="2.6" transform="rotate(-8 84 66)"/>
+            <ellipse cx="99" cy="66" rx="6" ry="2.6" transform="rotate(18 99 66)"/>
+            <ellipse cx="88" cy="52" rx="5.6" ry="2.5" transform="rotate(-5 88 52)"/>
+            <ellipse cx="103" cy="53" rx="5.6" ry="2.5" transform="rotate(22 103 53)"/>
+            <ellipse cx="93" cy="39" rx="5" ry="2.3" transform="rotate(2 93 39)"/>
+            <ellipse cx="107" cy="41" rx="5" ry="2.3" transform="rotate(26 107 41)"/>
+            <ellipse cx="100" cy="27" rx="4.3" ry="2.0" transform="rotate(8 100 27)"/>
+            <ellipse cx="111" cy="29" rx="4.3" ry="2.0" transform="rotate(32 111 29)"/>
+          </g>
+          <g fill="#669e40" stroke="#437228" stroke-width="0.85">
+            <ellipse cx="105" cy="82" rx="5.2" ry="2.4" transform="rotate(-22 105 82)"/>
+            <ellipse cx="116" cy="87" rx="5.2" ry="2.4" transform="rotate(32 116 87)"/>
+            <ellipse cx="116" cy="69" rx="5.4" ry="2.5" transform="rotate(-18 116 69)"/>
+            <ellipse cx="127" cy="75" rx="5.4" ry="2.5" transform="rotate(36 127 75)"/>
+            <ellipse cx="129" cy="58" rx="5" ry="2.3" transform="rotate(-12 129 58)"/>
+            <ellipse cx="139" cy="64" rx="5" ry="2.3" transform="rotate(40 139 64)"/>
+            <ellipse cx="122" cy="89" rx="4.6" ry="2.2" transform="rotate(-28 122 89)"/>
+            <ellipse cx="126" cy="100" rx="4.6" ry="2.2" transform="rotate(28 126 100)"/>
+            <ellipse cx="136" cy="86" rx="4.4" ry="2.1" transform="rotate(-24 136 86)"/>
+            <ellipse cx="140" cy="96" rx="4.4" ry="2.1" transform="rotate(24 140 96)"/>
+          </g>
         </g>
       </svg>`,
 
-      /* 5. Mid-Right (Right Page, right of tea pouch): Herb Frond, Wildflower Spike & Crossing Grasses */
-      midRight: `<svg viewBox="0 0 156 92" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Left slender blades & cup flower -->
-          <path d="M44 74 C36 59 27 47 18 37" stroke-width="1.3"/>
-          <path d="M49 74 C43 56 39 40 36 25" stroke-width="1.35"/>
-          <path d="M36 25 C32 21 33 16 36 16 C38 18 40 16 42 18 C42 21 39 24 36 25 Z" stroke-width="1.1"/>
+      /* Tuft #2b (Appearance 2 — Mid-Right on Right Page, mirrored): Fountain grass bouquet */
+      midRight: `<svg viewBox="0 0 190 165" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g transform="translate(190, 0) scale(-1, 1)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M84 148 Q54 102 20 64" stroke="#5c9338" stroke-width="1.55"/>
+          <path d="M88 148 Q64 114 33 84" stroke="#5c9338" stroke-width="1.6"/>
+          <path d="M91 148 Q74 102 53 59" stroke="#568c34" stroke-width="1.7"/>
+          <path d="M94 148 Q84 82 72 24" stroke="#5c9338" stroke-width="1.55"/>
+          <path d="M96 148 Q94 94 92 44" stroke="#568c34" stroke-width="1.7"/>
+          <path d="M99 148 Q108 95 118 45" stroke="#568c34" stroke-width="1.7"/>
+          <path d="M101 148 Q119 86 136 30" stroke="#5c9338" stroke-width="1.55"/>
+          <path d="M103 148 Q123 102 142 60" stroke="#568c34" stroke-width="1.65"/>
+          <path d="M105 148 Q134 108 160 74" stroke="#568c34" stroke-width="1.65"/>
+          <path d="M107 148 Q138 118 168 96" stroke="#5c9338" stroke-width="1.5"/>
 
-          <!-- Center tall wildflower spike with looped petals -->
-          <path d="M56 74 C55 52 55 33 57 14" stroke-width="1.45"/>
-          <path d="M57 14 c-3-3 1-6 3-3 c3-2 5 2 2 4 M54 23 c-4-1-2-6 1-4 M60 27 c-4-2-1-6 2-4 M54 35 c-4-1-2-6 1-4 M60 39 c-4-2-1-6 2-4 M54 47 c-4-1-2-6 1-4" stroke-width="1.1"/>
+          <path d="M84 154 C66 130 44 116 20 116 C45 123 64 136 81 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.95"/>
+          <path d="M107 154 C125 130 147 116 171 116 C146 123 127 136 110 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.95"/>
+          <path d="M87 154 C71 122 52 100 31 93 C53 106 70 126 84 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.95"/>
+          <path d="M104 154 C120 122 139 100 160 93 C138 106 121 126 107 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.95"/>
+          <path d="M89 154 C77 116 64 86 48 69 C65 92 77 120 87 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="1.0"/>
+          <path d="M102 154 C114 116 127 86 143 69 C126 92 114 120 104 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="1.0"/>
+          <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="1.0"/>
+          <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="1.0"/>
+          <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="1.0"/>
 
-          <!-- Right feathery fern frond & grass blades -->
-          <path d="M63 74 C69 55 77 38 88 24" stroke-width="1.4"/>
-          <path d="M72 54 l-5-4 M74 54 l6-2 M77 45 l-5-4 M79 45 l6-2 M82 36 l-4-4 M83 36 l5-2 M85 29 l-3-3 M86 29 l4-2" stroke-width="1.05"/>
+          <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.4"/>
+          <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.45"/>
+          <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.5"/>
+          <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.45"/>
+          <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.4"/>
 
-          <path d="M69 74 C78 60 88 49 100 41" stroke-width="1.35"/>
-          <path d="M74 74 C85 65 96 58 108 54" stroke-width="1.2"/>
-          <path d="M51 74 l4-5 4 5 4-5 4 5 4-5 4 5" stroke-width="1.05"/>
+          <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.75">
+            <ellipse cx="36" cy="83" rx="1.6" ry="2.6" transform="rotate(-35 36 83)"/>
+            <ellipse cx="28" cy="74" rx="1.6" ry="2.6" transform="rotate(-35 28 74)"/>
+            <g transform="translate(19,63)"><path d="M0-5.5 L1.4-1.6 L5.2-1.6 L2.1 0.8 L3.2 4.6 L0 2.3 L-3.2 4.6 L-2.1 0.8 L-5.2-1.6 L-1.4-1.6 Z"/></g>
+            <ellipse cx="79" cy="54" rx="1.5" ry="2.5" transform="rotate(-12 79 54)"/>
+            <ellipse cx="76" cy="43" rx="1.5" ry="2.5" transform="rotate(-12 76 43)"/>
+            <ellipse cx="74" cy="33" rx="1.5" ry="2.5" transform="rotate(-12 74 33)"/>
+            <g transform="translate(72,22)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
+            <ellipse cx="123" cy="58" rx="1.5" ry="2.5" transform="rotate(18 123 58)"/>
+            <ellipse cx="128" cy="48" rx="1.5" ry="2.5" transform="rotate(18 128 48)"/>
+            <ellipse cx="132" cy="39" rx="1.5" ry="2.5" transform="rotate(18 132 39)"/>
+            <g transform="translate(136,29)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
+            <g transform="translate(169,95)"><path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/></g>
+          </g>
 
-          <!-- Ground lines & stippling -->
-          <path d="M22 75.5 C48 74.5 76 75 104 75.5" stroke-width="1.3"/>
-          <path d="M38 79.5 C58 79 78 79 96 79.5" stroke-width="0.95"/>
-          <circle cx="27" cy="27" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="48" cy="16" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="74" cy="18" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="98" cy="31" r="1.0" fill="currentColor" stroke="none"/>
+          <g transform="translate(52,57) rotate(-14)">
+            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
+          <g transform="translate(118,43) rotate(10)">
+            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
+          <g transform="translate(161,72) rotate(26)">
+            <path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
+            <path d="M-2.5 3.5 C-2.8 -1.8 -1 -6.5 0 -8.8 C1 -6.5 2.8 -1.8 2.5 3.5" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
+          </g>
+
+          <g transform="translate(32,83)">
+            <ellipse cx="0" cy="-6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(60 5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.2" cy="3" rx="2.3" ry="4.2" transform="rotate(120 5.2 3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.2" cy="3" rx="2.3" ry="4.2" transform="rotate(60 -5.2 3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(120 -5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.7" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
+          <g transform="translate(92,43)">
+            <ellipse cx="0" cy="-6.4" rx="2.4" ry="4.5" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.5" cy="-3.2" rx="2.4" ry="4.5" transform="rotate(60 5.5 -3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5.5" cy="3.2" rx="2.4" ry="4.5" transform="rotate(120 5.5 3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="6.4" rx="2.4" ry="4.5" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.5" cy="3.2" rx="2.4" ry="4.5" transform="rotate(60 -5.5 3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5.5" cy="-3.2" rx="2.4" ry="4.5" transform="rotate(120 -5.5 -3.2)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.9" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
+          <g transform="translate(143,58)">
+            <ellipse cx="0" cy="-5.8" rx="2.2" ry="4" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5" cy="-2.9" rx="2.2" ry="4" transform="rotate(60 5 -2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="5" cy="2.9" rx="2.2" ry="4" transform="rotate(120 5 2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="0" cy="5.8" rx="2.2" ry="4" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5" cy="2.9" rx="2.2" ry="4" transform="rotate(60 -5 2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <ellipse cx="-5" cy="-2.9" rx="2.2" ry="4" transform="rotate(120 -5 -2.9)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
+            <circle cx="0" cy="0" r="2.6" fill="#f2c438" stroke="#c4951c" stroke-width="0.6"/>
+          </g>
         </g>
       </svg>`,
 
-      /* 6. Bottom-Right (Right Page): Rich Botanical Meadow, Scalloped Shrub & Tall Seed Grasses */
-      bottomRight: `<svg viewBox="0 0 198 104" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M36 86 C27 72 18 61 9 54" stroke-width="1.35"/>
-          <path d="M41 86 C35 68 30 53 26 40" stroke-width="1.35"/>
-          <path d="M26 40 C22 36 23 31 26 31 C28 33 30 31 32 33 C32 36 29 39 26 40 Z" stroke-width="1.1"/>
-          <path d="M46 86 C44 68 43 52 44 37" stroke-width="1.4"/>
-          <path d="M44 37 C40 33 41 28 44 28 C46 30 48 28 50 30 C50 33 47 36 44 37 Z" stroke-width="1.1"/>
+      /* Tuft #1 (Bottom-Right on Right Page): Wide horizontal zigzag grass border with pink, yellow & white flowers + paired-leaf shoots */
+      bottomRight: `<svg viewBox="0 0 230 78" filter="url(#botanicalCrayon)" aria-hidden="true">
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <g fill="none" stroke="#659e3c" stroke-width="1.35">
+            <path d="M22 63 L21 43"/>
+            <path d="M46 61 L46 31"/>
+            <path d="M78 60 L78 29"/>
+            <path d="M96 63 L97 44"/>
+            <path d="M114 61 L114 41"/>
+            <path d="M138 61 L138 37"/>
+            <path d="M152 60 L152 30"/>
+            <path d="M167 63 L168 44"/>
+            <path d="M184 61 L184 39"/>
+            <path d="M202 62 L202 45"/>
+          </g>
 
-          <path d="M62 86 C56 81 57 72 64 70 C61 61 68 53 76 55 C79 45 91 43 97 51 C104 43 116 45 119 54 C127 52 135 60 132 69 C139 71 141 81 134 86" stroke-width="1.5"/>
-          <path d="M74 73 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M90 62 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
-          <path d="M107 74 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
-          <path d="M82 81 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
+          <g fill="#73ae47" stroke="#53862f" stroke-width="0.7">
+            <ellipse cx="42" cy="46" rx="3.2" ry="1.6" transform="rotate(-32 42 46)"/>
+            <ellipse cx="50" cy="44" rx="3.2" ry="1.6" transform="rotate(32 50 44)"/>
+            <ellipse cx="93" cy="49" rx="3.2" ry="1.6" transform="rotate(-35 93 49)"/>
+            <ellipse cx="101" cy="48" rx="3.2" ry="1.6" transform="rotate(35 101 48)"/>
+            <ellipse cx="164" cy="49" rx="3.2" ry="1.6" transform="rotate(-35 164 49)"/>
+            <ellipse cx="172" cy="48" rx="3.2" ry="1.6" transform="rotate(35 172 48)"/>
+          </g>
 
-          <path d="M148 86 C148 63 149 42 151 22" stroke-width="1.45"/>
-          <path d="M151 22 c-3-3 1-6 3-3 c3-2 5 2 2 4 M148 31 c-4-1-2-6 1-4 M154 34 c-4-2-1-6 2-4 M148 42 c-4-1-2-6 1-4 M154 46 c-4-2-1-6 2-4" stroke-width="1.1"/>
-          <path d="M155 86 C160 66 167 48 177 33" stroke-width="1.4"/>
-          <path d="M177 33 C180 28 183 25 185 23 C183 27 180 31 177 33 Z" stroke-width="1.25"/>
-          <path d="M161 86 C170 72 180 60 191 51" stroke-width="1.3"/>
+          <path d="M6 67 C9 62 13 62 15 68 L21 53 L26 68 L33 48 L39 68 L45 54 L51 68 L58 46 L65 68 L71 51 L77 68 L84 47 L90 68 L96 54 L102 68 L109 49 L115 68 L121 53 L127 68 L134 48 L141 68 L147 52 L153 68 L160 47 L166 68 L172 54 L178 68 L185 49 L191 68 L197 53 L203 68 L209 54 L214 68 C217 63 221 63 224 67"
+                fill="none" stroke="#6aa43e" stroke-width="2.65" />
 
-          <path d="M16 87.5 C46 86.5 78 87 108 87.5" stroke-width="1.3"/>
-          <path d="M118 87.5 C144 87 168 87 188 87.5" stroke-width="1.3"/>
-          <path d="M44 91.5 C68 91 92 91 114 91.5" stroke-width="0.95"/>
+          <g transform="translate(21,42)">
+            <circle cx="0" cy="-3.6" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.5" fill="#fff0a8"/>
+          </g>
+          <g transform="translate(114,40)">
+            <circle cx="0" cy="-3.6" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.5" fill="#fff0a8"/>
+          </g>
+          <g transform="translate(184,38)">
+            <circle cx="0" cy="-3.6" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-2.1" cy="2.9" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="-3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.5" fill="#fff0a8"/>
+          </g>
 
-          <circle cx="19" cy="43" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="56" cy="28" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="139" cy="24" r="1.1" fill="currentColor" stroke="none"/>
-          <circle cx="169" cy="23" r="1.05" fill="currentColor" stroke="none"/>
-          <circle cx="189" cy="41" r="1.0" fill="currentColor" stroke="none"/>
+          <g transform="translate(46,30)">
+            <circle cx="0" cy="-4.1" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="3.9" cy="-1.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="2.4" cy="3.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-2.4" cy="3.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-3.9" cy="-1.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.7" fill="#c97e1c"/>
+          </g>
+          <g transform="translate(152,29)">
+            <circle cx="0" cy="-4.1" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="3.9" cy="-1.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="2.4" cy="3.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-2.4" cy="3.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-3.9" cy="-1.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.7" fill="#c97e1c"/>
+          </g>
+          <g transform="translate(202,44)">
+            <circle cx="0" cy="-3.5" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="3.3" cy="-1.1" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="2.1" cy="2.8" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-2.1" cy="2.8" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="-3.3" cy="-1.1" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
+            <circle cx="0" cy="0" r="1.5" fill="#c97e1c"/>
+          </g>
+
+          <g transform="translate(78,28)">
+            <ellipse cx="0" cy="-4.5" rx="1.8" ry="3.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="4.2" cy="-1.4" rx="1.8" ry="3.2" transform="rotate(72 4.2 -1.4)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="2.6" cy="3.6" rx="1.8" ry="3.2" transform="rotate(144 2.6 3.6)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="-2.6" cy="3.6" rx="1.8" ry="3.2" transform="rotate(216 -2.6 3.6)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="-4.2" cy="-1.4" rx="1.8" ry="3.2" transform="rotate(288 -4.2 -1.4)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <circle cx="0" cy="0" r="2.0" fill="#f2c438"/>
+          </g>
+          <g transform="translate(138,36)">
+            <ellipse cx="0" cy="-4.2" rx="1.7" ry="3.0" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="4.0" cy="-1.3" rx="1.7" ry="3.0" transform="rotate(72 4.0 -1.3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="2.5" cy="3.4" rx="1.7" ry="3.0" transform="rotate(144 2.5 3.4)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="-2.5" cy="3.4" rx="1.7" ry="3.0" transform="rotate(216 -2.5 3.4)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <ellipse cx="-4.0" cy="-1.3" rx="1.7" ry="3.0" transform="rotate(288 -4.0 -1.3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
+            <circle cx="0" cy="0" r="1.9" fill="#f2c438"/>
+          </g>
         </g>
       </svg>`
     };
@@ -1437,23 +1726,47 @@ It is a pleasure to have you in the next chapter.</p>
 
       const html = linesConfig.map(cfg => {
         const words = cfg.text.split(' ');
+        const highlightRange = cfg.highlightRange || null;
+        let highlightOpen = false;
+        let highlightStartEndTime = 0;
+
         const wordsHTML = words.map((word, wIdx) => {
-          const glyphsHTML = Array.from(word).map(ch => {
+          let prefix = '';
+          let suffix = '';
+
+          if (highlightRange && wIdx === highlightRange[0] && !highlightOpen) {
+            prefix = '<span class="hw-highlight-target">';
+            highlightOpen = true;
+          }
+
+          const glyphsHTML = Array.from(word).map((ch, cIdx) => {
             const delayStr = cursorTime.toFixed(3);
             cursorTime += charStep;
+            // Trigger underline right after the letters of "together" finish appearing
+            if (highlightRange && wIdx === highlightRange[1] && ch !== '.') {
+              highlightStartEndTime = cursorTime + 0.08;
+            }
             return `<span class="hw-glyph" style="--g-delay:${delayStr}s">${escapeHTML(ch)}</span>`;
           }).join('');
+
+          if (highlightRange && wIdx === highlightRange[1] && highlightOpen) {
+            const uDelay = (highlightStartEndTime || (cursorTime + 0.06)).toFixed(3);
+            suffix = `<svg class="hw-underline-svg" viewBox="0 0 160 14" preserveAspectRatio="none" aria-hidden="true"><path class="hw-underline-path" pathLength="1" style="--u-delay:${uDelay}s" d="M 2 9 Q 52 6.5, 102 8.5 T 158 7.2" /></svg></span>`;
+            highlightOpen = false;
+            cursorTime += 0.34;
+          }
 
           let spaceHTML = '';
           if (wIdx < words.length - 1) {
             cursorTime += charStep * 0.55;
             spaceHTML = '<span class="hw-space" aria-hidden="true"> </span>';
           }
-          return `<span class="hw-word">${glyphsHTML}</span>${spaceHTML}`;
+          return `${prefix}<span class="hw-word">${glyphsHTML}</span>${suffix}${spaceHTML}`;
         }).join('');
 
         cursorTime += linePause;
-        return `<span class="hw-line" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};">${wordsHTML}</span>`;
+        const colorStyle = cfg.color ? ` --line-color:${cfg.color};` : '';
+        return `<span class="hw-line" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};${colorStyle}">${wordsHTML}</span>`;
       }).join('');
 
       return { html, endTime: cursorTime };
@@ -1468,16 +1781,16 @@ It is a pleasure to have you in the next chapter.</p>
 
       const leftText = buildHandwrittenLines([
         { text: 'During COVID,', rot: '-1.2deg', indent: '0px' },
-        { text: 'we learnt to be alone together.', rot: '-0.3deg', indent: '12px' }
+        { text: 'we learnt to be alone together.', rot: '-0.3deg', indent: '12px', highlightRange: [4, 5] }
       ], 0.28);
 
       const rightTopText = buildHandwrittenLines([
         { text: 'A fading village.', rot: '-1.0deg', indent: '0px' },
         { text: 'A forgotten tea.', rot: '-0.4deg', indent: '10px' }
-      ], leftText.endTime + 0.32);
+      ], leftText.endTime + 0.24);
 
       const rightBottomText = buildHandwrittenLines([
-        { text: 'A future brewing.', rot: '-0.8deg', indent: '4px' }
+        { text: 'A Future Brewing!!', rot: '-0.8deg', indent: '0px', color: '#3f6835' }
       ], rightTopText.endTime + 0.22);
 
       return `<div class="soft-ground-spread" id="softGroundSpread" aria-label="Soft Ground visual collage">

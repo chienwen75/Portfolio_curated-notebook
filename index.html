@@ -11,9 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ===============================================================
-       LIU CHIEN-WEN'S CURATED NOTEBOOK · DEMO 02
-       Everything is in this index.html. No framework or build step.
-       PAPER / WOOD / STICKY NOTES can all be adjusted here.
+       LIU CHIEN-WEN'S CURATED NOTEBOOK · PERSONAL NARRATIVE EDITION
+       Single-file HTML/CSS/JS. No external framework or build step.
        =============================================================== */
     :root {
       --ink: #283029;
@@ -22,436 +21,681 @@
       --paper-warm: #f1eadb;
       --wood-1: #c5a787;
       --wood-2: #a98363;
-      --competition: #efce60;
-      --work: #b6ce98;
-      --future: #a6cee1;
+      /* Updated Sticky Tab Palette:
+         Soft Ground (Sage Green) -> Playful Works (Warm Yellow) -> Thoughtful Dreams (Sky Blue) */
+      --soft-ground: #b6ce98;
+      --playful-works: #efce60;
+      --thoughtful-dreams: #a6cee1;
       --home: #e8e0cb;
       --book-width: min(1190px, calc(100vw - 164px));
       --book-height: min(735px, calc(100dvh - 92px));
       --hand: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
       --body: 'DM Sans', system-ui, -apple-system, sans-serif;
     }
+
     * { box-sizing: border-box; }
-    html, body { width:100%; height:100%; margin:0; }
-    body { color:var(--ink); font-family:var(--body); background:#ae8c6f; overflow:hidden; }
-    button, a { -webkit-tap-highlight-color:transparent; }
-    button { font:inherit; }
-    button:focus-visible, a:focus-visible { outline:3px solid #377ead; outline-offset:4px; }
-    ::selection { background:#efdb8f; color:#262b23; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    body { color: var(--ink); font-family: var(--body); background: #ae8c6f; overflow: hidden; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #377ead; outline-offset: 4px; }
+    ::selection { background: #efdb8f; color: #262b23; }
+
+    /* WOODEN DESK BACKGROUND */
     .table {
-      position:fixed; inset:0; z-index:-1; overflow:hidden;
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
       background:
         repeating-linear-gradient(94deg, transparent 0 47px, rgba(94,57,35,.055) 48px, transparent 50px 119px),
         repeating-linear-gradient(178deg, rgba(255,250,235,.018) 0px, rgba(76,46,24,.032) 3px, transparent 7px, transparent 18px),
         linear-gradient(105deg, #c5a687 0%, #b18e6e 36%, #be9d7b 60%, #a88365 100%);
     }
-    .table::after { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 48%, transparent 20%, rgba(55,37,21,.24) 100%); }
-    .table-line { position:absolute; height:100%; width:2px; background:rgba(67,43,26,.13); box-shadow:2px 0 rgba(250,234,205,.10); transform:rotate(1.4deg); }
-    .table-line.one { left:19.5%; } .table-line.two { left:79%; }
-    .scene { display:flex; align-items:center; justify-content:center; height:100dvh; width:100%; padding:28px 0; perspective:1600px; }
-    .scene-label { position:absolute; top:18px; left:26px; font:600 11px/1 var(--body); letter-spacing:.19em; color:#574838; opacity:.72; user-select:none; }
-    .scene-number { position:absolute; right:27px; bottom:15px; font:500 10px/1.4 var(--body); letter-spacing:.11em; color:#614b3b; opacity:.75; }
-    .book { position:relative; flex:none; transition: transform .35s cubic-bezier(.2,.75,.2,1), opacity .30s ease; }
-    .book.is-hidden { display:none; }
-    .book.exit { transform:perspective(1600px) rotateY(-12deg) scale(.96); opacity:0; }
-    .book.enter { animation:openbook .45s cubic-bezier(.16,.76,.26,1) both; }
-    @keyframes openbook { from { opacity:0; transform:rotateY(10deg) scale(.96); } to { opacity:1; transform:rotateY(0) scale(1); } }
+    .table::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 48%, transparent 20%, rgba(55,37,21,.24) 100%);
+    }
+    .table-line {
+      position: absolute; height: 100%; width: 2px;
+      background: rgba(67,43,26,.13); box-shadow: 2px 0 rgba(250,234,205,.10);
+      transform: rotate(1.4deg);
+    }
+    .table-line.one { left: 19.5%; }
+    .table-line.two { left: 79%; }
 
-    /* CLOSED COVER */
+    .scene {
+      display: flex; align-items: center; justify-content: center;
+      height: 100dvh; width: 100%; padding: 28px 0; perspective: 1600px;
+    }
+    .scene-number {
+      position: absolute; right: 27px; bottom: 15px;
+      font: 500 10px/1.4 var(--body); letter-spacing: .11em; color: #614b3b; opacity: .75;
+    }
+
+    .book {
+      position: relative; flex: none;
+      transition: transform .35s cubic-bezier(.2,.75,.2,1), opacity .30s ease;
+    }
+    .book.is-hidden { display: none; }
+    .book.exit { transform: perspective(1600px) rotateY(-12deg) scale(.96); opacity: 0; }
+    .book.enter { animation: openbook .45s cubic-bezier(.16,.76,.26,1) both; }
+    @keyframes openbook {
+      from { opacity: 0; transform: rotateY(10deg) scale(.96); }
+      to { opacity: 1; transform: rotateY(0) scale(1); }
+    }
+
+    /* ===============================================================
+       CLOSED NOTEBOOK COVER (#home)
+       =============================================================== */
     .closed-book {
-      width:min(690px, calc(100vw - 162px)); height:var(--book-height);
-      min-height:300px; transform:rotate(-1.05deg);
-      filter:drop-shadow(14px 18px 15px rgba(60,38,22,.29));
+      width: min(690px, calc(100vw - 162px));
+      height: var(--book-height);
+      min-height: 300px;
+      transform: rotate(-1.05deg);
+      filter: drop-shadow(14px 18px 15px rgba(60,38,22,.29));
     }
-    .closed-book::before { content:''; position:absolute; z-index:-1; inset:7px -5px -9px 10px; border:1px solid #9b8e79; border-radius:5px 12px 15px 5px; background:repeating-linear-gradient(0deg,#d9ceb6 0px,#ebe0ca 1px,#d1c3aa 2px,#e7dbc5 4px); transform:rotate(1.0deg); }
+    .closed-book::before {
+      content: ''; position: absolute; z-index: -1; inset: 7px -5px -9px 10px;
+      border: 1px solid #9b8e79; border-radius: 5px 12px 15px 5px;
+      background: repeating-linear-gradient(0deg, #d9ceb6 0px, #ebe0ca 1px, #d1c3aa 2px, #e7dbc5 4px);
+      transform: rotate(1.0deg);
+    }
     .cover {
-      position:absolute; inset:0; border:2px solid #383a32; border-radius:6px 17px 18px 7px;
+      position: absolute; inset: 0; border: 2px solid #383a32; border-radius: 6px 17px 18px 7px;
       background:
-        radial-gradient(circle at 16% 23%,rgba(227,207,166,.10),transparent 30%),
-        repeating-linear-gradient(0deg,transparent 0px,transparent 27px,rgba(110,100,80,.027) 28px),
+        radial-gradient(circle at 16% 23%, rgba(227,207,166,.10), transparent 30%),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.027) 28px),
         #f6f3e9;
-      box-shadow:inset -21px 0 25px rgba(68,55,35,.055),inset 6px 0 5px rgba(64,51,35,.085),0 2px 2px rgba(39,28,16,.2);
-      overflow:hidden;
-    }
-    .cover::before { content:''; position:absolute; top:12px; bottom:12px; left:19px; border-left:1px solid rgba(105,87,69,.16); }
-    .cover-top { position:absolute; top:7%; left:11%; right:12%; display:flex; justify-content:space-between; align-items:flex-start; }
-    .owner-line { font:500 10px/1.3 var(--body); color:#827665; letter-spacing:.24em; text-transform:uppercase; }
-    .cover-date { font:500 27px/1 var(--hand); transform:rotate(6deg); color:#786f62; }
-    .cover-name { position:relative; display:inline-block; margin:13% 0 0 12%; font:600 clamp(46px,5vw,76px)/.91 var(--hand); letter-spacing:-.035em; transform:rotate(-2deg); z-index:1; }
-    .cover-name::after { content:''; position:absolute; left:5%; right:-8%; bottom:-14px; height:13px; border-bottom:2px solid rgba(83,89,75,.64); border-radius:50%; transform:rotate(1deg); }
-    .cover-label { display:block; margin:17px 0 0 15%; font:500 21px/1.2 var(--hand); transform:rotate(-1deg); color:#756e5d; }
-    .welcome-sheet {
-      position:absolute; left:11%; right:12%; top:34%; bottom:10%;
-      background:rgba(255,253,246,.75); border:1px solid rgba(112,104,89,.30);
-      box-shadow:4px 5px 0 rgba(89,67,45,.045);
-      padding:24px clamp(22px,3.3vw,41px) 19px; transform:rotate(.3deg);
-    }
-    .welcome-sheet::before { display:none; content:''; position:absolute; top:-11px; left:41%; width:78px; height:22px; transform:rotate(-5deg); background:rgba(219,201,153,.43); clip-path:polygon(2% 7%,100% 0%,96% 98%,0 91%); }
-    .welcome-heading { font:600 clamp(29px,2.8vw,39px)/1 var(--hand); margin:0 0 8px; }
-    .welcome-copy { font:500 clamp(17px,1.75vw,23px)/1.14 var(--hand); margin:0; white-space:pre-line; }
-    .welcome-copy a { color:#3b6d83; text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
-    .cover-footnote { position:absolute; left:10.5%; bottom:4%; color:#7f796d; font:500 19px/1 var(--hand); transform:rotate(-3deg); }
-    .cover-arrow { position:absolute; right:5%; bottom:4%; width:66px; opacity:.63; transform:rotate(7deg); }
-
-    /* STICKY INDEXES */
-    .edge-tabs { position:absolute; inset:0; pointer-events:none; z-index:11; }
-    .edge-tab {
-      cursor:pointer; position:absolute; pointer-events:auto; border:0;
-      font:600 19px/1 var(--hand); color:#354039;
-      box-shadow:2px 3px 6px rgba(50,37,21,.19);
-      transition:filter .18s, transform .18s;
-      background:var(--tab-bg);
-      display:flex; align-items:center; justify-content:center;
-    }
-    .edge-tab:hover { filter:brightness(1.05); transform:translateX(var(--hover-x, 0px)) rotate(var(--tab-rotate, 0deg)); }
-    .edge-tab[aria-current="page"] { filter:saturate(1.12); font-weight:700; }
-    .edge-tab--home { --tab-bg:var(--home); }
-    .edge-tab--competition { --tab-bg:var(--competition); }
-    .edge-tab--work { --tab-bg:var(--work); }
-    .edge-tab--future { --tab-bg:var(--future); }
-    .cover-tabs .edge-tab {
-      right:-85px; width:112px; height:73px; padding-left:26px;
-      border-radius:2px 7px 8px 2px; transform:rotate(var(--tab-rotate,0deg));
-      text-align:center; line-height:1.04;
-    }
-    .cover-tabs .edge-tab:hover { --hover-x:9px; }
-    .cover-tabs .edge-tab--competition { top:21%; --tab-rotate:2deg; clip-path:polygon(0 2%,96% 0,100% 91%,0 100%); }
-    .cover-tabs .edge-tab--work { top:36%; --tab-rotate:-2deg; border-radius:1px 10px 3px 4px; }
-    .cover-tabs .edge-tab--future { top:51%; --tab-rotate:2deg; clip-path:polygon(0 0,100% 5%,97% 100%,0 94%); }
-    .cover-tabs .edge-tab--home { left:-25px; right:auto; top:7%; width:58px; height:52px; padding:0; transform:rotate(-4deg); border-radius:3px; box-shadow:-3px 3px 6px rgba(45,32,18,.14); }
-    .cover-tabs .edge-tab--home:hover { --hover-x:-3px; }
-    .home-icon { width:24px; height:24px; stroke:currentColor; fill:none; stroke-width:1.85; stroke-linecap:round; stroke-linejoin:round; }
-
-    /* OPEN SPREAD */
-    .open-book {
-      width:var(--book-width); height:var(--book-height); min-height:300px;
-      filter:drop-shadow(11px 17px 17px rgba(51,33,19,.27));
-    }
-    .open-book::before { content:''; position:absolute; inset:5px -5px -8px; border:1px solid #a4967f; background:#d5c8af; border-radius:8px 13px 14px 8px; transform:rotate(.14deg); }
-    .spread-paper {
-      position:relative; width:100%; height:100%; border:1px solid #8d8271; border-radius:7px 12px 13px 7px; overflow:hidden;
-      display:flex; flex-direction:column;
-      background:
-        radial-gradient(ellipse at 48% 55%,rgba(101,91,64,.075), transparent 5%),
-        linear-gradient(90deg,#ece5d7 0%,#faf8f1 3%,#fbf9f2 47%,#e9e2d5 49.5%,#d7cebf 50%,#f5f2e9 51.5%,#fcfaf4 96%,#e9e3d7 100%);
-      box-shadow:inset 10px 0 13px rgba(67,46,27,.065),inset -9px 0 12px rgba(80,58,31,.065);
-    }
-    .spread-paper::after { content:''; position:absolute; inset:0; pointer-events:none; z-index:5; opacity:.19;
-      background:repeating-linear-gradient(0deg,transparent 0px,transparent 32px,rgba(120,105,77,.060) 33px); }
-    .center-spine {
-      position:absolute; z-index:4; left:50%; top:83px; bottom:25px; width:2px; transform:translateX(-50%);
-      background:repeating-linear-gradient(to bottom,rgba(67,69,58,.60) 0 10px,transparent 10px 24px);
-      pointer-events:none;
-    }
-    .center-spine::before { content:''; position:absolute; top:0; bottom:0; left:-9px; width:18px; z-index:-1; background:linear-gradient(90deg,transparent,rgba(113,90,62,.06),transparent); }
-    .spread-paper.no-spine .center-spine { display:none; }
-    .spread-header {
-      position:relative; flex:0 0 87px; display:flex; justify-content:space-between; align-items:center;
-      padding:19px clamp(32px,4.2vw,69px) 11px; z-index:6;
-    }
-    .spread-header::after { content:''; position:absolute; left:4%; right:4%; bottom:7px; border-bottom:1px solid rgba(124,117,96,.15); }
-    .spread-title { margin:0; font:600 clamp(37px,3.7vw,60px)/1 var(--hand); transform:rotate(-1.7deg); letter-spacing:-.015em; }
-    .spread-meta { display:flex; align-items:center; gap:14px; color:#797b6c; }
-    .chapter-mark { font:500 22px/1 var(--hand); }
-    .header-count { font:600 11px/1 var(--body); letter-spacing:.13em; font-variant-numeric:tabular-nums; }
-    .project-viewport {
-      position:relative; z-index:2; flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain;
-      scroll-snap-type:y mandatory; scroll-behavior:smooth; scrollbar-width:none;
-    }
-    .project-viewport::-webkit-scrollbar { display:none; }
-    .project-panel { min-height:100%; width:100%; scroll-snap-align:start; scroll-snap-stop:always; padding:11px clamp(30px,4.1vw,66px) 54px; display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(49px,6.5vw,99px); align-items:start; }
-    .project-left, .project-right { min-width:0; }
-    .project-eyebrow { margin:0 0 5px; text-transform:uppercase; letter-spacing:.17em; color:#948779; font-size:10px; font-weight:700; }
-    .project-name { margin:0 0 9px; font:600 clamp(27px,2.7vw,40px)/.98 var(--hand); letter-spacing:-.02em; }
-    .project-award { display:inline-flex; align-items:center; gap:7px; font:600 11px/1.3 var(--body); letter-spacing:.035em; padding:7px 10px; background:rgba(239,206,96,.25); border:1px solid rgba(175,147,74,.25); border-radius:2px 5px 3px 2px; margin:3px 0 14px; }
-    .award-star { font:700 15px/1 var(--hand); }
-    .section-subtitle { font:600 11px/1.2 var(--body); text-transform:uppercase; letter-spacing:.17em; color:#666b62; margin:12px 0 9px; }
-    .media-placeholder {
-      position:relative; width:100%; aspect-ratio:1.72; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:10px;
-      text-align:center; cursor:pointer; padding:15px; color:#4d554d;
-      background:var(--placeholder-bg, #e3e0d3); border:1px solid rgba(87,83,64,.20);
-      box-shadow:4px 5px 0 rgba(71,63,45,.10); overflow:hidden;
-      transition:transform .2s, box-shadow .2s;
-    }
-    .media-placeholder:hover { transform:translateY(-3px) rotate(-.4deg); box-shadow:6px 9px 0 rgba(71,63,45,.12); }
-    .media-placeholder::before { content:''; position:absolute; inset:13px; border:1px dashed rgba(87,83,64,.18); pointer-events:none; }
-    .media-placeholder::after { content:''; position:absolute; width:155%; height:28%; left:-20%; top:-10%; background:rgba(255,255,255,.12); transform:rotate(-10deg); pointer-events:none; }
-    .media-placeholder.gold { --placeholder-bg:#e6ddbd; }
-    .media-placeholder.lime { --placeholder-bg:#d7ddc2; }
-    .media-placeholder.rose { --placeholder-bg:#e7cfc7; }
-    .media-placeholder.lavender { --placeholder-bg:#d8d4df; }
-    .media-placeholder.sky { --placeholder-bg:#c5dce4; }
-    .media-placeholder.peach { --placeholder-bg:#e4d1b4; }
-    .media-placeholder .media-icon { width:40px; height:40px; stroke:#737b70; stroke-width:1.4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .media-placeholder .media-label { font:600 11px/1.4 var(--body); letter-spacing:.16em; text-transform:uppercase; }
-    .media-placeholder .media-hint { font:500 13px/1 var(--hand); opacity:.74; }
-    .media-corner { position:absolute; left:14px; bottom:12px; font:600 9px/1 var(--body); letter-spacing:.15em; opacity:.65; }
-    .note-field { margin-bottom:20px; }
-    .note-field h3 { font:600 clamp(21px,2.1vw,29px)/1 var(--hand); margin:2px 0 12px; transform:rotate(-.6deg); }
-    .placeholder-lines { display:flex; flex-direction:column; gap:9px; padding-right:12%; }
-    .placeholder-lines span { display:block; height:8px; border-radius:1px; background:#d4cfc0; opacity:.48; }
-    .placeholder-lines span:nth-child(1){width:97%} .placeholder-lines span:nth-child(2){width:87%} .placeholder-lines span:nth-child(3){width:66%}
-    .placeholder-tip { font:500 11px/1.5 var(--body); color:#a09783; margin-top:12px; }
-    .note-tape { height:19px; width:83px; position:absolute; top:-9px; left:calc(50% - 42px); transform:rotate(-6deg); background:rgba(250,247,232,.56); box-shadow:0 0 1px rgba(69,55,37,.15); clip-path:polygon(0 9%,100% 0%,95% 95%,3% 100%); pointer-events:none; }
-    .page-scribble { font:500 18px/1 var(--hand); color:#9f9785; position:absolute; right:5%; bottom:42px; transform:rotate(-8deg); user-select:none; }
-    .work-media { margin-top:9px; }
-    .work-media .media-placeholder { aspect-ratio:1.63; }
-    .work-fields { padding-top:30px; }
-    .work-fields .note-field { margin-bottom:27px; }
-
-    /* FUTURE PROJECTS: intentionally no center seam */
-    .future-panel { display:block; padding:5px clamp(39px,6vw,92px) 65px; }
-    .future-heading { display:flex; align-items:baseline; gap:15px; margin-bottom:8px; }
-    .future-heading h2 { font:600 clamp(29px,2.8vw,44px)/1 var(--hand); margin:0; }
-    .demo-chip { font:700 10px/1 var(--body); letter-spacing:.15em; padding:5px 8px; background:#d8e8e9; border-radius:3px; }
-    .future-inner { max-width:850px; margin:0 auto; }
-    .browser-shell { border:1px solid #a7a8a0; border-radius:7px 7px 3px 3px; overflow:hidden; background:#f7f6ef; box-shadow:4px 5px 0 rgba(75,60,39,.1); }
-    .browser-top { height:27px; border-bottom:1px solid rgba(100,96,82,.18); background:#eae7df; display:flex; align-items:center; gap:5px; padding:0 11px; }
-    .browser-dot { width:7px; height:7px; border-radius:50%; background:#b1a89a; }
-    .browser-url { margin-left:auto; margin-right:auto; width:min(55%,370px); padding:3px 8px; background:#f9f8f3; border-radius:3px; color:#a49e93; text-align:center; font:500 9px/1 var(--body); }
-    .embedded-placeholder { min-height:172px; height:clamp(155px,26vh,245px); border:0; width:100%; padding:20px; background:radial-gradient(circle at 34% 40%,rgba(237,188,108,.31),transparent 25%),radial-gradient(circle at 65% 57%,rgba(130,176,168,.31),transparent 30%),radial-gradient(circle at 52% 22%,rgba(211,148,155,.22),transparent 29%),#f0eee9; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px; color:#6c7066; cursor:pointer; }
-    .embedded-placeholder strong { font:600 clamp(26px,2.8vw,39px)/1 var(--hand); }
-    .embedded-placeholder span { font:600 10px/1.5 var(--body); letter-spacing:.13em; text-transform:uppercase; }
-    .embedded-placeholder small { font:500 11px/1.3 var(--body); opacity:.74; }
-    .future-image { aspect-ratio:3.3; min-height:155px; }
-    .future-notes { display:grid; grid-template-columns:repeat(3,1fr); gap:23px; margin-top:21px; }
-    .future-notes .note-field { margin-bottom:0; }
-    .future-notes .note-field h3 { margin-bottom:8px; }
-    .future-notes .placeholder-lines { gap:6px; padding-right:0; }
-    .future-notes .placeholder-lines span { height:7px; }
-
-
-    /* CLEANER COVER · DEMO 02 */
-    .cover-name { margin-top:9%; }
-    .welcome-sheet { top:34%; bottom:4%; }
-    /* Dual award badges wrap without taking over the left page. */
-    .award-group { display:flex; flex-wrap:wrap; align-items:center; gap:6px 7px; margin:5px 0 13px; }
-    .award-group .project-award { margin:0; white-space:normal; font-size:10px; padding:6px 8px; }
-    .real-copy { font:500 clamp(11px,1.04vw,14px)/1.55 var(--body); white-space:pre-line; color:#4e544b; margin:0; overflow-wrap:anywhere; }
-    .real-media-frame { display:block; overflow:hidden; width:100%; aspect-ratio:1.72; padding:0; border:1px solid rgba(87,83,64,.20); background:#ddd9ca; box-shadow:4px 5px 0 rgba(71,63,45,.10); position:relative; }
-    .real-image-button { cursor:zoom-in; }
-    .real-media-frame img, .real-media-frame video, .real-media-frame iframe { width:100%; height:100%; display:block; object-fit:contain; }
-    .real-media-hint { position:absolute; bottom:7px; right:7px; font:600 10px/1.2 var(--body); padding:5px 7px; background:rgba(252,250,242,.86); }
-    .work-media .real-media-frame { aspect-ratio:1.63; }
-        /* Mazda vertical video */
-    .work-media .real-media-frame:has(video[src*="Mazda"]) {
-      width: fit-content;
-      max-width: 100%;
-      margin: 0 auto;
-      aspect-ratio: auto;
-      height: auto;
-    }
-    
-    .work-media .real-media-frame:has(video[src*="Mazda"]) video {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 58vh;
-      object-fit: contain;
-    }
-    .real-media-frame iframe { border:0; }
-    .future-panel .future-inner { max-width:790px; }
-    /* Use an ordinary landscape website proportion, not a flattened strip. */
-    .future-panel--emo .future-inner { max-width:min(100%, 630px); }
-    /* Keep images and videos in their original aspect ratio */
-    .real-media-frame,
-    .work-media .real-media-frame {
-      aspect-ratio: auto;
-      height: auto;
-    }
-    
-    .real-media-frame img,
-    .real-media-frame video {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-    @media (max-height: 700px) and (min-width:1001px) {
-      .future-panel--emo .future-inner { max-width:min(100%, 490px); }
-    }
-    .browser-shell .embedded-placeholder, .browser-shell .embedded-site { aspect-ratio:16/9; width:100%; height:auto; min-height:0; }
-    .browser-shell .embedded-placeholder { padding:20px; }
-    .embedded-site { display:block; border:0; background:#e7e8e5; }
-    .future-notes { margin-top:15px; gap:18px; }
-    .future-notes .note-field h3 { font-size:clamp(20px,2vw,27px); }
-    .future-panel--emo .project-eyebrow { margin-bottom:2px; }
-    .future-panel--emo .future-heading { margin-bottom:5px; }
-    .future-panel--emo { padding-top:3px; }
-    .site-fallback-link { display:block; text-align:right; font:500 10px/1.4 var(--body); color:#46718c; padding:3px 10px; background:#f7f6ef; }
-    /* Home label faces upright even though word tabs use vertical writing mode. */
-    .spread-tabs .edge-tab--home { writing-mode:horizontal-tb; padding:0; display:grid; place-items:center; }
-    .spread-tabs .edge-tab--home svg { transform:none; }
-    /* A turning paper leaf for chapter-to-chapter navigation. */
-    .page-flip-layer { position:absolute; inset:0; z-index:9; pointer-events:none; visibility:hidden; perspective:1700px; }
-    .flip-leaf { position:absolute; left:50%; top:0; bottom:0; width:50%; transform-style:preserve-3d; transform-origin:left center; }
-    .flip-leaf-front, .flip-leaf-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:0 10px 10px 0; background:linear-gradient(90deg,#eee9dd 0%,#fcf9f0 4%,#f8f5ec 91%,#e7ddce 100%); box-shadow:inset -16px 0 19px rgba(80,58,39,.13), 5px 1px 11px rgba(64,44,27,.13); }
-    .flip-leaf-back { transform:rotateY(180deg); border-radius:10px 0 0 10px; background:linear-gradient(270deg,#eee9dd,#fbf9f2 85%,#d9d1c3); box-shadow:inset 18px 0 18px rgba(60,44,29,.13), -4px 0 13px rgba(64,44,27,.12); }
-    .page-flip-layer.turn-forward, .page-flip-layer.turn-backward { visibility:visible; }
-    .page-flip-layer.turn-forward .flip-leaf { animation:chapterFlipForward .72s ease-in-out both; }
-    .page-flip-layer.turn-backward .flip-leaf { animation:chapterFlipBack .72s ease-in-out both; }
-    @keyframes chapterFlipForward { from { transform:rotateY(0); } 49% { transform:rotateY(-89deg); } to { transform:rotateY(-180deg); } }
-    @keyframes chapterFlipBack { from { transform:rotateY(-180deg); } 51% { transform:rotateY(-89deg); } to { transform:rotateY(0); } }
-    .dialog-canvas.is-image { background:#282b27; padding:12px; }
-    .dialog-canvas.is-image::before { display:none; }
-    .dialog-canvas.is-image h2, .dialog-canvas.is-image p { display:none; }
-    .fullscreen-image { display:block; width:100%; height:100%; object-fit:contain; }
-
-    /* FIXED FOOTER / SLIDE CONTROLS */
-    .book-footer { position:absolute; bottom:0; left:0; right:0; height:50px; z-index:7; background:linear-gradient(0deg,rgba(249,247,239,.99) 0%,rgba(249,247,239,.89) 75%,rgba(249,247,239,0) 100%); display:flex; align-items:center; justify-content:center; gap:13px; padding-top:10px; }
-    .foot-arrow { width:30px; height:27px; display:grid; place-items:center; border:0; border-radius:50%; background:transparent; cursor:pointer; color:#666e60; font-size:20px; transition:background .15s; }
-    .foot-arrow:hover:not(:disabled) { background:rgba(141,138,110,.16); }
-    .foot-arrow:disabled { opacity:.2; cursor:default; }
-    .slide-progress { font:700 10px/1 var(--body); letter-spacing:.17em; color:#656f65; font-variant-numeric:tabular-nums; }
-    .footer-help { position:absolute; right:4%; bottom:13px; font:500 10px/1 var(--body); color:#a29a89; letter-spacing:.03em; }
-    .spread-tabs .edge-tab { width:54px; height:85px; padding:9px 5px; writing-mode:vertical-rl; letter-spacing:.01em; }
-    .spread-tabs .left { left:-36px; border-radius:5px 1px 1px 8px; transform:rotate(-2deg); box-shadow:-2px 4px 4px rgba(54,38,23,.18); }
-    .spread-tabs .right { right:-35px; border-radius:1px 6px 7px 1px; transform:rotate(2deg); }
-    .spread-tabs .edge-tab.left:hover { --hover-x:-5px; } .spread-tabs .edge-tab.right:hover { --hover-x:5px; }
-    .spread-tabs .edge-tab--home { top:8%; height:53px; }
-    .spread-tabs .edge-tab--competition { top:23%; }
-    .spread-tabs .edge-tab--work { top:43%; }
-    .spread-tabs .edge-tab--future { top:63%; height:109px; }
-    .spread-tabs .edge-tab.left[aria-current="page"] { left:-42px; }
-    .spread-tabs .edge-tab.right[aria-current="page"] { right:-42px; }
-    .spread-tabs .edge-tab--home svg { transform:rotate(90deg); }
-
-    /* FULLSCREEN MEDIA PLACEHOLDER */
-    .media-dialog { position:fixed; inset:0; z-index:50; display:none; justify-content:center; align-items:center; padding:30px; background:rgba(29,29,26,.82); backdrop-filter:blur(5px); }
-    .media-dialog.open { display:flex; }
-    .dialog-canvas { position:relative; width:min(1100px,90vw); height:min(660px,82vh); background:var(--dialog-bg,#ddd7c8); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:19px; border:12px solid #f4f1e9; box-shadow:0 20px 80px rgba(0,0,0,.22); }
-    .dialog-canvas::before { content:''; position:absolute; inset:28px; border:1px dashed rgba(80,79,68,.24); pointer-events:none; }
-    .dialog-canvas h2 { margin:0; font:600 clamp(33px,5vw,69px)/1 var(--hand); text-align:center; padding:0 25px; }
-    .dialog-canvas p { margin:0; font:600 11px/1.5 var(--body); text-transform:uppercase; letter-spacing:.18em; opacity:.68; text-align:center; }
-    .dialog-close { position:absolute; top:22px; right:23px; z-index:2; width:47px; height:47px; border:1px solid rgba(255,255,255,.3); border-radius:50%; background:rgba(254,253,247,.94); font-size:23px; cursor:pointer; }
-    .dialog-close:hover { background:#fff; }
-    .rotate-overlay { display:none; }
-
-    @media (max-width: 1000px) and (orientation: landscape) {
-      :root { --book-width:calc(100vw - 103px); --book-height:calc(100dvh - 35px); }
-      .closed-book { width:min(650px,calc(100vw - 126px)); }
-      .cover-tabs .edge-tab { width:81px; right:-62px; height:54px; padding-left:13px; font-size:16px; }
-      .cover-tabs .edge-tab--competition { top:15%; }
-      .cover-tabs .edge-tab--work { top:41%; }
-      .cover-tabs .edge-tab--future { top:67%; }
-      .spread-tabs .edge-tab { width:43px; height:61px; padding:5px 3px; font-size:15px; }
-      .spread-tabs .left { left:-23px; }
-      .spread-tabs .right { right:-23px; }
-      .spread-tabs .edge-tab--home { height:43px; }
-      .spread-tabs .edge-tab--home svg { width:19px; height:19px; }
-      .spread-tabs .edge-tab--future { height:79px; }
-      .spread-tabs .edge-tab--home { top:7%; }
-      .spread-tabs .edge-tab--competition { top:22%; }
-      .spread-tabs .edge-tab--work { top:44%; }
-      .spread-tabs .edge-tab--future { top:67%; }
-      .spread-tabs .edge-tab.left[aria-current="page"] { left:-26px; }
-      .spread-tabs .edge-tab.right[aria-current="page"] { right:-26px; }
-      .spread-header { flex-basis:63px; padding-top:9px; padding-bottom:6px; }
-      .spread-header::after { bottom:2px; }
-      .center-spine { top:60px; bottom:18px; }
-      .project-panel { padding-top:6px; padding-bottom:47px; }
-      .project-award { margin-bottom:6px; }
-      .project-name { margin-bottom:5px; }
-      .note-field { margin-bottom:12px; }
-      .note-field h3 { margin-bottom:6px; }
-      .placeholder-lines { gap:5px; }
-      .placeholder-lines span { height:6px; }
-      .work-fields { padding-top:5px; }
-      .work-fields .note-field { margin-bottom:12px; }
-      .book-footer { height:36px; }
-      .footer-help { display:none; }
-      .future-panel { padding-bottom:40px; }
-      .browser-shell .embedded-placeholder { aspect-ratio:16 / 9; min-height:0; height:auto; padding:7px; }
-      .future-panel--emo .future-inner { max-width:min(100%, 420px); }
-      .embedded-placeholder strong { font-size:25px; }
-      .embedded-placeholder span { font-size:9px; }
-      .future-notes { margin-top:10px; gap:10px; }
-      .future-notes .note-field h3 { font-size:20px; margin-bottom:5px; }
-      .future-notes { margin-top:12px; }
-      .welcome-sheet { top:34%; bottom:8%; padding-top:10px; }
-      .welcome-copy { font-size:clamp(15px,2.25vw,21px); }
-      .welcome-heading { font-size:29px; }
-      .cover-name { margin-top:10%; font-size:clamp(38px,6vw,64px); }
-      .award-group { gap:3px; }
-      .award-group .project-award { padding:3px 5px; font-size:9px; }
-      .page-flip-layer .flip-leaf-front,.page-flip-layer .flip-leaf-back { box-shadow:none; }
-    }
-    @media (max-width: 900px) and (orientation: portrait) {
-      .rotate-overlay { position:fixed; inset:0; z-index:100; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px; padding:35px; text-align:center; background:#eee7d8; color:#4c5148; }
-      .rotate-overlay svg { width:96px; height:96px; stroke:currentColor; stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-      .rotate-overlay h2 { margin:0; font:600 44px/1 var(--hand); }
-      .rotate-overlay p { max-width:340px; font:500 14px/1.7 var(--body); margin:0; }
-      .rotate-overlay .rotate-chinese { color:#7b7a6c; font-size:13px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
-    }
-    
-    /* 1. Mazda: keep vertical video fully visible */
-    .work-media .real-media-frame:has(video[src*="Mazda"]) {
-      width: fit-content;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: auto;
-      margin: 0 auto;
-    }
-    
-    .work-media .real-media-frame:has(video[src*="Mazda"]) video {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 52vh;
-      object-fit: contain;
-    }
-    
-    /* 2. EmoTogether: scale the embedded website */
-    .future-panel--emo .browser-shell {
+      box-shadow: inset -21px 0 25px rgba(68,55,35,.055), inset 6px 0 5px rgba(64,51,35,.085), 0 2px 2px rgba(39,28,16,.2);
       overflow: hidden;
     }
-    
-    .future-panel--emo .embedded-site {
-      width: 150%;
-      height: 405px;
-      aspect-ratio: auto;
-      transform: scale(0.666667);
-      transform-origin: top left;
-      margin-bottom: -135px;
+    .cover::before {
+      content: ''; position: absolute; top: 12px; bottom: 12px; left: 19px;
+      border-left: 1px solid rgba(105,87,69,.16);
     }
-    
-    /* 3. Being Here: limit image height */
-    .future-panel:not(.future-panel--emo) .real-media-frame {
-      width: fit-content;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: auto;
-      margin: 0 auto;
+    .cover-name {
+      position: relative; display: inline-block; margin: 9% 0 0 12%;
+      font: 600 clamp(46px,5vw,76px)/.91 var(--hand); letter-spacing: -.035em;
+      transform: rotate(-2deg); z-index: 1;
     }
-    
-    .future-panel:not(.future-panel--emo) .real-media-frame img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 38vh;
-      object-fit: contain;
+    .cover-name::after {
+      content: ''; position: absolute; left: 5%; right: -8%; bottom: -14px; height: 13px;
+      border-bottom: 2px solid rgba(83,89,75,.64); border-radius: 50%; transform: rotate(1deg);
     }
-    
-    /* ==========================================
-       NOTEBOOK UPDATE - OCT 20
-       ========================================== */
-    
-    /* 1. Remove dotted spine line */
-    .center-spine {
+    .welcome-sheet {
+      position: absolute; left: 11%; right: 12%; top: 29%; bottom: 4%;
+      background: rgba(255,253,246,.75); border: 1px solid rgba(112,104,89,.30);
+      box-shadow: 4px 5px 0 rgba(89,67,45,.045);
+      padding: 24px clamp(22px,3.3vw,41px) 19px; transform: rotate(.3deg);
+    }
+    .welcome-heading { font: 600 clamp(29px,2.8vw,39px)/1 var(--hand); margin: 0 0 8px; }
+    .welcome-copy { font: 500 clamp(17px,1.75vw,23px)/1.14 var(--hand); margin: 0; white-space: pre-line; }
+    .welcome-copy a { color: #3b6d83; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+
+    /* ===============================================================
+       STICKY INDEX TABS (SOFT GROUND / PLAYFUL WORKS / THOUGHTFUL DREAMS)
+       =============================================================== */
+    .edge-tabs { position: absolute; inset: 0; pointer-events: none; z-index: 11; }
+    .edge-tab {
+      cursor: pointer; position: absolute; pointer-events: auto; border: 0;
+      font: 600 18px/1 var(--hand); color: #354039;
+      box-shadow: 2px 3px 6px rgba(50,37,21,.19);
+      transition: filter .18s, transform .18s;
+      background: var(--tab-bg);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .edge-tab:hover { filter: brightness(1.05); transform: translateX(var(--hover-x, 0px)) rotate(var(--tab-rotate, 0deg)); }
+    .edge-tab[aria-current="page"] { filter: saturate(1.12); font-weight: 700; }
+
+    .edge-tab--home { --tab-bg: var(--home); }
+    .edge-tab--soft-ground { --tab-bg: var(--soft-ground); }
+    .edge-tab--playful-works { --tab-bg: var(--playful-works); }
+    .edge-tab--thoughtful-dreams { --tab-bg: var(--thoughtful-dreams); }
+
+    /* Vertical sticky tabs on Closed Cover */
+    .cover-tabs .edge-tab {
+      right: -35px; width: 54px; height: 94px; padding: 9px 5px;
+      writing-mode: vertical-rl; text-orientation: mixed;
+      letter-spacing: 0.01em; line-height: 1.04;
+      border-radius: 1px 6px 7px 1px; transform: rotate(2deg);
+      --tab-rotate: 2deg;
+    }
+    .cover-tabs .edge-tab:hover { --hover-x: 6px; }
+    .cover-tabs .edge-tab--soft-ground { top: 20%; height: 92px; }
+    .cover-tabs .edge-tab--playful-works { top: 39%; height: 98px; }
+    .cover-tabs .edge-tab--thoughtful-dreams { top: 59%; height: 118px; }
+
+    .home-icon {
+      width: 24px; height: 24px; stroke: currentColor; fill: none;
+      stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* Vertical sticky tabs on Open Spread */
+    .spread-tabs .edge-tab {
+      width: 54px; height: 94px; padding: 9px 5px;
+      writing-mode: vertical-rl; letter-spacing: .01em; line-height: 1.04;
+    }
+    .spread-tabs .left {
+      left: -36px; border-radius: 5px 1px 1px 8px;
+      transform: rotate(-2deg); --tab-rotate: -2deg;
+      box-shadow: -2px 4px 4px rgba(54,38,23,.18);
+    }
+    .spread-tabs .right {
+      right: -35px; border-radius: 1px 6px 7px 1px;
+      transform: rotate(2deg); --tab-rotate: 2deg;
+    }
+    .spread-tabs .edge-tab.left:hover { --hover-x: -5px; }
+    .spread-tabs .edge-tab.right:hover { --hover-x: 5px; }
+    .spread-tabs .edge-tab--home { top: 7%; height: 53px; writing-mode: horizontal-tb; padding: 0; display: grid; place-items: center; }
+    .spread-tabs .edge-tab--soft-ground { top: 20%; height: 92px; }
+    .spread-tabs .edge-tab--playful-works { top: 39%; height: 98px; }
+    .spread-tabs .edge-tab--thoughtful-dreams { top: 59%; height: 118px; }
+    .spread-tabs .edge-tab.left[aria-current="page"] { left: -42px; }
+    .spread-tabs .edge-tab.right[aria-current="page"] { right: -42px; }
+
+    /* ===============================================================
+       OPEN TWO-PAGE NOTEBOOK SPREAD
+       =============================================================== */
+    .open-book {
+      width: var(--book-width); height: var(--book-height); min-height: 300px;
+      filter: drop-shadow(11px 17px 17px rgba(51,33,19,.27));
+    }
+    .open-book::before {
+      content: ''; position: absolute; inset: 5px -5px -8px;
+      border: 1px solid #a4967f; background: #d5c8af;
+      border-radius: 8px 13px 14px 8px; transform: rotate(.14deg);
+    }
+    .spread-paper {
+      position: relative; width: 100%; height: 100%;
+      border: 1px solid #8d8271; border-radius: 7px 12px 13px 7px; overflow: hidden;
+      display: flex; flex-direction: column;
+      background:
+        radial-gradient(ellipse at 48% 55%, rgba(101,91,64,.075), transparent 5%),
+        linear-gradient(90deg, #ece5d7 0%, #faf8f1 3%, #fbf9f2 47%, #e9e2d5 49.5%, #d7cebf 50%, #f5f2e9 51.5%, #fcfaf4 96%, #e9e3d7 100%);
+      box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
+    }
+    .spread-paper::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .19;
+      background: repeating-linear-gradient(0deg, transparent 0px, transparent 32px, rgba(120,105,77,.060) 33px);
+    }
+    .center-spine { display: none !important; }
+
+    .spread-header {
+      position: relative; flex: 0 0 87px; display: flex; justify-content: space-between; align-items: center;
+      padding: 19px clamp(32px,4.2vw,69px) 11px; z-index: 6;
+    }
+    .spread-header::after {
+      content: ''; position: absolute; left: 4%; right: 4%; bottom: 7px;
+      border-bottom: 1px solid rgba(124,117,96,.15);
+    }
+    .spread-title {
+      margin: 0; font: 600 clamp(37px,3.7vw,60px)/1 var(--hand);
+      transform: rotate(-1.7deg); letter-spacing: -.015em;
+    }
+    .spread-meta { display: flex; align-items: center; gap: 14px; color: #797b6c; }
+    .chapter-mark { font: 500 22px/1 var(--hand); }
+    .header-count { font: 600 11px/1 var(--body); letter-spacing: .13em; font-variant-numeric: tabular-nums; }
+
+    .project-viewport {
+      position: relative; z-index: 2; flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+      scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-width: none;
+    }
+    .project-viewport::-webkit-scrollbar { display: none; }
+
+    /* ===============================================================
+       SOFT GROUND — FULL-SPREAD ILLUSTRATED COLLAGE LANDING PAGE
+       Hides header, footer & scribble so the two pages act as an
+       uninterrupted notebook collage spread.
+       =============================================================== */
+    .spread-paper.is-soft-ground .spread-header,
+    .spread-paper.is-soft-ground .book-footer,
+    .spread-paper.is-soft-ground .page-scribble {
       display: none !important;
     }
-    
-    /* 2. Keep home icon upright */
-    .spread-tabs .edge-tab--home svg {
-      transform: rotate(0deg) !important;
+    .spread-paper.is-soft-ground .project-viewport {
+      overflow: hidden;
+      scroll-snap-type: none;
     }
-    
-    /* 3. Future Project: two-page layout */
+
+    .soft-ground-spread {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .sg-page {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(14px, 2.2vh, 24px) clamp(18px, 2.4vw, 34px);
+    }
+
+    /* Fine-Liner Botanical Grass & Shrub Illustrations (簽字筆植物與草叢插畫) */
+    .sg-grass {
+      position: absolute;
+      pointer-events: none;
+      color: #2c312b;
+      opacity: 0.9;
+      z-index: 2;
+    }
+    .sg-grass svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+    /* Scattered organically per user's layout arrows without overlapping cutouts or text */
+    .sg-grass--top-center { top: 2.2%; right: 11%; width: clamp(108px, 11.4vw, 156px); transform: rotate(1.6deg); }
+    .sg-grass--lower-left { bottom: 19%; left: 3%; width: clamp(96px, 10.2vw, 140px); transform: rotate(-2.4deg); }
+    .sg-grass--lower-inner { bottom: 7.5%; right: 3.5%; width: clamp(92px, 9.8vw, 134px); transform: rotate(1.4deg); }
+    .sg-grass--upper-inner { top: 13.5%; left: 3.6%; width: clamp(104px, 11vw, 150px); transform: rotate(-1.8deg); }
+    .sg-grass--mid-right { top: 41%; right: 3%; width: clamp(94px, 10vw, 136px); transform: rotate(2.2deg); }
+    .sg-grass--bottom-right { bottom: 4%; right: 5.5%; width: clamp(124px, 13vw, 178px); transform: rotate(-1.2deg); }
+
+    /* Anchored Hero Collage Clusters (keeps handwritten copy tightly hugging each cutout) */
+    .sg-cluster {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 100%;
+    }
+    .sg-cluster--left {
+      transform: translate(1.5%, 0.5%);
+    }
+    .sg-cluster--right {
+      transform: translate(-1%, 0%);
+    }
+    .sg-cluster--left {
+      transform: translate(3%, -1%);
+    }
+    .sg-cluster--right {
+      transform: translate(-2%, 0%);
+    }
+
+    /* Cutout Photographic Objects (~2.5x visual area) with Hand-Drawn Fine-Liner Contours */
+    .sg-collage-item {
+      position: relative;
+      z-index: 3;
+      cursor: pointer;
+      user-select: none;
+      flex: 0 0 auto;
+      transition: transform 0.35s cubic-bezier(.22, .8, .26, 1), filter 0.35s ease;
+    }
+    .sg-collage-item:hover {
+      filter: drop-shadow(0 10px 18px rgba(45, 34, 20, 0.16));
+    }
+
+    /* Left Page: own bi.monthly Vol.01 Magazine (~2.5x area) */
+    .sg-item--own {
+      width: clamp(215px, 22.8vw, 300px);
+      max-height: 55vh;
+      aspect-ratio: 0.715;
+      transform: rotate(-3.2deg);
+    }
+    .sg-item--own:hover {
+      transform: rotate(-2.0deg) translateY(-4px) scale(1.015);
+    }
+    .sg-own-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #eae9e4;
+      box-shadow: 5px 8px 16px rgba(48, 37, 22, 0.19);
+      overflow: hidden;
+    }
+    .sg-own-photo-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Right Page: 桂有光 Osmanthus Tea Brand (~2.5x area) */
+    .sg-item--tea {
+      width: clamp(215px, 22.4vw, 292px);
+      max-height: 44vh;
+      aspect-ratio: 1.02;
+      transform: rotate(2.6deg);
+    }
+    .sg-item--tea:hover {
+      transform: rotate(1.5deg) translateY(-4px) scale(1.015);
+    }
+    .sg-tea-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sg-tea-photo-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(4px 8px 13px rgba(52, 39, 21, 0.19));
+    }
+
+    .sg-outline-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* Crafted Paper Cutout Preview Cards (fallback when local PNGs aren't mounted yet) */
+    .sg-cutout-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px 13px;
+      color: #283029;
+      background: linear-gradient(165deg, #f3f2ed 0%, #e4e4df 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .sg-fallback-own-art {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      background: linear-gradient(180deg, #bcc6cf 0%, #8fa1b0 56%, #6a7d8c 100%);
+      border-radius: 2px;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sg-fallback-own-art::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 26%;
+      height: 2px;
+      background: rgba(244, 246, 248, 0.65);
+    }
+    .sg-fallback-own-vert {
+      writing-mode: vertical-rl;
+      font: 700 clamp(26px, 2.7vw, 38px)/0.85 var(--body);
+      letter-spacing: 0.08em;
+      color: rgba(45, 56, 66, 0.72);
+      align-self: start;
+    }
+    .sg-fallback-own-sub {
+      writing-mode: vertical-rl;
+      font: 500 10px/1.2 var(--body);
+      letter-spacing: 0.16em;
+      color: rgba(45, 56, 66, 0.8);
+      align-self: start;
+      margin-top: 4px;
+    }
+    .sg-fallback-own-foot {
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      text-align: left;
+    }
+    .sg-fallback-own-foot strong {
+      display: block;
+      font: 700 11px/1.2 var(--body);
+      color: #4f5d68;
+    }
+    .sg-fallback-own-foot span {
+      font: 600 17px/1 var(--hand);
+      color: #283029;
+    }
+    .sg-fallback-attach-pill {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font: 600 9.5px/1.2 var(--body);
+      white-space: nowrap;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: rgba(255, 253, 246, 0.88);
+      border: 1px solid rgba(40, 48, 41, 0.22);
+      color: #364038;
+      opacity: 0.88;
+    }
+
+    .sg-cutout-fallback--tea {
+      align-items: center;
+      justify-content: center;
+      border-radius: 14% 14% 22% 22% / 12% 12% 24% 24%;
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 246, 204, 0.65), transparent 45%),
+        linear-gradient(135deg, #e5c465 0%, #c99b36 48%, #dfb853 75%, #b38424 100%);
+      box-shadow: inset 0 10px 14px rgba(255, 248, 220, 0.35), inset 0 -10px 16px rgba(112, 78, 16, 0.35);
+    }
+    .sg-tea-fold-line {
+      position: absolute;
+      top: 34%;
+      left: 6%;
+      right: 6%;
+      height: 2px;
+      background: rgba(94, 65, 14, 0.35);
+    }
+    .sg-tea-paper-label {
+      position: relative;
+      z-index: 2;
+      width: 44%;
+      aspect-ratio: 0.78;
+      background: #f8f6ef;
+      box-shadow: 0 3px 7px rgba(68, 47, 12, 0.24);
+      display: grid;
+      place-items: center;
+      padding: 8px;
+    }
+    .sg-tea-red-seal {
+      width: 72%;
+      height: 76%;
+      border-radius: 50%;
+      background: #c83c2b;
+      color: #f8f6ef;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font: 700 clamp(14px, 1.5vw, 20px)/1.05 serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* Handwritten Typography Hugged Tightly to Each Object */
+    .sg-copy-group {
+      position: relative;
+      z-index: 4;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .sg-copy--own {
+      margin-top: 10px;
+      align-self: center;
+      margin-left: 2%;
+      transform: rotate(-1.4deg);
+    }
+    .sg-copy--tea-top {
+      margin-bottom: 8px;
+      align-self: flex-start;
+      margin-left: 4%;
+      transform: rotate(-1.1deg);
+    }
+    .sg-copy--tea-bottom {
+      margin-top: 8px;
+      align-self: flex-start;
+      margin-left: 8%;
+      transform: rotate(-1.5deg);
+    }
+
+    .hw-line {
+      display: block;
+      white-space: nowrap;
+      font-family: var(--hand);
+      font-weight: 600;
+      font-size: clamp(21px, 2.02vw, 28px);
+      line-height: 1.16;
+      letter-spacing: 0.005em;
+      color: #232722;
+      margin-left: var(--indent, 0px);
+      transform: rotate(var(--rot, 0deg));
+      transform-origin: left center;
+    }
+    .hw-word {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .hw-space {
+      display: inline-block;
+      width: 0.27em;
+    }
+    /* Character-by-character diagonal pen-stroke reveal with generous padding so ascenders/descenders never clip */
+    .hw-glyph {
+      display: inline-block;
+      padding: 0.18em 0.09em;
+      margin: -0.18em -0.09em;
+      clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%);
+      will-change: clip-path;
+    }
+    .soft-ground-spread.is-writing .hw-glyph {
+      animation: glyphStrokeDraw 0.14s cubic-bezier(0.22, 0.08, 0.25, 1) var(--g-delay, 0.2s) forwards;
+    }
+    @keyframes glyphStrokeDraw {
+      0% {
+        clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%);
+      }
+      100% {
+        clip-path: polygon(-20% -25%, 145% -25%, 125% 135%, -40% 135%);
+      }
+    }
+
+    /* Subtle Replay Handwriting Button (bottom-right corner of Soft Ground spread) */
+    .sg-replay-btn {
+      position: absolute;
+      right: 22px;
+      bottom: 18px;
+      z-index: 6;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(40, 48, 41, 0.22);
+      border-radius: 50%;
+      background: rgba(248, 245, 235, 0.72);
+      color: #535c54;
+      font: 600 17px/1 var(--hand);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.2s, transform 0.25s, background 0.2s;
+    }
+    .sg-replay-btn:hover {
+      opacity: 0.95;
+      background: rgba(255, 253, 246, 0.95);
+      transform: rotate(-35deg);
+    }
+
+    /* ===============================================================
+       STANDARD PROJECT SPREADS (PLAYFUL WORKS & THOUGHTFUL DREAMS)
+       =============================================================== */
+    .project-panel {
+      min-height: 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always;
+      padding: 11px clamp(30px,4.1vw,66px) 54px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      column-gap: clamp(49px,6.5vw,99px); align-items: start;
+    }
+    .project-left, .project-right { min-width: 0; }
+    .project-eyebrow {
+      margin: 0 0 5px; text-transform: uppercase; letter-spacing: .17em;
+      color: #948779; font-size: 10px; font-weight: 700;
+    }
+    .project-name {
+      margin: 0 0 9px; font: 600 clamp(27px,2.7vw,40px)/.98 var(--hand); letter-spacing: -.02em;
+    }
+    .award-group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 7px; margin: 5px 0 13px; }
+    .project-award {
+      display: inline-flex; align-items: center; gap: 7px;
+      font: 600 10px/1.3 var(--body); letter-spacing: .035em;
+      padding: 6px 8px; background: rgba(239,206,96,.25);
+      border: 1px solid rgba(175,147,74,.25); border-radius: 2px 5px 3px 2px;
+      margin: 0; white-space: normal;
+    }
+    .award-star { font: 700 15px/1 var(--hand); }
+
+    .media-placeholder {
+      position: relative; width: 100%; aspect-ratio: 1.72;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;
+      text-align: center; cursor: pointer; padding: 15px; color: #4d554d;
+      background: var(--placeholder-bg, #e3e0d3); border: 1px solid rgba(87,83,64,.20);
+      box-shadow: 4px 5px 0 rgba(71,63,45,.10); overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .media-placeholder:hover { transform: translateY(-3px) rotate(-.4deg); box-shadow: 6px 9px 0 rgba(71,63,45,.12); }
+    .media-placeholder::before { content: ''; position: absolute; inset: 13px; border: 1px dashed rgba(87,83,64,.18); pointer-events: none; }
+    .media-placeholder::after { content: ''; position: absolute; width: 155%; height: 28%; left: -20%; top: -10%; background: rgba(255,255,255,.12); transform: rotate(-10deg); pointer-events: none; }
+    .media-placeholder.gold { --placeholder-bg: #e6ddbd; }
+    .media-placeholder.lime { --placeholder-bg: #d7ddc2; }
+    .media-placeholder.rose { --placeholder-bg: #e7cfc7; }
+    .media-placeholder.lavender { --placeholder-bg: #d8d4df; }
+    .media-placeholder.sky { --placeholder-bg: #c5dce4; }
+    .media-placeholder.peach { --placeholder-bg: #e4d1b4; }
+    .media-placeholder .media-icon { width: 40px; height: 40px; stroke: #737b70; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .media-placeholder .media-label { font: 600 11px/1.4 var(--body); letter-spacing: .16em; text-transform: uppercase; }
+    .media-placeholder .media-hint { font: 500 13px/1 var(--hand); opacity: .74; }
+    .media-corner { position: absolute; left: 14px; bottom: 12px; font: 600 9px/1 var(--body); letter-spacing: .15em; opacity: .65; }
+
+    .note-field { margin-bottom: 20px; }
+    .note-field h3 { font: 600 clamp(21px,2.1vw,29px)/1 var(--hand); margin: 2px 0 12px; transform: rotate(-.6deg); }
+    .real-copy { font: 500 clamp(11px,1.04vw,14px)/1.55 var(--body); white-space: pre-line; color: #4e544b; margin: 0; overflow-wrap: anywhere; }
+    .placeholder-lines { display: flex; flex-direction: column; gap: 9px; padding-right: 12%; }
+    .placeholder-lines span { display: block; height: 8px; border-radius: 1px; background: #d4cfc0; opacity: .48; }
+    .placeholder-lines span:nth-child(1) { width: 97%; }
+    .placeholder-lines span:nth-child(2) { width: 87%; }
+    .placeholder-lines span:nth-child(3) { width: 66%; }
+    .note-tape {
+      height: 19px; width: 83px; position: absolute; top: -9px; left: calc(50% - 42px);
+      transform: rotate(-6deg); background: rgba(250,247,232,.56);
+      box-shadow: 0 0 1px rgba(69,55,37,.15); clip-path: polygon(0 9%, 100% 0%, 95% 95%, 3% 100%);
+      pointer-events: none;
+    }
+    .page-scribble {
+      font: 500 18px/1 var(--hand); color: #9f9785;
+      position: absolute; right: 5%; bottom: 42px; transform: rotate(-8deg); user-select: none;
+    }
+
+    .work-media { margin-top: 9px; }
+    .work-fields { padding-top: 30px; }
+    .work-fields .note-field { margin-bottom: 27px; }
+    .work-caption {
+      margin: 12px 0 0; font-family: var(--body); font-size: 11px;
+      line-height: 1.5; color: #77776e; font-style: italic;
+    }
+
+    .real-media-frame {
+      display: block; overflow: hidden; width: 100%; height: auto; aspect-ratio: auto;
+      padding: 0; border: 1px solid rgba(87,83,64,.20); background: #ddd9ca;
+      box-shadow: 4px 5px 0 rgba(71,63,45,.10); position: relative;
+    }
+    .real-image-button { cursor: zoom-in; }
+    .real-media-frame img, .real-media-frame video { width: 100%; height: auto; display: block; object-fit: contain; }
+    .real-media-frame iframe { width: 100%; height: 100%; display: block; border: 0; }
+    .real-media-hint {
+      position: absolute; bottom: 7px; right: 7px;
+      font: 600 10px/1.2 var(--body); padding: 5px 7px; background: rgba(252,250,242,.86);
+    }
+
+    /* THOUGHTFUL DREAMS (formerly Future Project) Two-Page Layout */
     .project-panel.future-panel {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -459,211 +703,196 @@
       align-items: start;
       padding: 11px clamp(30px, 4.1vw, 66px) 54px;
     }
-    
-    .future-panel .project-left,
-    .future-panel .project-right {
-      min-width: 0;
+    .future-panel .project-left, .future-panel .project-right { min-width: 0; width: 100%; max-width: none; }
+    .future-panel .project-right.work-fields { padding-top: 30px; }
+    .future-heading { display: flex; align-items: baseline; gap: 15px; margin-bottom: 8px; }
+    .future-heading h2 { font: 600 clamp(27px,2.7vw,40px)/.98 var(--hand); margin: 0; letter-spacing: -.02em; }
+    .demo-chip { font: 700 10px/1 var(--body); letter-spacing: .15em; padding: 5px 8px; background: #d8e8e9; border-radius: 3px; }
+    .browser-shell {
+      width: 100%; max-width: 100%;
+      border: 1px solid #a7a8a0; border-radius: 7px 7px 3px 3px;
+      overflow: hidden; background: #f7f6ef; box-shadow: 4px 5px 0 rgba(75,60,39,.1);
     }
-    
-    /* Align explanation fields with Work page */
-    .future-panel .project-right.work-fields {
-      padding-top: 30px;
+    .browser-top {
+      height: 27px; border-bottom: 1px solid rgba(100,96,82,.18); background: #eae7df;
+      display: flex; align-items: center; gap: 5px; padding: 0 11px;
     }
-    
-    /* Remove old centered width restrictions */
-    .future-panel .project-left {
-      width: 100%;
-      max-width: none;
+    .browser-dot { width: 7px; height: 7px; border-radius: 50%; background: #b1a89a; }
+    .browser-url {
+      margin-left: auto; margin-right: auto; width: min(55%, 370px);
+      padding: 3px 8px; background: #f9f8f3; border-radius: 3px;
+      color: #a49e93; text-align: center; font: 500 9px/1 var(--body);
     }
-    
-    /* EmoTogether: fit within left notebook page */
-    .future-panel--emo .browser-shell {
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-    }
-    
     .future-panel--emo .embedded-site {
-      display: block;
-      width: 150%;
-      height: 405px;
-      max-width: none;
-      min-height: 0;
-      aspect-ratio: auto;
-      transform: scale(0.666667);
-      transform-origin: top left;
-      margin-bottom: -135px;
+      display: block; width: 150%; height: 405px; max-width: none; min-height: 0; aspect-ratio: auto;
+      border: 0; background: #e7e8e5;
+      transform: scale(0.666667); transform-origin: top left; margin-bottom: -135px;
     }
-    
-    /* Being Here: retain original image ratio */
-    .future-panel:not(.future-panel--emo) .real-media-frame {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: auto;
-      margin: 0;
+    .site-fallback-link {
+      display: block; text-align: right; font: 500 10px/1.4 var(--body);
+      color: #46718c; padding: 3px 10px; background: #f7f6ef;
     }
-    
-    .future-panel:not(.future-panel--emo) .real-media-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 38vh;
-      object-fit: contain;
+    .future-panel--being-here .real-media-frame img {
+      display: block; width: 100%; height: auto; max-height: 38vh; object-fit: contain;
     }
-    
-    /* Landscape mobile adjustments */
+
+    /* PAGE-FLIP ANIMATION LAYER */
+    .page-flip-layer { position: absolute; inset: 0; z-index: 9; pointer-events: none; visibility: hidden; perspective: 1700px; }
+    .flip-leaf { position: absolute; left: 50%; top: 0; bottom: 0; width: 50%; transform-style: preserve-3d; transform-origin: left center; }
+    .flip-leaf-front, .flip-leaf-back {
+      position: absolute; inset: 0; backface-visibility: hidden; border-radius: 0 10px 10px 0;
+      background: linear-gradient(90deg, #eee9dd 0%, #fcf9f0 4%, #f8f5ec 91%, #e7ddce 100%);
+      box-shadow: inset -16px 0 19px rgba(80,58,39,.13), 5px 1px 11px rgba(64,44,27,.13);
+    }
+    .flip-leaf-back {
+      transform: rotateY(180deg); border-radius: 10px 0 0 10px;
+      background: linear-gradient(270deg, #eee9dd, #fbf9f2 85%, #d9d1c3);
+      box-shadow: inset 18px 0 18px rgba(60,44,29,.13), -4px 0 13px rgba(64,44,27,.12);
+    }
+    .page-flip-layer.turn-forward, .page-flip-layer.turn-backward { visibility: visible; }
+    .page-flip-layer.turn-forward .flip-leaf { animation: chapterFlipForward .72s ease-in-out both; }
+    .page-flip-layer.turn-backward .flip-leaf { animation: chapterFlipBack .72s ease-in-out both; }
+    @keyframes chapterFlipForward { from { transform: rotateY(0); } 49% { transform: rotateY(-89deg); } to { transform: rotateY(-180deg); } }
+    @keyframes chapterFlipBack { from { transform: rotateY(-180deg); } 51% { transform: rotateY(-89deg); } to { transform: rotateY(0); } }
+
+    /* FIXED FOOTER / SLIDE CONTROLS */
+    .book-footer {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 50px; z-index: 7;
+      background: linear-gradient(0deg, rgba(249,247,239,.99) 0%, rgba(249,247,239,.89) 75%, rgba(249,247,239,0) 100%);
+      display: flex; align-items: center; justify-content: center; gap: 13px; padding-top: 10px;
+    }
+    .foot-arrow {
+      width: 30px; height: 27px; display: grid; place-items: center;
+      border: 0; border-radius: 50%; background: transparent; cursor: pointer;
+      color: #666e60; font-size: 20px; transition: background .15s;
+    }
+    .foot-arrow:hover:not(:disabled) { background: rgba(141,138,110,.16); }
+    .foot-arrow:disabled { opacity: .2; cursor: default; }
+    .slide-progress { font: 700 10px/1 var(--body); letter-spacing: .17em; color: #656f65; font-variant-numeric: tabular-nums; }
+    .footer-help { position: absolute; right: 4%; bottom: 13px; font: 500 10px/1 var(--body); color: #a29a89; letter-spacing: .03em; }
+
+    /* FULLSCREEN MEDIA DIALOG */
+    .media-dialog {
+      position: fixed; inset: 0; z-index: 50; display: none; justify-content: center; align-items: center;
+      padding: 30px; background: rgba(29,29,26,.82); backdrop-filter: blur(5px);
+    }
+    .media-dialog.open { display: flex; }
+    .dialog-canvas {
+      position: relative; width: min(1100px,90vw); height: min(660px,82vh);
+      background: var(--dialog-bg,#ddd7c8); display: flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 19px;
+      border: 12px solid #f4f1e9; box-shadow: 0 20px 80px rgba(0,0,0,.22);
+    }
+    .dialog-canvas::before { content: ''; position: absolute; inset: 28px; border: 1px dashed rgba(80,79,68,.24); pointer-events: none; }
+    .dialog-canvas h2 { margin: 0; font: 600 clamp(33px,5vw,69px)/1 var(--hand); text-align: center; padding: 0 25px; }
+    .dialog-canvas p { margin: 0; font: 600 11px/1.5 var(--body); text-transform: uppercase; letter-spacing: .18em; opacity: .68; text-align: center; }
+    .dialog-canvas.is-image { background: #282b27; padding: 12px; }
+    .dialog-canvas.is-image::before,
+    .dialog-canvas.is-image h2,
+    .dialog-canvas.is-image p { display: none; }
+    .fullscreen-image { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .dialog-close {
+      position: absolute; top: 22px; right: 23px; z-index: 2; width: 47px; height: 47px;
+      border: 1px solid rgba(255,255,255,.3); border-radius: 50%;
+      background: rgba(254,253,247,.94); font-size: 23px; cursor: pointer;
+    }
+    .dialog-close:hover { background: #fff; }
+
+    .rotate-overlay { display: none; }
+
+    /* ===============================================================
+       MOBILE LANDSCAPE RESPONSIVE SETTINGS
+       =============================================================== */
     @media (max-width: 1000px) and (orientation: landscape) {
-      .project-panel.future-panel {
-        padding-top: 6px;
-        padding-bottom: 47px;
-      }
-    
-      .future-panel .project-right.work-fields {
-        padding-top: 5px;
-      }
-    }
-    
-    /* ==========================================
-       MOBILE LANDSCAPE COVER ADJUSTMENTS
-       ========================================== */
-    
-    @media (max-width: 1000px) and (orientation: landscape) {
-    
-      /* 1. Move the name and underline upward */
+      :root { --book-width: calc(100vw - 103px); --book-height: calc(100dvh - 35px); }
+      .closed-book { width: min(650px, calc(100vw - 126px)); }
       .cover-name {
-        position: absolute;
-        top: 7%;
-        left: 12%;
-        margin: 0;
-        font-size: clamp(34px, 9vh, 52px);
-        line-height: 0.95;
+        position: absolute; top: 7%; left: 12%; margin: 0;
+        font-size: clamp(34px, 9vh, 52px); line-height: 0.95;
       }
-    
-      .cover-name::after {
-        bottom: -7px;
-        height: 7px;
-      }
-    
-      /* 2. Extend the welcome paper within the cover */
-      .welcome-sheet {
-        top: 30%;
-        bottom: 3%;
-        padding: 9px 18px 9px;
-        overflow: hidden;
-      }
-    
-      /* 3. Make the welcome heading smaller */
-      .welcome-heading {
-        font-size: clamp(20px, 5.5vh, 27px);
-        line-height: 1;
-        margin: 0 0 4px;
-      }
-    
-      /* 4. Compact all welcome text */
-      .welcome-copy {
-      font-size: clamp(13px, 3.5vh, 17px);
-      line-height: 1.15;
-      margin: 0;
-      white-space: pre-line;
-      }
-    
-      /* 5. Keep email link from overflowing */
-      .welcome-copy a {
-        overflow-wrap: anywhere;
-      }
-    }
-    
-    /* Desktop cover: move welcome paper upward */
-    @media (min-width: 1001px) {
-      .welcome-sheet {
-        top: 29%;
-        bottom: 4%;
-      }
+      .cover-name::after { bottom: -7px; height: 7px; }
+      .welcome-sheet { top: 30%; bottom: 3%; padding: 9px 18px 9px; overflow: hidden; }
+      .welcome-heading { font-size: clamp(20px, 5.5vh, 27px); line-height: 1; margin: 0 0 4px; }
+      .welcome-copy { font-size: clamp(13px, 3.5vh, 17px); line-height: 1.15; margin: 0; white-space: pre-line; }
+      .welcome-copy .contact-line { display: block; white-space: normal; letter-spacing: -0.02em; }
+
+      .cover-tabs .edge-tab { right: -23px; width: 43px; padding: 5px 3px; font-size: 14px; }
+      .cover-tabs .edge-tab--soft-ground { top: 19%; height: 68px; }
+      .cover-tabs .edge-tab--playful-works { top: 39%; height: 72px; }
+      .cover-tabs .edge-tab--thoughtful-dreams { top: 60%; height: 86px; }
+
+      .spread-tabs .edge-tab { width: 43px; padding: 5px 3px; font-size: 14px; }
+      .spread-tabs .left { left: -23px; }
+      .spread-tabs .right { right: -23px; }
+      .spread-tabs .edge-tab--home { top: 6%; height: 42px; }
+      .spread-tabs .edge-tab--home svg { width: 19px; height: 19px; }
+      .spread-tabs .edge-tab--soft-ground { top: 19%; height: 68px; }
+      .spread-tabs .edge-tab--playful-works { top: 39%; height: 72px; }
+      .spread-tabs .edge-tab--thoughtful-dreams { top: 60%; height: 86px; }
+      .spread-tabs .edge-tab.left[aria-current="page"] { left: -26px; }
+      .spread-tabs .edge-tab.right[aria-current="page"] { right: -26px; }
+
+      /* Soft Ground Compact Landscape Adjustments */
+      .sg-page { padding: 8px 12px; }
+      .sg-item--own { width: clamp(134px, 19.5vw, 185px); max-height: 52vh; }
+      .sg-item--tea { width: clamp(136px, 19.5vw, 185px); max-height: 40vh; }
+      .sg-copy--own { margin-top: 6px; }
+      .sg-copy--tea-top { margin-bottom: 5px; }
+      .sg-copy--tea-bottom { margin-top: 5px; }
+      .hw-line { font-size: clamp(15px, 3.5vh, 21px); line-height: 1.12; }
+      .sg-grass--top-center { width: 76px; right: 8%; }
+      .sg-grass--lower-left { width: 66px; bottom: 16%; left: 2%; }
+      .sg-grass--lower-inner { width: 62px; bottom: 5%; right: 2%; }
+      .sg-grass--upper-inner { width: 72px; top: 10%; left: 2%; }
+      .sg-grass--mid-right { width: 64px; right: 2%; }
+      .sg-grass--bottom-right { width: 84px; bottom: 3%; right: 4%; }
+      .sg-replay-btn { width: 25px; height: 25px; right: 14px; bottom: 12px; font-size: 14px; }
+
+      .spread-header { flex-basis: 63px; padding-top: 9px; padding-bottom: 6px; }
+      .spread-header::after { bottom: 2px; }
+      .project-panel, .project-panel.future-panel { padding-top: 6px; padding-bottom: 47px; }
+      .project-name, .future-heading h2 { margin-bottom: 5px; }
+      .note-field { margin-bottom: 12px; }
+      .note-field h3 { margin-bottom: 6px; }
+      .work-fields, .future-panel .project-right.work-fields { padding-top: 5px; }
+      .work-fields .note-field { margin-bottom: 12px; }
+      .book-footer { height: 36px; }
+      .footer-help { display: none; }
+      .award-group { gap: 3px; }
+      .award-group .project-award { padding: 3px 5px; font-size: 9px; }
+      .page-flip-layer .flip-leaf-front, .page-flip-layer .flip-leaf-back { box-shadow: none; }
     }
 
-    
-    /* Cover tabs: match the opened notebook tabs */
-    .cover-tabs .edge-tab {
-      right: -35px;
-      width: 54px;
-      height: 85px;
-      padding: 9px 5px;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-size: 19px;
-      letter-spacing: 0.01em;
-      line-height: 1.04;
-      border-radius: 1px 6px 7px 1px;
-      transform: rotate(2deg);
-    }
-    
-    .cover-tabs .edge-tab--competition {
-      top: 23%;
-      clip-path: none;
-      --tab-rotate: 2deg;
-    }
-    
-    .cover-tabs .edge-tab--work {
-      top: 43%;
-      --tab-rotate: 2deg;
-    }
-    
-    .cover-tabs .edge-tab--future {
-      top: 63%;
-      height: 109px;
-      clip-path: none;
-      --tab-rotate: 2deg;
-    }
-    
-    /* Match tab dimensions on landscape phones */
-    @media (max-width: 1000px) and (orientation: landscape) {
-      .cover-tabs .edge-tab {
-        right: -23px;
-        width: 43px;
-        height: 61px;
-        padding: 5px 3px;
-        font-size: 15px;
+    @media (max-width: 900px) and (orientation: portrait) {
+      .rotate-overlay {
+        position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 22px; padding: 35px;
+        text-align: center; background: #eee7d8; color: #4c5148;
       }
-    
-      .cover-tabs .edge-tab--competition {
-        top: 22%;
-      }
-    
-      .cover-tabs .edge-tab--work {
-        top: 44%;
-      }
-    
-      .cover-tabs .edge-tab--future {
-        top: 67%;
-        height: 79px;
-      }
+      .rotate-overlay svg { width: 96px; height: 96px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .rotate-overlay h2 { margin: 0; font: 600 44px/1 var(--hand); }
+      .rotate-overlay p { max-width: 340px; font: 500 14px/1.7 var(--body); margin: 0; }
+      .rotate-overlay .rotate-chinese { color: #7b7a6c; font-size: 13px; }
     }
 
-    
-  /* Contact line on mobile landscape */
-  @media (max-width: 1000px) and (orientation: landscape) {
-    .welcome-copy .contact-line {
-      display: block;
-      white-space: normal;
-      letter-spacing: -0.02em;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .hw-glyph {
+        clip-path: none !important;
+      }
     }
-  }
-  /* Caption below selected Work images */
-  .work-caption {
-    margin: 12px 0 0;
-    font-family: var(--body);
-    font-size: 11px;
-    line-height: 1.5;
-    color: #77776e;
-    font-style: italic;
-  }
   </style>
 </head>
 <body>
   <div class="table" aria-hidden="true"><div class="table-line one"></div><div class="table-line two"></div></div>
   <div class="scene-number" aria-hidden="true">LIU CHIEN-WEN</div>
+
   <main class="scene" id="scene">
+    <!-- CLOSED COVER (#home) -->
     <section class="book closed-book" id="closedBook" aria-label="Notebook cover">
       <div class="cover">
         <h1 class="cover-name">Liu Chien-Wen</h1>
@@ -682,25 +911,29 @@ It is a pleasure to have you in the next chapter.</p>
         </div>
       </div>
       <nav class="edge-tabs cover-tabs" aria-label="Notebook sections">
-        <button class="edge-tab edge-tab--competition" data-section="competition">Competition</button>
-        <button class="edge-tab edge-tab--work" data-section="work">Work</button>
-        <button class="edge-tab edge-tab--future" data-section="future">Future<br>Project</button>
+        <button class="edge-tab edge-tab--soft-ground" data-section="soft-ground">Soft Ground</button>
+        <button class="edge-tab edge-tab--playful-works" data-section="playful-works">Playful Works</button>
+        <button class="edge-tab edge-tab--thoughtful-dreams" data-section="thoughtful-dreams">Thoughtful Dreams</button>
       </nav>
     </section>
 
+    <!-- OPEN SPREAD -->
     <section class="book open-book is-hidden" id="openBook" aria-label="Open portfolio notebook">
       <div class="spread-paper" id="spreadPaper">
         <div class="center-spine" aria-hidden="true"></div>
         <header class="spread-header">
-          <h1 class="spread-title" id="spreadTitle">Competition</h1>
-          <div class="spread-meta"><span class="chapter-mark" id="chapterMark">Chapter 01</span><span class="header-count" id="headerCount">01 / 03</span></div>
+          <h1 class="spread-title" id="spreadTitle">Soft Ground</h1>
+          <div class="spread-meta">
+            <span class="chapter-mark" id="chapterMark">Chapter 01</span>
+            <span class="header-count" id="headerCount">01 / 02</span>
+          </div>
         </header>
-        <div class="project-viewport" id="projectViewport" tabindex="0" aria-label="Scroll between projects">
-          <!-- Project pages are rendered by the small JavaScript section below. -->
+        <div class="project-viewport" id="projectViewport" tabindex="0" aria-label="Notebook spread content">
+          <!-- Rendered dynamically by JavaScript -->
         </div>
         <div class="book-footer">
           <button class="foot-arrow" id="previousProject" aria-label="Previous project" title="Previous project">↑</button>
-          <span class="slide-progress" id="slideProgress" aria-live="polite">01 / 03</span>
+          <span class="slide-progress" id="slideProgress" aria-live="polite">01 / 04</span>
           <button class="foot-arrow" id="nextProject" aria-label="Next project" title="Next project">↓</button>
           <span class="footer-help">SCROLL TO EXPLORE</span>
         </div>
@@ -713,6 +946,10 @@ It is a pleasure to have you in the next chapter.</p>
     </section>
   </main>
 
+  <!-- Hidden file picker so local PNGs can also be attached directly during preview if desired -->
+  <input type="file" id="localAssetPicker" accept="image/*" hidden />
+
+  <!-- FULLSCREEN MEDIA PREVIEW DIALOG -->
   <div class="media-dialog" id="mediaDialog" role="dialog" aria-modal="true" aria-labelledby="mediaDialogTitle" aria-hidden="true">
     <button class="dialog-close" id="dialogClose" aria-label="Close fullscreen media">×</button>
     <div class="dialog-canvas" id="dialogCanvas">
@@ -721,8 +958,13 @@ It is a pleasure to have you in the next chapter.</p>
     </div>
   </div>
 
+  <!-- PORTRAIT ORIENTATION PROMPT -->
   <div class="rotate-overlay" aria-live="polite">
-    <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)"/><path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2"/><path d="M48 20h5"/></svg>
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)" />
+      <path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2" />
+      <path d="M48 20h5" />
+    </svg>
     <h2>Turn the page sideways!</h2>
     <p>This notebook is designed to be read in landscape mode. Please rotate your phone to explore.</p>
     <p class="rotate-chinese">這本筆記本最適合橫向閱讀，請將手機轉為橫向。</p>
@@ -730,54 +972,363 @@ It is a pleasure to have you in the next chapter.</p>
 
   <script>
     /* ===============================================================
-       CONTENT AREA — Replace labels and placeholder media here later.
-       No real image/video/iframe links have been inserted into DEMO 02.
+       1. CHAPTER STRUCTURE & PERSONAL NARRATIVE DATA
        =============================================================== */
     const sections = [
       { id: 'home', title: 'Home', label: 'Home' },
-      { id: 'competition', title: 'Competition', label: 'Competition', chapter: '01' },
-      { id: 'work', title: 'Work', label: 'Work', chapter: '02' },
-      { id: 'future', title: 'Future Project', label: 'Future Project', chapter: '03' }
+      { id: 'soft-ground', title: 'Soft Ground', label: 'Soft Ground', chapter: '01' },
+      { id: 'playful-works', title: 'Playful Works', label: 'Playful Works', chapter: '02' },
+      { id: 'thoughtful-dreams', title: 'Thoughtful Dreams', label: 'Thoughtful Dreams', chapter: '03' }
     ];
 
     const projects = {
-      competition: [
-        { name:'2023 Taiwan Cannes Young Lion', eyebrow:'01 / Competition', awards:['Student Category · 1st Place','Professional Category · 4th'], media:'Presentation Board', tone:'gold', mediaType:'board', mediaSrc:'assets/2023台灣坎城青年獅_presentation board.jpg', 
-         brief:'Following the pandemic, many people in Taiwan were unaware of the damage to their lung health. The challenge was to raise awareness of lung function and encourage more people to take action through early screening.', 
-         thinking:'Lung health is complex, and its problems are often invisible, making early screening feel unnecessary. To make the issue relatable, we borrowed the concept of “Qi” from Kung Fu. In Chinese, “Qi” means both air and vital energy. Even a Kung Fu master cannot perform a single move without enough Qi. We turned this cultural insight into an interactive website, allowing people to experience firsthand the limitations of poor lung capacity.' },
-        { name:'2024 DigiAsia × 4A Taiwan Youth Competition', eyebrow:'02 / Competition', awards:['Professional Category · 1st Place'], media:'Presentation Board', tone:'lime', mediaType:'board', mediaSrc:'assets/2024 創意戰鬥營_presentation board.jpg', 
-         brief:'Explore how generative AI can transform the digital creative industry through the AI4U initiative.', 
-         thinking:'AI should do more than improve efficiency. It should extend the reach of creativity to people often overlooked. In Taiwan, dementia is increasingly common. While regular conversation can help maintain communication abilities, not every family can afford daily therapy or provide constant companionship. We envisioned an AI companion that engages older adults with dementia in guided daily conversations, making cognitive and language stimulation more accessible to families who need it most.' },
-        { name:'2025 MAD STARS NEW STARS', eyebrow:'03 / Competition', awards:['Executive Chairman’s Special Award'], media:'Presentation Board', tone:'rose', mediaType:'board', mediaSrc:'assets/2025 New Star_presentation board.jpg', 
-         brief:'Develop a public campaign to overcome fear and foster engagement in the age of artificial intelligence.', 
-         thinking:'We started by questioning why people fear things. We realized that many fears are learned rather than experienced. Long before most people encountered AI firsthand, Hollywood had already cast it as a villain threatening humanity. That hardly seemed fair to AI! So we decided to give AI a voice of its own, hosting a press conference where it could defend itself, explain its intentions, and show how it could improve everyday life.' }
+      'soft-ground': [
+        {
+          id: 'own-bimonthly',
+          name: 'own bi.monthly（一個人生活）',
+          imagePrimary: 'assets/own vol.1.png',
+          imageSecondary: 'own vol.1.png',
+          copyLines: [
+            'During COVID,',
+            'we learnt to be alone together.'
+          ]
+        },
+        {
+          id: 'osmanthus-tea',
+          name: '桂有光 Osmanthus Tea Brand',
+          imagePrimary: 'assets/YongAn Tea package.png',
+          imageSecondary: 'YongAn Tea package.png',
+          copyLines: [
+            'A fading village.',
+            'A forgotten tea.',
+            'A future brewing.'
+          ]
+        }
       ],
-      work: [
-        { name:'Combat X Power Station', eyebrow:'01 / Selected Work', media:'Embedded Video', tone:'rose', mediaType:'video', mediaSrc:'assets/康貝特200P EX｜動力火車完整版.mp4', videoUrl:'', 
-         objective:'Raise awareness of Combat 200P EX among its target audience of middle-aged working professionals in Taiwan.', 
-         strategy:'Energy drink market in Taiwan is crowded with both products and advertisements. With a stronger energy boost than most competitors, Combat 200P EX needed to make that advantage unforgettable within seconds. Our challenge was to make its superior energizing effect stick in consumers’ minds, so that when they stood in front of a convenience store shelf, Combat would be their instinctive choice.', 
-         idea:'We teamed up with Power Station, one of Taiwan’s most energetic pop duos, to create an irresistibly catchy commercial jingle embedded with alpha waves. The goal? Make viewers remember Combat 200P EX and feel energized just by watching the ad.' },
-        { name:'OREO COSMIC RADIO WAVE', eyebrow:'02 / Selected Work', media:'Project Image', tone:'sky', mediaType:'image', mediaSrc:'assets/OREO Cosmic Wave.jpg', caption:"Selected by the client from submissions across VML’s APAC offices; ultimately not produced.",
-         objective:'Build awareness of Oreo’s new cosmic-themed flavors among Gen Z consumers in the Chinese market.', 
-         strategy:'Building on the APAC campaign’s theme of the universe as a symbol of dreams, we uncovered a cultural distinction: unlike younger generations elsewhere, Chinese Gen Z aren’t necessarily dreaming of space travel. Instead, they believe in speaking their ambitions aloud, both to motivate themselves and attract people who can help. So we decided to help them make their loudest wish ever—loud enough for the entire universe to hear!', 
-         idea:'We added a wishing QR code to Oreo packaging, letting consumers submit their dreams to be transmitted into space through an Oreo-shaped radio telescope, with the entire process livestreamed for everyone on Earth to witness.' },
-        { name:'MAZDA CX-3 — My Elegant Comrade', eyebrow:'03 / Selected Work', media:'Embedded Video', tone:'peach', mediaType:'video', mediaSrc:'assets/Mazda CX-3_我的優雅戰友.mp4', videoUrl:'', 
-         objective:'Drive sales of the Mazda CX-3 in Taiwan by positioning it as a stylish, elegant choice.', 
-         strategy:'Customer data revealed that CX-3 owners were more likely to be young women than those of other Mazda models. They earned above-average incomes, but not enough to escape the demands of work. For these women, elegance wasn’t a luxury born of having time to spare. It was something they fought to maintain amid the chaos of everyday life. Elegance wasn’t effortless—it was hard-earned.', 
-         idea:'We portrayed the daily battles of modern urban women, showing how the Mazda CX-3 helps them move gracefully between demanding roles and situations, maintaining their composure and elegance no matter how hectic life gets.' }
+
+      'playful-works': [
+        {
+          name: 'VC Kung Fu',
+          eyebrow: '01 / Playful Works',
+          awards: ['2023 Taiwan Cannes Young Lion · Student 1st Place', 'Professional Category · 4th Place'],
+          media: 'Presentation Board',
+          tone: 'gold',
+          mediaType: 'board',
+          mediaSrc: 'assets/2023台灣坎城青年獅_presentation board.jpg',
+          brief: 'Following the pandemic, many people in Taiwan were unaware of the damage to their lung health. The challenge was to raise awareness of lung function and encourage more people to take action through early screening.',
+          thinking: 'Lung health is complex, and its problems are often invisible, making early screening feel unnecessary. To make the issue relatable, we borrowed the concept of \u201cQi\u201d from Kung Fu. In Chinese, \u201cQi\u201d means both air and vital energy. Even a Kung Fu master cannot perform a single move without enough Qi. We turned this cultural insight into an interactive website, allowing people to experience firsthand the limitations of poor lung capacity.'
+        },
+        {
+          name: 'OREO COSMIC RADIO WAVE',
+          eyebrow: '02 / Playful Works',
+          media: 'Project Image',
+          tone: 'sky',
+          mediaType: 'image',
+          mediaSrc: 'assets/OREO Cosmic Wave.jpg',
+          caption: 'Selected by the client from submissions across VML\u2019s APAC offices; ultimately not produced.',
+          objective: 'Build awareness of Oreo\u2019s new cosmic-themed flavors among Gen Z consumers in the Chinese market.',
+          strategy: 'Building on the APAC campaign\u2019s theme of the universe as a symbol of dreams, we uncovered a cultural distinction: unlike younger generations elsewhere, Chinese Gen Z aren\u2019t necessarily dreaming of space travel. Instead, they believe in speaking their ambitions aloud, both to motivate themselves and attract people who can help. So we decided to help them make their loudest wish ever\u2014loud enough for the entire universe to hear!',
+          idea: 'We added a wishing QR code to Oreo packaging, letting consumers submit their dreams to be transmitted into space through an Oreo-shaped radio telescope, with the entire process livestreamed for everyone on Earth to witness.'
+        },
+        {
+          name: 'Combat X Power Station',
+          eyebrow: '03 / Playful Works',
+          media: 'Embedded Video',
+          tone: 'rose',
+          mediaType: 'video',
+          mediaSrc: 'assets/康貝特200P EX｜動力火車完整版.mp4',
+          videoUrl: '',
+          objective: 'Raise awareness of Combat 200P EX among its target audience of middle-aged working professionals in Taiwan.',
+          strategy: 'Energy drink market in Taiwan is crowded with both products and advertisements. With a stronger energy boost than most competitors, Combat 200P EX needed to make that advantage unforgettable within seconds. Our challenge was to make its superior energizing effect stick in consumers\u2019 minds, so that when they stood in front of a convenience store shelf, Combat would be their instinctive choice.',
+          idea: 'We teamed up with Power Station, one of Taiwan\u2019s most energetic pop duos, to create an irresistibly catchy commercial jingle embedded with alpha waves. The goal? Make viewers remember Combat 200P EX and feel energized just by watching the ad.'
+        },
+        {
+          name: 'DEAR HOLLYWOOD, AI\u2019LL SUE YOU',
+          eyebrow: '04 / Playful Works',
+          awards: ['2025 MAD STARS NEW STARS · Executive Chairman\u2019s Special Award'],
+          media: 'Presentation Board',
+          tone: 'rose',
+          mediaType: 'board',
+          mediaSrc: 'assets/2025 New Star_presentation board.jpg',
+          brief: 'Develop a public campaign to overcome fear and foster engagement in the age of artificial intelligence.',
+          thinking: 'We started by questioning why people fear things. We realized that many fears are learned rather than experienced. Long before most people encountered AI firsthand, Hollywood had already cast it as a villain threatening humanity. That hardly seemed fair to AI! So we decided to give AI a voice of its own, hosting a press conference where it could defend itself, explain its intentions, and show how it could improve everyday life.'
+        }
+        /* PRESERVED FOR LATER DECISION:
+        ,{
+          name: 'MAZDA CX-3 — My Elegant Comrade',
+          eyebrow: 'Selected Work',
+          media: 'Embedded Video',
+          tone: 'peach',
+          mediaType: 'video',
+          mediaSrc: 'assets/Mazda CX-3_我的優雅戰友.mp4',
+          videoUrl: '',
+          objective: 'Drive sales of the Mazda CX-3 in Taiwan by positioning it as a stylish, elegant choice.',
+          strategy: 'Customer data revealed that CX-3 owners were more likely to be young women than those of other Mazda models. They earned above-average incomes, but not enough to escape the demands of work. For these women, elegance wasn\u2019t a luxury born of having time to spare. It was something they fought to maintain amid the chaos of everyday life. Elegance wasn\u2019t effortless\u2014it was hard-earned.',
+          idea: 'We portrayed the daily battles of modern urban women, showing how the Mazda CX-3 helps them move gracefully between demanding roles and situations, maintaining their composure and elegance no matter how hectic life gets.'
+        }
+        */
       ],
-      future: [
-        { name:'EmoTogether', eyebrow:'01 / Future Project', media:'EmoTogether Interactive Demo', tone:'sky', mediaType:'embed', embedUrl:'https://chienwen75.github.io/EmoTogether/', 
-         background:'Talking to AI has become a common way to cope with loneliness. Yet, because AI isn’t human, relying on it for emotional support over time may risk distancing people from real-world relationships.', 
-         insight:'If AI learns from data created by real people, could we turn interacting with AI into an experience that makes us feel more connected to humanity, rather than further isolated from it?', 
-         experiment:'Emotions are deeply personal yet universally shared. I used AI to create music inspired by expressions of joy, anger, and sadness from musicians worldwide. By responding to users’ facial expressions with corresponding music, AI becomes a bridge to others who share their feelings.' },
-        { name:'Being Here', eyebrow:'02 / Future Project', media:'Concept Image', tone:'lavender', mediaType:'image', mediaSrc:'assets/Being Here.jpg', 
-         background:'Parents often establish trust funds to financially protect their children after they’re gone. Yet, growing up requires more than financial security. Children also long for their parents’ presence, guidance, and the chance to truly know who their parents were.', 
-         insight:'Death takes away the chance to get to know someone firsthand. But what if we could prepare future moments of connection in advance, allowing the relationship between parents and children to keep growing even after death?', 
-         experiment:'Using AI simulations, I help parents imagine the support their children might need at future milestones, such as turning 18, graduating, or getting married. Parents can then record personal messages in advance, delivered when those moments finally arrive.' }
+
+      'thoughtful-dreams': [
+        {
+          name: 'EmoTogether',
+          eyebrow: '01 / Thoughtful Dreams',
+          media: 'EmoTogether Interactive Demo',
+          tone: 'sky',
+          mediaType: 'embed',
+          embedUrl: 'https://chienwen75.github.io/EmoTogether/',
+          background: 'Talking to AI has become a common way to cope with loneliness. Yet, because AI isn\u2019t human, relying on it for emotional support over time may risk distancing people from real-world relationships.',
+          insight: 'If AI learns from data created by real people, could we turn interacting with AI into an experience that makes us feel more connected to humanity, rather than further isolated from it?',
+          experiment: 'Emotions are deeply personal yet universally shared. I used AI to create music inspired by expressions of joy, anger, and sadness from musicians worldwide. By responding to users\u2019 facial expressions with corresponding music, AI becomes a bridge to others who share their feelings.'
+        },
+        {
+          name: 'Ring the Memory Line',
+          eyebrow: '02 / Thoughtful Dreams',
+          awards: ['2024 DigiAsia × 4A Taiwan Youth Competition · Professional 1st Place'],
+          media: 'Presentation Board',
+          tone: 'lime',
+          mediaType: 'board',
+          mediaSrc: 'assets/2024 創意戰鬥營_presentation board.jpg',
+          brief: 'Explore how generative AI can transform the digital creative industry through the AI4U initiative.',
+          thinking: 'AI should do more than improve efficiency. It should extend the reach of creativity to people often overlooked. In Taiwan, dementia is increasingly common. While regular conversation can help maintain communication abilities, not every family can afford daily therapy or provide constant companionship. We envisioned an AI companion that engages older adults with dementia in guided daily conversations, making cognitive and language stimulation more accessible to families who need it most.'
+        },
+        {
+          name: 'Being Here',
+          eyebrow: '03 / Thoughtful Dreams',
+          media: 'Concept Image',
+          tone: 'lavender',
+          mediaType: 'image',
+          mediaSrc: 'assets/Being Here.jpg',
+          background: 'Parents often establish trust funds to financially protect their children after they\u2019re gone. Yet, growing up requires more than financial security. Children also long for their parents\u2019 presence, guidance, and the chance to truly know who their parents were.',
+          insight: 'Death takes away the chance to get to know someone firsthand. But what if we could prepare future moments of connection in advance, allowing the relationship between parents and children to keep growing even after death?',
+          experiment: 'Using AI simulations, I help parents imagine the support their children might need at future milestones, such as turning 18, graduating, or getting married. Parents can then record personal messages in advance, delivered when those moments finally arrive.'
+        }
       ]
     };
 
+    /* Detailed Botanical Fine-Liner Ink Illustrations (six distinct wildflower, fern, reed & scalloped bush compositions) */
+    const grassTufts = {
+      /* 1. Top-Center (Left Page): Wildflower Spikes, Cup Blossoms, Arching Seed Grasses & Base Scribble */
+      topCenter: `<svg viewBox="0 0 185 110" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 93 C31 79 21 68 11 61" stroke-width="1.35"/>
+          <path d="M43 93 C35 76 28 62 22 50" stroke-width="1.3"/>
+          <path d="M22 50 C18 46 18 41 21 40 C23 42 25 40 27 42 C28 45 25 48 22 50 Z" stroke-width="1.1"/>
+          <path d="M46 93 C41 75 37 61 34 48" stroke-width="1.3"/>
+          <path d="M34 48 C30 44 30 39 33 38 C35 40 37 38 39 40 C40 43 37 46 34 48 Z" stroke-width="1.1"/>
+          <path d="M49 93 C47 77 46 64 46 53" stroke-width="1.25"/>
+          <path d="M46 53 C43 49 43 45 46 44 C48 46 50 45 51 47 C51 50 49 52 46 53 Z" stroke-width="1.05"/>
+          <path d="M36 93 C28 84 20 77 12 73" stroke-width="1.15"/>
+
+          <path d="M68 88 C63 66 57 48 51 34" stroke-width="1.35"/>
+          <path d="M80 86 C77 60 74 37 72 17" stroke-width="1.4"/>
+          <path d="M93 87 C93 62 94 40 96 21" stroke-width="1.4"/>
+          <path d="M104 89 C107 69 111 52 116 37" stroke-width="1.3"/>
+
+          <path d="M51 34 c-3-3 1-6 3-3 c3-2 5 2 2 4 M55 42 c-4-2-1-6 2-4 M49 46 c-4-1-2-6 1-4 M58 51 c-4-2-1-6 2-4 M52 56 c-4-1-2-6 1-4" stroke-width="1.05"/>
+          <path d="M72 17 c-3-3 1-6 3-3 c3-2 5 2 2 4 M70 25 c-4-1-2-6 1-4 M76 28 c-4-2-1-6 2-4 M71 35 c-4-1-2-6 1-4 M77 39 c-4-2-1-6 2-4 M72 46 c-4-1-2-6 1-4 M79 50 c-4-2-1-6 2-4" stroke-width="1.1"/>
+          <path d="M96 21 c-3-3 1-6 3-3 c3-2 5 2 2 4 M93 30 c-4-1-2-6 1-4 M99 33 c-4-2-1-6 2-4 M92 41 c-4-1-2-6 1-4 M98 45 c-4-2-1-6 2-4 M92 52 c-4-1-2-6 1-4" stroke-width="1.1"/>
+          <path d="M116 37 c-3-3 1-6 3-3 M113 46 c-4-1-2-6 1-4 M118 50 c-4-2-1-6 2-4" stroke-width="1.05"/>
+
+          <path d="M56 89 l4-6 4 5 5-7 4 6 5-6 4 5 5-6 4 6 5-5 4 6" stroke-width="1.15"/>
+          <path d="M62 79 l4-5 4 4 5-6 4 5 5-5 4 4 4-5 3 5" stroke-width="1.05"/>
+          <path d="M68 69 l3-4 4 4 4-5 4 4 4-4 3 4" stroke-width="1.0"/>
+
+          <path d="M115 92 C117 69 121 47 128 28" stroke-width="1.4"/>
+          <path d="M128 28 C129 23 131 20 132 18 C131 22 130 26 128 28 Z" stroke-width="1.25"/>
+          <path d="M121 92 C126 71 134 52 145 36" stroke-width="1.4"/>
+          <path d="M145 36 C148 31 151 28 153 26 C151 30 148 34 145 36 Z" stroke-width="1.25"/>
+          <path d="M127 92 C135 75 146 60 159 48" stroke-width="1.35"/>
+          <path d="M159 48 C163 44 166 42 168 41 C165 44 162 47 159 48 Z" stroke-width="1.2"/>
+          <path d="M133 92 C143 79 154 69 167 61" stroke-width="1.25"/>
+          <path d="M111 92 C110 77 110 64 112 52" stroke-width="1.15"/>
+
+          <path d="M22 94 C44 93 68 93.5 92 94" stroke-width="1.3"/>
+          <path d="M102 94 C122 93.5 142 93.5 160 94" stroke-width="1.3"/>
+          <path d="M35 98 C50 97.5 64 98 78 98.5" stroke-width="0.95"/>
+
+          <circle cx="17" cy="52" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="42" cy="34" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="84" cy="14" r="1.15" fill="currentColor" stroke="none"/>
+          <circle cx="107" cy="24" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="141" cy="24" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="163" cy="34" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="174" cy="52" r="0.95" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`,
+
+      /* 2. Lower-Left (Left Page): Scalloped Cloud Shrub + Feathered Fern Fronds & Wild Berries */
+      lowerLeft: `<svg viewBox="0 0 164 94" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left feathery fern frond -->
+          <path d="M34 76 C26 57 18 41 10 28" stroke-width="1.35"/>
+          <path d="M26 58 l-7-4 M28 58 l5-6 M22 49 l-7-3 M24 49 l5-6 M18 40 l-6-3 M19 40 l4-5 M14 33 l-5-2 M15 33 l3-4" stroke-width="1.1"/>
+          <!-- Slender grass blades -->
+          <path d="M39 76 C35 58 33 42 33 26" stroke-width="1.4"/>
+          <path d="M43 76 C43 56 45 38 49 22" stroke-width="1.35"/>
+          <path d="M29 76 C22 66 15 58 7 53" stroke-width="1.2"/>
+
+          <!-- Scalloped ink shrub with layered foliage texture -->
+          <path d="M54 76 C48 71 49 62 56 60 C53 51 60 43 68 45 C71 35 83 33 89 41 C95 33 107 35 110 44 C118 42 126 50 123 59 C130 61 132 71 125 76" stroke-width="1.5"/>
+          <path d="M65 63 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M81 52 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M98 64 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
+          <path d="M74 71 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
+
+          <!-- Right delicate seed sprigs -->
+          <path d="M132 76 C136 62 142 50 150 40" stroke-width="1.3"/>
+          <path d="M136 76 C142 66 149 58 157 53" stroke-width="1.2"/>
+
+          <!-- Broken ground dashes & ink dots -->
+          <path d="M14 77.5 C38 76.5 64 77 90 77.5" stroke-width="1.3"/>
+          <path d="M100 77.5 C120 77 138 77 154 77.5" stroke-width="1.25"/>
+          <path d="M48 81.5 C68 81 88 81 106 81.5" stroke-width="0.95"/>
+          <circle cx="24" cy="24" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="42" cy="19" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="62" cy="31" r="1.0" fill="currentColor" stroke="none"/>
+          <circle cx="144" cy="33" r="1.05" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`,
+
+      /* 3. Lower-Inner (Left Page, right of caption): Nodding Bellflowers, Seed Plumes & Leaf Tufts */
+      lowerInner: `<svg viewBox="0 0 156 92" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left grass blades & bellflower stem -->
+          <path d="M44 74 C36 60 27 49 17 41" stroke-width="1.3"/>
+          <path d="M49 74 C44 55 41 38 40 22" stroke-width="1.4"/>
+          <!-- Nodding bellflower blossoms -->
+          <path d="M40 22 C35 23 32 27 33 31 C36 30 38 31 40 30 C41 27 41 24 40 22 Z" stroke-width="1.1"/>
+          <path d="M42 33 C37 34 35 38 36 41 C38 40 40 41 42 40" stroke-width="1.05"/>
+
+          <!-- Center tall seed-plume grass stalks -->
+          <path d="M56 74 C55 52 57 32 61 14" stroke-width="1.45"/>
+          <path d="M61 14 c-2 3-3 7-3 10 M61 14 c2 3 3 7 2 10 M60 20 c-3 2-4 5-4 8 M61 20 c3 2 4 5 3 8" stroke-width="1.05"/>
+
+          <path d="M63 74 C66 53 72 34 80 18" stroke-width="1.4"/>
+          <path d="M80 18 c-2 3-4 6-4 9 M80 18 c1 3 2 7 1 10 M78 24 c-3 2-4 5-4 8 M79 24 c2 2 3 5 2 8" stroke-width="1.05"/>
+
+          <!-- Small low foliage cluster -->
+          <path d="M72 74 C70 67 74 61 80 63 C83 56 91 56 94 62 C100 60 105 66 102 74" stroke-width="1.35"/>
+          <path d="M80 68 c2-2 4-2 5 1 c2-2 4-2 5 1" stroke-width="1.0"/>
+
+          <!-- Right arching grass blades -->
+          <path d="M104 74 C110 58 118 45 128 34" stroke-width="1.35"/>
+          <path d="M110 74 C118 62 127 52 138 46" stroke-width="1.25"/>
+          <path d="M115 74 C124 66 134 61 144 58" stroke-width="1.15"/>
+
+          <!-- Broken ground lines & stipple dots -->
+          <path d="M22 75.5 C48 74.5 76 75 102 75.5" stroke-width="1.3"/>
+          <path d="M110 75.5 C124 75 136 75 146 75.5" stroke-width="1.2"/>
+          <path d="M46 79.5 C66 79 86 79 104 79.5" stroke-width="0.95"/>
+          <circle cx="29" cy="31" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="51" cy="15" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="71" cy="14" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="94" cy="26" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="122" cy="28" r="1.0" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`,
+
+      /* 4. Upper-Inner (Right Page, left of "A fading village."): Layered Bush, Foxglove Spike & Seed Stalks */
+      upperInner: `<svg viewBox="0 0 176 98" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left scalloped ink bush with foliage squiggles -->
+          <path d="M20 78 C14 73 15 64 22 62 C19 54 26 46 34 48 C37 39 48 37 54 44 C60 36 72 38 75 47 C83 45 90 53 87 61 C94 63 96 73 89 78" stroke-width="1.5"/>
+          <path d="M31 65 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M47 55 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M64 66 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
+          <path d="M40 73 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
+
+          <!-- Center wildflower spike with looped petals -->
+          <path d="M103 78 C101 56 100 37 102 18" stroke-width="1.45"/>
+          <path d="M102 18 c-3-3 1-6 3-3 c3-2 5 2 2 4 M99 27 c-4-1-2-6 1-4 M105 30 c-4-2-1-6 2-4 M99 38 c-4-1-2-6 1-4 M105 42 c-4-2-1-6 2-4 M99 49 c-4-1-2-6 1-4" stroke-width="1.1"/>
+
+          <!-- Right arching seed-head grass stalks -->
+          <path d="M111 78 C114 56 119 37 127 20" stroke-width="1.45"/>
+          <path d="M127 20 C129 15 131 12 133 10 C131 14 129 18 127 20 Z" stroke-width="1.25"/>
+          <path d="M117 78 C123 60 131 45 142 33" stroke-width="1.4"/>
+          <path d="M142 33 C145 29 148 26 150 25 C147 28 145 31 142 33 Z" stroke-width="1.2"/>
+          <path d="M123 78 C132 65 142 55 154 48" stroke-width="1.25"/>
+          <path d="M97 78 C93 65 89 54 84 45" stroke-width="1.2"/>
+
+          <!-- Broken ground lines -->
+          <path d="M14 79.5 C42 78.5 72 79 98 79.5" stroke-width="1.3"/>
+          <path d="M106 79.5 C126 79 144 79 162 79.5" stroke-width="1.25"/>
+          <path d="M36 83.5 C56 83 78 83 96 83.5" stroke-width="0.95"/>
+
+          <circle cx="92" cy="27" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="115" cy="16" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="139" cy="22" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="156" cy="38" r="1.0" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`,
+
+      /* 5. Mid-Right (Right Page, right of tea pouch): Herb Frond, Wildflower Spike & Crossing Grasses */
+      midRight: `<svg viewBox="0 0 156 92" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Left slender blades & cup flower -->
+          <path d="M44 74 C36 59 27 47 18 37" stroke-width="1.3"/>
+          <path d="M49 74 C43 56 39 40 36 25" stroke-width="1.35"/>
+          <path d="M36 25 C32 21 33 16 36 16 C38 18 40 16 42 18 C42 21 39 24 36 25 Z" stroke-width="1.1"/>
+
+          <!-- Center tall wildflower spike with looped petals -->
+          <path d="M56 74 C55 52 55 33 57 14" stroke-width="1.45"/>
+          <path d="M57 14 c-3-3 1-6 3-3 c3-2 5 2 2 4 M54 23 c-4-1-2-6 1-4 M60 27 c-4-2-1-6 2-4 M54 35 c-4-1-2-6 1-4 M60 39 c-4-2-1-6 2-4 M54 47 c-4-1-2-6 1-4" stroke-width="1.1"/>
+
+          <!-- Right feathery fern frond & grass blades -->
+          <path d="M63 74 C69 55 77 38 88 24" stroke-width="1.4"/>
+          <path d="M72 54 l-5-4 M74 54 l6-2 M77 45 l-5-4 M79 45 l6-2 M82 36 l-4-4 M83 36 l5-2 M85 29 l-3-3 M86 29 l4-2" stroke-width="1.05"/>
+
+          <path d="M69 74 C78 60 88 49 100 41" stroke-width="1.35"/>
+          <path d="M74 74 C85 65 96 58 108 54" stroke-width="1.2"/>
+          <path d="M51 74 l4-5 4 5 4-5 4 5 4-5 4 5" stroke-width="1.05"/>
+
+          <!-- Ground lines & stippling -->
+          <path d="M22 75.5 C48 74.5 76 75 104 75.5" stroke-width="1.3"/>
+          <path d="M38 79.5 C58 79 78 79 96 79.5" stroke-width="0.95"/>
+          <circle cx="27" cy="27" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="48" cy="16" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="74" cy="18" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="98" cy="31" r="1.0" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`,
+
+      /* 6. Bottom-Right (Right Page): Rich Botanical Meadow, Scalloped Shrub & Tall Seed Grasses */
+      bottomRight: `<svg viewBox="0 0 198 104" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M36 86 C27 72 18 61 9 54" stroke-width="1.35"/>
+          <path d="M41 86 C35 68 30 53 26 40" stroke-width="1.35"/>
+          <path d="M26 40 C22 36 23 31 26 31 C28 33 30 31 32 33 C32 36 29 39 26 40 Z" stroke-width="1.1"/>
+          <path d="M46 86 C44 68 43 52 44 37" stroke-width="1.4"/>
+          <path d="M44 37 C40 33 41 28 44 28 C46 30 48 28 50 30 C50 33 47 36 44 37 Z" stroke-width="1.1"/>
+
+          <path d="M62 86 C56 81 57 72 64 70 C61 61 68 53 76 55 C79 45 91 43 97 51 C104 43 116 45 119 54 C127 52 135 60 132 69 C139 71 141 81 134 86" stroke-width="1.5"/>
+          <path d="M74 73 c2-3 5-2 6 1 c2-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M90 62 c2-3 5-2 6 1 c3-3 6-2 6 1" stroke-width="1.1"/>
+          <path d="M107 74 c2-3 5-2 6 1 c2-3 5-2 5 1" stroke-width="1.05"/>
+          <path d="M82 81 l4-4 4 4 5-5 4 4 4-4 4 4" stroke-width="1.0"/>
+
+          <path d="M148 86 C148 63 149 42 151 22" stroke-width="1.45"/>
+          <path d="M151 22 c-3-3 1-6 3-3 c3-2 5 2 2 4 M148 31 c-4-1-2-6 1-4 M154 34 c-4-2-1-6 2-4 M148 42 c-4-1-2-6 1-4 M154 46 c-4-2-1-6 2-4" stroke-width="1.1"/>
+          <path d="M155 86 C160 66 167 48 177 33" stroke-width="1.4"/>
+          <path d="M177 33 C180 28 183 25 185 23 C183 27 180 31 177 33 Z" stroke-width="1.25"/>
+          <path d="M161 86 C170 72 180 60 191 51" stroke-width="1.3"/>
+
+          <path d="M16 87.5 C46 86.5 78 87 108 87.5" stroke-width="1.3"/>
+          <path d="M118 87.5 C144 87 168 87 188 87.5" stroke-width="1.3"/>
+          <path d="M44 91.5 C68 91 92 91 114 91.5" stroke-width="0.95"/>
+
+          <circle cx="19" cy="43" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="56" cy="28" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="139" cy="24" r="1.1" fill="currentColor" stroke="none"/>
+          <circle cx="169" cy="23" r="1.05" fill="currentColor" stroke="none"/>
+          <circle cx="189" cy="41" r="1.0" fill="currentColor" stroke="none"/>
+        </g>
+      </svg>`
+    };
+
+    /* ===============================================================
+       2. DOM REFERENCES & APPLICATION STATE
+       =============================================================== */
     const ui = {
       closed: document.getElementById('closedBook'),
       opened: document.getElementById('openBook'),
@@ -795,288 +1346,577 @@ It is a pleasure to have you in the next chapter.</p>
       dialogTitle: document.getElementById('mediaDialogTitle'),
       dialogType: document.getElementById('dialogType'),
       dialogClose: document.getElementById('dialogClose'),
-      flipLayer: document.getElementById('pageFlipLayer')
+      flipLayer: document.getElementById('pageFlipLayer'),
+      filePicker: document.getElementById('localAssetPicker')
     };
+
     let currentSection = 'home';
     let currentProject = 0;
     let transitionBusy = false;
     let lastFocus = null;
     let scrollFrame = null;
+    const customUploadedObjects = {};
+    let pendingUploadTarget = null;
 
     const homeSVG = '<svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>';
     const pictureSVG = '<svg class="media-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="31" rx="2"/><circle cx="16" cy="18" r="4"/><path d="m7 35 12-12 7 7 7-8 9 12"/></svg>';
     const playSVG = '<svg class="media-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="31" rx="3"/><path d="m20 17 11 7-11 7z"/></svg>';
 
-    // ---------------------------------------------------------------
-    // EDITING GUIDE:
-    // 1. For images/boards/videos upload files to the assets/ folder.
-    // 2. In projects above, insert mediaSrc:'assets/your-file.jpg' or .mp4.
-    //    For a YouTube/Vimeo video, use videoUrl:'https://youtube.com/watch?v=...'.
-    // 3. For EmoTogether, set embedUrl:'https://...your-real-site...'.
-    // 4. For text, fill in brief/thinking/objective/strategy/idea or
-    //    background/insight/experiment. Use \n for new lines inside text.
-    // ---------------------------------------------------------------
-    const escapeHTML = v => String(v??'').replace(/[&<>"']/g, c=>({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
-    function normalizeVideoEmbed(url='') {
-      const input=String(url||'').trim();
-      if(!input) return '';
+    /* ===============================================================
+       3. HELPER & RENDERING FUNCTIONS
+       =============================================================== */
+    const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+
+    function normalizeVideoEmbed(url = '') {
+      const input = String(url || '').trim();
+      if (!input) return '';
       try {
-        const u=new URL(input);
-        const host=u.hostname.toLowerCase();
-        if(host==='youtu.be' || host==='www.youtu.be') {
-          const id=u.pathname.split('/').filter(Boolean)[0]||'';
-          if(/^[a-zA-Z0-9_-]{11}$/.test(id)) return 'https://www.youtube-nocookie.com/embed/'+id;
+        const u = new URL(input);
+        const host = u.hostname.toLowerCase();
+        if (host === 'youtu.be' || host === 'www.youtu.be') {
+          const id = u.pathname.split('/').filter(Boolean)[0] || '';
+          if (/^[a-zA-Z0-9_-]{11}$/.test(id)) return 'https://www.youtube-nocookie.com/embed/' + id;
         }
-        if(['youtube.com','www.youtube.com','m.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(host)) {
-          const id=u.pathname.startsWith('/embed/')?u.pathname.split('/')[2]:u.searchParams.get('v');
-          if(id && /^[a-zA-Z0-9_-]{11}$/.test(id)) return 'https://www.youtube-nocookie.com/embed/'+id;
-          if(u.pathname.startsWith('/shorts/')) {
-            const shortId=u.pathname.split('/')[2];
-            if(/^[a-zA-Z0-9_-]{11}$/.test(shortId)) return 'https://www.youtube-nocookie.com/embed/'+shortId;
+        if (['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtube-nocookie.com', 'www.youtube-nocookie.com'].includes(host)) {
+          const id = u.pathname.startsWith('/embed/') ? u.pathname.split('/')[2] : u.searchParams.get('v');
+          if (id && /^[a-zA-Z0-9_-]{11}$/.test(id)) return 'https://www.youtube-nocookie.com/embed/' + id;
+          if (u.pathname.startsWith('/shorts/')) {
+            const shortId = u.pathname.split('/')[2];
+            if (/^[a-zA-Z0-9_-]{11}$/.test(shortId)) return 'https://www.youtube-nocookie.com/embed/' + shortId;
           }
         }
-        if(host==='vimeo.com' || host==='www.vimeo.com' || host==='player.vimeo.com') {
-          const id=u.pathname.split('/').filter(Boolean).pop();
-          if(id && /^\d+$/.test(id)) return 'https://player.vimeo.com/video/'+id;
+        if (host === 'vimeo.com' || host === 'www.vimeo.com' || host === 'player.vimeo.com') {
+          const id = u.pathname.split('/').filter(Boolean).pop();
+          if (id && /^\d+$/.test(id)) return 'https://player.vimeo.com/video/' + id;
         }
-        if(input.startsWith('https://')) return input; // other embed-player URLs may work
+        if (input.startsWith('https://')) return input;
       } catch (_) {}
       return '';
     }
+
     const safeURL = v => {
-      const url=String(v||'').trim();
-      if(!url || /^(javascript|data|vbscript):/i.test(url)) return '';
+      const url = String(v || '').trim();
+      if (!url || /^(javascript|data|vbscript):/i.test(url)) return '';
       return escapeHTML(url);
     };
-    function lines(n=3) { return `<div class="placeholder-lines" aria-hidden="true">${Array.from({length:n},()=>'<span></span>').join('')}</div>`; }
-    function field(title, content='') {
-      return `<div class="note-field"><h3>${escapeHTML(title)}</h3>${String(content||'').trim()?`<p class="real-copy">${escapeHTML(content)}</p>`:lines()}</div>`;
+
+    function lines(n = 3) {
+      return `<div class="placeholder-lines" aria-hidden="true">${Array.from({ length: n }, () => '<span></span>').join('')}</div>`;
     }
-    function media(project, extraClass='') {
+
+    function field(title, content = '') {
+      return `<div class="note-field"><h3>${escapeHTML(title)}</h3>${String(content || '').trim() ? `<p class="real-copy">${escapeHTML(content)}</p>` : lines()}</div>`;
+    }
+
+    function media(project, extraClass = '') {
       const type = project.mediaType || 'board';
       const src = safeURL(project.mediaSrc);
-      const videoEmbed= type==='video' ? safeURL(normalizeVideoEmbed(project.videoUrl)) : '';
-      if (videoEmbed) return `<div class="real-media-frame ${extraClass}"><iframe class="real-video" title="${escapeHTML(project.name)} — embedded video" loading="lazy" src="${videoEmbed}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
-      if (src && type==='video') return `<div class="real-media-frame ${extraClass}"><video class="real-video" controls playsinline preload="metadata" src="${src}">Your browser does not support this video.</video></div>`;
-      if (src && (type==='image'||type==='board')) return `<button class="real-media-frame real-image-button ${extraClass}" type="button" data-image="${src}" data-media="${escapeHTML(project.media)}" data-project="${escapeHTML(project.name)}" aria-label="Expand image: ${escapeHTML(project.name)}"><img loading="lazy" src="${src}" alt="${escapeHTML(project.name)} — ${escapeHTML(project.media)}"><span class="real-media-hint">Click to enlarge ↗</span></button>`;
-      const graphic=type==='video'?playSVG:pictureSVG;
+      const videoEmbed = type === 'video' ? safeURL(normalizeVideoEmbed(project.videoUrl)) : '';
+      if (videoEmbed) {
+        return `<div class="real-media-frame ${extraClass}"><iframe class="real-video" title="${escapeHTML(project.name)} — embedded video" loading="lazy" src="${videoEmbed}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+      }
+      if (src && type === 'video') {
+        return `<div class="real-media-frame ${extraClass}"><video class="real-video" controls playsinline preload="metadata" src="${src}">Your browser does not support this video.</video></div>`;
+      }
+      if (src && (type === 'image' || type === 'board')) {
+        return `<button class="real-media-frame real-image-button ${extraClass}" type="button" data-image="${src}" data-media="${escapeHTML(project.media)}" data-project="${escapeHTML(project.name)}" aria-label="Expand image: ${escapeHTML(project.name)}"><img loading="lazy" src="${src}" alt="${escapeHTML(project.name)} — ${escapeHTML(project.media)}"><span class="real-media-hint">Click to enlarge ↗</span></button>`;
+      }
+      const graphic = type === 'video' ? playSVG : pictureSVG;
       return `<button class="media-placeholder ${project.tone} ${extraClass}" type="button" data-media="${escapeHTML(project.media)}" data-project="${escapeHTML(project.name)}" data-tone="${escapeHTML(project.tone)}" aria-label="Expand ${escapeHTML(project.media)} placeholder for ${escapeHTML(project.name)}">
         <span class="note-tape" aria-hidden="true"></span>${graphic}<span class="media-label">${escapeHTML(project.media)}</span><span class="media-hint">click to preview fullscreen ↗</span><span class="media-corner">PLACEHOLDER / ADD MEDIA LATER</span>
       </button>`;
     }
-    function renderCompetition(p) {
-      return `<article class="project-panel" aria-label="${escapeHTML(p.name)}">
-        <div class="project-left"><p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p><h2 class="project-name">${escapeHTML(p.name)}</h2>
-          <div class="award-group">${(p.awards||[]).map(a=>`<div class="project-award"><span class="award-star">✦</span>${escapeHTML(a)}</div>`).join('')}</div>
-          ${media(p)}
-        </div><div class="project-right">${field('Brief',p.brief)}${field('My Thinking',p.thinking)}</div>
-      </article>`;
+
+    /* Build character-by-character reading-order spans without breaking mid-word */
+    function buildHandwrittenLines(linesConfig, startDelaySec) {
+      let cursorTime = startDelaySec;
+      const charStep = 0.044;
+      const linePause = 0.08;
+
+      const html = linesConfig.map(cfg => {
+        const words = cfg.text.split(' ');
+        const wordsHTML = words.map((word, wIdx) => {
+          const glyphsHTML = Array.from(word).map(ch => {
+            const delayStr = cursorTime.toFixed(3);
+            cursorTime += charStep;
+            return `<span class="hw-glyph" style="--g-delay:${delayStr}s">${escapeHTML(ch)}</span>`;
+          }).join('');
+
+          let spaceHTML = '';
+          if (wIdx < words.length - 1) {
+            cursorTime += charStep * 0.55;
+            spaceHTML = '<span class="hw-space" aria-hidden="true"> </span>';
+          }
+          return `<span class="hw-word">${glyphsHTML}</span>${spaceHTML}`;
+        }).join('');
+
+        cursorTime += linePause;
+        return `<span class="hw-line" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};">${wordsHTML}</span>`;
+      }).join('');
+
+      return { html, endTime: cursorTime };
     }
-    function renderWork(p) {
+
+    /* Render Chapter 01: Soft Ground Illustrated Two-Page Collage */
+    function renderSoftGroundSpread() {
+      const ownData = projects['soft-ground'][0];
+      const teaData = projects['soft-ground'][1];
+      const ownSrc = customUploadedObjects['own'] || escapeHTML(ownData.imagePrimary);
+      const teaSrc = customUploadedObjects['tea'] || escapeHTML(teaData.imagePrimary);
+
+      const leftText = buildHandwrittenLines([
+        { text: 'During COVID,', rot: '-1.2deg', indent: '0px' },
+        { text: 'we learnt to be alone together.', rot: '-0.3deg', indent: '12px' }
+      ], 0.28);
+
+      const rightTopText = buildHandwrittenLines([
+        { text: 'A fading village.', rot: '-1.0deg', indent: '0px' },
+        { text: 'A forgotten tea.', rot: '-0.4deg', indent: '10px' }
+      ], leftText.endTime + 0.32);
+
+      const rightBottomText = buildHandwrittenLines([
+        { text: 'A future brewing.', rot: '-0.8deg', indent: '4px' }
+      ], rightTopText.endTime + 0.22);
+
+      return `<div class="soft-ground-spread" id="softGroundSpread" aria-label="Soft Ground visual collage">
+        <!-- LEFT PAGE: own bi.monthly -->
+        <div class="sg-page sg-left">
+          <div class="sg-grass sg-grass--top-center">${grassTufts.topCenter}</div>
+          <div class="sg-grass sg-grass--lower-left">${grassTufts.lowerLeft}</div>
+          <div class="sg-grass sg-grass--lower-inner">${grassTufts.lowerInner}</div>
+
+          <div class="sg-cluster sg-cluster--left">
+            <div class="sg-collage-item sg-item--own" data-sg-upload="own" title="own bi.monthly (Click to attach local PNG if previewing offline)">
+              <div class="sg-own-photo-wrap">
+                <img src="${ownSrc}" data-alt-src="${escapeHTML(ownData.imageSecondary)}" data-cutout-key="own" alt="own bi.monthly Vol. 01 magazine cover" />
+              </div>
+              <!-- Hand-drawn fine-liner ink rectangular frame with overshooting corners -->
+              <svg class="sg-outline-svg" viewBox="0 0 220 310" aria-hidden="true">
+                <g fill="none" stroke="#2a2e28" stroke-width="1.65" stroke-linecap="round">
+                  <path d="M -5 3 Q 110 1 224 4" />
+                  <path d="M 218 -4 Q 220 155 217 314" />
+                  <path d="M 225 307 Q 108 309 -4 306" />
+                  <path d="M 2 314 Q 0 152 3 -5" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="sg-copy-group sg-copy--own" aria-label="During COVID, we learnt to be alone together.">
+              ${leftText.html}
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PAGE: 桂有光 Osmanthus Tea Brand -->
+        <div class="sg-page sg-right">
+          <div class="sg-grass sg-grass--upper-inner">${grassTufts.upperInner}</div>
+          <div class="sg-grass sg-grass--mid-right">${grassTufts.midRight}</div>
+          <div class="sg-grass sg-grass--bottom-right">${grassTufts.bottomRight}</div>
+
+          <div class="sg-cluster sg-cluster--right">
+            <div class="sg-copy-group sg-copy--tea-top" aria-label="A fading village. A forgotten tea.">
+              ${rightTopText.html}
+            </div>
+
+            <div class="sg-collage-item sg-item--tea" data-sg-upload="tea" title="桂有光 Osmanthus Tea Brand (Click to attach local PNG if previewing offline)">
+              <div class="sg-tea-photo-wrap">
+                <img src="${teaSrc}" data-alt-src="${escapeHTML(teaData.imageSecondary)}" data-cutout-key="tea" alt="桂有光 Osmanthus Tea Brand golden pouch package" />
+              </div>
+              <!-- Custom-shaped hand-drawn fine-liner SVG contour hugging the golden tea pouch silhouette -->
+              <svg class="sg-outline-svg" viewBox="0 0 240 236" aria-hidden="true">
+                <path
+                  d="M 42 22
+                     C 86 20, 154 20, 198 22
+                     C 206 23, 210 34, 213 62
+                     C 215 76, 218 84, 215 92
+                     C 218 124, 220 162, 213 196
+                     C 209 211, 197 215, 168 217
+                     C 138 220, 102 220, 72 217
+                     C 43 215, 31 211, 27 196
+                     C 20 162, 22 124, 25 92
+                     C 22 84, 25 76, 27 62
+                     C 30 34, 34 23, 42 22 Z"
+                  fill="none"
+                  stroke="#2a2e28"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <div class="sg-copy-group sg-copy--tea-bottom" aria-label="A future brewing.">
+              ${rightBottomText.html}
+            </div>
+          </div>
+
+          <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay handwriting animation" title="Replay handwriting">↻</button>
+        </div>
+      </div>`;
+    }
+
+    function attachSoftGroundImageFallbacks() {
+      const imgs = ui.viewport.querySelectorAll('.soft-ground-spread img');
+      imgs.forEach(img => {
+        img.addEventListener('error', function handleImgError() {
+          const altSrc = this.getAttribute('data-alt-src');
+          if (altSrc && !this.dataset.triedAlt) {
+            this.dataset.triedAlt = '1';
+            this.src = altSrc;
+            return;
+          }
+          const key = this.getAttribute('data-cutout-key');
+          const parent = this.parentElement;
+          if (!parent) return;
+          if (key === 'own') {
+            parent.innerHTML = `<div class="sg-cutout-fallback">
+              <div class="sg-fallback-own-art">
+                <div></div>
+                <div style="display:flex;gap:2px;">
+                  <span class="sg-fallback-own-vert">OWN</span>
+                  <span class="sg-fallback-own-sub">一個人生活</span>
+                </div>
+              </div>
+              <div class="sg-fallback-own-foot">
+                <strong>Vol. 01 · 2022 April</strong>
+                <span>異鄉．亦鄉</span>
+              </div>
+              <span class="sg-fallback-attach-pill">Click to attach own vol.1.png</span>
+            </div>`;
+          } else {
+            parent.innerHTML = `<div class="sg-cutout-fallback sg-cutout-fallback--tea">
+              <div class="sg-tea-fold-line"></div>
+              <div class="sg-tea-paper-label">
+                <div class="sg-tea-red-seal"><span>永</span><span>安</span></div>
+              </div>
+              <span class="sg-fallback-attach-pill">Click to attach tea PNG</span>
+            </div>`;
+          }
+        });
+      });
+    }
+
+    function triggerSoftGroundHandwriting() {
+      const spread = document.getElementById('softGroundSpread');
+      if (!spread) return;
+      spread.classList.remove('is-writing');
+      void spread.offsetWidth;
+      spread.classList.add('is-writing');
+    }
+
+    /* Render Chapter 02: Playful Works */
+    function renderPlayfulWork(p) {
+      const awardsHTML = (p.awards && p.awards.length)
+        ? `<div class="award-group">${p.awards.map(a => `<div class="project-award"><span class="award-star">✦</span>${escapeHTML(a)}</div>`).join('')}</div>`
+        : '';
+
+      const rightFieldsHTML = (p.brief || p.thinking)
+        ? `${field('Brief', p.brief)}${field('My Thinking', p.thinking)}`
+        : `${field('Objective', p.objective)}${field('Strategy', p.strategy)}${field('Idea', p.idea)}`;
+
       return `<article class="project-panel" aria-label="${escapeHTML(p.name)}">
         <div class="project-left">
           <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
           <h2 class="project-name">${escapeHTML(p.name)}</h2>
-    
+          ${awardsHTML}
           <div class="work-media">${media(p)}</div>
-    
-          ${p.caption
-            ? `<p class="work-caption">${escapeHTML(p.caption)}</p>`
-            : ''}
+          ${p.caption ? `<p class="work-caption">${escapeHTML(p.caption)}</p>` : ''}
         </div>
-    
         <div class="project-right work-fields">
-          ${field('Objective', p.objective)}
-          ${field('Strategy', p.strategy)}
-          ${field('Idea', p.idea)}
+          ${rightFieldsHTML}
         </div>
       </article>`;
     }
-    function renderFuture(p) {
-      const isEmo=p.name==='EmoTogether';
-      const url=isEmo?safeURL(p.embedUrl):'';
-      const mediaHTML=isEmo?`<div class="browser-shell" aria-label="EmoTogether website preview">
-        <div class="browser-top"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">EmoTogether · Interactive Demo</span></div>
-        ${url?`<iframe title="EmoTogether interactive experience" class="embedded-site" src="${url}" allow="camera; microphone; autoplay; fullscreen" allowfullscreen loading="eager"></iframe><a class="site-fallback-link" href="${url}" target="_blank" rel="noopener noreferrer">Open EmoTogether in a new tab ↗</a>`:`<button class="embedded-placeholder" type="button" data-media="${escapeHTML(p.media)}" data-project="${escapeHTML(p.name)}" data-tone="sky"><strong>EmoTogether</strong><span>Interactive Website · 16:9 Demo Slot</span><small>Your real interactive website will be shown here.</small></button>`}
-      </div>`:media(p,'future-image');
-      
-      return `
-        <article class="project-panel future-panel ${isEmo ? 'future-panel--emo' : ''}"
-                 aria-label="${escapeHTML(p.name)}">
 
-          <div class="project-left">
-            <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
+    /* Render Chapter 03: Thoughtful Dreams */
+    function renderThoughtfulDream(p) {
+      const isEmo = p.name === 'EmoTogether';
+      const isBeingHere = p.name === 'Being Here';
+      const url = isEmo ? safeURL(p.embedUrl) : '';
 
-            <div class="future-heading">
-              <h2>${escapeHTML(p.name)}</h2>
-              ${isEmo ? '<span class="demo-chip">DEMO</span>' : ''}
-            </div>
+      const awardsHTML = (p.awards && p.awards.length)
+        ? `<div class="award-group">${p.awards.map(a => `<div class="project-award"><span class="award-star">✦</span>${escapeHTML(a)}</div>`).join('')}</div>`
+        : '';
 
-            ${mediaHTML}
+      const mediaHTML = isEmo
+        ? `<div class="browser-shell" aria-label="EmoTogether website preview">
+            <div class="browser-top"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">EmoTogether · Interactive Demo</span></div>
+            ${url
+              ? `<iframe title="EmoTogether interactive experience" class="embedded-site" src="${url}" allow="camera; microphone; autoplay; fullscreen" allowfullscreen loading="eager"></iframe><a class="site-fallback-link" href="${url}" target="_blank" rel="noopener noreferrer">Open EmoTogether in a new tab ↗</a>`
+              : `<button class="embedded-placeholder" type="button" data-media="${escapeHTML(p.media)}" data-project="${escapeHTML(p.name)}" data-tone="sky"><strong>EmoTogether</strong><span>Interactive Website · 16:9 Demo Slot</span><small>Your real interactive website will be shown here.</small></button>`}
+          </div>`
+        : media(p, isBeingHere ? 'future-image' : '');
+
+      const rightFieldsHTML = (p.brief || p.thinking)
+        ? `${field('Brief', p.brief)}${field('My Thinking', p.thinking)}`
+        : `${field('Background', p.background)}${field('Insight', p.insight)}${field('Experiment', p.experiment)}`;
+
+      return `<article class="project-panel future-panel ${isEmo ? 'future-panel--emo' : ''} ${isBeingHere ? 'future-panel--being-here' : ''}" aria-label="${escapeHTML(p.name)}">
+        <div class="project-left">
+          <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
+          <div class="future-heading">
+            <h2>${escapeHTML(p.name)}</h2>
+            ${isEmo ? '<span class="demo-chip">DEMO</span>' : ''}
           </div>
-
-          <div class="project-right work-fields">
-            ${field('Background', p.background)}
-            ${field('Insight', p.insight)}
-            ${field('Experiment', p.experiment)}
-          </div>
-
-        </article>`;
-
+          ${awardsHTML}
+          ${mediaHTML}
+        </div>
+        <div class="project-right work-fields">
+          ${rightFieldsHTML}
+        </div>
+      </article>`;
     }
 
-    function tabClass(id) { return id === 'future' ? 'future' : id; }
     function renderTabs(section) {
-      const index = sections.findIndex(s=>s.id === section);
-      ui.tabs.innerHTML = sections.map((s,i)=>{
+      const index = sections.findIndex(s => s.id === section);
+      ui.tabs.innerHTML = sections.map((s, i) => {
         const side = i <= index ? 'left' : 'right';
-        const active = i===index ? 'aria-current="page"' : '';
-        const contents = s.id === 'home' ? homeSVG : s.label;
-        return `<button type="button" class="edge-tab edge-tab--${tabClass(s.id)} ${side}" data-section="${s.id}" aria-label="Go to ${s.label}" ${active}>${contents}</button>`;
+        const active = i === index ? 'aria-current="page"' : '';
+        const contents = s.id === 'home' ? homeSVG : escapeHTML(s.label);
+        return `<button type="button" class="edge-tab edge-tab--${s.id} ${side}" data-section="${s.id}" aria-label="Go to ${escapeHTML(s.label)}" ${active}>${contents}</button>`;
       }).join('');
     }
 
     function refreshProgress() {
       const total = projects[currentSection]?.length || 1;
-      const text = `${String(currentProject+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+      const text = `${String(currentProject + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
       ui.headerCount.textContent = text;
       ui.progress.textContent = text;
-      ui.prev.disabled = currentProject===0;
-      ui.next.disabled = currentProject===total-1;
+      ui.prev.disabled = currentProject === 0;
+      ui.next.disabled = currentProject === total - 1;
     }
-    function jumpToProject(index, smooth=true) {
+
+    function jumpToProject(index, smooth = true) {
+      if (currentSection === 'soft-ground') return;
       const panels = Array.from(ui.viewport.children);
       if (!panels.length) return;
-      const target = Math.min(Math.max(index,0),panels.length-1);
-      currentProject=target; refreshProgress();
-      ui.viewport.scrollTo({top:panels[target].offsetTop-ui.viewport.offsetTop, behavior:smooth?'smooth':'instant'});
+      const target = Math.min(Math.max(index, 0), panels.length - 1);
+      currentProject = target;
+      refreshProgress();
+      ui.viewport.scrollTo({
+        top: panels[target].offsetTop - ui.viewport.offsetTop,
+        behavior: smooth ? 'smooth' : 'instant'
+      });
     }
+
     function renderSection(section) {
-      const detail = sections.find(s=>s.id === section);
+      const detail = sections.find(s => s.id === section);
+      const isSoftGround = section === 'soft-ground';
+
+      ui.paper.classList.toggle('is-soft-ground', isSoftGround);
       ui.title.textContent = detail.title;
       ui.chapter.textContent = `Chapter ${detail.chapter}`;
-      ui.paper.classList.toggle('no-spine',section === 'future');
-      const renderer = section === 'competition' ? renderCompetition : section === 'work' ? renderWork : renderFuture;
-      ui.viewport.innerHTML = projects[section].map(renderer).join('');
+
+      if (isSoftGround) {
+        ui.viewport.innerHTML = renderSoftGroundSpread();
+        attachSoftGroundImageFallbacks();
+        requestAnimationFrame(() => triggerSoftGroundHandwriting());
+      } else if (section === 'playful-works') {
+        ui.viewport.innerHTML = projects['playful-works'].map(renderPlayfulWork).join('');
+      } else {
+        ui.viewport.innerHTML = projects['thoughtful-dreams'].map(renderThoughtfulDream).join('');
+      }
+
       ui.viewport.scrollTop = 0;
-      currentProject=0;
+      currentProject = 0;
       renderTabs(section);
       refreshProgress();
     }
-    function setVisible(el,visible) { el.classList.toggle('is-hidden',!visible); el.setAttribute('aria-hidden',String(!visible)); }
+
+    function setVisible(el, visible) {
+      el.classList.toggle('is-hidden', !visible);
+      el.setAttribute('aria-hidden', String(!visible));
+    }
+
     function updateHistory(section) {
       const hash = section === 'home' ? '#home' : `#${section}`;
-      if (location.hash !== hash) history.pushState({section},'',hash);
+      if (location.hash !== hash) history.pushState({ section }, '', hash);
     }
-    function navigate(section, {saveHistory=true,animate=true}={}) {
-      if (!sections.some(s=>s.id===section)) return;
+
+    function navigate(section, { saveHistory = true, animate = true } = {}) {
+      if (!sections.some(s => s.id === section)) return;
       if (transitionBusy) return;
-      if (currentSection === section) { if(section!=='home')jumpToProject(0); return; }
+      if (currentSection === section) {
+        if (section === 'soft-ground') {
+          triggerSoftGroundHandwriting();
+        } else if (section !== 'home') {
+          jumpToProject(0);
+        }
+        return;
+      }
       if (saveHistory) updateHistory(section);
-      const from = currentSection==='home' ? ui.closed : ui.opened;
-      const to = section==='home' ? ui.closed : ui.opened;
+
+      const from = currentSection === 'home' ? ui.closed : ui.opened;
+      const to = section === 'home' ? ui.closed : ui.opened;
+
       const finish = () => {
-        currentSection=section;
-        if (section!=='home') renderSection(section);
-        setVisible(from,false);
-        setVisible(to,true);
+        currentSection = section;
+        if (section !== 'home') renderSection(section);
+        setVisible(from, false);
+        setVisible(to, true);
         from.classList.remove('exit');
         to.classList.remove('enter');
         if (animate) to.classList.add('enter');
-        transitionBusy=false;
+        transitionBusy = false;
       };
-      if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
-      transitionBusy=true;
-      if (from===to) {
-        // Turn one real-looking sheet between notebook chapters.
-        const forward=sections.findIndex(s=>s.id===section)>sections.findIndex(s=>s.id===currentSection);
-        const direction=forward?'forward':'backward';
-        ui.flipLayer.classList.remove('turn-forward','turn-backward');
-        void ui.flipLayer.offsetWidth;
-        ui.flipLayer.classList.add(direction==='forward'?'turn-forward':'turn-backward');
-        setTimeout(()=>{
-          currentSection=section;
-          renderSection(section);
-        },335);
-        setTimeout(()=>{
-          ui.flipLayer.classList.remove('turn-forward','turn-backward');
-          transitionBusy=false;
-        },760);
+
+      if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        finish();
         return;
       }
+
+      transitionBusy = true;
+      if (from === to) {
+        const forward = sections.findIndex(s => s.id === section) > sections.findIndex(s => s.id === currentSection);
+        const direction = forward ? 'forward' : 'backward';
+        ui.flipLayer.classList.remove('turn-forward', 'turn-backward');
+        void ui.flipLayer.offsetWidth;
+        ui.flipLayer.classList.add(direction === 'forward' ? 'turn-forward' : 'turn-backward');
+        setTimeout(() => {
+          currentSection = section;
+          renderSection(section);
+        }, 335);
+        setTimeout(() => {
+          ui.flipLayer.classList.remove('turn-forward', 'turn-backward');
+          transitionBusy = false;
+        }, 760);
+        return;
+      }
+
       from.classList.add('exit');
-      setTimeout(finish,245);
+      setTimeout(finish, 245);
     }
+
     function showMedia(button) {
       lastFocus = document.activeElement;
-      const largeImage=button.dataset.image;
-      if(largeImage){
+      const largeImage = button.dataset.image;
+      if (largeImage) {
         ui.dialogCanvas.classList.add('is-image');
         ui.dialogCanvas.style.removeProperty('--dialog-bg');
-        ui.dialogTitle.textContent=button.dataset.project||'Image';
-        ui.dialogType.textContent='Click outside or press Escape to close';
-        const img=document.createElement('img');
-        img.className='fullscreen-image'; img.src=largeImage; img.alt=button.dataset.project||'Portfolio image';
+        ui.dialogTitle.textContent = button.dataset.project || 'Image';
+        ui.dialogType.textContent = 'Click outside or press Escape to close';
+        const img = document.createElement('img');
+        img.className = 'fullscreen-image';
+        img.src = largeImage;
+        img.alt = button.dataset.project || 'Portfolio image';
         ui.dialogCanvas.querySelector('.fullscreen-image')?.remove();
         ui.dialogCanvas.append(img);
-        ui.dialog.classList.add('open'); ui.dialog.setAttribute('aria-hidden','false'); ui.dialogClose.focus();
+        ui.dialog.classList.add('open');
+        ui.dialog.setAttribute('aria-hidden', 'false');
+        ui.dialogClose.focus();
         return;
       }
       ui.dialogCanvas.classList.remove('is-image');
       ui.dialogCanvas.querySelector('.fullscreen-image')?.remove();
       ui.dialogTitle.textContent = button.dataset.project || 'Media';
-      ui.dialogType.textContent = `${button.dataset.media || 'Media'} · placeholder for tomorrow's content`;
-      const tones = {gold:'#e7ddbb',lime:'#d3ddbf',rose:'#e7cfc7',sky:'#c5dce4',peach:'#e4d1b4',lavender:'#d8d4df'};
-      ui.dialogCanvas.style.setProperty('--dialog-bg',tones[button.dataset.tone]||'#ddd7c8');
-      ui.dialog.classList.add('open'); ui.dialog.setAttribute('aria-hidden','false');
+      ui.dialogType.textContent = `${button.dataset.media || 'Media'} · placeholder`;
+      const tones = { gold: '#e7ddbb', lime: '#d3ddbf', rose: '#e7cfc7', sky: '#c5dce4', peach: '#e4d1b4', lavender: '#d8d4df' };
+      ui.dialogCanvas.style.setProperty('--dialog-bg', tones[button.dataset.tone] || '#ddd7c8');
+      ui.dialog.classList.add('open');
+      ui.dialog.setAttribute('aria-hidden', 'false');
       ui.dialogClose.focus();
     }
+
     function hideMedia() {
       if (!ui.dialog.classList.contains('open')) return;
-      ui.dialog.classList.remove('open'); ui.dialog.setAttribute('aria-hidden','true');
+      ui.dialog.classList.remove('open');
+      ui.dialog.setAttribute('aria-hidden', 'true');
       lastFocus?.focus();
     }
 
-    document.addEventListener('click',e=>{
-      const tab=e.target.closest('[data-section]');
-      if(tab){ navigate(tab.dataset.section); return; }
-      const mediaButton=e.target.closest('[data-media], [data-image]');
-      if(mediaButton){ showMedia(mediaButton); return; }
-    });
-    ui.prev.addEventListener('click',()=>jumpToProject(currentProject-1));
-    ui.next.addEventListener('click',()=>jumpToProject(currentProject+1));
-    ui.dialogClose.addEventListener('click',hideMedia);
-    ui.dialog.addEventListener('click',e=>{if(e.target===ui.dialog)hideMedia();});
-    ui.viewport.addEventListener('scroll',()=>{
-      if(scrollFrame!==null)cancelAnimationFrame(scrollFrame);
-      scrollFrame=requestAnimationFrame(()=>{
-        const panels=Array.from(ui.viewport.children);
-        if(!panels.length) return;
-        const midpoint=ui.viewport.scrollTop+ui.viewport.clientHeight*.45;
-        let best=0;
-        for(let i=0;i<panels.length;i++) if(panels[i].offsetTop-ui.viewport.offsetTop<=midpoint) best=i;
-        if(best!==currentProject){currentProject=best;refreshProgress();}
-      });
-    },{passive:true});
-    document.addEventListener('keydown',e=>{
-      if(ui.dialog.classList.contains('open')) {if(e.key==='Escape')hideMedia();return;}
-      if(currentSection!=='home' && ['ArrowDown','PageDown','ArrowUp','PageUp'].includes(e.key)){
-        e.preventDefault();jumpToProject(currentProject+(['ArrowDown','PageDown'].includes(e.key)?1:-1));
+    /* ===============================================================
+       4. EVENT LISTENERS & INITIALIZATION
+       =============================================================== */
+    document.addEventListener('click', e => {
+      const tab = e.target.closest('[data-section]');
+      if (tab) {
+        navigate(tab.dataset.section);
+        return;
       }
-      if(e.key==='Escape'&&currentSection!=='home')navigate('home');
+      if (e.target.closest('#replayHandwriting')) {
+        triggerSoftGroundHandwriting();
+        return;
+      }
+      const sgFallback = e.target.closest('.sg-cutout-fallback');
+      if (sgFallback) {
+        const item = sgFallback.closest('[data-sg-upload]');
+        if (item) {
+          pendingUploadTarget = item.dataset.sgUpload;
+          ui.filePicker.click();
+          return;
+        }
+      }
+      const mediaButton = e.target.closest('[data-media], [data-image]');
+      if (mediaButton) {
+        showMedia(mediaButton);
+        return;
+      }
     });
-    window.addEventListener('popstate',()=>{
-      const requested=location.hash.replace('#','');
-      navigate(sections.some(s=>s.id===requested)?requested:'home',{saveHistory:false,animate:false});
+
+    ui.filePicker.addEventListener('change', e => {
+      const file = e.target.files && e.target.files[0];
+      if (!file || !pendingUploadTarget) return;
+      const objUrl = URL.createObjectURL(file);
+      customUploadedObjects[pendingUploadTarget] = objUrl;
+      pendingUploadTarget = null;
+      ui.filePicker.value = '';
+      if (currentSection === 'soft-ground') renderSection('soft-ground');
     });
-    window.addEventListener('hashchange',()=>{
-      const requested=location.hash.replace('#','');
-      navigate(sections.some(s=>s.id===requested)?requested:'home',{saveHistory:false,animate:false});
+
+    ui.prev.addEventListener('click', () => jumpToProject(currentProject - 1));
+    ui.next.addEventListener('click', () => jumpToProject(currentProject + 1));
+    ui.dialogClose.addEventListener('click', hideMedia);
+    ui.dialog.addEventListener('click', e => { if (e.target === ui.dialog) hideMedia(); });
+
+    ui.viewport.addEventListener('scroll', () => {
+      if (currentSection === 'soft-ground') return;
+      if (scrollFrame !== null) cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(() => {
+        const panels = Array.from(ui.viewport.children);
+        if (!panels.length) return;
+        const midpoint = ui.viewport.scrollTop + ui.viewport.clientHeight * .45;
+        let best = 0;
+        for (let i = 0; i < panels.length; i++) {
+          if (panels[i].offsetTop - ui.viewport.offsetTop <= midpoint) best = i;
+        }
+        if (best !== currentProject) {
+          currentProject = best;
+          refreshProgress();
+        }
+      });
+    }, { passive: true });
+
+    document.addEventListener('keydown', e => {
+      if (ui.dialog.classList.contains('open')) {
+        if (e.key === 'Escape') hideMedia();
+        return;
+      }
+      if (currentSection !== 'home' && currentSection !== 'soft-ground' && ['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
+        e.preventDefault();
+        jumpToProject(currentProject + (['ArrowDown', 'PageDown'].includes(e.key) ? 1 : -1));
+      }
+      if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
     });
-    const startingSection=location.hash.replace('#','');
-    if(startingSection && startingSection!=='home' && sections.some(s=>s.id===startingSection)) {
-      navigate(startingSection,{saveHistory:false,animate:false});
-    } else { setVisible(ui.closed,true);setVisible(ui.opened,false); }
+
+    window.addEventListener('popstate', () => {
+      const requested = location.hash.replace('#', '');
+      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
+    });
+
+    window.addEventListener('hashchange', () => {
+      const requested = location.hash.replace('#', '');
+      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
+    });
+
+    const startingSection = location.hash.replace('#', '');
+    if (startingSection && startingSection !== 'home' && sections.some(s => s.id === startingSection)) {
+      navigate(startingSection, { saveHistory: false, animate: false });
+    } else {
+      setVisible(ui.closed, true);
+      setVisible(ui.opened, false);
+    }
   </script>
 </body>
 </html>

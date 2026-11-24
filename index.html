@@ -12,7 +12,7 @@
   <style>
     /* ===============================================================
        LIU CHIEN-WEN'S CURATED NOTEBOOK · PERSONAL NARRATIVE EDITION
-       Single-file HTML/CSS/JS. No external framework or build step.
+       Single-file HTML/CSS/JS. Ready for GitHub Pages deployment.
        =============================================================== */
     :root {
       --ink: #283029;
@@ -22,7 +22,7 @@
       --wood-1: #c5a787;
       --wood-2: #a98363;
       /* Sticky Tab Palette:
-         Soft Ground (Sage Green) -> Playful Works (Warm Yellow) -> Thoughtful Dreams (Sky Blue) */
+         Soft Ground (Sage Green) -> Playful Ideas (Warm Yellow) -> Thoughtful Dreams (Sky Blue) */
       --soft-ground: #b6ce98;
       --playful-works: #efce60;
       --thoughtful-dreams: #a6cee1;
@@ -41,7 +41,9 @@
     button:focus-visible, a:focus-visible { outline: 3px solid #377ead; outline-offset: 4px; }
     ::selection { background: #efdb8f; color: #262b23; }
 
-    /* WOODEN DESK BACKGROUND */
+    /* ===============================================================
+       WOODEN DESK BACKGROUND & STAGE
+       =============================================================== */
     .table {
       position: fixed; inset: 0; z-index: -1; overflow: hidden;
       background:
@@ -131,7 +133,7 @@
     .welcome-copy a { color: #3b6d83; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
 
     /* ===============================================================
-       STICKY INDEX TABS (SOFT GROUND / PLAYFUL WORKS / THOUGHTFUL DREAMS)
+       STICKY INDEX TABS (SOFT GROUND / PLAYFUL IDEAS / THOUGHTFUL DREAMS)
        =============================================================== */
     .edge-tabs { position: absolute; inset: 0; pointer-events: none; z-index: 11; }
     .edge-tab {
@@ -148,7 +150,7 @@
 
     .edge-tab--home { --tab-bg: var(--home); }
     .edge-tab--soft-ground { --tab-bg: var(--soft-ground); }
-    .edge-tab--playful-works { --tab-bg: var(--playful-works); }
+    .edge-tab--playful-ideas { --tab-bg: var(--playful-works); }
     .edge-tab--thoughtful-dreams { --tab-bg: var(--thoughtful-dreams); }
 
     /* Vertical sticky tabs on Closed Cover */
@@ -161,7 +163,7 @@
     }
     .cover-tabs .edge-tab:hover { --hover-x: 6px; }
     .cover-tabs .edge-tab--soft-ground { top: 20%; height: 92px; }
-    .cover-tabs .edge-tab--playful-works { top: 39%; height: 98px; }
+    .cover-tabs .edge-tab--playful-ideas { top: 39%; height: 98px; }
     .cover-tabs .edge-tab--thoughtful-dreams { top: 59%; height: 118px; }
 
     .home-icon {
@@ -187,13 +189,13 @@
     .spread-tabs .edge-tab.right:hover { --hover-x: 5px; }
     .spread-tabs .edge-tab--home { top: 7%; height: 53px; writing-mode: horizontal-tb; padding: 0; display: grid; place-items: center; }
     .spread-tabs .edge-tab--soft-ground { top: 20%; height: 92px; }
-    .spread-tabs .edge-tab--playful-works { top: 39%; height: 98px; }
+    .spread-tabs .edge-tab--playful-ideas { top: 39%; height: 98px; }
     .spread-tabs .edge-tab--thoughtful-dreams { top: 59%; height: 118px; }
     .spread-tabs .edge-tab.left[aria-current="page"] { left: -42px; }
     .spread-tabs .edge-tab.right[aria-current="page"] { right: -42px; }
 
     /* ===============================================================
-       OPEN TWO-PAGE NOTEBOOK SPREAD
+       OPEN TWO-PAGE NOTEBOOK SPREAD (SAGE-GREEN GRID PAPER)
        =============================================================== */
     .open-book {
       width: var(--book-width); height: var(--book-height); min-height: 300px;
@@ -214,7 +216,7 @@
         linear-gradient(90deg, #d4dfd0 0%, #e5ede0 3%, #e8efe3 47%, #d5dfd0 49.5%, #c2cec0 50%, #e1eadc 51.5%, #e9f0e4 96%, #d4dfd0 100%);
       box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
     }
-    /* Sage-green grid notebook paper lines across Soft Ground, Playful Works & Thoughtful Dreams */
+    /* Sage-green grid notebook lines across Soft Ground, Playful Ideas & Thoughtful Dreams */
     .spread-paper::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
       background-image:
@@ -254,20 +256,21 @@
     .project-viewport::-webkit-scrollbar { display: none; }
 
     /* ===============================================================
-       SOFT GROUND — FULL-SPREAD ILLUSTRATED COLLAGE LANDING PAGE
-       Hides header, footer & scribble so the two pages act as an
-       uninterrupted notebook collage spread.
+       COLLAGE LANDING SPREADS (SOFT GROUND & PLAYFUL IDEAS)
        =============================================================== */
-    .spread-paper.is-soft-ground .spread-header,
-    .spread-paper.is-soft-ground .book-footer,
-    .spread-paper.is-soft-ground .page-scribble {
+    .spread-paper.is-collage-spread .spread-header,
+    .spread-paper.is-collage-spread .book-footer,
+    .spread-paper.is-collage-spread .page-scribble {
       display: none !important;
     }
-    .spread-paper.is-soft-ground .project-viewport {
+    .spread-paper.is-collage-spread .project-viewport {
       overflow: hidden;
       scroll-snap-type: none;
     }
 
+    /* ===============================================================
+       CHAPTER 01: SOFT GROUND SPREAD
+       =============================================================== */
     .soft-ground-spread {
       position: relative;
       width: 100%;
@@ -287,7 +290,6 @@
       padding: clamp(14px, 2.2vh, 24px) clamp(18px, 2.4vw, 34px);
     }
 
-    /* Botanical Grass & Wildflower Illustrations (綠色基底＋黃白粉小花插畫) */
     .sg-grass {
       position: absolute;
       pointer-events: none;
@@ -300,7 +302,6 @@
       height: auto;
       overflow: visible;
     }
-    /* Scattered organically around the cutouts without overlapping photos or text */
     .sg-grass--top-center { top: 1.5%; right: 8.5%; width: clamp(124px, 12.6vw, 172px); transform: rotate(1.4deg); }
     .sg-grass--lower-left { bottom: 18%; left: 2.6%; width: clamp(102px, 10.5vw, 144px); transform: rotate(-2.2deg); }
     .sg-grass--lower-inner { bottom: 4.8%; right: 1.8%; width: clamp(92px, 9.5vw, 130px); transform: rotate(1.2deg); }
@@ -308,7 +309,6 @@
     .sg-grass--mid-right { top: 39%; right: 2.2%; width: clamp(106px, 11vw, 150px); transform: rotate(2.0deg); }
     .sg-grass--bottom-right { bottom: 3.8%; right: 5.2%; width: clamp(148px, 15.2vw, 208px); transform: rotate(-1.2deg); }
 
-    /* Anchored Hero Collage Clusters (keeps handwritten copy tightly hugging each cutout) */
     .sg-cluster {
       position: relative;
       z-index: 3;
@@ -317,14 +317,9 @@
       align-items: center;
       max-width: 100%;
     }
-    .sg-cluster--left {
-      transform: translate(1.5%, -2.0%);
-    }
-    .sg-cluster--right {
-      transform: translate(-1.8%, -1.0%);
-    }
+    .sg-cluster--left { transform: translate(1.5%, -2.0%); }
+    .sg-cluster--right { transform: translate(-1.8%, -1.0%); }
 
-    /* Cutout Photographic Objects (~2.5x visual area) with Hand-Drawn Fine-Liner Contours */
     .sg-collage-item {
       position: relative;
       z-index: 3;
@@ -333,20 +328,15 @@
       flex: 0 0 auto;
       transition: transform 0.35s cubic-bezier(.22, .8, .26, 1), filter 0.35s ease;
     }
-    .sg-collage-item:hover {
-      filter: drop-shadow(0 10px 18px rgba(45, 34, 20, 0.16));
-    }
+    .sg-collage-item:hover { filter: drop-shadow(0 10px 18px rgba(45, 34, 20, 0.16)); }
 
-    /* Left Page: own bi.monthly Vol.01 Magazine */
     .sg-item--own {
       width: clamp(215px, 22.8vw, 300px);
       max-height: 55vh;
       aspect-ratio: 0.715;
       transform: rotate(-3.2deg);
     }
-    .sg-item--own:hover {
-      transform: rotate(-2.0deg) translateY(-4px) scale(1.015);
-    }
+    .sg-item--own:hover { transform: rotate(-2.0deg) translateY(-4px) scale(1.015); }
     .sg-own-photo-wrap {
       position: relative;
       width: 100%;
@@ -355,23 +345,15 @@
       box-shadow: 5px 8px 16px rgba(48, 37, 22, 0.19);
       overflow: hidden;
     }
-    .sg-own-photo-wrap img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .sg-own-photo-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-    /* Right Page: 桂有光 Osmanthus Tea Brand */
     .sg-item--tea {
       width: clamp(215px, 22.4vw, 292px);
       max-height: 44vh;
       aspect-ratio: 1.02;
       transform: rotate(2.6deg);
     }
-    .sg-item--tea:hover {
-      transform: rotate(1.5deg) translateY(-4px) scale(1.015);
-    }
+    .sg-item--tea:hover { transform: rotate(1.5deg) translateY(-4px) scale(1.015); }
     .sg-tea-photo-wrap {
       position: relative;
       width: 100%;
@@ -398,7 +380,7 @@
       z-index: 4;
     }
 
-    /* Crafted Paper Cutout Preview Cards (fallback when local PNGs aren't mounted yet) */
+    /* Fallback cutout preview cards when local PNGs are not yet mounted */
     .sg-cutout-fallback {
       width: 100%;
       height: 100%;
@@ -423,10 +405,7 @@
       overflow: hidden;
     }
     .sg-fallback-own-art::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0; bottom: 26%;
-      height: 2px;
+      content: ''; position: absolute; left: 0; right: 0; bottom: 26%; height: 2px;
       background: rgba(244, 246, 248, 0.65);
     }
     .sg-fallback-own-vert {
@@ -451,15 +430,8 @@
       align-items: flex-end;
       text-align: left;
     }
-    .sg-fallback-own-foot strong {
-      display: block;
-      font: 700 11px/1.2 var(--body);
-      color: #4f5d68;
-    }
-    .sg-fallback-own-foot span {
-      font: 600 17px/1 var(--hand);
-      color: #283029;
-    }
+    .sg-fallback-own-foot strong { display: block; font: 700 11px/1.2 var(--body); color: #4f5d68; }
+    .sg-fallback-own-foot span { font: 600 17px/1 var(--hand); color: #283029; }
     .sg-fallback-attach-pill {
       position: absolute;
       bottom: 8px;
@@ -474,7 +446,6 @@
       color: #364038;
       opacity: 0.88;
     }
-
     .sg-cutout-fallback--tea {
       align-items: center;
       justify-content: center;
@@ -484,40 +455,19 @@
         linear-gradient(135deg, #e5c465 0%, #c99b36 48%, #dfb853 75%, #b38424 100%);
       box-shadow: inset 0 10px 14px rgba(255, 248, 220, 0.35), inset 0 -10px 16px rgba(112, 78, 16, 0.35);
     }
-    .sg-tea-fold-line {
-      position: absolute;
-      top: 34%;
-      left: 6%;
-      right: 6%;
-      height: 2px;
-      background: rgba(94, 65, 14, 0.35);
-    }
+    .sg-tea-fold-line { position: absolute; top: 34%; left: 6%; right: 6%; height: 2px; background: rgba(94, 65, 14, 0.35); }
     .sg-tea-paper-label {
-      position: relative;
-      z-index: 2;
-      width: 44%;
-      aspect-ratio: 0.78;
-      background: #f8f6ef;
-      box-shadow: 0 3px 7px rgba(68, 47, 12, 0.24);
-      display: grid;
-      place-items: center;
-      padding: 8px;
+      position: relative; z-index: 2; width: 44%; aspect-ratio: 0.78;
+      background: #f8f6ef; box-shadow: 0 3px 7px rgba(68, 47, 12, 0.24);
+      display: grid; place-items: center; padding: 8px;
     }
     .sg-tea-red-seal {
-      width: 72%;
-      height: 76%;
-      border-radius: 50%;
-      background: #c83c2b;
-      color: #f8f6ef;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font: 700 clamp(14px, 1.5vw, 20px)/1.05 serif;
-      letter-spacing: 0.05em;
+      width: 72%; height: 76%; border-radius: 50%; background: #c83c2b; color: #f8f6ef;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font: 700 clamp(14px, 1.5vw, 20px)/1.05 serif; letter-spacing: 0.05em;
     }
 
-    /* Handwritten Typography Hugged Tightly to Each Object */
+    /* Handwritten Typography & Pen-Stroke Animation */
     .sg-copy-group {
       position: relative;
       z-index: 4;
@@ -543,11 +493,6 @@
       align-self: flex-end;
       transform: translateX(12%) rotate(-1.6deg);
     }
-    .sg-copy--tea-bottom {
-      margin-top: clamp(20px, 3.0vh, 34px);
-      align-self: flex-end;
-      transform: translateX(16%) rotate(-1.6deg);
-    }
     .sg-copy--tea-bottom .hw-line {
       font-size: clamp(27px, 2.65vw, 37px);
       font-weight: 700;
@@ -567,30 +512,15 @@
       transform: rotate(var(--rot, 0deg));
       transform-origin: left center;
     }
-    .hw-word {
-      display: inline-block;
-      white-space: nowrap;
-    }
-    .hw-space {
-      display: inline-block;
-      width: 0.27em;
-    }
-    /* Animated Playful-Works yellow marker underline under "alone together" */
-    .hw-highlight-target {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
-    }
+    .hw-word { display: inline-block; white-space: nowrap; }
+    .hw-space { display: inline-block; width: 0.27em; }
+
+    .hw-highlight-target { position: relative; display: inline-block; z-index: 1; }
     .hw-underline-svg {
       position: absolute;
-      left: -2%;
-      right: -1%;
-      bottom: -0.14em;
-      width: 103%;
-      height: 0.34em;
-      overflow: visible;
-      pointer-events: none;
-      z-index: -1;
+      left: -2%; right: -1%; bottom: -0.14em;
+      width: 103%; height: 0.34em;
+      overflow: visible; pointer-events: none; z-index: -1;
     }
     .hw-underline-path {
       fill: none;
@@ -607,7 +537,7 @@
       from { stroke-dashoffset: 1; }
       to { stroke-dashoffset: 0; }
     }
-    /* Character-by-character diagonal pen-stroke reveal with generous padding so ascenders/descenders never clip */
+
     .hw-glyph {
       display: inline-block;
       padding: 0.18em 0.09em;
@@ -615,45 +545,249 @@
       clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%);
       will-change: clip-path;
     }
-    .soft-ground-spread.is-writing .hw-glyph {
+    .soft-ground-spread.is-writing .hw-glyph,
+    .playful-ideas-spread.is-writing .hw-glyph {
       animation: glyphStrokeDraw 0.14s cubic-bezier(0.22, 0.08, 0.25, 1) var(--g-delay, 0.2s) forwards;
     }
     @keyframes glyphStrokeDraw {
-      0% {
-        clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%);
-      }
-      100% {
-        clip-path: polygon(-20% -25%, 145% -25%, 125% 135%, -40% 135%);
-      }
+      0% { clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%); }
+      100% { clip-path: polygon(-20% -25%, 145% -25%, 125% 135%, -40% 135%); }
     }
 
-    /* Subtle Replay Handwriting Button (bottom-right corner of Soft Ground spread) */
     .sg-replay-btn {
       position: absolute;
-      right: 22px;
-      bottom: 18px;
-      z-index: 6;
-      width: 30px;
-      height: 30px;
-      border: 1px solid rgba(40, 48, 41, 0.22);
-      border-radius: 50%;
-      background: rgba(248, 245, 235, 0.72);
-      color: #535c54;
+      right: 22px; bottom: 18px; z-index: 6;
+      width: 30px; height: 30px;
+      border: 1px solid rgba(40, 48, 41, 0.22); border-radius: 50%;
+      background: rgba(248, 245, 235, 0.72); color: #535c54;
       font: 600 17px/1 var(--hand);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      opacity: 0.55;
+      display: grid; place-items: center; cursor: pointer; opacity: 0.55;
       transition: opacity 0.2s, transform 0.25s, background 0.2s;
     }
-    .sg-replay-btn:hover {
-      opacity: 0.95;
-      background: rgba(255, 253, 246, 0.95);
-      transform: rotate(-35deg);
-    }
+    .sg-replay-btn:hover { opacity: 0.95; background: rgba(255, 253, 246, 0.95); transform: rotate(-35deg); }
 
     /* ===============================================================
-       STANDARD PROJECT SPREADS (PLAYFUL WORKS & THOUGHTFUL DREAMS)
+       CHAPTER 02: PLAYFUL IDEAS — VERTICALLY CENTERED CLOTHESLINE POLAROIDS
+       =============================================================== */
+    .playful-ideas-spread {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* 5 Scattered Meadow Grass Tufts:
+       - Zero overlap with any caption text
+       - Every tuft sits at a unique horizontal level (no two in a straight row) */
+    .pi-grass {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.94;
+      z-index: 2;
+    }
+    .pi-grass svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .pi-grass--top-left { top: 1.8%; left: 7.4%; width: clamp(78px, 7.8vw, 106px); transform: rotate(-2deg); }
+    .pi-grass--top-right-center { top: 7.4%; left: 55.2%; width: clamp(106px, 10.6vw, 144px); transform: rotate(1.4deg); }
+    .pi-grass--mid-right { top: 25.5%; right: 26.6%; width: clamp(64px, 6.4vw, 88px); transform: rotate(2.5deg); }
+    .pi-grass--lower-mid-left { bottom: 2.6%; left: 31.0%; width: clamp(78px, 7.8vw, 106px); transform: rotate(1.5deg); }
+    .pi-grass--lower-right { bottom: 5.4%; right: 8.6%; width: clamp(82px, 8.2vw, 112px); transform: rotate(-1.8deg); }
+
+    /* Gently sagging twine clothesline centered vertically across the two pages */
+    .pi-string-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* 4-column stage vertically centered on the spread so top & bottom taglines have balanced room */
+    .pi-clothesline-stage {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      height: 100%;
+      padding: 0 clamp(28px, 3.8vw, 56px);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: clamp(16px, 2.2vw, 34px);
+      align-items: center;
+    }
+
+    .pi-slot {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    /* Subtle vertical sag offsets matching the curve of the string */
+    .pi-slot--0 { transform: translateY(-6px); }
+    .pi-slot--1 { transform: translateY(4px); }
+    .pi-slot--2 { transform: translateY(4px); }
+    .pi-slot--3 { transform: translateY(-6px); }
+
+    /* Polaroid Frame Card */
+    .pi-polaroid {
+      position: relative;
+      width: 100%;
+      max-width: clamp(168px, 16.8vw, 218px);
+      background: #faf8f2;
+      padding: clamp(10px, 1.1vw, 14px) clamp(10px, 1.1vw, 14px) clamp(26px, 3.4vh, 36px);
+      border-radius: 2px;
+      border: 1px solid rgba(116, 109, 92, 0.24);
+      box-shadow: 0 7px 16px rgba(45, 36, 22, 0.14), 0 1px 2px rgba(45, 36, 22, 0.10);
+      cursor: pointer;
+      transition: transform 0.32s cubic-bezier(.22, .8, .26, 1), box-shadow 0.32s ease;
+    }
+    .pi-slot--0 .pi-polaroid { transform: rotate(-1.6deg); }
+    .pi-slot--1 .pi-polaroid { transform: rotate(1.3deg); }
+    .pi-slot--2 .pi-polaroid { transform: rotate(-1.2deg); }
+    .pi-slot--3 .pi-polaroid { transform: rotate(1.7deg); }
+
+    .pi-polaroid:hover {
+      transform: rotate(0deg) translateY(-5px) scale(1.025) !important;
+      box-shadow: 0 13px 24px rgba(45, 36, 22, 0.20);
+      z-index: 6;
+    }
+
+    /* Equal-sized 1:1 transparent photo cutout window inside every Polaroid */
+    .pi-photo-window {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: rgba(230, 237, 225, 0.36);
+      border: 1.5px dashed rgba(62, 72, 62, 0.30);
+      border-radius: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .pi-photo-window.has-photo {
+      border-style: solid;
+      border-color: rgba(62, 72, 62, 0.16);
+      background: #f4f2ea;
+    }
+    .pi-photo-window img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .pi-photo-icon {
+      width: 22px; height: 22px;
+      stroke: #7c857b; stroke-width: 1.5; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; opacity: 0.65;
+    }
+
+    /* Four distinct patterned Washi Tapes pinning the polaroids onto the string */
+    .pi-washi-tape {
+      position: absolute;
+      top: -13px; left: 50%;
+      width: clamp(54px, 5.4vw, 68px);
+      height: clamp(20px, 2.3vh, 25px);
+      z-index: 5;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 3px rgba(45, 35, 20, 0.16));
+      clip-path: polygon(2% 4%, 98% 0%, 100% 24%, 97% 52%, 100% 80%, 97% 100%, 3% 97%, 0% 76%, 3% 48%, 0% 22%);
+    }
+    .pi-tape--plaid {
+      transform: translateX(-50%) rotate(-3deg);
+      background-color: #f8e28c;
+      background-image:
+        linear-gradient(90deg, rgba(235, 184, 52, 0.45) 50%, transparent 50%),
+        linear-gradient(rgba(235, 184, 52, 0.45) 50%, transparent 50%);
+      background-size: 10px 10px;
+    }
+    .pi-tape--stars {
+      transform: translateX(-50%) rotate(2.5deg);
+      background-color: #5475b5;
+      background-image:
+        radial-gradient(circle at 18% 35%, #f7f1d5 1.3px, transparent 1.5px),
+        radial-gradient(circle at 46% 68%, #f7f1d5 1.5px, transparent 1.7px),
+        radial-gradient(circle at 72% 30%, #f7f1d5 1.2px, transparent 1.4px),
+        radial-gradient(circle at 86% 72%, #f7f1d5 1.4px, transparent 1.6px);
+    }
+    .pi-tape--stripes {
+      transform: translateX(-50%) rotate(-2deg);
+      background: repeating-linear-gradient(-45deg, #98ba87 0px, #98ba87 5px, #f5f4ec 5px, #f5f4ec 9px);
+    }
+    .pi-tape--pink {
+      transform: translateX(-50%) rotate(3deg);
+      background:
+        linear-gradient(112deg, transparent 36%, rgba(182, 74, 108, 0.22) 41%, rgba(255, 232, 240, 0.42) 45%, transparent 52%),
+        linear-gradient(180deg, #f2a2ba 0%, #e68ba7 100%);
+    }
+
+    /* Handwritten Taglines Positioned Above / Below Each Polaroid */
+    .pi-caption {
+      position: absolute;
+      left: 50%;
+      width: max-content;
+      max-width: clamp(190px, 20.5vw, 265px);
+      text-align: center;
+      pointer-events: none;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .pi-caption--bottom { top: calc(100% + clamp(12px, 1.8vh, 18px)); transform: translateX(-50%); }
+    .pi-caption--top { bottom: calc(100% + clamp(18px, 2.5vh, 26px)); transform: translateX(-50%); }
+
+    /* Polaroid #1 (VC Kung Fu): Enlarged "Lung Health matters" + smaller "(especially if you're a kungfu master.)" below */
+    .pi-caption--vc .hw-line--lead {
+      font-size: clamp(23px, 2.25vw, 31px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: #202520;
+    }
+    .pi-caption--vc .hw-line--sub {
+      font-size: clamp(15px, 1.42vw, 19.5px);
+      font-weight: 500;
+      line-height: 1.15;
+      color: #363d36;
+      margin-top: 2px;
+    }
+
+    /* Polaroid #2 (OREO): Upper tagline + hand-drawn 5-pointed star at end */
+    .pi-caption--oreo .hw-line { font-size: clamp(18.5px, 1.78vw, 24.5px); line-height: 1.12; }
+    .pi-star-inline {
+      display: inline-block;
+      width: 0.92em; height: 0.92em;
+      vertical-align: -0.12em;
+      margin-left: 4px;
+      overflow: visible;
+    }
+    .pi-star-path {
+      fill: #f4ca40;
+      fill-opacity: 0;
+      stroke: #2c312b;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    .playful-ideas-spread.is-writing .pi-star-path {
+      animation: starHandDraw 0.42s cubic-bezier(0.22, 0.08, 0.25, 1) var(--star-delay, 2.2s) forwards;
+    }
+    @keyframes starHandDraw {
+      0% { stroke-dashoffset: 1; fill-opacity: 0; }
+      70% { stroke-dashoffset: 0; fill-opacity: 0.35; }
+      100% { stroke-dashoffset: 0; fill-opacity: 1; }
+    }
+
+    /* Polaroid #3 (Combat Song): Energetic upward-tilted "Hear a shot of energy." */
+    .pi-caption--combat { transform: translateX(-50%) rotate(-5.2deg); }
+    .pi-caption--combat .hw-line { font-size: clamp(20px, 1.92vw, 26px); font-weight: 600; }
+
+    /* Polaroid #4 (Dear Hollywood): Split top & bottom */
+    .pi-caption--hollywood-top .hw-line,
+    .pi-caption--hollywood-bottom .hw-line { font-size: clamp(18.5px, 1.78vw, 24.5px); line-height: 1.12; }
+
+    /* ===============================================================
+       STANDARD PROJECT SPREADS (THOUGHTFUL DREAMS)
        =============================================================== */
     .project-panel {
       min-height: 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always;
@@ -741,7 +875,6 @@
       font: 600 10px/1.2 var(--body); padding: 5px 7px; background: rgba(252,250,242,.86);
     }
 
-    /* THOUGHTFUL DREAMS (formerly Future Project) Two-Page Layout */
     .project-panel.future-panel {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -782,17 +915,19 @@
       display: block; width: 100%; height: auto; max-height: 38vh; object-fit: contain;
     }
 
-    /* PAGE-FLIP ANIMATION LAYER */
+    /* ===============================================================
+       PAGE-FLIP ANIMATION & FOOTER CONTROLS
+       =============================================================== */
     .page-flip-layer { position: absolute; inset: 0; z-index: 9; pointer-events: none; visibility: hidden; perspective: 1700px; }
     .flip-leaf { position: absolute; left: 50%; top: 0; bottom: 0; width: 50%; transform-style: preserve-3d; transform-origin: left center; }
     .flip-leaf-front, .flip-leaf-back {
       position: absolute; inset: 0; backface-visibility: hidden; border-radius: 0 10px 10px 0;
-      background: linear-gradient(90deg, #eee9dd 0%, #fcf9f0 4%, #f8f5ec 91%, #e7ddce 100%);
+      background: linear-gradient(90deg, #d8e2d3 0%, #e7efe2 4%, #e4ece0 91%, #ccd7c7 100%);
       box-shadow: inset -16px 0 19px rgba(80,58,39,.13), 5px 1px 11px rgba(64,44,27,.13);
     }
     .flip-leaf-back {
       transform: rotateY(180deg); border-radius: 10px 0 0 10px;
-      background: linear-gradient(270deg, #eee9dd, #fbf9f2 85%, #d9d1c3);
+      background: linear-gradient(270deg, #d8e2d3, #e7efe2 85%, #c7d2c2);
       box-shadow: inset 18px 0 18px rgba(60,44,29,.13), -4px 0 13px rgba(64,44,27,.12);
     }
     .page-flip-layer.turn-forward, .page-flip-layer.turn-backward { visibility: visible; }
@@ -801,7 +936,6 @@
     @keyframes chapterFlipForward { from { transform: rotateY(0); } 49% { transform: rotateY(-89deg); } to { transform: rotateY(-180deg); } }
     @keyframes chapterFlipBack { from { transform: rotateY(-180deg); } 51% { transform: rotateY(-89deg); } to { transform: rotateY(0); } }
 
-    /* FIXED FOOTER / SLIDE CONTROLS */
     .book-footer {
       position: absolute; bottom: 0; left: 0; right: 0; height: 50px; z-index: 7;
       background: linear-gradient(0deg, rgba(232, 239, 227, .98) 0%, rgba(232, 239, 227, .88) 75%, rgba(232, 239, 227, 0) 100%);
@@ -815,9 +949,11 @@
     .foot-arrow:hover:not(:disabled) { background: rgba(141,138,110,.16); }
     .foot-arrow:disabled { opacity: .2; cursor: default; }
     .slide-progress { font: 700 10px/1 var(--body); letter-spacing: .17em; color: #656f65; font-variant-numeric: tabular-nums; }
-    .footer-help { position: absolute; right: 4%; bottom: 13px; font: 500 10px/1 var(--body); color: #a29a89; letter-spacing: .03em; }
+    .footer-help { position: absolute; right: 4%; bottom: 13px; font: 500 10px/1 var(--body); color: #8c9686; letter-spacing: .03em; }
 
-    /* FULLSCREEN MEDIA DIALOG */
+    /* ===============================================================
+       FULLSCREEN MEDIA DIALOG & PORTRAIT OVERLAY
+       =============================================================== */
     .media-dialog {
       position: fixed; inset: 0; z-index: 50; display: none; justify-content: center; align-items: center;
       padding: 30px; background: rgba(29,29,26,.82); backdrop-filter: blur(5px);
@@ -864,7 +1000,7 @@
 
       .cover-tabs .edge-tab { right: -23px; width: 43px; padding: 5px 3px; font-size: 14px; }
       .cover-tabs .edge-tab--soft-ground { top: 19%; height: 68px; }
-      .cover-tabs .edge-tab--playful-works { top: 39%; height: 72px; }
+      .cover-tabs .edge-tab--playful-ideas { top: 39%; height: 72px; }
       .cover-tabs .edge-tab--thoughtful-dreams { top: 60%; height: 86px; }
 
       .spread-tabs .edge-tab { width: 43px; padding: 5px 3px; font-size: 14px; }
@@ -873,7 +1009,7 @@
       .spread-tabs .edge-tab--home { top: 6%; height: 42px; }
       .spread-tabs .edge-tab--home svg { width: 19px; height: 19px; }
       .spread-tabs .edge-tab--soft-ground { top: 19%; height: 68px; }
-      .spread-tabs .edge-tab--playful-works { top: 39%; height: 72px; }
+      .spread-tabs .edge-tab--playful-ideas { top: 39%; height: 72px; }
       .spread-tabs .edge-tab--thoughtful-dreams { top: 60%; height: 86px; }
       .spread-tabs .edge-tab.left[aria-current="page"] { left: -26px; }
       .spread-tabs .edge-tab.right[aria-current="page"] { right: -26px; }
@@ -882,10 +1018,10 @@
       .sg-page { padding: 8px 12px; }
       .sg-item--own { width: clamp(134px, 19.5vw, 185px); max-height: 52vh; }
       .sg-item--tea { width: clamp(136px, 19.5vw, 185px); max-height: 40vh; }
-      .sg-copy--own { margin-top: 11px; }
-      .sg-copy--tea-top { margin-bottom: 5px; margin-left: 12px; }
-      .sg-copy--tea-bottom { margin-top: 11px; transform: translateX(10%) rotate(-1.6deg); }
-      .sg-copy--tea-bottom .hw-line { font-size: clamp(19px, 4.4vh, 25px); }
+      .sg-copy--own { margin-top: 10px; }
+      .sg-copy--tea-top { margin-bottom: 5px; }
+      .sg-copy--tea-bottom { margin-top: 10px; }
+      .sg-copy--tea-bottom .hw-line { font-size: clamp(18px, 4.2vh, 25px); }
       .hw-line { font-size: clamp(15px, 3.5vh, 21px); line-height: 1.12; }
       .sg-grass--top-center { width: 84px; right: 7%; }
       .sg-grass--lower-left { width: 68px; bottom: 16%; left: 2%; }
@@ -894,6 +1030,25 @@
       .sg-grass--mid-right { width: 72px; right: 1.5%; }
       .sg-grass--bottom-right { width: 98px; bottom: 3%; right: 4%; }
       .sg-replay-btn { width: 25px; height: 25px; right: 14px; bottom: 12px; font-size: 14px; }
+
+      /* Playful Ideas Compact Landscape Adjustments */
+      .pi-clothesline-stage { padding: 0 18px; column-gap: 12px; }
+      .pi-polaroid { max-width: clamp(112px, 16vw, 148px); padding: 7px 7px 18px; }
+      .pi-washi-tape { width: 42px; height: 15px; top: -9px; }
+      .pi-caption { max-width: 155px; }
+      .pi-caption--bottom { top: calc(100% + 7px); }
+      .pi-caption--top { bottom: calc(100% + 11px); }
+      .pi-caption--vc .hw-line--lead { font-size: clamp(15px, 3.6vh, 20px); }
+      .pi-caption--vc .hw-line--sub { font-size: clamp(11px, 2.5vh, 14px); }
+      .pi-caption--oreo .hw-line,
+      .pi-caption--combat .hw-line,
+      .pi-caption--hollywood-top .hw-line,
+      .pi-caption--hollywood-bottom .hw-line { font-size: clamp(13px, 3.1vh, 17px); }
+      .pi-grass--top-left { width: 54px; left: 5%; top: 1.5%; }
+      .pi-grass--top-right-center { width: 74px; left: 54%; top: 6%; }
+      .pi-grass--mid-right { width: 46px; right: 26%; top: 24%; }
+      .pi-grass--lower-mid-left { width: 54px; left: 30%; bottom: 2%; }
+      .pi-grass--lower-right { width: 56px; right: 7%; bottom: 4.5%; }
 
       .spread-header { flex-basis: 63px; padding-top: 9px; padding-bottom: 6px; }
       .spread-header::after { bottom: 2px; }
@@ -928,12 +1083,9 @@
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
       }
-      .hw-glyph {
-        clip-path: none !important;
-      }
-      .hw-underline-path {
-        stroke-dashoffset: 0 !important;
-      }
+      .hw-glyph { clip-path: none !important; }
+      .hw-underline-path { stroke-dashoffset: 0 !important; }
+      .pi-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
     }
   </style>
 </head>
@@ -972,7 +1124,7 @@ It is a pleasure to have you in the next chapter.</p>
       </div>
       <nav class="edge-tabs cover-tabs" aria-label="Notebook sections">
         <button class="edge-tab edge-tab--soft-ground" data-section="soft-ground">Soft Ground</button>
-        <button class="edge-tab edge-tab--playful-works" data-section="playful-works">Playful Works</button>
+        <button class="edge-tab edge-tab--playful-ideas" data-section="playful-ideas">Playful Ideas</button>
         <button class="edge-tab edge-tab--thoughtful-dreams" data-section="thoughtful-dreams">Thoughtful Dreams</button>
       </nav>
     </section>
@@ -1006,7 +1158,7 @@ It is a pleasure to have you in the next chapter.</p>
     </section>
   </main>
 
-  <!-- Hidden file picker so local PNGs can also be attached directly during preview if desired -->
+  <!-- Hidden file picker so local PNGs/photos can also be attached directly during offline preview -->
   <input type="file" id="localAssetPicker" accept="image/*" hidden />
 
   <!-- FULLSCREEN MEDIA PREVIEW DIALOG -->
@@ -1037,7 +1189,7 @@ It is a pleasure to have you in the next chapter.</p>
     const sections = [
       { id: 'home', title: 'Home', label: 'Home' },
       { id: 'soft-ground', title: 'Soft Ground', label: 'Soft Ground', chapter: '01' },
-      { id: 'playful-works', title: 'Playful Works', label: 'Playful Works', chapter: '02' },
+      { id: 'playful-ideas', title: 'Playful Ideas', label: 'Playful Ideas', chapter: '02' },
       { id: 'thoughtful-dreams', title: 'Thoughtful Dreams', label: 'Thoughtful Dreams', chapter: '03' }
     ];
 
@@ -1061,15 +1213,18 @@ It is a pleasure to have you in the next chapter.</p>
           copyLines: [
             'A fading village.',
             'A forgotten tea.',
-            'A future brewing.'
+            'A Future Brewing!!'
           ]
         }
       ],
 
-      'playful-works': [
+      'playful-ideas': [
         {
+          id: 'vc-kung-fu',
           name: 'VC Kung Fu',
-          eyebrow: '01 / Playful Works',
+          eyebrow: '01 / Playful Ideas',
+          polaroidSrc: 'assets/VC KUNGFU Polaroid.png',
+          tapeStyle: 'plaid',
           awards: ['2023 Taiwan Cannes Young Lion · Student 1st Place', 'Professional Category · 4th Place'],
           media: 'Presentation Board',
           tone: 'gold',
@@ -1079,8 +1234,11 @@ It is a pleasure to have you in the next chapter.</p>
           thinking: 'Lung health is complex, and its problems are often invisible, making early screening feel unnecessary. To make the issue relatable, we borrowed the concept of \u201cQi\u201d from Kung Fu. In Chinese, \u201cQi\u201d means both air and vital energy. Even a Kung Fu master cannot perform a single move without enough Qi. We turned this cultural insight into an interactive website, allowing people to experience firsthand the limitations of poor lung capacity.'
         },
         {
+          id: 'oreo-cosmic',
           name: 'OREO COSMIC RADIO WAVE',
-          eyebrow: '02 / Playful Works',
+          eyebrow: '02 / Playful Ideas',
+          polaroidSrc: 'assets/OREO COSMIC RADIO WAVE Polaroid.png',
+          tapeStyle: 'stars',
           media: 'Project Image',
           tone: 'sky',
           mediaType: 'image',
@@ -1091,8 +1249,11 @@ It is a pleasure to have you in the next chapter.</p>
           idea: 'We added a wishing QR code to Oreo packaging, letting consumers submit their dreams to be transmitted into space through an Oreo-shaped radio telescope, with the entire process livestreamed for everyone on Earth to witness.'
         },
         {
+          id: 'combat-song',
           name: 'Combat X Power Station',
-          eyebrow: '03 / Playful Works',
+          eyebrow: '03 / Playful Ideas',
+          polaroidSrc: 'assets/COMBAT SONG Polaroid.png',
+          tapeStyle: 'stripes',
           media: 'Embedded Video',
           tone: 'rose',
           mediaType: 'video',
@@ -1103,8 +1264,11 @@ It is a pleasure to have you in the next chapter.</p>
           idea: 'We teamed up with Power Station, one of Taiwan\u2019s most energetic pop duos, to create an irresistibly catchy commercial jingle embedded with alpha waves. The goal? Make viewers remember Combat 200P EX and feel energized just by watching the ad.'
         },
         {
+          id: 'dear-hollywood',
           name: 'DEAR HOLLYWOOD, AI\u2019LL SUE YOU',
-          eyebrow: '04 / Playful Works',
+          eyebrow: '04 / Playful Ideas',
+          polaroidSrc: 'assets/Dear Hollywood Polaroid.png',
+          tapeStyle: 'pink',
           awards: ['2025 MAD STARS NEW STARS · Executive Chairman\u2019s Special Award'],
           media: 'Presentation Board',
           tone: 'rose',
@@ -1172,7 +1336,6 @@ It is a pleasure to have you in the next chapter.</p>
       /* Tuft #2 (Appearance 1 — Top-Center on Left Page): Fountain grass blades with pink tulips, white daisies & yellow star sprays */
       topCenter: `<svg viewBox="0 0 190 165" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Slender flower & spray stems -->
           <path d="M84 148 Q54 102 20 64" stroke="#5c9338" stroke-width="1.5"/>
           <path d="M88 148 Q64 114 33 84" stroke="#5c9338" stroke-width="1.55"/>
           <path d="M91 148 Q74 102 53 59" stroke="#568c34" stroke-width="1.65"/>
@@ -1184,51 +1347,38 @@ It is a pleasure to have you in the next chapter.</p>
           <path d="M105 148 Q134 108 160 74" stroke="#568c34" stroke-width="1.6"/>
           <path d="M107 148 Q138 118 168 96" stroke="#5c9338" stroke-width="1.45"/>
 
-          <!-- Sweeping green fountain grass blades (back darker layer) -->
           <path d="M84 154 C66 130 44 116 20 116 C45 123 64 136 81 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
           <path d="M107 154 C125 130 147 116 171 116 C146 123 127 136 110 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
           <path d="M87 154 C71 122 52 100 31 93 C53 106 70 126 84 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
           <path d="M104 154 C120 122 139 100 160 93 C138 106 121 126 107 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
 
-          <!-- Sweeping green fountain grass blades (front bright layer + pale highlights) -->
           <path d="M89 154 C77 116 64 86 48 69 C65 92 77 120 87 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
           <path d="M102 154 C114 116 127 86 143 69 C126 92 114 120 104 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
           <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="0.95"/>
 
-          <!-- Pale sage-cream inner blade highlights -->
           <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.35"/>
           <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.4"/>
           <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.45"/>
           <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.4"/>
           <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.35"/>
 
-          <!-- Yellow bud & star-flower sprays -->
           <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.7">
             <ellipse cx="36" cy="83" rx="1.6" ry="2.6" transform="rotate(-35 36 83)"/>
             <ellipse cx="28" cy="74" rx="1.6" ry="2.6" transform="rotate(-35 28 74)"/>
-            <g transform="translate(19,63)">
-              <path d="M0-5.5 L1.4-1.6 L5.2-1.6 L2.1 0.8 L3.2 4.6 L0 2.3 L-3.2 4.6 L-2.1 0.8 L-5.2-1.6 L-1.4-1.6 Z"/>
-            </g>
+            <g transform="translate(19,63)"><path d="M0-5.5 L1.4-1.6 L5.2-1.6 L2.1 0.8 L3.2 4.6 L0 2.3 L-3.2 4.6 L-2.1 0.8 L-5.2-1.6 L-1.4-1.6 Z"/></g>
             <ellipse cx="79" cy="54" rx="1.5" ry="2.5" transform="rotate(-12 79 54)"/>
             <ellipse cx="76" cy="43" rx="1.5" ry="2.5" transform="rotate(-12 76 43)"/>
             <ellipse cx="74" cy="33" rx="1.5" ry="2.5" transform="rotate(-12 74 33)"/>
-            <g transform="translate(72,22)">
-              <path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/>
-            </g>
+            <g transform="translate(72,22)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
             <ellipse cx="123" cy="58" rx="1.5" ry="2.5" transform="rotate(18 123 58)"/>
             <ellipse cx="128" cy="48" rx="1.5" ry="2.5" transform="rotate(18 128 48)"/>
             <ellipse cx="132" cy="39" rx="1.5" ry="2.5" transform="rotate(18 132 39)"/>
-            <g transform="translate(136,29)">
-              <path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/>
-            </g>
-            <g transform="translate(169,95)">
-              <path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/>
-            </g>
+            <g transform="translate(136,29)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
+            <g transform="translate(169,95)"><path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/></g>
           </g>
 
-          <!-- Pink tulip blossoms (3) -->
           <g transform="translate(52,57) rotate(-14)">
             <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
             <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
@@ -1242,7 +1392,6 @@ It is a pleasure to have you in the next chapter.</p>
             <path d="M-2.5 3.5 C-2.8 -1.8 -1 -6.5 0 -8.8 C1 -6.5 2.8 -1.8 2.5 3.5" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
           </g>
 
-          <!-- White daisies with golden centers (3) -->
           <g transform="translate(32,83)">
             <ellipse cx="0" cy="-6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
             <ellipse cx="5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(60 5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
@@ -1739,10 +1888,9 @@ It is a pleasure to have you in the next chapter.</p>
             highlightOpen = true;
           }
 
-          const glyphsHTML = Array.from(word).map((ch, cIdx) => {
+          const glyphsHTML = Array.from(word).map(ch => {
             const delayStr = cursorTime.toFixed(3);
             cursorTime += charStep;
-            // Trigger underline right after the letters of "together" finish appearing
             if (highlightRange && wIdx === highlightRange[1] && ch !== '.') {
               highlightStartEndTime = cursorTime + 0.08;
             }
@@ -1764,9 +1912,20 @@ It is a pleasure to have you in the next chapter.</p>
           return `${prefix}<span class="hw-word">${glyphsHTML}</span>${suffix}${spaceHTML}`;
         }).join('');
 
+        let trailingHTML = '';
+        if (cfg.trailingStar) {
+          const starDelay = (cursorTime + 0.05).toFixed(3);
+          cursorTime += 0.28;
+          trailingHTML = `<svg class="pi-star-inline" viewBox="0 0 28 28" aria-hidden="true">
+            <path class="pi-star-path" pathLength="1" style="--star-delay:${starDelay}s"
+              d="M14 2.5 L17.3 10.1 L25.5 10.9 L19.2 16.3 L21.1 24.4 L14 20.1 L6.9 24.4 L8.8 16.3 L2.5 10.9 L10.7 10.1 Z" />
+          </svg>`;
+        }
+
         cursorTime += linePause;
         const colorStyle = cfg.color ? ` --line-color:${cfg.color};` : '';
-        return `<span class="hw-line" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};${colorStyle}">${wordsHTML}</span>`;
+        const extraClass = cfg.extraClass ? ` ${cfg.extraClass}` : '';
+        return `<span class="hw-line${extraClass}" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};${colorStyle}">${wordsHTML}${trailingHTML}</span>`;
       }).join('');
 
       return { html, endTime: cursorTime };
@@ -1805,7 +1964,6 @@ It is a pleasure to have you in the next chapter.</p>
               <div class="sg-own-photo-wrap">
                 <img src="${ownSrc}" data-alt-src="${escapeHTML(ownData.imageSecondary)}" data-cutout-key="own" alt="own bi.monthly Vol. 01 magazine cover" />
               </div>
-              <!-- Hand-drawn fine-liner ink rectangular frame with overshooting corners -->
               <svg class="sg-outline-svg" viewBox="0 0 220 310" aria-hidden="true">
                 <g fill="none" stroke="#2a2e28" stroke-width="1.65" stroke-linecap="round">
                   <path d="M -5 3 Q 110 1 224 4" />
@@ -1837,7 +1995,6 @@ It is a pleasure to have you in the next chapter.</p>
               <div class="sg-tea-photo-wrap">
                 <img src="${teaSrc}" data-alt-src="${escapeHTML(teaData.imageSecondary)}" data-cutout-key="tea" alt="桂有光 Osmanthus Tea Brand golden pouch package" />
               </div>
-              <!-- Custom-shaped hand-drawn fine-liner SVG contour hugging the golden tea pouch silhouette -->
               <svg class="sg-outline-svg" viewBox="0 0 240 236" aria-hidden="true">
                 <path
                   d="M 42 22
@@ -1860,7 +2017,7 @@ It is a pleasure to have you in the next chapter.</p>
               </svg>
             </div>
 
-            <div class="sg-copy-group sg-copy--tea-bottom" aria-label="A future brewing.">
+            <div class="sg-copy-group sg-copy--tea-bottom" aria-label="A Future Brewing!!">
               ${rightBottomText.html}
             </div>
           </div>
@@ -1919,28 +2076,113 @@ It is a pleasure to have you in the next chapter.</p>
       spread.classList.add('is-writing');
     }
 
-    /* Render Chapter 02: Playful Works */
-    function renderPlayfulWork(p) {
-      const awardsHTML = (p.awards && p.awards.length)
-        ? `<div class="award-group">${p.awards.map(a => `<div class="project-award"><span class="award-star">✦</span>${escapeHTML(a)}</div>`).join('')}</div>`
-        : '';
+    /* Render Chapter 02: Playful Ideas (Clothesline Polaroids on Meadow Grid Spread) */
+    function renderPlayfulIdeasSpread() {
+      const items = projects['playful-ideas'];
 
-      const rightFieldsHTML = (p.brief || p.thinking)
-        ? `${field('Brief', p.brief)}${field('My Thinking', p.thinking)}`
-        : `${field('Objective', p.objective)}${field('Strategy', p.strategy)}${field('Idea', p.idea)}`;
+      const vcText = buildHandwrittenLines([
+        { text: 'Lung Health matters', extraClass: 'hw-line--lead', rot: '-0.8deg' },
+        { text: '(especially if you\u2019re a kungfu master.)', extraClass: 'hw-line--sub', rot: '-0.4deg' }
+      ], 0.26);
 
-      return `<article class="project-panel" aria-label="${escapeHTML(p.name)}">
-        <div class="project-left">
-          <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
-          <h2 class="project-name">${escapeHTML(p.name)}</h2>
-          ${awardsHTML}
-          <div class="work-media">${media(p)}</div>
-          ${p.caption ? `<p class="work-caption">${escapeHTML(p.caption)}</p>` : ''}
+      const oreoText = buildHandwrittenLines([
+        { text: 'The universe is the', rot: '-0.7deg' },
+        { text: 'biggest wishing well.', rot: '-0.3deg', trailingStar: true }
+      ], vcText.endTime + 0.22);
+
+      const combatText = buildHandwrittenLines([
+        { text: 'Hear a shot of energy.', rot: '0deg' }
+      ], oreoText.endTime + 0.22);
+
+      const hollywoodTopText = buildHandwrittenLines([
+        { text: 'We knew AI', rot: '-0.6deg' },
+        { text: 'as a villain', rot: '-0.3deg' }
+      ], combatText.endTime + 0.22);
+
+      const hollywoodBottomText = buildHandwrittenLines([
+        { text: 'before we met it.', rot: '-0.6deg' }
+      ], hollywoodTopText.endTime + 0.14);
+
+      const polaroidSlotsHTML = items.map((item, idx) => {
+        const photoSrc = customUploadedObjects[item.id] || safeURL(item.polaroidSrc);
+        const windowContent = photoSrc
+          ? `<img src="${photoSrc}" data-polaroid-key="${escapeHTML(item.id)}" alt="Playful Idea ${idx + 1}" />`
+          : `<svg class="pi-photo-icon" viewBox="0 0 24 24" aria-hidden="true">
+               <rect x="3" y="4" width="18" height="16" rx="2" />
+               <circle cx="8.5" cy="9.5" r="1.5" />
+               <path d="m21 15-4.5-4.5L7 20" />
+             </svg>`;
+
+        let captionHTML = '';
+        if (idx === 0) {
+          captionHTML = `<div class="pi-caption pi-caption--bottom pi-caption--vc">${vcText.html}</div>`;
+        } else if (idx === 1) {
+          captionHTML = `<div class="pi-caption pi-caption--top pi-caption--oreo">${oreoText.html}</div>`;
+        } else if (idx === 2) {
+          captionHTML = `<div class="pi-caption pi-caption--bottom pi-caption--combat">${combatText.html}</div>`;
+        } else if (idx === 3) {
+          captionHTML = `
+            <div class="pi-caption pi-caption--top pi-caption--hollywood-top">${hollywoodTopText.html}</div>
+            <div class="pi-caption pi-caption--bottom pi-caption--hollywood-bottom">${hollywoodBottomText.html}</div>
+          `;
+        }
+
+        return `<div class="pi-slot pi-slot--${idx}">
+          ${captionHTML}
+          <div class="pi-polaroid" data-pi-upload="${escapeHTML(item.id)}" title="Click to preview or attach polaroid photo">
+            <span class="pi-washi-tape pi-tape--${escapeHTML(item.tapeStyle)}" aria-hidden="true"></span>
+            <div class="pi-photo-window ${photoSrc ? 'has-photo' : ''}">
+              ${windowContent}
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+
+      return `<div class="playful-ideas-spread" id="playfulIdeasSpread" aria-label="Playful Ideas polaroid clothesline">
+        <!-- 5 Scattered Meadow Grass Tufts (no text overlap, no two on the same horizontal line) -->
+        <div class="pi-grass pi-grass--top-left">${grassTufts.topCenter}</div>
+        <div class="pi-grass pi-grass--top-right-center">${grassTufts.bottomRight}</div>
+        <div class="pi-grass pi-grass--mid-right">${grassTufts.lowerInner}</div>
+        <div class="pi-grass pi-grass--lower-mid-left">${grassTufts.lowerLeft}</div>
+        <div class="pi-grass pi-grass--lower-right">${grassTufts.upperInner}</div>
+
+        <!-- Vertically centered brown twine clothesline spanning both pages -->
+        <svg class="pi-string-svg" viewBox="0 0 1200 735" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M -10 232 Q 600 264 1210 232" fill="none" stroke="rgba(58, 43, 28, 0.16)" stroke-width="3.2" transform="translate(0, 3)" />
+          <path d="M -10 232 Q 600 264 1210 232" fill="none" stroke="#6f5841" stroke-width="2.1" stroke-linecap="round" />
+        </svg>
+
+        <!-- Vertically centered 4-Polaroid clothesline stage -->
+        <div class="pi-clothesline-stage">
+          ${polaroidSlotsHTML}
         </div>
-        <div class="project-right work-fields">
-          ${rightFieldsHTML}
-        </div>
-      </article>`;
+
+        <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay handwriting animation" title="Replay handwriting">↻</button>
+      </div>`;
+    }
+
+    function attachPlayfulIdeasImageFallbacks() {
+      const imgs = ui.viewport.querySelectorAll('.playful-ideas-spread img[data-polaroid-key]');
+      imgs.forEach(img => {
+        img.addEventListener('error', function handlePolaroidError() {
+          const parent = this.parentElement;
+          if (!parent) return;
+          parent.classList.remove('has-photo');
+          parent.innerHTML = `<svg class="pi-photo-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <circle cx="8.5" cy="9.5" r="1.5" />
+            <path d="m21 15-4.5-4.5L7 20" />
+          </svg>`;
+        });
+      });
+    }
+
+    function triggerPlayfulIdeasHandwriting() {
+      const spread = document.getElementById('playfulIdeasSpread');
+      if (!spread) return;
+      spread.classList.remove('is-writing');
+      void spread.offsetWidth;
+      spread.classList.add('is-writing');
     }
 
     /* Render Chapter 03: Thoughtful Dreams */
@@ -2002,7 +2244,7 @@ It is a pleasure to have you in the next chapter.</p>
     }
 
     function jumpToProject(index, smooth = true) {
-      if (currentSection === 'soft-ground') return;
+      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas') return;
       const panels = Array.from(ui.viewport.children);
       if (!panels.length) return;
       const target = Math.min(Math.max(index, 0), panels.length - 1);
@@ -2016,18 +2258,20 @@ It is a pleasure to have you in the next chapter.</p>
 
     function renderSection(section) {
       const detail = sections.find(s => s.id === section);
-      const isSoftGround = section === 'soft-ground';
+      const isCollageSpread = section === 'soft-ground' || section === 'playful-ideas';
 
-      ui.paper.classList.toggle('is-soft-ground', isSoftGround);
+      ui.paper.classList.toggle('is-collage-spread', isCollageSpread);
       ui.title.textContent = detail.title;
       ui.chapter.textContent = `Chapter ${detail.chapter}`;
 
-      if (isSoftGround) {
+      if (section === 'soft-ground') {
         ui.viewport.innerHTML = renderSoftGroundSpread();
         attachSoftGroundImageFallbacks();
         requestAnimationFrame(() => triggerSoftGroundHandwriting());
-      } else if (section === 'playful-works') {
-        ui.viewport.innerHTML = projects['playful-works'].map(renderPlayfulWork).join('');
+      } else if (section === 'playful-ideas') {
+        ui.viewport.innerHTML = renderPlayfulIdeasSpread();
+        attachPlayfulIdeasImageFallbacks();
+        requestAnimationFrame(() => triggerPlayfulIdeasHandwriting());
       } else {
         ui.viewport.innerHTML = projects['thoughtful-dreams'].map(renderThoughtfulDream).join('');
       }
@@ -2054,6 +2298,8 @@ It is a pleasure to have you in the next chapter.</p>
       if (currentSection === section) {
         if (section === 'soft-ground') {
           triggerSoftGroundHandwriting();
+        } else if (section === 'playful-ideas') {
+          triggerPlayfulIdeasHandwriting();
         } else if (section !== 'home') {
           jumpToProject(0);
         }
@@ -2149,7 +2395,14 @@ It is a pleasure to have you in the next chapter.</p>
         return;
       }
       if (e.target.closest('#replayHandwriting')) {
-        triggerSoftGroundHandwriting();
+        if (currentSection === 'soft-ground') triggerSoftGroundHandwriting();
+        if (currentSection === 'playful-ideas') triggerPlayfulIdeasHandwriting();
+        return;
+      }
+      const piPolaroid = e.target.closest('[data-pi-upload]');
+      if (piPolaroid) {
+        pendingUploadTarget = piPolaroid.dataset.piUpload;
+        ui.filePicker.click();
         return;
       }
       const sgFallback = e.target.closest('.sg-cutout-fallback');
@@ -2176,6 +2429,7 @@ It is a pleasure to have you in the next chapter.</p>
       pendingUploadTarget = null;
       ui.filePicker.value = '';
       if (currentSection === 'soft-ground') renderSection('soft-ground');
+      if (currentSection === 'playful-ideas') renderSection('playful-ideas');
     });
 
     ui.prev.addEventListener('click', () => jumpToProject(currentProject - 1));
@@ -2184,7 +2438,7 @@ It is a pleasure to have you in the next chapter.</p>
     ui.dialog.addEventListener('click', e => { if (e.target === ui.dialog) hideMedia(); });
 
     ui.viewport.addEventListener('scroll', () => {
-      if (currentSection === 'soft-ground') return;
+      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas') return;
       if (scrollFrame !== null) cancelAnimationFrame(scrollFrame);
       scrollFrame = requestAnimationFrame(() => {
         const panels = Array.from(ui.viewport.children);
@@ -2206,25 +2460,29 @@ It is a pleasure to have you in the next chapter.</p>
         if (e.key === 'Escape') hideMedia();
         return;
       }
-      if (currentSection !== 'home' && currentSection !== 'soft-ground' && ['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      if (currentSection !== 'home' && currentSection !== 'soft-ground' && currentSection !== 'playful-ideas' && ['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
         e.preventDefault();
         jumpToProject(currentProject + (['ArrowDown', 'PageDown'].includes(e.key) ? 1 : -1));
       }
       if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
     });
 
+    const resolveRequestedSection = hash => {
+      const clean = String(hash || '').replace('#', '');
+      if (clean === 'playful-works') return 'playful-ideas';
+      return sections.some(s => s.id === clean) ? clean : 'home';
+    };
+
     window.addEventListener('popstate', () => {
-      const requested = location.hash.replace('#', '');
-      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
+      navigate(resolveRequestedSection(location.hash), { saveHistory: false, animate: false });
     });
 
     window.addEventListener('hashchange', () => {
-      const requested = location.hash.replace('#', '');
-      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
+      navigate(resolveRequestedSection(location.hash), { saveHistory: false, animate: false });
     });
 
-    const startingSection = location.hash.replace('#', '');
-    if (startingSection && startingSection !== 'home' && sections.some(s => s.id === startingSection)) {
+    const startingSection = resolveRequestedSection(location.hash);
+    if (startingSection !== 'home') {
       navigate(startingSection, { saveHistory: false, animate: false });
     } else {
       setVisible(ui.closed, true);

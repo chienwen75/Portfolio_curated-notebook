@@ -195,7 +195,7 @@
     .spread-tabs .edge-tab.right[aria-current="page"] { right: -42px; }
 
     /* ===============================================================
-       OPEN TWO-PAGE NOTEBOOK SPREAD (SAGE-GREEN GRID PAPER)
+       OPEN TWO-PAGE NOTEBOOK SPREAD (WARM CREAM PAPER + MEADOW STROKES)
        =============================================================== */
     .open-book {
       width: var(--book-width); height: var(--book-height); min-height: 300px;
@@ -210,26 +210,26 @@
       position: relative; width: 100%; height: 100%;
       border: 1px solid #8d8271; border-radius: 7px 12px 13px 7px; overflow: hidden;
       display: flex; flex-direction: column;
-      background-color: #e6ede1;
+      background-color: #f7f3e6;
       background-image:
-        radial-gradient(ellipse at 48% 55%, rgba(78, 96, 72, .065), transparent 12%),
-        linear-gradient(90deg, #d4dfd0 0%, #e5ede0 3%, #e8efe3 47%, #d5dfd0 49.5%, #c2cec0 50%, #e1eadc 51.5%, #e9f0e4 96%, #d4dfd0 100%);
+        radial-gradient(ellipse at 48% 55%, rgba(110, 94, 66, .055), transparent 14%),
+        linear-gradient(90deg, #e8e0cf 0%, #f7f3e6 3%, #faf6eb 47%, #ebe3d3 49.5%, #dad1c0 50%, #f4f0e3 51.5%, #faf6ec 96%, #e8e0cf 100%);
       box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
     }
-    /* Sage-green grid notebook lines across Soft Ground, Playful Ideas & Thoughtful Dreams */
+    /* Densely arranged short vertical green brushstrokes with organic height variation (30% +20%, 30% +30%, 40% base) */
     .spread-paper::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-      background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.72) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.72) 1px, transparent 1px);
-      background-size: 24px 24px;
-      background-position: 12px 12px;
+      opacity: 0.78;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='136' viewBox='0 0 144 136'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M6 22 C5.5 14.8 6.1 8.8 6.8 2.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M18 21 C18.3 15 17.8 10 17.2 5' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M30 23 C29.4 15.2 30.3 8.7 31.3 2.2' stroke='%23b8ca8f' stroke-width='3.8'/%3E%3Cpath d='M42 21 C41.7 15 41.9 10 42.2 5' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M54 22 C54.6 14.8 53.9 8.8 52.9 2.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M66 23 C65.2 15.2 66.3 8.7 67.4 2.2' stroke='%23c9d9a5' stroke-width='3.5'/%3E%3Cpath d='M78 21 C78.4 15 78.0 10 77.5 5' stroke='%23b7c98e' stroke-width='3.8'/%3E%3Cpath d='M90 22 C89.5 14.8 90.1 8.8 91.0 2.8' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M102 21 C102.5 15 101.8 10 101.0 5' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M114 23 C113.4 15.2 114.1 8.7 115.2 2.2' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M126 22 C126.3 16 125.8 11 125.2 6' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M138 21 C137.5 14.8 138.2 8.8 139.0 2.8' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M4 56 C4.7 48.2 3.9 41.7 3.0 35.2' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M16 55 C15.5 49 16.1 44 16.8 39' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M28 57 C28.5 49.8 27.9 43.8 27.2 37.8' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M40 55 C39.2 47.2 40.3 40.7 41.4 34.2' stroke='%23bfd097' stroke-width='3.8'/%3E%3Cpath d='M52 56 C52.3 50 51.9 45 51.4 40' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M64 55 C63.5 49 64.1 44 64.9 39' stroke='%23b7c98e' stroke-width='3.7'/%3E%3Cpath d='M76 57 C76.6 49.8 75.8 43.8 74.8 37.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M88 55 C87.5 47.2 88.3 40.7 89.0 34.2' stroke='%23c9d9a5' stroke-width='3.5'/%3E%3Cpath d='M100 56 C100.4 50 99.9 45 99.2 40' stroke='%23b8ca8f' stroke-width='3.8'/%3E%3Cpath d='M112 55 C111.4 47.8 112.1 41.8 113.1 35.8' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M124 57 C124.7 49.2 123.9 42.7 122.8 36.2' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M136 55 C135.6 49 136.1 44 136.7 39' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M7 90 C6.5 84 7.2 79 8.0 74' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M19 89 C19.5 81.2 18.9 74.7 18.0 68.2' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M31 91 C30.6 85 31.1 80 31.7 75' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M43 89 C43.6 81.8 42.8 75.8 41.8 69.8' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M55 90 C54.2 82.2 55.3 75.7 56.4 69.2' stroke='%23b7c98e' stroke-width='3.8'/%3E%3Cpath d='M67 89 C67.4 81.8 66.9 75.8 66.3 69.8' stroke='%23bfd097' stroke-width='3.6'/%3E%3Cpath d='M79 91 C78.5 85 79.1 80 79.9 75' stroke='%23c4d49e' stroke-width='3.7'/%3E%3Cpath d='M91 89 C91.7 81.2 90.7 74.7 89.8 68.2' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M103 90 C102.5 82.8 103.2 76.8 104.0 70.8' stroke='%23c9d9a5' stroke-width='3.5'/%3E%3Cpath d='M115 89 C115.4 83 114.9 78 114.2 73' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M127 91 C126.4 83.8 127.1 77.8 128.1 71.8' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M139 89 C139.5 81.2 138.9 74.7 138.1 68.2' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M5 124 C5.5 116.8 4.9 110.8 4.2 104.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M17 123 C16.4 115.2 17.1 108.7 18.2 102.2' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M29 125 C29.5 119 28.8 114 28.0 109' stroke='%23b7c98e' stroke-width='3.8'/%3E%3Cpath d='M41 123 C40.5 115.8 41.1 109.8 41.8 103.8' stroke='%23bfd097' stroke-width='3.6'/%3E%3Cpath d='M53 124 C53.4 118 52.9 113 52.2 108' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M65 123 C64.2 115.2 65.3 108.7 66.4 102.2' stroke='%23b8ca8f' stroke-width='3.7'/%3E%3Cpath d='M77 125 C77.3 119 76.9 114 76.4 109' stroke='%23c4d49e' stroke-width='3.6'/%3E%3Cpath d='M89 123 C88.4 115.8 89.1 109.8 90.1 103.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M101 124 C101.7 116.2 100.7 109.7 99.8 103.2' stroke='%23c8d8a3' stroke-width='3.6'/%3E%3Cpath d='M113 123 C112.6 117 113.2 112 113.8 107' stroke='%23b8ca8f' stroke-width='3.8'/%3E%3Cpath d='M125 125 C125.5 117.8 124.9 111.8 124.0 105.8' stroke='%23bfd097' stroke-width='3.7'/%3E%3Cpath d='M137 123 C136.5 117 137.1 112 137.9 107' stroke='%23c9d9a5' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 72px 68px;
+      background-position: 6px 4px;
     }
+    /* Fine warm cotton paper grain overlay */
     .spread-paper::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .22;
-      background:
-        repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(96, 118, 88, .04) 4px),
-        repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(255, 255, 255, .08) 4px);
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5; opacity: .28;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.56  0 0 0 0 0.50  0 0 0 0 0.40  0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(145, 130, 102, .03) 4px);
     }
     .center-spine { display: none !important; }
 
@@ -556,44 +556,39 @@
 
     .sg-replay-btn {
       position: absolute;
-      right: 22px; bottom: 18px; z-index: 6;
-      width: 30px; height: 30px;
-      border: 1px solid rgba(40, 48, 41, 0.22); border-radius: 50%;
-      background: rgba(248, 245, 235, 0.72); color: #535c54;
+      right: 22px;
+      bottom: 18px;
+      z-index: 6;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(40, 48, 41, 0.22);
+      border-radius: 50%;
+      background: rgba(248, 245, 235, 0.72);
+      color: #535c54;
       font: 600 17px/1 var(--hand);
-      display: grid; place-items: center; cursor: pointer; opacity: 0.55;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0.55;
       transition: opacity 0.2s, transform 0.25s, background 0.2s;
     }
-    .sg-replay-btn:hover { opacity: 0.95; background: rgba(255, 253, 246, 0.95); transform: rotate(-35deg); }
+    .sg-replay-btn:hover {
+      opacity: 0.95;
+      background: rgba(255, 253, 246, 0.95);
+      transform: rotate(-35deg);
+    }
 
     /* ===============================================================
-       CHAPTER 02: PLAYFUL IDEAS — VERTICALLY CENTERED CLOTHESLINE POLAROIDS
+       CHAPTER 02: PLAYFUL IDEAS (POLAROID CLOTHESLINE ON MEADOW)
        =============================================================== */
     .playful-ideas-spread {
       position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      user-select: none;
     }
 
-    /* 5 Scattered Meadow Grass Tufts:
-       - Zero overlap with any caption text
-       - Every tuft sits at a unique horizontal level (no two in a straight row) */
-    .pi-grass {
-      position: absolute;
-      pointer-events: none;
-      opacity: 0.94;
-      z-index: 2;
-    }
-    .pi-grass svg { display: block; width: 100%; height: auto; overflow: visible; }
-    .pi-grass--top-left { top: 1.8%; left: 7.4%; width: clamp(78px, 7.8vw, 106px); transform: rotate(-2deg); }
-    .pi-grass--top-right-center { top: 7.4%; left: 55.2%; width: clamp(106px, 10.6vw, 144px); transform: rotate(1.4deg); }
-    .pi-grass--mid-right { top: 25.5%; right: 26.6%; width: clamp(64px, 6.4vw, 88px); transform: rotate(2.5deg); }
-    .pi-grass--lower-mid-left { bottom: 2.6%; left: 31.0%; width: clamp(78px, 7.8vw, 106px); transform: rotate(1.5deg); }
-    .pi-grass--lower-right { bottom: 5.4%; right: 8.6%; width: clamp(82px, 8.2vw, 112px); transform: rotate(-1.8deg); }
-
-    /* Gently sagging twine clothesline centered vertically across the two pages */
+    /* Gently sagging twine clothesline across the two pages */
     .pi-string-svg {
       position: absolute;
       inset: 0;
@@ -603,7 +598,7 @@
       z-index: 3;
     }
 
-    /* 4-column stage vertically centered on the spread so top & bottom taglines have balanced room */
+    /* 4-column stage aligned directly to the twine height so tape stays pinned on resize */
     .pi-clothesline-stage {
       position: relative;
       z-index: 4;
@@ -613,25 +608,25 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       column-gap: clamp(16px, 2.2vw, 34px);
-      align-items: center;
+      align-items: start;
     }
 
     .pi-slot {
       position: relative;
+      top: var(--string-y, 35.5%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-width: 0;
     }
 
-    /* Subtle vertical sag offsets matching the curve of the string */
-    .pi-slot--0 { transform: translateY(-6px); }
-    .pi-slot--1 { transform: translateY(4px); }
-    .pi-slot--2 { transform: translateY(4px); }
-    .pi-slot--3 { transform: translateY(-6px); }
+    /* Exact vertical twine coordinates matching SVG curve M -10 250 Q 600 286 1210 250 */
+    .pi-slot--0 { --string-y: 35.27%; }
+    .pi-slot--1 { --string-y: 36.33%; }
+    .pi-slot--2 { --string-y: 36.33%; }
+    .pi-slot--3 { --string-y: 35.27%; }
 
-    /* Polaroid Frame Card */
+    /* Polaroid Frame Card — pivots from top center where washi tape pins it to the twine */
     .pi-polaroid {
       position: relative;
       width: 100%;
@@ -641,6 +636,7 @@
       border-radius: 2px;
       border: 1px solid rgba(116, 109, 92, 0.24);
       box-shadow: 0 7px 16px rgba(45, 36, 22, 0.14), 0 1px 2px rgba(45, 36, 22, 0.10);
+      transform-origin: top center;
       cursor: pointer;
       transition: transform 0.32s cubic-bezier(.22, .8, .26, 1), box-shadow 0.32s ease;
     }
@@ -650,42 +646,62 @@
     .pi-slot--3 .pi-polaroid { transform: rotate(1.7deg); }
 
     .pi-polaroid:hover {
-      transform: rotate(0deg) translateY(-5px) scale(1.025) !important;
+      transform: rotate(0deg) translateY(-3px) scale(1.025) !important;
       box-shadow: 0 13px 24px rgba(45, 36, 22, 0.20);
       z-index: 6;
     }
 
-    /* Equal-sized 1:1 transparent photo cutout window inside every Polaroid */
+    /* Equal-sized 1:1 framed Polaroid film window (clean frame only before developing, no icon) */
     .pi-photo-window {
       position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: rgba(230, 237, 225, 0.36);
-      border: 1.5px dashed rgba(62, 72, 62, 0.30);
+      background: #ece8db;
+      border: 1.2px solid rgba(72, 82, 70, 0.28);
+      box-shadow: inset 0 1px 4px rgba(55, 48, 34, 0.08);
       border-radius: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
     .pi-photo-window.has-photo {
-      border-style: solid;
-      border-color: rgba(62, 72, 62, 0.16);
-      background: #f4f2ea;
+      border-color: rgba(62, 72, 62, 0.22);
     }
-    .pi-photo-window img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .pi-photo-icon {
-      width: 22px; height: 22px;
-      stroke: #7c857b; stroke-width: 1.5; fill: none;
-      stroke-linecap: round; stroke-linejoin: round; opacity: 0.65;
+    .pi-photo-window img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      filter: brightness(1.16) contrast(0.72) saturate(0.2) blur(1.4px);
+      will-change: opacity, filter;
+    }
+    .playful-ideas-spread.is-writing .pi-photo-window img {
+      animation: polaroidDevelop var(--dev-duration, 1.4s) cubic-bezier(0.25, 0.1, 0.25, 1) var(--dev-delay, 0.26s) forwards;
+    }
+    @keyframes polaroidDevelop {
+      0% {
+        opacity: 0;
+        filter: brightness(1.16) contrast(0.72) saturate(0.2) blur(1.4px);
+      }
+      35% {
+        opacity: 0.42;
+        filter: brightness(1.10) contrast(0.84) saturate(0.55) blur(0.6px);
+      }
+      75% {
+        opacity: 0.85;
+        filter: brightness(1.03) contrast(0.95) saturate(0.88) blur(0.15px);
+      }
+      100% {
+        opacity: 1;
+        filter: brightness(1) contrast(1) saturate(1) blur(0px);
+      }
     }
 
-    /* Four distinct patterned Washi Tapes pinning the polaroids onto the string */
+    /* Four patterned Washi Tapes — upper half pinned directly onto the twine string, lower half on Polaroid */
     .pi-washi-tape {
       position: absolute;
-      top: -13px; left: 50%;
+      top: -12px; left: 50%;
       width: clamp(54px, 5.4vw, 68px);
-      height: clamp(20px, 2.3vh, 25px);
+      height: 24px;
       z-index: 5;
       pointer-events: none;
       filter: drop-shadow(0 2px 3px rgba(45, 35, 20, 0.16));
@@ -922,12 +938,12 @@
     .flip-leaf { position: absolute; left: 50%; top: 0; bottom: 0; width: 50%; transform-style: preserve-3d; transform-origin: left center; }
     .flip-leaf-front, .flip-leaf-back {
       position: absolute; inset: 0; backface-visibility: hidden; border-radius: 0 10px 10px 0;
-      background: linear-gradient(90deg, #d8e2d3 0%, #e7efe2 4%, #e4ece0 91%, #ccd7c7 100%);
+      background: linear-gradient(90deg, #ebe3d3 0%, #faf6eb 4%, #f7f3e7 91%, #e4dccb 100%);
       box-shadow: inset -16px 0 19px rgba(80,58,39,.13), 5px 1px 11px rgba(64,44,27,.13);
     }
     .flip-leaf-back {
       transform: rotateY(180deg); border-radius: 10px 0 0 10px;
-      background: linear-gradient(270deg, #d8e2d3, #e7efe2 85%, #c7d2c2);
+      background: linear-gradient(270deg, #ebe3d3, #faf6eb 85%, #dcd4c3);
       box-shadow: inset 18px 0 18px rgba(60,44,29,.13), -4px 0 13px rgba(64,44,27,.12);
     }
     .page-flip-layer.turn-forward, .page-flip-layer.turn-backward { visibility: visible; }
@@ -938,7 +954,7 @@
 
     .book-footer {
       position: absolute; bottom: 0; left: 0; right: 0; height: 50px; z-index: 7;
-      background: linear-gradient(0deg, rgba(232, 239, 227, .98) 0%, rgba(232, 239, 227, .88) 75%, rgba(232, 239, 227, 0) 100%);
+      background: linear-gradient(0deg, rgba(248, 244, 234, .98) 0%, rgba(248, 244, 234, .88) 75%, rgba(248, 244, 234, 0) 100%);
       display: flex; align-items: center; justify-content: center; gap: 13px; padding-top: 10px;
     }
     .foot-arrow {
@@ -1034,21 +1050,16 @@
       /* Playful Ideas Compact Landscape Adjustments */
       .pi-clothesline-stage { padding: 0 18px; column-gap: 12px; }
       .pi-polaroid { max-width: clamp(112px, 16vw, 148px); padding: 7px 7px 18px; }
-      .pi-washi-tape { width: 42px; height: 15px; top: -9px; }
+      .pi-washi-tape { width: 42px; height: 16px; top: -8px; }
       .pi-caption { max-width: 155px; }
       .pi-caption--bottom { top: calc(100% + 7px); }
-      .pi-caption--top { bottom: calc(100% + 11px); }
+      .pi-caption--top { bottom: calc(100% + 13px); }
       .pi-caption--vc .hw-line--lead { font-size: clamp(15px, 3.6vh, 20px); }
       .pi-caption--vc .hw-line--sub { font-size: clamp(11px, 2.5vh, 14px); }
       .pi-caption--oreo .hw-line,
       .pi-caption--combat .hw-line,
       .pi-caption--hollywood-top .hw-line,
       .pi-caption--hollywood-bottom .hw-line { font-size: clamp(13px, 3.1vh, 17px); }
-      .pi-grass--top-left { width: 54px; left: 5%; top: 1.5%; }
-      .pi-grass--top-right-center { width: 74px; left: 54%; top: 6%; }
-      .pi-grass--mid-right { width: 46px; right: 26%; top: 24%; }
-      .pi-grass--lower-mid-left { width: 54px; left: 30%; bottom: 2%; }
-      .pi-grass--lower-right { width: 56px; right: 7%; bottom: 4.5%; }
 
       .spread-header { flex-basis: 63px; padding-top: 9px; padding-bottom: 6px; }
       .spread-header::after { bottom: 2px; }
@@ -1086,6 +1097,7 @@
       .hw-glyph { clip-path: none !important; }
       .hw-underline-path { stroke-dashoffset: 0 !important; }
       .pi-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
+      .pi-photo-window img { opacity: 1 !important; filter: none !important; }
     }
   </style>
 </head>
@@ -2076,42 +2088,51 @@ It is a pleasure to have you in the next chapter.</p>
       spread.classList.add('is-writing');
     }
 
-    /* Render Chapter 02: Playful Ideas (Clothesline Polaroids on Meadow Grid Spread) */
+    /* Render Chapter 02: Playful Ideas (Clothesline Polaroids on Meadow Spread) */
     function renderPlayfulIdeasSpread() {
       const items = projects['playful-ideas'];
 
+      const vcStart = 0.26;
       const vcText = buildHandwrittenLines([
         { text: 'Lung Health matters', extraClass: 'hw-line--lead', rot: '-0.8deg' },
         { text: '(especially if you\u2019re a kungfu master.)', extraClass: 'hw-line--sub', rot: '-0.4deg' }
-      ], 0.26);
+      ], vcStart);
 
+      const oreoStart = vcText.endTime + 0.22;
       const oreoText = buildHandwrittenLines([
         { text: 'The universe is the', rot: '-0.7deg' },
         { text: 'biggest wishing well.', rot: '-0.3deg', trailingStar: true }
-      ], vcText.endTime + 0.22);
+      ], oreoStart);
 
+      const combatStart = oreoText.endTime + 0.22;
       const combatText = buildHandwrittenLines([
         { text: 'Hear a shot of energy.', rot: '0deg' }
-      ], oreoText.endTime + 0.22);
+      ], combatStart);
 
+      const hollywoodStart = combatText.endTime + 0.22;
       const hollywoodTopText = buildHandwrittenLines([
         { text: 'We knew AI', rot: '-0.6deg' },
         { text: 'as a villain', rot: '-0.3deg' }
-      ], combatText.endTime + 0.22);
+      ], hollywoodStart);
 
       const hollywoodBottomText = buildHandwrittenLines([
-        { text: 'before we met it.', rot: '-0.6deg' }
+        { text: 'before we knew it.', rot: '-0.6deg' }
       ], hollywoodTopText.endTime + 0.14);
+
+      const developTimings = [
+        { delay: vcStart, duration: Math.max(1.2, vcText.endTime - vcStart) },
+        { delay: oreoStart, duration: Math.max(1.2, oreoText.endTime - oreoStart) },
+        { delay: combatStart, duration: Math.max(1.1, combatText.endTime - combatStart) },
+        { delay: hollywoodStart, duration: Math.max(1.3, hollywoodBottomText.endTime - hollywoodStart) }
+      ];
 
       const polaroidSlotsHTML = items.map((item, idx) => {
         const photoSrc = customUploadedObjects[item.id] || safeURL(item.polaroidSrc);
+        const timing = developTimings[idx];
+        const devStyle = `style="--dev-delay:${timing.delay.toFixed(3)}s; --dev-duration:${timing.duration.toFixed(3)}s;"`;
         const windowContent = photoSrc
-          ? `<img src="${photoSrc}" data-polaroid-key="${escapeHTML(item.id)}" alt="Playful Idea ${idx + 1}" />`
-          : `<svg class="pi-photo-icon" viewBox="0 0 24 24" aria-hidden="true">
-               <rect x="3" y="4" width="18" height="16" rx="2" />
-               <circle cx="8.5" cy="9.5" r="1.5" />
-               <path d="m21 15-4.5-4.5L7 20" />
-             </svg>`;
+          ? `<img src="${photoSrc}" ${devStyle} data-polaroid-key="${escapeHTML(item.id)}" alt="Playful Idea ${idx + 1}" />`
+          : '';
 
         let captionHTML = '';
         if (idx === 0) {
@@ -2139,20 +2160,13 @@ It is a pleasure to have you in the next chapter.</p>
       }).join('');
 
       return `<div class="playful-ideas-spread" id="playfulIdeasSpread" aria-label="Playful Ideas polaroid clothesline">
-        <!-- 5 Scattered Meadow Grass Tufts (no text overlap, no two on the same horizontal line) -->
-        <div class="pi-grass pi-grass--top-left">${grassTufts.topCenter}</div>
-        <div class="pi-grass pi-grass--top-right-center">${grassTufts.bottomRight}</div>
-        <div class="pi-grass pi-grass--mid-right">${grassTufts.lowerInner}</div>
-        <div class="pi-grass pi-grass--lower-mid-left">${grassTufts.lowerLeft}</div>
-        <div class="pi-grass pi-grass--lower-right">${grassTufts.upperInner}</div>
-
-        <!-- Vertically centered brown twine clothesline spanning both pages -->
+        <!-- Brown twine clothesline matching exact slot top anchor percentages across any window aspect ratio -->
         <svg class="pi-string-svg" viewBox="0 0 1200 735" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M -10 232 Q 600 264 1210 232" fill="none" stroke="rgba(58, 43, 28, 0.16)" stroke-width="3.2" transform="translate(0, 3)" />
-          <path d="M -10 232 Q 600 264 1210 232" fill="none" stroke="#6f5841" stroke-width="2.1" stroke-linecap="round" />
+          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="rgba(58, 43, 28, 0.16)" stroke-width="3.2" transform="translate(0, 3)" />
+          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="#6f5841" stroke-width="2.1" stroke-linecap="round" />
         </svg>
 
-        <!-- Vertically centered 4-Polaroid clothesline stage -->
+        <!-- 4-Polaroid clothesline stage -->
         <div class="pi-clothesline-stage">
           ${polaroidSlotsHTML}
         </div>
@@ -2168,11 +2182,7 @@ It is a pleasure to have you in the next chapter.</p>
           const parent = this.parentElement;
           if (!parent) return;
           parent.classList.remove('has-photo');
-          parent.innerHTML = `<svg class="pi-photo-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="16" rx="2" />
-            <circle cx="8.5" cy="9.5" r="1.5" />
-            <path d="m21 15-4.5-4.5L7 20" />
-          </svg>`;
+          parent.innerHTML = '';
         });
       });
     }

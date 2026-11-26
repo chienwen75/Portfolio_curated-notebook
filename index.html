@@ -256,7 +256,7 @@
     .project-viewport::-webkit-scrollbar { display: none; }
 
     /* ===============================================================
-       COLLAGE LANDING SPREADS (SOFT GROUND & PLAYFUL IDEAS)
+       COLLAGE LANDING SPREADS (SOFT GROUND, PLAYFUL IDEAS, THOUGHTFUL DREAMS)
        =============================================================== */
     .spread-paper.is-collage-spread .spread-header,
     .spread-paper.is-collage-spread .book-footer,
@@ -803,7 +803,243 @@
     .pi-caption--hollywood-bottom .hw-line { font-size: clamp(18.5px, 1.78vw, 24.5px); line-height: 1.12; }
 
     /* ===============================================================
-       STANDARD PROJECT SPREADS (THOUGHTFUL DREAMS)
+       CHAPTER 03: THOUGHTFUL DREAMS (AERIAL MEADOW + 3 FLOATING CLOUDS)
+       =============================================================== */
+    .thoughtful-dreams-spread {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Miniature Polaroid Clothesline Rack standing on the meadow (bottom-right, aerial view) */
+    .td-mini-rack {
+      position: absolute;
+      right: clamp(24px, 3.6vw, 48px);
+      bottom: clamp(14px, 2.4vh, 26px);
+      width: clamp(175px, 19.5vw, 255px);
+      z-index: 3;
+      pointer-events: none;
+    }
+    .td-mini-rack-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* Three oversized, soft drifting clouds filling the sky above the meadow (cropped softly at page edges) */
+    .td-cloud {
+      position: absolute;
+      z-index: 4;
+      cursor: pointer;
+      user-select: none;
+      filter: drop-shadow(0 16px 26px rgba(58, 72, 62, 0.14)) drop-shadow(0 4px 10px rgba(72, 96, 114, 0.10));
+      transition: filter 0.42s ease;
+      animation: tdCloudFloat var(--float-dur, 7.5s) ease-in-out var(--float-delay, 0s) infinite alternate;
+    }
+    .td-cloud:hover {
+      filter: drop-shadow(0 22px 32px rgba(52, 68, 60, 0.20)) drop-shadow(0 6px 14px rgba(72, 108, 134, 0.16));
+      z-index: 6;
+    }
+    @keyframes tdCloudFloat {
+      0% { transform: translate3d(0, 0px, 0) rotate(var(--cloud-rot, 0deg)); }
+      100% { transform: translate3d(var(--drift-x, 4px), -6px, 0) rotate(calc(var(--cloud-rot, 0deg) + 0.45deg)); }
+    }
+
+    /* Cloud 1 (Top-Left, billowing past top/left edges & across center crease): EmoTogether */
+    .td-cloud--emo {
+      top: -5.5%;
+      left: -4.5%;
+      width: 66%;
+      height: 60%;
+      --cloud-rot: -0.8deg;
+      --drift-x: 4px;
+      --float-dur: 8.4s;
+      --float-delay: 0s;
+      --slot-top: 13%;
+      --slot-left: 12%;
+      --slot-width: 58%;
+      --slot-height: 56%;
+    }
+    /* Cloud 2 (Middle-Right, billowing past right edge & across center crease): Ring the Memory Line */
+    .td-cloud--memory {
+      top: 3.5%;
+      right: -5.5%;
+      width: 64%;
+      height: 73%;
+      --cloud-rot: 0.7deg;
+      --drift-x: -4px;
+      --float-dur: 9.0s;
+      --float-delay: 0.9s;
+      --slot-top: 28%;
+      --slot-left: 31%;
+      --slot-width: 55%;
+      --slot-height: 51%;
+    }
+    /* Cloud 3 (Bottom-Left, billowing past left/bottom edges & across center crease): Being Here */
+    .td-cloud--being {
+      bottom: -6.5%;
+      left: -4.0%;
+      width: 60%;
+      height: 52%;
+      --cloud-rot: -0.6deg;
+      --drift-x: 4px;
+      --float-dur: 7.8s;
+      --float-delay: 1.6s;
+      --slot-top: 31%;
+      --slot-left: 9%;
+      --slot-width: 52%;
+      --slot-height: 52%;
+    }
+
+    .td-cloud-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    /* Separate uniform-aspect SVG overlay so curved letters never stretch or distort */
+    .td-tagline-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Curved handwritten project taglines in black ink wrapping inside each cloud margin */
+    .td-cloud-tagline {
+      font-family: var(--hand);
+      font-weight: 600;
+      font-size: 35px;
+      fill: #232722;
+      letter-spacing: 0.2px;
+      opacity: 0;
+    }
+    .thoughtful-dreams-spread.is-revealed .td-cloud-tagline {
+      animation: tdTaglineReveal 0.85s cubic-bezier(0.22, 0.08, 0.25, 1) var(--tag-delay, 0.9s) forwards;
+    }
+    @keyframes tdTaglineReveal {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Center Sky-Blue Washi Tape ("What if AI...") with torn edges & paper crease texture */
+    .td-center-tape {
+      position: absolute;
+      left: 50%;
+      top: 52.5%;
+      transform: translate(-50%, -50%) rotate(-1.4deg);
+      z-index: 8;
+      padding: clamp(7px, 1.05vh, 11px) clamp(24px, 2.8vw, 38px);
+      pointer-events: none;
+      background-color: rgba(154, 198, 224, 0.86);
+      background-image:
+        linear-gradient(116deg, transparent 20%, rgba(255, 255, 255, 0.36) 24%, rgba(76, 126, 158, 0.16) 27%, transparent 33%),
+        linear-gradient(66deg, transparent 66%, rgba(255, 255, 255, 0.32) 70%, rgba(76, 126, 158, 0.14) 73%, transparent 79%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)'/%3E%3C/svg%3E");
+      box-shadow: inset 0 0 0 1px rgba(108, 155, 184, 0.42);
+      filter: drop-shadow(0 4px 8px rgba(48, 68, 84, 0.18));
+      clip-path: polygon(
+        1.5% 4%, 98.5% 0%, 100% 18%, 98.2% 36%, 99.8% 55%, 98% 76%, 99.5% 96%,
+        1.8% 100%, 0% 80%, 1.6% 60%, 0.2% 40%, 1.8% 20%
+      );
+    }
+    .td-center-tape .hw-line {
+      font-size: clamp(24px, 2.35vw, 33px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0.015em;
+    }
+    .thoughtful-dreams-spread.is-revealed .hw-glyph {
+      animation: glyphStrokeDraw 0.14s cubic-bezier(0.22, 0.08, 0.25, 1) var(--g-delay, 0.2s) forwards;
+    }
+
+    .td-replay-btn {
+      top: 18px;
+      right: 22px;
+      bottom: auto;
+    }
+
+    /* Large, fully visible soft-edged image slot nestled inside the visible portion of each cloud */
+    .td-cloud-slot {
+      position: absolute;
+      z-index: 2;
+      top: var(--slot-top, 22%);
+      left: var(--slot-left, 20%);
+      width: var(--slot-width, 56%);
+      height: var(--slot-height, 54%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 32px;
+      overflow: hidden;
+      -webkit-mask-image: radial-gradient(ellipse 52% 50% at 50% 50%, #000 60%, rgba(0,0,0,0.70) 80%, transparent 100%);
+      mask-image: radial-gradient(ellipse 52% 50% at 50% 50%, #000 60%, rgba(0,0,0,0.70) 80%, transparent 100%);
+    }
+    .td-cloud-slot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 54% 52% at 50% 50%, transparent 58%, rgba(251, 252, 253, 0.52) 83%, rgba(251, 252, 253, 0.94) 100%);
+    }
+    .td-cloud-slot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: transform 0.45s ease;
+    }
+    .td-cloud:hover .td-cloud-slot img {
+      transform: scale(1.07);
+    }
+    .thoughtful-dreams-spread.is-revealed .td-cloud-slot img {
+      animation: cloudImageMistIn 1.15s cubic-bezier(0.22, 0.1, 0.25, 1) var(--img-delay, 0.25s) forwards;
+    }
+    @keyframes cloudImageMistIn {
+      0% { opacity: 0; filter: blur(4px) brightness(1.08); }
+      100% { opacity: 0.94; filter: blur(0px) brightness(1); }
+    }
+
+    /* Ethereal cloud mist placeholder before project image is mounted */
+    .td-cloud-mist-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px 20px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(226, 239, 247, 0.72) 0%, rgba(244, 249, 252, 0.45) 68%, transparent 100%);
+    }
+    .td-cloud-mist-title {
+      font-family: var(--hand);
+      font-weight: 600;
+      font-size: clamp(25px, 2.55vw, 36px);
+      line-height: 1.06;
+      color: #466375;
+      letter-spacing: -0.01em;
+    }
+    .td-cloud-mist-hint {
+      margin-top: 5px;
+      font: 500 10px/1.2 var(--body);
+      letter-spacing: 0.06em;
+      color: #6e8b9c;
+      opacity: 0.85;
+    }
+
+    /* ===============================================================
+       STANDARD PROJECT SPREADS (DETAIL VIEW BASE)
        =============================================================== */
     .project-panel {
       min-height: 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always;
@@ -1061,6 +1297,13 @@
       .pi-caption--hollywood-top .hw-line,
       .pi-caption--hollywood-bottom .hw-line { font-size: clamp(13px, 3.1vh, 17px); }
 
+      /* Thoughtful Dreams Compact Landscape Adjustments */
+      .td-cloud-mist-title { font-size: clamp(17px, 4vh, 24px); }
+      .td-cloud-mist-hint { display: none; }
+      .td-center-tape { padding: 5px 18px; }
+      .td-center-tape .hw-line { font-size: clamp(16px, 3.8vh, 22px); }
+      .td-mini-rack { width: clamp(120px, 18vw, 168px); right: 16px; bottom: 10px; }
+
       .spread-header { flex-basis: 63px; padding-top: 9px; padding-bottom: 6px; }
       .spread-header::after { bottom: 2px; }
       .project-panel, .project-panel.future-panel { padding-top: 6px; padding-bottom: 47px; }
@@ -1098,6 +1341,9 @@
       .hw-underline-path { stroke-dashoffset: 0 !important; }
       .pi-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
       .pi-photo-window img { opacity: 1 !important; filter: none !important; }
+      .td-cloud { animation: none !important; }
+      .td-cloud-slot img { opacity: 0.94 !important; filter: none !important; }
+      .td-cloud-tagline { opacity: 1 !important; }
     }
   </style>
 </head>
@@ -1307,8 +1553,10 @@ It is a pleasure to have you in the next chapter.</p>
 
       'thoughtful-dreams': [
         {
+          id: 'emo-together',
           name: 'EmoTogether',
           eyebrow: '01 / Thoughtful Dreams',
+          cloudSrc: 'assets/EmoTogether_cloud.png',
           media: 'EmoTogether Interactive Demo',
           tone: 'sky',
           mediaType: 'embed',
@@ -1318,8 +1566,10 @@ It is a pleasure to have you in the next chapter.</p>
           experiment: 'Emotions are deeply personal yet universally shared. I used AI to create music inspired by expressions of joy, anger, and sadness from musicians worldwide. By responding to users\u2019 facial expressions with corresponding music, AI becomes a bridge to others who share their feelings.'
         },
         {
+          id: 'ring-memory-line',
           name: 'Ring the Memory Line',
           eyebrow: '02 / Thoughtful Dreams',
+          cloudSrc: 'assets/Ring the Memory Line_cloud.png',
           awards: ['2024 DigiAsia × 4A Taiwan Youth Competition · Professional 1st Place'],
           media: 'Presentation Board',
           tone: 'lime',
@@ -1329,8 +1579,10 @@ It is a pleasure to have you in the next chapter.</p>
           thinking: 'AI should do more than improve efficiency. It should extend the reach of creativity to people often overlooked. In Taiwan, dementia is increasingly common. While regular conversation can help maintain communication abilities, not every family can afford daily therapy or provide constant companionship. We envisioned an AI companion that engages older adults with dementia in guided daily conversations, making cognitive and language stimulation more accessible to families who need it most.'
         },
         {
+          id: 'being-here',
           name: 'Being Here',
           eyebrow: '03 / Thoughtful Dreams',
+          cloudSrc: 'assets/Being Here_cloud.png',
           media: 'Concept Image',
           tone: 'lavender',
           mediaType: 'image',
@@ -1342,10 +1594,8 @@ It is a pleasure to have you in the next chapter.</p>
       ]
     };
 
-    /* Botanical Grass & Wildflower Tufts matching user's 5-tuft reference sheet
-       (All 5 tufts appear; Tuft #2 appears twice across the 6 positions) */
+    /* Botanical Grass & Wildflower Tufts for Soft Ground */
     const grassTufts = {
-      /* Tuft #2 (Appearance 1 — Top-Center on Left Page): Fountain grass blades with pink tulips, white daisies & yellow star sprays */
       topCenter: `<svg viewBox="0 0 190 165" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M84 148 Q54 102 20 64" stroke="#5c9338" stroke-width="1.5"/>
@@ -1358,24 +1608,20 @@ It is a pleasure to have you in the next chapter.</p>
           <path d="M103 148 Q123 102 142 60" stroke="#568c34" stroke-width="1.6"/>
           <path d="M105 148 Q134 108 160 74" stroke="#568c34" stroke-width="1.6"/>
           <path d="M107 148 Q138 118 168 96" stroke="#5c9338" stroke-width="1.45"/>
-
           <path d="M84 154 C66 130 44 116 20 116 C45 123 64 136 81 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
           <path d="M107 154 C125 130 147 116 171 116 C146 123 127 136 110 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.9"/>
           <path d="M87 154 C71 122 52 100 31 93 C53 106 70 126 84 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
           <path d="M104 154 C120 122 139 100 160 93 C138 106 121 126 107 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.9"/>
-
           <path d="M89 154 C77 116 64 86 48 69 C65 92 77 120 87 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
           <path d="M102 154 C114 116 127 86 143 69 C126 92 114 120 104 154 Z" fill="#6aa344" stroke="#46782a" stroke-width="0.95"/>
           <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="0.95"/>
-
           <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.35"/>
           <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.4"/>
           <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.45"/>
           <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.4"/>
           <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.35"/>
-
           <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.7">
             <ellipse cx="36" cy="83" rx="1.6" ry="2.6" transform="rotate(-35 36 83)"/>
             <ellipse cx="28" cy="74" rx="1.6" ry="2.6" transform="rotate(-35 28 74)"/>
@@ -1390,7 +1636,6 @@ It is a pleasure to have you in the next chapter.</p>
             <g transform="translate(136,29)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
             <g transform="translate(169,95)"><path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/></g>
           </g>
-
           <g transform="translate(52,57) rotate(-14)">
             <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
             <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
@@ -1403,7 +1648,6 @@ It is a pleasure to have you in the next chapter.</p>
             <path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
             <path d="M-2.5 3.5 C-2.8 -1.8 -1 -6.5 0 -8.8 C1 -6.5 2.8 -1.8 2.5 3.5" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
           </g>
-
           <g transform="translate(32,83)">
             <ellipse cx="0" cy="-6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
             <ellipse cx="5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(60 5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
@@ -1434,7 +1678,6 @@ It is a pleasure to have you in the next chapter.</p>
         </g>
       </svg>`,
 
-      /* Tuft #3 (Lower-Left on Left Page): Lush rounded mound of mottled lobed green leaves */
       lowerLeft: `<svg viewBox="0 0 175 125" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g stroke-linecap="round" stroke-linejoin="round">
           <g transform="translate(52,52) rotate(-24)">
@@ -1490,7 +1733,6 @@ It is a pleasure to have you in the next chapter.</p>
         </g>
       </svg>`,
 
-      /* Tuft #4 (Lower-Inner on Left Page): Spiky radial starburst tuft of sharp green blades with glowing pale-green center */
       lowerInner: `<svg viewBox="0 0 165 130" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g stroke-linejoin="round">
           <g fill="#4c8030" stroke="#3b6723" stroke-width="0.6">
@@ -1542,7 +1784,6 @@ It is a pleasure to have you in the next chapter.</p>
         </g>
       </svg>`,
 
-      /* Tuft #5 (Upper-Inner on Right Page): Delicate airy trailing fern & tendril vine stems */
       upperInner: `<svg viewBox="0 0 185 135" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g stroke-linecap="round" stroke-linejoin="round">
           <g fill="none" stroke="#538933" stroke-width="1.75">
@@ -1590,7 +1831,6 @@ It is a pleasure to have you in the next chapter.</p>
         </g>
       </svg>`,
 
-      /* Tuft #2b (Appearance 2 — Mid-Right on Right Page, mirrored): Fountain grass bouquet */
       midRight: `<svg viewBox="0 0 190 165" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g transform="translate(190, 0) scale(-1, 1)" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M84 148 Q54 102 20 64" stroke="#5c9338" stroke-width="1.55"/>
@@ -1603,7 +1843,6 @@ It is a pleasure to have you in the next chapter.</p>
           <path d="M103 148 Q123 102 142 60" stroke="#568c34" stroke-width="1.65"/>
           <path d="M105 148 Q134 108 160 74" stroke="#568c34" stroke-width="1.65"/>
           <path d="M107 148 Q138 118 168 96" stroke="#5c9338" stroke-width="1.5"/>
-
           <path d="M84 154 C66 130 44 116 20 116 C45 123 64 136 81 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.95"/>
           <path d="M107 154 C125 130 147 116 171 116 C146 123 127 136 110 154 Z" fill="#4f8530" stroke="#3f6e24" stroke-width="0.95"/>
           <path d="M87 154 C71 122 52 100 31 93 C53 106 70 126 84 154 Z" fill="#5b9339" stroke="#427327" stroke-width="0.95"/>
@@ -1613,13 +1852,11 @@ It is a pleasure to have you in the next chapter.</p>
           <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="1.0"/>
           <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="1.0"/>
           <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="1.0"/>
-
           <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.4"/>
           <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.45"/>
           <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.5"/>
           <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.45"/>
           <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.4"/>
-
           <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.75">
             <ellipse cx="36" cy="83" rx="1.6" ry="2.6" transform="rotate(-35 36 83)"/>
             <ellipse cx="28" cy="74" rx="1.6" ry="2.6" transform="rotate(-35 28 74)"/>
@@ -1634,7 +1871,6 @@ It is a pleasure to have you in the next chapter.</p>
             <g transform="translate(136,29)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
             <g transform="translate(169,95)"><path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/></g>
           </g>
-
           <g transform="translate(52,57) rotate(-14)">
             <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
             <path d="M-2.8 4 C-3.2 -2 -1.2 -7 0 -9.5 C1.2 -7 3.2 -2 2.8 4" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
@@ -1647,7 +1883,6 @@ It is a pleasure to have you in the next chapter.</p>
             <path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
             <path d="M-2.5 3.5 C-2.8 -1.8 -1 -6.5 0 -8.8 C1 -6.5 2.8 -1.8 2.5 3.5" fill="#f5b8c4" stroke="#c35d72" stroke-width="0.75"/>
           </g>
-
           <g transform="translate(32,83)">
             <ellipse cx="0" cy="-6" rx="2.3" ry="4.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
             <ellipse cx="5.2" cy="-3" rx="2.3" ry="4.2" transform="rotate(60 5.2 -3)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/>
@@ -1678,7 +1913,6 @@ It is a pleasure to have you in the next chapter.</p>
         </g>
       </svg>`,
 
-      /* Tuft #1 (Bottom-Right on Right Page): Wide horizontal zigzag grass border with pink, yellow & white flowers + paired-leaf shoots */
       bottomRight: `<svg viewBox="0 0 230 78" filter="url(#botanicalCrayon)" aria-hidden="true">
         <g stroke-linecap="round" stroke-linejoin="round">
           <g fill="none" stroke="#659e3c" stroke-width="1.35">
@@ -1693,7 +1927,6 @@ It is a pleasure to have you in the next chapter.</p>
             <path d="M184 61 L184 39"/>
             <path d="M202 62 L202 45"/>
           </g>
-
           <g fill="#73ae47" stroke="#53862f" stroke-width="0.7">
             <ellipse cx="42" cy="46" rx="3.2" ry="1.6" transform="rotate(-32 42 46)"/>
             <ellipse cx="50" cy="44" rx="3.2" ry="1.6" transform="rotate(32 50 44)"/>
@@ -1702,10 +1935,8 @@ It is a pleasure to have you in the next chapter.</p>
             <ellipse cx="164" cy="49" rx="3.2" ry="1.6" transform="rotate(-35 164 49)"/>
             <ellipse cx="172" cy="48" rx="3.2" ry="1.6" transform="rotate(35 172 48)"/>
           </g>
-
           <path d="M6 67 C9 62 13 62 15 68 L21 53 L26 68 L33 48 L39 68 L45 54 L51 68 L58 46 L65 68 L71 51 L77 68 L84 47 L90 68 L96 54 L102 68 L109 49 L115 68 L121 53 L127 68 L134 48 L141 68 L147 52 L153 68 L160 47 L166 68 L172 54 L178 68 L185 49 L191 68 L197 53 L203 68 L209 54 L214 68 C217 63 221 63 224 67"
                 fill="none" stroke="#6aa43e" stroke-width="2.65" />
-
           <g transform="translate(21,42)">
             <circle cx="0" cy="-3.6" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
             <circle cx="3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
@@ -1730,7 +1961,6 @@ It is a pleasure to have you in the next chapter.</p>
             <circle cx="-3.4" cy="-1.1" r="2.2" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.65"/>
             <circle cx="0" cy="0" r="1.5" fill="#fff0a8"/>
           </g>
-
           <g transform="translate(46,30)">
             <circle cx="0" cy="-4.1" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
             <circle cx="3.9" cy="-1.3" r="2.4" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
@@ -1755,7 +1985,6 @@ It is a pleasure to have you in the next chapter.</p>
             <circle cx="-3.3" cy="-1.1" r="2.1" fill="#f4ca40" stroke="#c99a1e" stroke-width="0.65"/>
             <circle cx="0" cy="0" r="1.5" fill="#c97e1c"/>
           </g>
-
           <g transform="translate(78,28)">
             <ellipse cx="0" cy="-4.5" rx="1.8" ry="3.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
             <ellipse cx="4.2" cy="-1.4" rx="1.8" ry="3.2" transform="rotate(72 4.2 -1.4)" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.7"/>
@@ -1924,26 +2153,25 @@ It is a pleasure to have you in the next chapter.</p>
           return `${prefix}<span class="hw-word">${glyphsHTML}</span>${suffix}${spaceHTML}`;
         }).join('');
 
-        let trailingHTML = '';
+        let trailingIconHTML = '';
         if (cfg.trailingStar) {
-          const starDelay = (cursorTime + 0.05).toFixed(3);
-          cursorTime += 0.28;
-          trailingHTML = `<svg class="pi-star-inline" viewBox="0 0 28 28" aria-hidden="true">
-            <path class="pi-star-path" pathLength="1" style="--star-delay:${starDelay}s"
-              d="M14 2.5 L17.3 10.1 L25.5 10.9 L19.2 16.3 L21.1 24.4 L14 20.1 L6.9 24.4 L8.8 16.3 L2.5 10.9 L10.7 10.1 Z" />
-          </svg>`;
+          const sDelay = (cursorTime + 0.05).toFixed(3);
+          cursorTime += 0.36;
+          trailingIconHTML = `<svg class="pi-star-inline" viewBox="0 0 24 24" aria-hidden="true"><path class="pi-star-path" pathLength="1" style="--star-delay:${sDelay}s" d="M 12 2.2 L 14.8 8.6 L 21.6 9.3 L 16.4 13.8 L 18.0 20.5 L 12 16.9 L 6.0 20.5 L 7.6 13.8 L 2.4 9.3 L 9.2 8.6 Z" /></svg>`;
         }
 
         cursorTime += linePause;
         const colorStyle = cfg.color ? ` --line-color:${cfg.color};` : '';
-        const extraClass = cfg.extraClass ? ` ${cfg.extraClass}` : '';
-        return `<span class="hw-line${extraClass}" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};${colorStyle}">${wordsHTML}${trailingHTML}</span>`;
+        const extraClass = cfg.className ? ` ${cfg.className}` : '';
+        return `<span class="hw-line${extraClass}" style="--rot:${cfg.rot || '0deg'}; --indent:${cfg.indent || '0px'};${colorStyle}">${wordsHTML}${trailingIconHTML}</span>`;
       }).join('');
 
       return { html, endTime: cursorTime };
     }
 
-    /* Render Chapter 01: Soft Ground Illustrated Two-Page Collage */
+    /* ===============================================================
+       RENDER CHAPTER 01: SOFT GROUND COLLAGE SPREAD
+       =============================================================== */
     function renderSoftGroundSpread() {
       const ownData = projects['soft-ground'][0];
       const teaData = projects['soft-ground'][1];
@@ -1965,7 +2193,6 @@ It is a pleasure to have you in the next chapter.</p>
       ], rightTopText.endTime + 0.22);
 
       return `<div class="soft-ground-spread" id="softGroundSpread" aria-label="Soft Ground visual collage">
-        <!-- LEFT PAGE: own bi.monthly -->
         <div class="sg-page sg-left">
           <div class="sg-grass sg-grass--top-center">${grassTufts.topCenter}</div>
           <div class="sg-grass sg-grass--lower-left">${grassTufts.lowerLeft}</div>
@@ -1992,7 +2219,6 @@ It is a pleasure to have you in the next chapter.</p>
           </div>
         </div>
 
-        <!-- RIGHT PAGE: 桂有光 Osmanthus Tea Brand -->
         <div class="sg-page sg-right">
           <div class="sg-grass sg-grass--upper-inner">${grassTufts.upperInner}</div>
           <div class="sg-grass sg-grass--mid-right">${grassTufts.midRight}</div>
@@ -2088,106 +2314,120 @@ It is a pleasure to have you in the next chapter.</p>
       spread.classList.add('is-writing');
     }
 
-    /* Render Chapter 02: Playful Ideas (Clothesline Polaroids on Meadow Spread) */
+    /* ===============================================================
+       RENDER CHAPTER 02: PLAYFUL IDEAS (POLAROID CLOTHESLINE SPREAD)
+       =============================================================== */
     function renderPlayfulIdeasSpread() {
-      const items = projects['playful-ideas'];
+      const ideasList = projects['playful-ideas'];
 
-      const vcStart = 0.26;
-      const vcText = buildHandwrittenLines([
-        { text: 'Lung Health matters', extraClass: 'hw-line--lead', rot: '-0.8deg' },
-        { text: '(especially if you\u2019re a kungfu master.)', extraClass: 'hw-line--sub', rot: '-0.4deg' }
+      const vcStart = 0.24;
+      const vcTagline = buildHandwrittenLines([
+        { text: 'Lung Health matters', className: 'hw-line--lead', rot: '-0.8deg' },
+        { text: '(especially if you\u2019re a kungfu master.)', className: 'hw-line--sub', rot: '0.4deg' }
       ], vcStart);
 
-      const oreoStart = vcText.endTime + 0.22;
-      const oreoText = buildHandwrittenLines([
-        { text: 'The universe is the', rot: '-0.7deg' },
-        { text: 'biggest wishing well.', rot: '-0.3deg', trailingStar: true }
+      const oreoStart = vcTagline.endTime + 0.16;
+      const oreoTagline = buildHandwrittenLines([
+        { text: 'The universe is the', rot: '-0.6deg' },
+        { text: 'biggest wishing well.', rot: '0.4deg', trailingStar: true }
       ], oreoStart);
 
-      const combatStart = oreoText.endTime + 0.22;
-      const combatText = buildHandwrittenLines([
+      const combatStart = oreoTagline.endTime + 0.16;
+      const combatTagline = buildHandwrittenLines([
         { text: 'Hear a shot of energy.', rot: '0deg' }
       ], combatStart);
 
-      const hollywoodStart = combatText.endTime + 0.22;
-      const hollywoodTopText = buildHandwrittenLines([
-        { text: 'We knew AI', rot: '-0.6deg' },
-        { text: 'as a villain', rot: '-0.3deg' }
-      ], hollywoodStart);
+      const hollywoodTopStart = combatTagline.endTime + 0.16;
+      const hollywoodTopTagline = buildHandwrittenLines([
+        { text: 'We knew AI', rot: '-0.5deg' },
+        { text: 'as a villain', rot: '0.3deg' }
+      ], hollywoodTopStart);
 
-      const hollywoodBottomText = buildHandwrittenLines([
-        { text: 'before we knew it.', rot: '-0.6deg' }
-      ], hollywoodTopText.endTime + 0.14);
+      const hollywoodBottomTagline = buildHandwrittenLines([
+        { text: 'before we knew it.', rot: '-0.5deg' }
+      ], hollywoodTopTagline.endTime + 0.05);
 
-      const developTimings = [
-        { delay: vcStart, duration: Math.max(1.2, vcText.endTime - vcStart) },
-        { delay: oreoStart, duration: Math.max(1.2, oreoText.endTime - oreoStart) },
-        { delay: combatStart, duration: Math.max(1.1, combatText.endTime - combatStart) },
-        { delay: hollywoodStart, duration: Math.max(1.3, hollywoodBottomText.endTime - hollywoodStart) }
+      const slotsMeta = [
+        {
+          start: vcStart,
+          duration: Math.max(0.95, vcTagline.endTime - vcStart),
+          topHTML: '',
+          bottomHTML: `<div class="pi-caption pi-caption--bottom pi-caption--vc" aria-label="Lung Health matters (especially if you're a kungfu master.)">${vcTagline.html}</div>`
+        },
+        {
+          start: oreoStart,
+          duration: Math.max(0.95, oreoTagline.endTime - oreoStart),
+          topHTML: `<div class="pi-caption pi-caption--top pi-caption--oreo" aria-label="The universe is the biggest wishing well.">${oreoTagline.html}</div>`,
+          bottomHTML: ''
+        },
+        {
+          start: combatStart,
+          duration: Math.max(0.85, combatTagline.endTime - combatStart),
+          topHTML: '',
+          bottomHTML: `<div class="pi-caption pi-caption--bottom pi-caption--combat" aria-label="Hear a shot of energy.">${combatTagline.html}</div>`
+        },
+        {
+          start: hollywoodTopStart,
+          duration: Math.max(0.95, hollywoodBottomTagline.endTime - hollywoodTopStart),
+          topHTML: `<div class="pi-caption pi-caption--top pi-caption--hollywood-top" aria-label="We knew AI as a villain">${hollywoodTopTagline.html}</div>`,
+          bottomHTML: `<div class="pi-caption pi-caption--bottom pi-caption--hollywood-bottom" aria-label="before we knew it.">${hollywoodBottomTagline.html}</div>`
+        }
       ];
 
-      const polaroidSlotsHTML = items.map((item, idx) => {
-        const photoSrc = customUploadedObjects[item.id] || safeURL(item.polaroidSrc);
-        const timing = developTimings[idx];
-        const devStyle = `style="--dev-delay:${timing.delay.toFixed(3)}s; --dev-duration:${timing.duration.toFixed(3)}s;"`;
-        const windowContent = photoSrc
-          ? `<img src="${photoSrc}" ${devStyle} data-polaroid-key="${escapeHTML(item.id)}" alt="Playful Idea ${idx + 1}" />`
+      const polaroidsHTML = ideasList.map((item, idx) => {
+        const customSrc = customUploadedObjects[item.id];
+        const rawSrc = customSrc || item.polaroidSrc || '';
+        const src = rawSrc ? escapeHTML(rawSrc) : '';
+        const meta = slotsMeta[idx];
+
+        const windowInner = src
+          ? `<img src="${src}" data-polaroid-key="${escapeHTML(item.id)}" style="--dev-delay:${meta.start.toFixed(3)}s; --dev-duration:${meta.duration.toFixed(3)}s;" alt="" />`
           : '';
 
-        let captionHTML = '';
-        if (idx === 0) {
-          captionHTML = `<div class="pi-caption pi-caption--bottom pi-caption--vc">${vcText.html}</div>`;
-        } else if (idx === 1) {
-          captionHTML = `<div class="pi-caption pi-caption--top pi-caption--oreo">${oreoText.html}</div>`;
-        } else if (idx === 2) {
-          captionHTML = `<div class="pi-caption pi-caption--bottom pi-caption--combat">${combatText.html}</div>`;
-        } else if (idx === 3) {
-          captionHTML = `
-            <div class="pi-caption pi-caption--top pi-caption--hollywood-top">${hollywoodTopText.html}</div>
-            <div class="pi-caption pi-caption--bottom pi-caption--hollywood-bottom">${hollywoodBottomText.html}</div>
-          `;
-        }
-
         return `<div class="pi-slot pi-slot--${idx}">
-          ${captionHTML}
-          <div class="pi-polaroid" data-pi-upload="${escapeHTML(item.id)}" title="Click to preview or attach polaroid photo">
-            <span class="pi-washi-tape pi-tape--${escapeHTML(item.tapeStyle)}" aria-hidden="true"></span>
-            <div class="pi-photo-window ${photoSrc ? 'has-photo' : ''}">
-              ${windowContent}
+          ${meta.topHTML}
+          <div class="pi-polaroid" data-pi-upload="${escapeHTML(item.id)}" title="Click to attach Polaroid photo (${escapeHTML(item.name)})">
+            <span class="pi-washi-tape pi-tape--${escapeHTML(item.tapeStyle || 'plaid')}" aria-hidden="true"></span>
+            <div class="pi-photo-window ${src ? 'has-photo' : ''}">
+              ${windowInner}
             </div>
           </div>
+          ${meta.bottomHTML}
         </div>`;
       }).join('');
 
-      return `<div class="playful-ideas-spread" id="playfulIdeasSpread" aria-label="Playful Ideas polaroid clothesline">
-        <!-- Brown twine clothesline matching exact slot top anchor percentages across any window aspect ratio -->
-        <svg class="pi-string-svg" viewBox="0 0 1200 735" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="rgba(58, 43, 28, 0.16)" stroke-width="3.2" transform="translate(0, 3)" />
-          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="#6f5841" stroke-width="2.1" stroke-linecap="round" />
+      return `<div class="playful-ideas-spread" id="playfulIdeasSpread" aria-label="Playful Ideas Polaroid clothesline">
+        <svg class="pi-string-svg" viewBox="0 0 1200 720" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M -10 255 Q 600 291 1210 255" fill="none" stroke="rgba(68, 52, 34, 0.16)" stroke-width="3.2" />
+          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="#6c563f" stroke-width="2.1" stroke-linecap="round" />
+          <path d="M -10 250 Q 600 286 1210 250" fill="none" stroke="#9e8468" stroke-width="0.9" stroke-dasharray="6 4" stroke-linecap="round" />
         </svg>
 
-        <!-- 4-Polaroid clothesline stage -->
         <div class="pi-clothesline-stage">
-          ${polaroidSlotsHTML}
+          ${polaroidsHTML}
         </div>
 
-        <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay handwriting animation" title="Replay handwriting">↻</button>
+        <button type="button" class="sg-replay-btn" id="replayPlayfulIdeas" aria-label="Replay Playful Ideas animation" title="Replay animation">↻</button>
       </div>`;
     }
 
     function attachPlayfulIdeasImageFallbacks() {
       const imgs = ui.viewport.querySelectorAll('.playful-ideas-spread img[data-polaroid-key]');
       imgs.forEach(img => {
-        img.addEventListener('error', function handlePolaroidError() {
-          const parent = this.parentElement;
-          if (!parent) return;
-          parent.classList.remove('has-photo');
-          parent.innerHTML = '';
+        img.addEventListener('error', function handlePolaroidImgError() {
+          if (!this.dataset.triedUpperExt && /\.png$/i.test(this.getAttribute('src') || '')) {
+            this.dataset.triedUpperExt = '1';
+            this.src = this.getAttribute('src').replace(/\.png$/, '.PNG');
+            return;
+          }
+          const win = this.parentElement;
+          if (win) win.classList.remove('has-photo');
+          this.remove();
         });
       });
     }
 
-    function triggerPlayfulIdeasHandwriting() {
+    function triggerPlayfulIdeasAnimation() {
       const spread = document.getElementById('playfulIdeasSpread');
       if (!spread) return;
       spread.classList.remove('is-writing');
@@ -2195,45 +2435,192 @@ It is a pleasure to have you in the next chapter.</p>
       spread.classList.add('is-writing');
     }
 
-    /* Render Chapter 03: Thoughtful Dreams */
-    function renderThoughtfulDream(p) {
-      const isEmo = p.name === 'EmoTogether';
-      const isBeingHere = p.name === 'Being Here';
-      const url = isEmo ? safeURL(p.embedUrl) : '';
+    /* ===============================================================
+       RENDER CHAPTER 03: THOUGHTFUL DREAMS (AERIAL MEADOW + 3 CLOUDS)
+       =============================================================== */
+    function renderThoughtfulDreamsSpread() {
+      const dreamsList = projects['thoughtful-dreams'];
 
-      const awardsHTML = (p.awards && p.awards.length)
-        ? `<div class="award-group">${p.awards.map(a => `<div class="project-award"><span class="award-star">✦</span>${escapeHTML(a)}</div>`).join('')}</div>`
-        : '';
+      const cloudConfigs = [
+        {
+          item: dreamsList[0],
+          cls: 'td-cloud--emo',
+          imgDelay: '0.20s',
+          svgHTML: `<svg class="td-cloud-bg" viewBox="0 0 460 320" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="tdCloudGrad0" cx="46%" cy="46%" r="54%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+                <stop offset="68%" stop-color="#f7fbfe" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#e3eff7" stop-opacity="0.90"/>
+              </radialGradient>
+            </defs>
+            <path d="M 55 248 C 14 248, 8 192, 38 172 C 16 142, 34 86, 82 82 C 92 34, 158 18, 198 46 C 234 10, 314 14, 342 62 C 394 54, 444 96, 434 148 C 462 182, 442 238, 392 246 C 362 284, 294 288, 256 264 C 214 294, 144 292, 114 264 C 82 276, 56 264, 55 248 Z"
+                  fill="url(#tdCloudGrad0)" />
+            <path d="M 60 250 C 16 248, 10 194, 40 173 C 18 143, 36 88, 83 84 C 94 35, 160 20, 199 48 C 235 12, 315 16, 343 64 C 395 56, 443 98, 433 149 C 460 183, 440 237, 390 245 C 360 282, 293 286, 256 262 C 213 292, 145 290, 115 262 C 84 274, 62 262, 60 250"
+                  fill="none" stroke="#6d9db8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
+          </svg>
+          <svg class="td-tagline-svg" viewBox="0 0 792 444" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <path id="tdArcEmo" d="M 82 322 Q 345 384 625 308" />
+            </defs>
+            <text class="td-cloud-tagline" style="--tag-delay:0.70s">
+              <textPath href="#tdArcEmo" startOffset="50%" text-anchor="middle">bring us closer to humanity, not itself</textPath>
+            </text>
+          </svg>`
+        },
+        {
+          item: dreamsList[1],
+          cls: 'td-cloud--memory',
+          imgDelay: '0.45s',
+          svgHTML: `<svg class="td-cloud-bg" viewBox="0 0 470 330" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="tdCloudGrad1" cx="54%" cy="52%" r="54%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+                <stop offset="68%" stop-color="#f7fbfe" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#e3eff7" stop-opacity="0.90"/>
+              </radialGradient>
+            </defs>
+            <path d="M 52 246 C 12 240, 8 182, 42 162 C 28 118, 66 72, 116 76 C 138 28, 212 18, 256 50 C 304 16, 384 28, 404 78 C 448 84, 468 136, 444 176 C 466 218, 434 268, 382 266 C 348 302, 276 302, 238 274 C 194 304, 122 296, 98 264 C 66 270, 50 258, 52 246 Z"
+                  fill="url(#tdCloudGrad1)" />
+            <path d="M 56 247 C 14 241, 10 183, 44 163 C 30 119, 68 74, 117 78 C 139 30, 213 20, 257 52 C 305 18, 383 30, 403 80 C 446 86, 466 137, 442 177 C 464 218, 432 266, 381 264 C 347 300, 277 300, 239 272 C 195 302, 124 294, 99 262 C 68 268, 54 257, 56 247"
+                  fill="none" stroke="#6d9db8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
+          </svg>
+          <svg class="td-tagline-svg" viewBox="0 0 768 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <path id="tdArcMemory" d="M 110 245 Q 285 95 568 132" />
+            </defs>
+            <text class="td-cloud-tagline" style="--tag-delay:1.35s">
+              <textPath href="#tdArcMemory" startOffset="50%" text-anchor="middle">help us remember who we are</textPath>
+            </text>
+          </svg>`
+        },
+        {
+          item: dreamsList[2],
+          cls: 'td-cloud--being',
+          imgDelay: '0.70s',
+          svgHTML: `<svg class="td-cloud-bg" viewBox="0 0 440 295" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="tdCloudGrad2" cx="46%" cy="54%" r="54%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+                <stop offset="68%" stop-color="#f7fbfe" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#e3eff7" stop-opacity="0.90"/>
+              </radialGradient>
+            </defs>
+            <path d="M 46 226 C 10 222, 8 168, 40 150 C 26 106, 62 62, 112 68 C 136 22, 208 16, 248 48 C 296 22, 368 42, 382 92 C 424 102, 438 154, 412 190 C 430 228, 398 272, 348 268 C 312 292, 244 290, 210 264 C 166 290, 98 282, 78 252 C 52 256, 44 240, 46 226 Z"
+                  fill="url(#tdCloudGrad2)" />
+            <path d="M 50 227 C 12 223, 10 169, 42 151 C 28 107, 64 64, 113 70 C 137 24, 209 18, 249 50 C 297 24, 367 44, 381 94 C 422 104, 436 155, 410 191 C 428 228, 396 270, 347 266 C 311 290, 245 288, 211 262 C 167 288, 100 280, 79 250 C 54 254, 48 239, 50 227"
+                  fill="none" stroke="#6d9db8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
+          </svg>
+          <svg class="td-tagline-svg" viewBox="0 0 720 385" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <path id="tdArcBeing" d="M 92 152 C 215 82, 415 96, 578 268" />
+            </defs>
+            <text class="td-cloud-tagline" style="--tag-delay:1.95s">
+              <textPath href="#tdArcBeing" startOffset="50%" text-anchor="middle">enable relationship to grow beyond death</textPath>
+            </text>
+          </svg>`
+        }
+      ];
 
-      const mediaHTML = isEmo
-        ? `<div class="browser-shell" aria-label="EmoTogether website preview">
-            <div class="browser-top"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">EmoTogether · Interactive Demo</span></div>
-            ${url
-              ? `<iframe title="EmoTogether interactive experience" class="embedded-site" src="${url}" allow="camera; microphone; autoplay; fullscreen" allowfullscreen loading="eager"></iframe><a class="site-fallback-link" href="${url}" target="_blank" rel="noopener noreferrer">Open EmoTogether in a new tab ↗</a>`
-              : `<button class="embedded-placeholder" type="button" data-media="${escapeHTML(p.media)}" data-project="${escapeHTML(p.name)}" data-tone="sky"><strong>EmoTogether</strong><span>Interactive Website · 16:9 Demo Slot</span><small>Your real interactive website will be shown here.</small></button>`}
-          </div>`
-        : media(p, isBeingHere ? 'future-image' : '');
+      const centerPrompt = buildHandwrittenLines([
+        { text: 'What if AI...', rot: '0deg', color: '#3f6835' }
+      ], 0.35);
 
-      const rightFieldsHTML = (p.brief || p.thinking)
-        ? `${field('Brief', p.brief)}${field('My Thinking', p.thinking)}`
-        : `${field('Background', p.background)}${field('Insight', p.insight)}${field('Experiment', p.experiment)}`;
+      const cloudsHTML = cloudConfigs.map(cfg => {
+        const { item } = cfg;
+        const customSrc = customUploadedObjects[item.id];
+        const rawSrc = customSrc || item.cloudSrc || '';
+        const src = rawSrc ? escapeHTML(rawSrc) : '';
 
-      return `<article class="project-panel future-panel ${isEmo ? 'future-panel--emo' : ''} ${isBeingHere ? 'future-panel--being-here' : ''}" aria-label="${escapeHTML(p.name)}">
-        <div class="project-left">
-          <p class="project-eyebrow">${escapeHTML(p.eyebrow)}</p>
-          <div class="future-heading">
-            <h2>${escapeHTML(p.name)}</h2>
-            ${isEmo ? '<span class="demo-chip">DEMO</span>' : ''}
+        const slotInner = src
+          ? `<img src="${src}" data-cloud-key="${escapeHTML(item.id)}" data-cloud-label="${escapeHTML(item.name)}" style="--img-delay:${cfg.imgDelay};" alt="${escapeHTML(item.name)}" />`
+          : `<div class="td-cloud-mist-placeholder">
+              <span class="td-cloud-mist-title">${escapeHTML(item.name)}</span>
+              <span class="td-cloud-mist-hint">Click to attach image</span>
+            </div>`;
+
+        return `<div class="td-cloud ${cfg.cls}" data-td-upload="${escapeHTML(item.id)}" title="${escapeHTML(item.name)} (Click to attach image)">
+          ${cfg.svgHTML}
+          <div class="td-cloud-slot">
+            ${slotInner}
           </div>
-          ${awardsHTML}
-          ${mediaHTML}
+        </div>`;
+      }).join('');
+
+      const miniTapeColors = ['#f2d56b', '#5475b5', '#93b882', '#eb98b2'];
+      const miniPolaroids = [0, 1, 2, 3].map(idx => {
+        const x = 36 + idx * 45;
+        const y = 38 + (idx === 1 || idx === 2 ? 2.5 : 0);
+        const rot = idx % 2 === 0 ? -3 : 2.5;
+        const tapeColor = miniTapeColors[idx];
+
+        return `<g transform="translate(${x}, ${y}) rotate(${rot})">
+          <rect x="-13" y="2" width="28" height="34" rx="1.5" fill="rgba(68, 60, 42, 0.14)" />
+          <rect x="-14" y="0" width="28" height="34" rx="1.5" fill="#faf8f1" stroke="#8f8672" stroke-width="0.9" />
+          <rect x="-10.5" y="3.5" width="21" height="21" fill="#f2efe4" stroke="#9aa393" stroke-width="0.65" />
+          <rect x="-5.5" y="-3.5" width="11" height="6" rx="0.8" fill="${tapeColor}" opacity="0.92" />
+        </g>`;
+      }).join('');
+
+      return `<div class="thoughtful-dreams-spread" id="thoughtfulDreamsSpread" aria-label="Thoughtful Dreams aerial meadow and clouds">
+        <!-- Aerial miniature Polaroid rack standing on the meadow in the bottom-right -->
+        <div class="td-mini-rack" aria-hidden="true">
+          <svg class="td-mini-rack-svg" viewBox="0 0 245 106">
+            <ellipse cx="122" cy="94" rx="108" ry="6.5" fill="rgba(76, 86, 64, 0.15)" />
+            <line x1="20" y1="92" x2="40" y2="85" stroke="rgba(76, 86, 64, 0.24)" stroke-width="2.6" stroke-linecap="round" />
+            <line x1="224" y1="92" x2="242" y2="85" stroke="rgba(76, 86, 64, 0.24)" stroke-width="2.6" stroke-linecap="round" />
+            <path d="M 20 34 Q 122 44 224 34" fill="none" stroke="#6f583e" stroke-width="1.6" stroke-linecap="round" />
+            ${miniPolaroids}
+            <line x1="20" y1="24" x2="20" y2="93" stroke="#7d6143" stroke-width="3.6" stroke-linecap="round" />
+            <circle cx="20" cy="23.5" r="2.2" fill="#9a7b58" />
+            <line x1="224" y1="24" x2="224" y2="93" stroke="#7d6143" stroke-width="3.6" stroke-linecap="round" />
+            <circle cx="224" cy="23.5" r="2.2" fill="#9a7b58" />
+          </svg>
         </div>
-        <div class="project-right work-fields">
-          ${rightFieldsHTML}
+
+        <!-- Three large soft drifting clouds -->
+        ${cloudsHTML}
+
+        <!-- Center sky-blue washi tape ("What if AI...") -->
+        <div class="td-center-tape" aria-label="What if AI...">
+          ${centerPrompt.html}
         </div>
-      </article>`;
+
+        <button type="button" class="sg-replay-btn td-replay-btn" id="replayThoughtfulDreams" aria-label="Replay Thoughtful Dreams animation" title="Replay animation">↻</button>
+      </div>`;
     }
 
+    function attachThoughtfulDreamsImageFallbacks() {
+      const imgs = ui.viewport.querySelectorAll('.thoughtful-dreams-spread img[data-cloud-key]');
+      imgs.forEach(img => {
+        img.addEventListener('error', function handleCloudImgError() {
+          if (!this.dataset.triedUpperExt && /\.png$/i.test(this.getAttribute('src') || '')) {
+            this.dataset.triedUpperExt = '1';
+            this.src = this.getAttribute('src').replace(/\.png$/, '.PNG');
+            return;
+          }
+          const label = this.getAttribute('data-cloud-label') || 'Project';
+          const parent = this.parentElement;
+          if (!parent) return;
+          parent.innerHTML = `<div class="td-cloud-mist-placeholder">
+            <span class="td-cloud-mist-title">${escapeHTML(label)}</span>
+            <span class="td-cloud-mist-hint">Click to attach image</span>
+          </div>`;
+        });
+      });
+    }
+
+    function triggerThoughtfulDreamsAnimation() {
+      const spread = document.getElementById('thoughtfulDreamsSpread');
+      if (!spread) return;
+      spread.classList.remove('is-revealed');
+      void spread.offsetWidth;
+      spread.classList.add('is-revealed');
+    }
+
+    /* ===============================================================
+       4. TAB, NAVIGATION & PAGE-FLIP CONTROLLERS
+       =============================================================== */
     function renderTabs(section) {
       const index = sections.findIndex(s => s.id === section);
       ui.tabs.innerHTML = sections.map((s, i) => {
@@ -2254,7 +2641,7 @@ It is a pleasure to have you in the next chapter.</p>
     }
 
     function jumpToProject(index, smooth = true) {
-      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas') return;
+      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas' || currentSection === 'thoughtful-dreams') return;
       const panels = Array.from(ui.viewport.children);
       if (!panels.length) return;
       const target = Math.min(Math.max(index, 0), panels.length - 1);
@@ -2268,7 +2655,7 @@ It is a pleasure to have you in the next chapter.</p>
 
     function renderSection(section) {
       const detail = sections.find(s => s.id === section);
-      const isCollageSpread = section === 'soft-ground' || section === 'playful-ideas';
+      const isCollageSpread = section === 'soft-ground' || section === 'playful-ideas' || section === 'thoughtful-dreams';
 
       ui.paper.classList.toggle('is-collage-spread', isCollageSpread);
       ui.title.textContent = detail.title;
@@ -2281,9 +2668,11 @@ It is a pleasure to have you in the next chapter.</p>
       } else if (section === 'playful-ideas') {
         ui.viewport.innerHTML = renderPlayfulIdeasSpread();
         attachPlayfulIdeasImageFallbacks();
-        requestAnimationFrame(() => triggerPlayfulIdeasHandwriting());
+        requestAnimationFrame(() => triggerPlayfulIdeasAnimation());
       } else {
-        ui.viewport.innerHTML = projects['thoughtful-dreams'].map(renderThoughtfulDream).join('');
+        ui.viewport.innerHTML = renderThoughtfulDreamsSpread();
+        attachThoughtfulDreamsImageFallbacks();
+        requestAnimationFrame(() => triggerThoughtfulDreamsAnimation());
       }
 
       ui.viewport.scrollTop = 0;
@@ -2309,7 +2698,9 @@ It is a pleasure to have you in the next chapter.</p>
         if (section === 'soft-ground') {
           triggerSoftGroundHandwriting();
         } else if (section === 'playful-ideas') {
-          triggerPlayfulIdeasHandwriting();
+          triggerPlayfulIdeasAnimation();
+        } else if (section === 'thoughtful-dreams') {
+          triggerThoughtfulDreamsAnimation();
         } else if (section !== 'home') {
           jumpToProject(0);
         }
@@ -2396,7 +2787,7 @@ It is a pleasure to have you in the next chapter.</p>
     }
 
     /* ===============================================================
-       4. EVENT LISTENERS & INITIALIZATION
+       5. EVENT LISTENERS & INITIALIZATION
        =============================================================== */
     document.addEventListener('click', e => {
       const tab = e.target.closest('[data-section]');
@@ -2405,14 +2796,15 @@ It is a pleasure to have you in the next chapter.</p>
         return;
       }
       if (e.target.closest('#replayHandwriting')) {
-        if (currentSection === 'soft-ground') triggerSoftGroundHandwriting();
-        if (currentSection === 'playful-ideas') triggerPlayfulIdeasHandwriting();
+        triggerSoftGroundHandwriting();
         return;
       }
-      const piPolaroid = e.target.closest('[data-pi-upload]');
-      if (piPolaroid) {
-        pendingUploadTarget = piPolaroid.dataset.piUpload;
-        ui.filePicker.click();
+      if (e.target.closest('#replayPlayfulIdeas')) {
+        triggerPlayfulIdeasAnimation();
+        return;
+      }
+      if (e.target.closest('#replayThoughtfulDreams')) {
+        triggerThoughtfulDreamsAnimation();
         return;
       }
       const sgFallback = e.target.closest('.sg-cutout-fallback');
@@ -2423,6 +2815,18 @@ It is a pleasure to have you in the next chapter.</p>
           ui.filePicker.click();
           return;
         }
+      }
+      const piPolaroid = e.target.closest('[data-pi-upload]');
+      if (piPolaroid && !piPolaroid.querySelector('img')) {
+        pendingUploadTarget = piPolaroid.dataset.piUpload;
+        ui.filePicker.click();
+        return;
+      }
+      const tdCloud = e.target.closest('[data-td-upload]');
+      if (tdCloud && !tdCloud.querySelector('img')) {
+        pendingUploadTarget = tdCloud.dataset.tdUpload;
+        ui.filePicker.click();
+        return;
       }
       const mediaButton = e.target.closest('[data-media], [data-image]');
       if (mediaButton) {
@@ -2438,8 +2842,9 @@ It is a pleasure to have you in the next chapter.</p>
       customUploadedObjects[pendingUploadTarget] = objUrl;
       pendingUploadTarget = null;
       ui.filePicker.value = '';
-      if (currentSection === 'soft-ground') renderSection('soft-ground');
-      if (currentSection === 'playful-ideas') renderSection('playful-ideas');
+      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas' || currentSection === 'thoughtful-dreams') {
+        renderSection(currentSection);
+      }
     });
 
     ui.prev.addEventListener('click', () => jumpToProject(currentProject - 1));
@@ -2448,7 +2853,7 @@ It is a pleasure to have you in the next chapter.</p>
     ui.dialog.addEventListener('click', e => { if (e.target === ui.dialog) hideMedia(); });
 
     ui.viewport.addEventListener('scroll', () => {
-      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas') return;
+      if (currentSection === 'soft-ground' || currentSection === 'playful-ideas' || currentSection === 'thoughtful-dreams') return;
       if (scrollFrame !== null) cancelAnimationFrame(scrollFrame);
       scrollFrame = requestAnimationFrame(() => {
         const panels = Array.from(ui.viewport.children);
@@ -2470,29 +2875,31 @@ It is a pleasure to have you in the next chapter.</p>
         if (e.key === 'Escape') hideMedia();
         return;
       }
-      if (currentSection !== 'home' && currentSection !== 'soft-ground' && currentSection !== 'playful-ideas' && ['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      if (
+        currentSection !== 'home' &&
+        currentSection !== 'soft-ground' &&
+        currentSection !== 'playful-ideas' &&
+        currentSection !== 'thoughtful-dreams' &&
+        ['ArrowDown', 'PageDown', 'ArrowUp', 'PageUp'].includes(e.key)
+      ) {
         e.preventDefault();
         jumpToProject(currentProject + (['ArrowDown', 'PageDown'].includes(e.key) ? 1 : -1));
       }
       if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
     });
 
-    const resolveRequestedSection = hash => {
-      const clean = String(hash || '').replace('#', '');
-      if (clean === 'playful-works') return 'playful-ideas';
-      return sections.some(s => s.id === clean) ? clean : 'home';
-    };
-
     window.addEventListener('popstate', () => {
-      navigate(resolveRequestedSection(location.hash), { saveHistory: false, animate: false });
+      const requested = location.hash.replace('#', '');
+      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
     });
 
     window.addEventListener('hashchange', () => {
-      navigate(resolveRequestedSection(location.hash), { saveHistory: false, animate: false });
+      const requested = location.hash.replace('#', '');
+      navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
     });
 
-    const startingSection = resolveRequestedSection(location.hash);
-    if (startingSection !== 'home') {
+    const startingSection = location.hash.replace('#', '');
+    if (startingSection && startingSection !== 'home' && sections.some(s => s.id === startingSection)) {
       navigate(startingSection, { saveHistory: false, animate: false });
     } else {
       setVisible(ui.closed, true);

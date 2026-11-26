@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#b39a7c" />
+  <meta name="theme-color" content="#dec2a0" />
   <meta name="description" content="The curated notebook and portfolio of Liu Chien-Wen." />
   <title>Liu Chien-Wen — Curated Notebook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,33 +31,35 @@
 
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; }
-    body { color: var(--ink); font-family: var(--body); background: #ae8c6f; overflow: hidden; }
+    body { color: var(--ink); font-family: var(--body); background: #dec2a0; overflow: hidden; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
     button:focus-visible, a:focus-visible { outline: 3px solid #377ead; outline-offset: 4px; }
     ::selection { background: #efdb8f; color: #262b23; }
 
     /* ===============================================================
-       WOODEN DESK BACKGROUND & STAGE
+       LIGHT HORIZONTAL WOODEN DESK BACKGROUND & STAGE
        =============================================================== */
     .table {
       position: fixed; inset: 0; z-index: -1; overflow: hidden;
-      background:
-        repeating-linear-gradient(94deg, transparent 0 47px, rgba(94,57,35,.055) 48px, transparent 50px 119px),
-        repeating-linear-gradient(178deg, rgba(255,250,235,.018) 0px, rgba(76,46,24,.032) 3px, transparent 7px, transparent 18px),
-        linear-gradient(105deg, #c5a687 0%, #b18e6e 36%, #be9d7b 60%, #a88365 100%);
+      background-color: #e3cbb0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='360' viewBox='0 0 720 360'%3E%3Cfilter id='woodGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.16' numOctaves='3' seed='14' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.68  0 0 0 0 0.49  0 0 0 0 0.30  0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23woodGrain)'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-20 18 Q 180 12, 360 20 T 740 17' stroke='%23c59a6d' stroke-width='2.4' opacity='0.26'/%3E%3Cpath d='M-20 26 Q 210 21, 410 28 T 740 25' stroke='%23cfa87d' stroke-width='1.3' opacity='0.30'/%3E%3Cpath d='M-20 46 Q 160 52, 350 44 T 740 48' stroke='%23c89e72' stroke-width='1.8' opacity='0.22'/%3E%3Cpath d='M-20 68 Q 240 61, 460 71 T 740 66' stroke='%23bd8f60' stroke-width='2.6' opacity='0.22'/%3E%3Cpath d='M-20 75 Q 230 69, 455 78 T 740 73' stroke='%23f2e3cf' stroke-width='1.5' opacity='0.34'/%3E%3Cpath d='M-20 98 Q 190 105, 390 95 T 740 100' stroke='%23cfa87d' stroke-width='1.4' opacity='0.28'/%3E%3Cpath d='M-20 122 Q 150 115, 330 125 T 740 120' stroke='%23c39668' stroke-width='2.2' opacity='0.25'/%3E%3Cpath d='M-20 130 Q 170 124, 350 132 T 740 128' stroke='%23d4ae84' stroke-width='1.2' opacity='0.28'/%3E%3Cpath d='M-20 156 Q 220 163, 440 153 T 740 158' stroke='%23c79c6f' stroke-width='1.9' opacity='0.24'/%3E%3Cpath d='M-20 182 Q 180 175, 370 185 T 740 180' stroke='%23bc8e5f' stroke-width='2.8' opacity='0.21'/%3E%3Cpath d='M-20 190 Q 195 184, 385 192 T 740 188' stroke='%23f3e5d2' stroke-width='1.6' opacity='0.32'/%3E%3Cpath d='M-20 216 Q 250 222, 480 213 T 740 218' stroke='%23cfa77b' stroke-width='1.5' opacity='0.26'/%3E%3Cpath d='M-20 244 Q 170 237, 360 247 T 740 242' stroke='%23c49769' stroke-width='2.3' opacity='0.24'/%3E%3Cpath d='M-20 270 Q 210 277, 430 267 T 740 272' stroke='%23d2ab80' stroke-width='1.4' opacity='0.27'/%3E%3Cpath d='M-20 296 Q 160 289, 340 299 T 740 294' stroke='%23be9163' stroke-width='2.5' opacity='0.22'/%3E%3Cpath d='M-20 304 Q 180 298, 360 306 T 740 302' stroke='%23f1e2ce' stroke-width='1.4' opacity='0.30'/%3E%3Cpath d='M-20 332 Q 230 338, 450 329 T 740 334' stroke='%23cca276' stroke-width='1.7' opacity='0.25'/%3E%3C/g%3E%3C/svg%3E"),
+        repeating-linear-gradient(180deg,
+          rgba(205, 165, 120, 0.14) 0px,
+          rgba(238, 220, 196, 0.18) 14px,
+          rgba(198, 156, 110, 0.16) 29px,
+          rgba(234, 214, 188, 0.12) 46px,
+          rgba(205, 165, 120, 0.14) 64px
+        ),
+        linear-gradient(180deg, #e7d3ba 0%, #dfc4a3 34%, #e6d1b6 68%, #d9bc99 100%);
+      background-size: 720px 360px, 100% 100%, 100% 100%;
     }
     .table::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 48%, transparent 20%, rgba(55,37,21,.24) 100%);
+      background: radial-gradient(ellipse at 50% 48%, transparent 32%, rgba(92, 66, 38, .14) 100%);
     }
-    .table-line {
-      position: absolute; height: 100%; width: 2px;
-      background: rgba(67,43,26,.13); box-shadow: 2px 0 rgba(250,234,205,.10);
-      transform: rotate(1.4deg);
-    }
-    .table-line.one { left: 19.5%; }
-    .table-line.two { left: 79%; }
+    .table-line { display: none; }
 
     .scene {
       display: flex; align-items: center; justify-content: center;
@@ -65,7 +67,7 @@
     }
     .scene-number {
       position: absolute; right: 27px; bottom: 15px;
-      font: 500 10px/1.4 var(--body); letter-spacing: .11em; color: #614b3b; opacity: .75;
+      font: 500 10px/1.4 var(--body); letter-spacing: .11em; color: #7a6248; opacity: .78;
     }
 
     .book {
@@ -104,11 +106,13 @@
     .cover {
       position: absolute; inset: 0; z-index: 2;
       border: 2px solid #383a32; border-radius: 6px 17px 18px 7px;
-      background:
-        radial-gradient(circle at 58% 36%, rgba(255, 251, 240, .55), transparent 46%),
-        radial-gradient(circle at 16% 23%, rgba(227,207,166,.12), transparent 34%),
-        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.026) 28px),
-        #f6f3e9;
+      background-color: #f4f1e6;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cfilter id='washiPulp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.54  0 0 0 0 0.48  0 0 0 0 0.39  0 0 0 0.115 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23washiPulp)'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M22 34 Q29 31, 35 37' stroke='%238c7b63' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M84 18 L92 22' stroke='%23786851' stroke-width='0.85' opacity='0.38'/%3E%3Cpath d='M148 46 Q155 41, 164 44' stroke='%239b8b72' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M216 24 Q212 33, 218 40' stroke='%237d6d56' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M286 52 Q295 49, 303 55' stroke='%238f7e65' stroke-width='0.85' opacity='0.38'/%3E%3Cpath d='M334 26 L328 35' stroke='%2374644e' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M44 96 Q52 102, 60 98' stroke='%2386755d' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M112 84 Q108 92, 114 99' stroke='%239c8c74' stroke-width='0.85' opacity='0.34'/%3E%3Cpath d='M178 112 L188 109' stroke='%23766650' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M248 92 Q256 97, 263 91' stroke='%238e7d64' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M316 118 Q310 126, 315 134' stroke='%237b6b54' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M18 168 Q26 164, 33 170' stroke='%2397876e' stroke-width='0.85' opacity='0.35'/%3E%3Cpath d='M88 154 Q94 162, 102 159' stroke='%23796952' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M156 178 Q151 186, 157 193' stroke='%238b7a62' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M224 162 L233 166' stroke='%2375654e' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M292 184 Q300 179, 307 185' stroke='%2396866d' stroke-width='0.9' opacity='0.35'/%3E%3Cpath d='M38 236 Q33 245, 40 251' stroke='%237c6c55' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M108 224 Q117 220, 124 226' stroke='%238f7e65' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M182 248 L191 244' stroke='%23776750' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M254 232 Q249 240, 255 247' stroke='%23998970' stroke-width='0.85' opacity='0.34'/%3E%3Cpath d='M324 256 Q332 252, 339 258' stroke='%23827159' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M26 306 L36 303' stroke='%237a6a53' stroke-width='0.95' opacity='0.40'/%3E%3Cpath d='M94 294 Q101 301, 109 297' stroke='%23928168' stroke-width='0.85' opacity='0.35'/%3E%3Cpath d='M164 318 Q159 326, 165 333' stroke='%237d6d56' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M236 302 Q244 297, 251 303' stroke='%238c7b63' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M306 324 L314 329' stroke='%2374644e' stroke-width='0.85' opacity='0.40'/%3E%3C/g%3E%3Cg fill='%236d5d47' opacity='0.36'%3E%3Ccircle cx='54' cy='58' r='0.95'/%3E%3Ccircle cx='132' cy='28' r='1.1'/%3E%3Ccircle cx='246' cy='62' r='0.85'/%3E%3Ccircle cx='342' cy='82' r='1.0'/%3E%3Ccircle cx='72' cy='126' r='1.05'/%3E%3Ccircle cx='196' cy='138' r='0.9'/%3E%3Ccircle cx='282' cy='146' r='1.15'/%3E%3Ccircle cx='48' cy='202' r='0.95'/%3E%3Ccircle cx='144' cy='214' r='0.85'/%3E%3Ccircle cx='218' cy='206' r='1.05'/%3E%3Ccircle cx='336' cy='218' r='0.9'/%3E%3Ccircle cx='76' cy='274' r='1.0'/%3E%3Ccircle cx='198' cy='286' r='1.1'/%3E%3Ccircle cx='278' cy='292' r='0.85'/%3E%3Ccircle cx='128' cy='342' r='0.95'/%3E%3Ccircle cx='344' cy='346' r='1.0'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 48%),
+        radial-gradient(circle at 16% 23%, rgba(227, 207, 166, .14), transparent 36%),
+        linear-gradient(165deg, #f6f3e8 0%, #f3efe3 52%, #efeade 100%);
+      background-size: 360px 360px, 100% 100%, 100% 100%, 100% 100%;
       box-shadow: inset -21px 0 25px rgba(68,55,35,.055), inset 6px 0 5px rgba(64,51,35,.085), 0 2px 2px rgba(39,28,16,.2);
       overflow: hidden;
       display: grid;
@@ -1309,6 +1313,20 @@
       left: 11%; top: 23%; width: 58%; height: 58%;
     }
 
+    /* All three cloud images fade in together at once when flipping into Thoughtful Dreams */
+    .td-cloud-slot img,
+    .td-cloud-fallback {
+      opacity: 0;
+    }
+    .thoughtful-dreams-spread.is-writing .td-cloud-slot img,
+    .thoughtful-dreams-spread.is-writing .td-cloud-fallback {
+      animation: tdCloudImagesFadeIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.24s forwards;
+    }
+    @keyframes tdCloudImagesFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
     .td-cloud-slot img {
       width: 100%;
       height: 100%;
@@ -1443,7 +1461,7 @@
       }
       .hw-glyph { clip-path: none !important; }
       .hw-underline-path, .pi-hand-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
-      .pi-photo-window img { opacity: 1 !important; filter: none !important; }
+      .pi-photo-window img, .td-cloud-slot img, .td-cloud-fallback { opacity: 1 !important; filter: none !important; }
     }
   </style>
 </head>
@@ -2378,6 +2396,12 @@ It is a pleasure to have you in the next chapter!</p>
         void pi.offsetWidth;
         pi.classList.add('is-writing');
       }
+      const td = document.getElementById('thoughtfulDreamsSpread');
+      if (td) {
+        td.classList.remove('is-writing');
+        void td.offsetWidth;
+        td.classList.add('is-writing');
+      }
     }
 
     function renderTabs(section) {
@@ -2407,6 +2431,7 @@ It is a pleasure to have you in the next chapter!</p>
       } else {
         ui.viewport.innerHTML = renderThoughtfulDreamsSpread();
         attachThoughtfulDreamsImageFallbacks();
+        requestAnimationFrame(() => triggerSpreadAnimation());
       }
 
       ui.viewport.scrollTop = 0;
@@ -2427,7 +2452,7 @@ It is a pleasure to have you in the next chapter!</p>
       if (!sections.some(s => s.id === section)) return;
       if (transitionBusy) return;
       if (currentSection === section) {
-        if (section === 'soft-ground' || section === 'playful-works') triggerSpreadAnimation();
+        if (section === 'soft-ground' || section === 'playful-works' || section === 'thoughtful-dreams') triggerSpreadAnimation();
         return;
       }
       if (saveHistory) updateHistory(section);

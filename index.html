@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#dec2a0" />
+  <meta name="theme-color" content="#d8c3a3" />
   <meta name="description" content="The curated notebook and portfolio of Liu Chien-Wen." />
   <title>Liu Chien-Wen — Curated Notebook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet" />
   <style>
     /* ===============================================================
        LIU CHIEN-WEN'S CURATED NOTEBOOK · PERSONAL NARRATIVE EDITION
@@ -26,48 +26,56 @@
       --book-width: min(1140px, calc(100vw - 264px));
       --book-height: min(735px, calc(100dvh - 92px));
       --hand: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
+      --typewriter: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
       --body: 'DM Sans', system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; }
-    body { color: var(--ink); font-family: var(--body); background: #dec2a0; overflow: hidden; }
+    body { color: var(--ink); font-family: var(--body); background: #d6be9c; overflow: hidden; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
     button:focus-visible, a:focus-visible { outline: 3px solid #377ead; outline-offset: 4px; }
     ::selection { background: #efdb8f; color: #262b23; }
 
     /* ===============================================================
-       LIGHT HORIZONTAL WOODEN DESK BACKGROUND & STAGE
+       LIGHT HORIZONTAL NATURAL WOODGRAIN DESK BACKGROUND
        =============================================================== */
     .table {
       position: fixed; inset: 0; z-index: -1; overflow: hidden;
-      background-color: #e3cbb0;
+      background-color: #dec8a8;
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='360' viewBox='0 0 720 360'%3E%3Cfilter id='woodGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.16' numOctaves='3' seed='14' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.68  0 0 0 0 0.49  0 0 0 0 0.30  0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23woodGrain)'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-20 18 Q 180 12, 360 20 T 740 17' stroke='%23c59a6d' stroke-width='2.4' opacity='0.26'/%3E%3Cpath d='M-20 26 Q 210 21, 410 28 T 740 25' stroke='%23cfa87d' stroke-width='1.3' opacity='0.30'/%3E%3Cpath d='M-20 46 Q 160 52, 350 44 T 740 48' stroke='%23c89e72' stroke-width='1.8' opacity='0.22'/%3E%3Cpath d='M-20 68 Q 240 61, 460 71 T 740 66' stroke='%23bd8f60' stroke-width='2.6' opacity='0.22'/%3E%3Cpath d='M-20 75 Q 230 69, 455 78 T 740 73' stroke='%23f2e3cf' stroke-width='1.5' opacity='0.34'/%3E%3Cpath d='M-20 98 Q 190 105, 390 95 T 740 100' stroke='%23cfa87d' stroke-width='1.4' opacity='0.28'/%3E%3Cpath d='M-20 122 Q 150 115, 330 125 T 740 120' stroke='%23c39668' stroke-width='2.2' opacity='0.25'/%3E%3Cpath d='M-20 130 Q 170 124, 350 132 T 740 128' stroke='%23d4ae84' stroke-width='1.2' opacity='0.28'/%3E%3Cpath d='M-20 156 Q 220 163, 440 153 T 740 158' stroke='%23c79c6f' stroke-width='1.9' opacity='0.24'/%3E%3Cpath d='M-20 182 Q 180 175, 370 185 T 740 180' stroke='%23bc8e5f' stroke-width='2.8' opacity='0.21'/%3E%3Cpath d='M-20 190 Q 195 184, 385 192 T 740 188' stroke='%23f3e5d2' stroke-width='1.6' opacity='0.32'/%3E%3Cpath d='M-20 216 Q 250 222, 480 213 T 740 218' stroke='%23cfa77b' stroke-width='1.5' opacity='0.26'/%3E%3Cpath d='M-20 244 Q 170 237, 360 247 T 740 242' stroke='%23c49769' stroke-width='2.3' opacity='0.24'/%3E%3Cpath d='M-20 270 Q 210 277, 430 267 T 740 272' stroke='%23d2ab80' stroke-width='1.4' opacity='0.27'/%3E%3Cpath d='M-20 296 Q 160 289, 340 299 T 740 294' stroke='%23be9163' stroke-width='2.5' opacity='0.22'/%3E%3Cpath d='M-20 304 Q 180 298, 360 306 T 740 302' stroke='%23f1e2ce' stroke-width='1.4' opacity='0.30'/%3E%3Cpath d='M-20 332 Q 230 338, 450 329 T 740 334' stroke='%23cca276' stroke-width='1.7' opacity='0.25'/%3E%3C/g%3E%3C/svg%3E"),
         repeating-linear-gradient(180deg,
-          rgba(205, 165, 120, 0.14) 0px,
-          rgba(238, 220, 196, 0.18) 14px,
-          rgba(198, 156, 110, 0.16) 29px,
-          rgba(234, 214, 188, 0.12) 46px,
-          rgba(205, 165, 120, 0.14) 64px
-        ),
-        linear-gradient(180deg, #e7d3ba 0%, #dfc4a3 34%, #e6d1b6 68%, #d9bc99 100%);
-      background-size: 720px 360px, 100% 100%, 100% 100%;
+          rgba(164, 128, 86, 0.08) 0px,
+          rgba(164, 128, 86, 0.08) 1px,
+          transparent 1px,
+          transparent 5px,
+          rgba(182, 146, 102, 0.06) 6px,
+          transparent 7px,
+          transparent 13px),
+        repeating-linear-gradient(179.4deg,
+          rgba(255, 246, 230, 0.14) 0px,
+          rgba(255, 246, 230, 0.14) 2px,
+          rgba(154, 118, 76, 0.07) 4px,
+          transparent 6px,
+          transparent 24px),
+        linear-gradient(180deg,
+          #e3ceb0 0%,
+          #d7be9b 14%,
+          #e5d1b4 31%,
+          #d9c09e 50%,
+          #e4cfb1 68%,
+          #d5bc98 85%,
+          #dfc8a7 100%);
     }
     .table::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 48%, transparent 32%, rgba(92, 66, 38, .14) 100%);
+      background: radial-gradient(ellipse at 50% 48%, transparent 32%, rgba(92, 66, 38, 0.18) 100%);
     }
-    .table-line { display: none; }
 
     .scene {
       display: flex; align-items: center; justify-content: center;
       height: 100dvh; width: 100%; padding: 28px 0; perspective: 1600px;
-    }
-    .scene-number {
-      position: absolute; right: 27px; bottom: 15px;
-      font: 500 10px/1.4 var(--body); letter-spacing: .11em; color: #7a6248; opacity: .78;
     }
 
     .book {
@@ -83,14 +91,14 @@
     }
 
     /* ===============================================================
-       CLOSED NOTEBOOK COVER (#home) — TWO-PART INTERACTIVE LAYOUT
+       CLOSED NOTEBOOK COVER (#home) — COTTON PLANT-FIBER PAPER & INTERACTION
        =============================================================== */
     .closed-book {
       width: min(900px, calc(100vw - 280px));
       height: var(--book-height);
       min-height: 300px;
       transform: translateX(-52px) rotate(-0.85deg);
-      filter: drop-shadow(14px 18px 16px rgba(60,38,22,.29));
+      filter: drop-shadow(14px 18px 16px rgba(60,38,22,.27));
     }
     .closed-book.enter { animation: openCoverBook .45s cubic-bezier(.16,.76,.26,1) both; }
     @keyframes openCoverBook {
@@ -106,18 +114,17 @@
     .cover {
       position: absolute; inset: 0; z-index: 2;
       border: 2px solid #383a32; border-radius: 6px 17px 18px 7px;
-      background-color: #f4f1e6;
+      background-color: #f4f1e7;
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cfilter id='washiPulp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.54  0 0 0 0 0.48  0 0 0 0 0.39  0 0 0 0.115 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23washiPulp)'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M22 34 Q29 31, 35 37' stroke='%238c7b63' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M84 18 L92 22' stroke='%23786851' stroke-width='0.85' opacity='0.38'/%3E%3Cpath d='M148 46 Q155 41, 164 44' stroke='%239b8b72' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M216 24 Q212 33, 218 40' stroke='%237d6d56' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M286 52 Q295 49, 303 55' stroke='%238f7e65' stroke-width='0.85' opacity='0.38'/%3E%3Cpath d='M334 26 L328 35' stroke='%2374644e' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M44 96 Q52 102, 60 98' stroke='%2386755d' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M112 84 Q108 92, 114 99' stroke='%239c8c74' stroke-width='0.85' opacity='0.34'/%3E%3Cpath d='M178 112 L188 109' stroke='%23766650' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M248 92 Q256 97, 263 91' stroke='%238e7d64' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M316 118 Q310 126, 315 134' stroke='%237b6b54' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M18 168 Q26 164, 33 170' stroke='%2397876e' stroke-width='0.85' opacity='0.35'/%3E%3Cpath d='M88 154 Q94 162, 102 159' stroke='%23796952' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M156 178 Q151 186, 157 193' stroke='%238b7a62' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M224 162 L233 166' stroke='%2375654e' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M292 184 Q300 179, 307 185' stroke='%2396866d' stroke-width='0.9' opacity='0.35'/%3E%3Cpath d='M38 236 Q33 245, 40 251' stroke='%237c6c55' stroke-width='0.9' opacity='0.40'/%3E%3Cpath d='M108 224 Q117 220, 124 226' stroke='%238f7e65' stroke-width='0.85' opacity='0.36'/%3E%3Cpath d='M182 248 L191 244' stroke='%23776750' stroke-width='0.95' opacity='0.42'/%3E%3Cpath d='M254 232 Q249 240, 255 247' stroke='%23998970' stroke-width='0.85' opacity='0.34'/%3E%3Cpath d='M324 256 Q332 252, 339 258' stroke='%23827159' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M26 306 L36 303' stroke='%237a6a53' stroke-width='0.95' opacity='0.40'/%3E%3Cpath d='M94 294 Q101 301, 109 297' stroke='%23928168' stroke-width='0.85' opacity='0.35'/%3E%3Cpath d='M164 318 Q159 326, 165 333' stroke='%237d6d56' stroke-width='0.9' opacity='0.38'/%3E%3Cpath d='M236 302 Q244 297, 251 303' stroke='%238c7b63' stroke-width='0.9' opacity='0.36'/%3E%3Cpath d='M306 324 L314 329' stroke='%2374644e' stroke-width='0.85' opacity='0.40'/%3E%3C/g%3E%3Cg fill='%236d5d47' opacity='0.36'%3E%3Ccircle cx='54' cy='58' r='0.95'/%3E%3Ccircle cx='132' cy='28' r='1.1'/%3E%3Ccircle cx='246' cy='62' r='0.85'/%3E%3Ccircle cx='342' cy='82' r='1.0'/%3E%3Ccircle cx='72' cy='126' r='1.05'/%3E%3Ccircle cx='196' cy='138' r='0.9'/%3E%3Ccircle cx='282' cy='146' r='1.15'/%3E%3Ccircle cx='48' cy='202' r='0.95'/%3E%3Ccircle cx='144' cy='214' r='0.85'/%3E%3Ccircle cx='218' cy='206' r='1.05'/%3E%3Ccircle cx='336' cy='218' r='0.9'/%3E%3Ccircle cx='76' cy='274' r='1.0'/%3E%3Ccircle cx='198' cy='286' r='1.1'/%3E%3Ccircle cx='278' cy='292' r='0.85'/%3E%3Ccircle cx='128' cy='342' r='0.95'/%3E%3Ccircle cx='344' cy='346' r='1.0'/%3E%3C/g%3E%3C/svg%3E"),
-        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 48%),
-        radial-gradient(circle at 16% 23%, rgba(227, 207, 166, .14), transparent 36%),
-        linear-gradient(165deg, #f6f3e8 0%, #f3efe3 52%, #efeade 100%);
-      background-size: 360px 360px, 100% 100%, 100% 100%, 100% 100%;
+        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 52%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='pf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.48  0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pf)'/%3E%3Cg fill='none' stroke='%23786a54' stroke-linecap='round' opacity='0.26'%3E%3Cpath d='M18 28 Q26 24 34 27' stroke-width='0.75'/%3E%3Cpath d='M78 16 Q84 22 89 19' stroke-width='0.65'/%3E%3Cpath d='M148 34 Q157 31 163 36' stroke-width='0.75'/%3E%3Cpath d='M196 64 Q192 73 197 79' stroke-width='0.7'/%3E%3Cpath d='M42 94 Q49 101 56 97' stroke-width='0.75'/%3E%3Cpath d='M118 82 Q123 75 131 78' stroke-width='0.65'/%3E%3Cpath d='M174 128 Q168 136 173 142' stroke-width='0.75'/%3E%3Cpath d='M24 166 Q33 163 39 168' stroke-width='0.7'/%3E%3Cpath d='M92 152 Q99 158 106 154' stroke-width='0.75'/%3E%3Cpath d='M146 188 Q154 184 161 189' stroke-width='0.7'/%3E%3Cpath d='M64 204 Q71 198 78 202' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236c5b43' opacity='0.24'%3E%3Ccircle cx='32' cy='52' r='0.75'/%3E%3Ccircle cx='108' cy='42' r='0.9'/%3E%3Ccircle cx='182' cy='26' r='0.7'/%3E%3Ccircle cx='66' cy='124' r='0.85'/%3E%3Ccircle cx='144' cy='112' r='0.75'/%3E%3Ccircle cx='204' cy='168' r='0.85'/%3E%3Ccircle cx='48' cy='186' r='0.7'/%3E%3Ccircle cx='124' cy='196' r='0.9'/%3E%3C/g%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.022) 28px);
       box-shadow: inset -21px 0 25px rgba(68,55,35,.055), inset 6px 0 5px rgba(64,51,35,.085), 0 2px 2px rgba(39,28,16,.2);
       overflow: hidden;
       display: grid;
       grid-template-columns: 35.5% 64.5%;
     }
+
     /* Silver paperclip straddling the top edge of the cover & left papers */
     .cover-paperclip {
       position: absolute;
@@ -542,7 +549,6 @@
 
     /* ===============================================================
        OPEN TWO-PAGE NOTEBOOK SPREAD
-       Warm Cream Cotton Paper with Dense, Organic-Height Green Grass Strokes
        =============================================================== */
     .open-book {
       width: var(--book-width); height: var(--book-height); min-height: 300px;
@@ -563,7 +569,7 @@
         linear-gradient(90deg, #eae3d2 0%, #f6f2e5 3%, #f8f4e8 47%, #ebe4d3 49.5%, #d9d0be 50%, #f3efe2 51.5%, #f9f5e9 96%, #eae3d2 100%);
       box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
     }
-    /* Dense short hand-drawn sage-green brushstrokes (30% +20% taller, 30% +30% taller, 40% base) */
+    /* Dense short hand-drawn sage-green brushstrokes */
     .spread-paper::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
       opacity: 0.80;
@@ -601,7 +607,7 @@
     }
     .project-viewport::-webkit-scrollbar { display: none; }
 
-    /* Full-Spread Collage Mode (Soft Ground, Playful Ideas & Thoughtful Dreams) */
+    /* Full-Spread Collage Mode */
     .spread-paper.is-collage-spread .spread-header,
     .spread-paper.is-collage-spread .book-footer,
     .spread-paper.is-collage-spread .page-scribble {
@@ -954,7 +960,7 @@
       100% { clip-path: polygon(-20% -25%, 145% -25%, 125% 135%, -40% 135%); }
     }
 
-    /* Subtle Replay Handwriting Button (Shared across collage spreads) */
+    /* Subtle Replay Animation Button */
     .sg-replay-btn {
       position: absolute;
       right: 22px;
@@ -996,7 +1002,6 @@
       pointer-events: none;
       z-index: 3;
     }
-    /* Four Polaroid Slots anchored along the centerline so top half of washi tape stays on wire */
     .pi-slot {
       position: absolute;
       transform: translateX(-50%);
@@ -1029,7 +1034,6 @@
       z-index: 6;
     }
 
-    /* Washi Tape Strips (top half straddling the clothesline, bottom half gripping Polaroid top) */
     .pi-washi-tape {
       position: absolute;
       top: -12px;
@@ -1074,7 +1078,6 @@
         linear-gradient(160deg, #eb94b0 0%, #df7e9e 100%);
     }
 
-    /* Square Polaroid Window with Gradual Developing Photo Reveal Synced to Tagline */
     .pi-photo-window {
       position: relative;
       width: 100%;
@@ -1100,7 +1103,6 @@
       100% { opacity: 1;    filter: contrast(1)    brightness(1)    saturate(1); }
     }
 
-    /* Taglines Positioned Above or Below Each Polaroid */
     .pi-tagline {
       position: relative;
       z-index: 5;
@@ -1135,7 +1137,6 @@
       transform: rotate(-5.2deg);
     }
 
-    /* Hand-drawn Five-Point Star after "wishing well." */
     .pi-hand-star {
       display: inline-block;
       width: 0.92em;
@@ -1172,7 +1173,6 @@
       overflow: hidden;
     }
 
-    /* Miniature Wooden Polaroid Rack in Lower-Right Meadow Corner */
     .td-mini-rack {
       position: absolute;
       right: 4.5%;
@@ -1189,7 +1189,6 @@
       overflow: visible;
     }
 
-    /* Center Sky-Blue Washi Tape: "What if AI..." in Sage Green */
     .td-center-tape {
       position: absolute;
       left: 50%;
@@ -1217,17 +1216,19 @@
       white-space: nowrap;
     }
 
-    /* Three Large Soft Clouds Filling the Spread */
+    /* Three Large Soft Clouds with 3x Noticeable Sky Swaying */
     .td-cloud {
       position: absolute;
       cursor: pointer;
       user-select: none;
       z-index: 3;
-      animation: cloudGentleDrift var(--drift-dur, 9s) ease-in-out infinite alternate;
+      will-change: transform;
+      animation: cloudGentleDrift var(--drift-dur, 7.6s) ease-in-out infinite alternate;
     }
     @keyframes cloudGentleDrift {
-      from { transform: translate(0px, 0px); }
-      to   { transform: translate(var(--drift-x, 5px), var(--drift-y, -4px)); }
+      0%   { transform: translate(0px, 0px) rotate(0deg); }
+      50%  { transform: translate(calc(var(--drift-x, 14px) * 0.55), calc(var(--drift-y, -11px) * 0.65)) rotate(calc(var(--drift-rot, 1.3deg) * 0.6)); }
+      100% { transform: translate(var(--drift-x, 14px), var(--drift-y, -11px)) rotate(var(--drift-rot, 1.3deg)); }
     }
     .td-cloud:hover { z-index: 5; }
 
@@ -1237,9 +1238,10 @@
       top: -6%;
       width: 63%;
       height: 58%;
-      --drift-dur: 10s;
-      --drift-x: 4px;
-      --drift-y: -4px;
+      --drift-dur: 7.4s;
+      --drift-x: 13px;
+      --drift-y: -11px;
+      --drift-rot: 1.35deg;
     }
     /* Mid-Right Cloud: Ring the Memory Line */
     .td-cloud--memory {
@@ -1247,9 +1249,10 @@
       top: 7%;
       width: 60%;
       height: 61%;
-      --drift-dur: 11s;
-      --drift-x: -5px;
-      --drift-y: 4px;
+      --drift-dur: 8.2s;
+      --drift-x: -15px;
+      --drift-y: 12px;
+      --drift-rot: -1.45deg;
     }
     /* Bottom-Left Cloud: Being Here */
     .td-cloud--being {
@@ -1257,9 +1260,10 @@
       bottom: -7%;
       width: 61%;
       height: 53%;
-      --drift-dur: 9.5s;
-      --drift-x: 5px;
-      --drift-y: -3px;
+      --drift-dur: 7.8s;
+      --drift-x: 14px;
+      --drift-y: -10px;
+      --drift-rot: 1.25deg;
     }
 
     .td-cloud-bg {
@@ -1271,7 +1275,6 @@
       filter: drop-shadow(0 10px 22px rgba(72, 102, 124, 0.14));
     }
 
-    /* Uniform-Aspect SVG Layer for Undistorted Curved Handwritten Taglines */
     .td-tagline-svg {
       position: absolute;
       inset: 0;
@@ -1289,7 +1292,7 @@
       letter-spacing: 0.4px;
     }
 
-    /* Feathered Inner Artwork Slot Dissolving Softly into Each Cloud */
+    /* Feathered Inner Artwork Slot — Simultaneous Fade-in upon Page Flip */
     .td-cloud-slot {
       position: absolute;
       display: grid;
@@ -1313,25 +1316,20 @@
       left: 11%; top: 23%; width: 58%; height: 58%;
     }
 
-    /* All three cloud images fade in together at once when flipping into Thoughtful Dreams */
-    .td-cloud-slot img,
-    .td-cloud-fallback {
-      opacity: 0;
-    }
-    .thoughtful-dreams-spread.is-writing .td-cloud-slot img,
-    .thoughtful-dreams-spread.is-writing .td-cloud-fallback {
-      animation: tdCloudImagesFadeIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.24s forwards;
-    }
-    @keyframes tdCloudImagesFadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
     .td-cloud-slot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      opacity: 0;
+      transform: scale(0.975);
+    }
+    .thoughtful-dreams-spread.is-revealed .td-cloud-slot img {
+      animation: tdCloudImagesFadeIn 1.05s cubic-bezier(0.22, 0.72, 0.28, 1) 0.28s forwards;
+    }
+    @keyframes tdCloudImagesFadeIn {
+      from { opacity: 0; transform: scale(0.975); }
+      to   { opacity: 1; transform: scale(1); }
     }
     .td-cloud-fallback {
       width: 100%;
@@ -1356,35 +1354,268 @@
     }
 
     /* ===============================================================
-       FULLSCREEN MEDIA DIALOG
+       FLOATING PROJECT DETAIL SHEET (COVER-PAPER TEXTURE & DOTTED BADGE)
        =============================================================== */
-    .media-dialog {
-      position: fixed; inset: 0; z-index: 50; display: none; justify-content: center; align-items: center;
-      padding: 30px; background: rgba(29,29,26,.82); backdrop-filter: blur(5px);
+    .project-sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 3vw, 36px);
+      background: rgba(38, 30, 20, 0.56);
+      backdrop-filter: blur(4px);
     }
-    .media-dialog.open { display: flex; }
-    .dialog-canvas {
-      position: relative; width: min(1100px,90vw); height: min(660px,82vh);
-      background: var(--dialog-bg,#ddd7c8); display: flex; flex-direction: column;
-      justify-content: center; align-items: center; gap: 19px;
-      border: 12px solid #f4f1e9; box-shadow: 0 20px 80px rgba(0,0,0,.22);
+    .project-sheet-backdrop.open {
+      display: flex;
+      animation: sheetBackdropFade 0.24s ease forwards;
     }
-    .dialog-canvas::before { content: ''; position: absolute; inset: 28px; border: 1px dashed rgba(80,79,68,.24); pointer-events: none; }
-    .dialog-canvas h2 { margin: 0; font: 600 clamp(33px,5vw,69px)/1 var(--hand); text-align: center; padding: 0 25px; }
-    .dialog-canvas p { margin: 0; font: 600 11px/1.5 var(--body); text-transform: uppercase; letter-spacing: .18em; opacity: .68; text-align: center; }
-    .dialog-canvas.is-image { background: #282b27; padding: 12px; }
-    .dialog-canvas.is-image::before,
-    .dialog-canvas.is-image h2,
-    .dialog-canvas.is-image p { display: none; }
-    .fullscreen-image { display: block; width: 100%; height: 100%; object-fit: contain; }
-    .dialog-close {
-      position: absolute; top: 22px; right: 23px; z-index: 2; width: 47px; height: 47px;
-      border: 1px solid rgba(255,255,255,.3); border-radius: 50%;
-      background: rgba(254,253,247,.94); font-size: 23px; cursor: pointer;
+    @keyframes sheetBackdropFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
-    .dialog-close:hover { background: #fff; }
 
-    .rotate-overlay { display: none; }
+    .project-sheet-paper {
+      position: relative;
+      width: min(1040px, 92vw);
+      height: min(670px, 86dvh);
+      border: 2px solid #383a32;
+      border-radius: 8px 16px 17px 9px;
+      background-color: #f4f1e7;
+      background-image:
+        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 52%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='spf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.48  0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23spf)'/%3E%3Cg fill='none' stroke='%23786a54' stroke-linecap='round' opacity='0.26'%3E%3Cpath d='M18 28 Q26 24 34 27' stroke-width='0.75'/%3E%3Cpath d='M78 16 Q84 22 89 19' stroke-width='0.65'/%3E%3Cpath d='M148 34 Q157 31 163 36' stroke-width='0.75'/%3E%3Cpath d='M196 64 Q192 73 197 79' stroke-width='0.7'/%3E%3Cpath d='M42 94 Q49 101 56 97' stroke-width='0.75'/%3E%3Cpath d='M118 82 Q123 75 131 78' stroke-width='0.65'/%3E%3Cpath d='M174 128 Q168 136 173 142' stroke-width='0.75'/%3E%3Cpath d='M24 166 Q33 163 39 168' stroke-width='0.7'/%3E%3Cpath d='M92 152 Q99 158 106 154' stroke-width='0.75'/%3E%3Cpath d='M146 188 Q154 184 161 189' stroke-width='0.7'/%3E%3Cpath d='M64 204 Q71 198 78 202' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236c5b43' opacity='0.24'%3E%3Ccircle cx='32' cy='52' r='0.75'/%3E%3Ccircle cx='108' cy='42' r='0.9'/%3E%3Ccircle cx='182' cy='26' r='0.7'/%3E%3Ccircle cx='66' cy='124' r='0.85'/%3E%3Ccircle cx='144' cy='112' r='0.75'/%3E%3Ccircle cx='204' cy='168' r='0.85'/%3E%3Ccircle cx='48' cy='186' r='0.7'/%3E%3Ccircle cx='124' cy='196' r='0.9'/%3E%3C/g%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.022) 28px);
+      box-shadow: 0 24px 60px rgba(32, 24, 14, 0.34), inset 0 1px 0 rgba(255, 253, 246, 0.85);
+      padding: clamp(24px, 3.4vh, 38px) clamp(26px, 3.6vw, 46px);
+      overflow: hidden;
+      animation: sheetCardLift 0.28s cubic-bezier(.18,.82,.26,1) forwards;
+    }
+    @keyframes sheetCardLift {
+      from { opacity: 0; transform: translateY(12px) scale(0.975); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .sheet-close {
+      position: absolute;
+      top: clamp(14px, 2vh, 22px);
+      right: clamp(16px, 2.2vw, 24px);
+      z-index: 8;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(56, 58, 50, 0.45);
+      background: rgba(252, 250, 243, 0.92);
+      color: #283029;
+      font: 500 22px/1 var(--body);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(48, 37, 21, 0.14);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .sheet-close:hover {
+      background: #ffffff;
+      transform: rotate(90deg) scale(1.05);
+    }
+
+    .sheet-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: clamp(22px, 3.2vw, 44px);
+      align-items: stretch;
+    }
+
+    .sheet-left {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      gap: clamp(10px, 1.4vh, 14px);
+    }
+
+    .sheet-title {
+      margin: 0;
+      font: 700 clamp(30px, 3.1vw, 44px)/1.02 var(--hand);
+      color: #232722;
+      letter-spacing: -0.01em;
+      transform: rotate(-0.8deg);
+      padding-right: 28px;
+    }
+
+    /* Dotted Notebook Paper Strip Badge (No Top-Left Sticker, Soft Pale Dots, Fit-Content Width) */
+    .sheet-badge {
+      display: inline-block;
+      width: fit-content;
+      max-width: 100%;
+      white-space: pre-line;
+      padding: 8px 15px 7px;
+      border: 1px solid rgba(116, 108, 90, 0.34);
+      border-radius: 2px;
+      background-color: #fbf9f2;
+      background-image:
+        radial-gradient(circle, rgba(72, 76, 68, 0.17) 0.85px, transparent 0.95px),
+        linear-gradient(175deg, #fdfbf6 0%, #f5f1e4 100%);
+      background-size: 11px 11px, 100% 100%;
+      background-position: 5px 5px, 0 0;
+      box-shadow: 1px 3px 7px rgba(56, 44, 26, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      font: 400 clamp(12.5px, 1.15vw, 14.5px)/1.42 var(--typewriter);
+      color: #2f352e;
+      transform: rotate(-0.6deg);
+    }
+    .sheet-badge:empty {
+      display: none;
+    }
+
+    .sheet-media-frame {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      border: 1.5px solid rgba(56, 58, 50, 0.34);
+      border-radius: 4px;
+      background: rgba(255, 253, 247, 0.72);
+      box-shadow: inset 0 2px 8px rgba(56, 44, 26, 0.08), 0 4px 12px rgba(48, 37, 21, 0.08);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .sheet-media-frame img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 2px;
+    }
+    .sheet-media-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #1d1f1c;
+      border-radius: 2px;
+    }
+
+    .sheet-web-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sheet-web-wrap iframe {
+      flex: 1;
+      width: 100%;
+      min-height: 0;
+      border: 1px solid rgba(56, 58, 50, 0.24);
+      border-radius: 3px;
+      background: #121518;
+    }
+    .sheet-web-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 4px 6px 0;
+      font: 500 12px/1.3 var(--body);
+      color: #4f584f;
+    }
+    .sheet-web-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      background: #a6cee1;
+      color: #24333c;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(42, 62, 76, 0.16);
+      transition: filter 0.18s ease, transform 0.18s ease;
+    }
+    .sheet-web-link:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .sheet-media-placeholder {
+      width: 100%;
+      height: 100%;
+      border: 1.5px dashed rgba(88, 86, 72, 0.36);
+      border-radius: 4px;
+      background: rgba(248, 245, 235, 0.65);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      gap: 8px;
+      color: #535c52;
+      cursor: pointer;
+    }
+    .sheet-media-placeholder strong {
+      font: 600 24px/1.1 var(--hand);
+      color: #2f372e;
+    }
+    .sheet-media-placeholder span {
+      font: 500 12px/1.5 var(--body);
+      max-width: 280px;
+      opacity: 0.8;
+    }
+
+    /* Right Column: Handwritten Subheadings + Typewriter Body Copy */
+    .sheet-right {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow-y: auto;
+      padding-top: clamp(6px, 1.2vh, 14px);
+      padding-right: 12px;
+      gap: clamp(16px, 2.4vh, 24px);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(116, 108, 90, 0.35) transparent;
+    }
+    .sheet-right::-webkit-scrollbar { width: 5px; }
+    .sheet-right::-webkit-scrollbar-thumb { background: rgba(116, 108, 90, 0.35); border-radius: 99px; }
+
+    .sheet-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sheet-subheading {
+      margin: 0;
+      font: 700 clamp(23px, 2.25vw, 31px)/1.05 var(--hand);
+      color: #3f6835;
+      letter-spacing: 0.01em;
+    }
+    .sheet-paragraph {
+      margin: 0;
+      font: 400 clamp(13.5px, 1.24vw, 15.5px)/1.68 var(--typewriter);
+      color: #283029;
+    }
+
+    /* ===============================================================
+       VIEWPORT PROMPT OVERLAY (DESKTOP HALF-SCREEN & MOBILE PORTRAIT)
+       =============================================================== */
+    .rotate-overlay {
+      position: fixed; inset: 0; z-index: 100; display: none; flex-direction: column;
+      align-items: center; justify-content: center; gap: 22px; padding: 35px;
+      text-align: center; background: #eee7d8; color: #4c5148;
+    }
+    .rotate-overlay.is-visible { display: flex; }
+    .rotate-overlay svg { width: 96px; height: 96px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .rotate-overlay h2 { margin: 0; font: 600 44px/1 var(--hand); }
+    .rotate-overlay p { max-width: 360px; font: 500 14px/1.7 var(--body); margin: 0; }
+    .rotate-overlay .rotate-chinese { color: #7b7a6c; font-size: 13px; }
+    .rotate-overlay.is-desktop-narrow .rotate-chinese { display: none; }
 
     /* ===============================================================
        MOBILE LANDSCAPE & PORTRAIT RESPONSIVE SETTINGS
@@ -1439,18 +1670,17 @@
       .pi-tagline--vc .hw-line--hero { font-size: clamp(16px, 3.7vh, 22px); }
       .pi-tagline--vc .hw-line--sub { font-size: clamp(11px, 2.5vh, 14px); }
       .sg-replay-btn { width: 25px; height: 25px; right: 14px; bottom: 12px; font-size: 14px; }
+
+      .project-sheet-paper { padding: 14px 18px; }
+      .sheet-grid { gap: 16px; }
+      .sheet-title { font-size: clamp(22px, 5.2vh, 30px); }
+      .sheet-badge { font-size: 11px; padding: 5px 10px; }
+      .sheet-subheading { font-size: clamp(18px, 4.4vh, 23px); }
+      .sheet-paragraph { font-size: 12px; line-height: 1.58; }
     }
 
     @media (max-width: 900px) and (orientation: portrait) {
-      .rotate-overlay {
-        position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column;
-        align-items: center; justify-content: center; gap: 22px; padding: 35px;
-        text-align: center; background: #eee7d8; color: #4c5148;
-      }
-      .rotate-overlay svg { width: 96px; height: 96px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-      .rotate-overlay h2 { margin: 0; font: 600 44px/1 var(--hand); }
-      .rotate-overlay p { max-width: 340px; font: 500 14px/1.7 var(--body); margin: 0; }
-      .rotate-overlay .rotate-chinese { color: #7b7a6c; font-size: 13px; }
+      .rotate-overlay { display: flex; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1461,7 +1691,7 @@
       }
       .hw-glyph { clip-path: none !important; }
       .hw-underline-path, .pi-hand-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
-      .pi-photo-window img, .td-cloud-slot img, .td-cloud-fallback { opacity: 1 !important; filter: none !important; }
+      .pi-photo-window img, .td-cloud-slot img { opacity: 1 !important; filter: none !important; transform: none !important; }
     }
   </style>
 </head>
@@ -1476,8 +1706,7 @@
     </defs>
   </svg>
 
-  <div class="table" aria-hidden="true"><div class="table-line one"></div><div class="table-line two"></div></div>
-  <div class="scene-number" aria-hidden="true">LIU CHIEN-WEN</div>
+  <div class="table" aria-hidden="true"></div>
 
   <main class="scene" id="scene">
     <!-- CLOSED COVER (#home) -->
@@ -1498,7 +1727,7 @@
       </svg>
 
       <div class="cover">
-        <!-- LEFT SECTION: 3 Top-Aligned Sheets Held by Single Paperclip (Cream Welcome Card, Kraft Contact Sheet, "Contact Me" Tab) -->
+        <!-- LEFT SECTION: 3 Top-Aligned Sheets Held by Single Paperclip -->
         <div class="cover-left" id="coverLeft">
           <!-- Layer 3 (Top): Small Calligraphic Card "Contact Me" -->
           <button type="button" class="cover-message-tab" id="messageToggleBtn" aria-expanded="false" aria-controls="coverVellumSheet">
@@ -1541,98 +1770,73 @@ It is a pleasure to have you in the next chapter!</p>
                 </defs>
 
                 <g clip-path="url(#portraitCircleClip)">
-                  <!-- Soft Warm Backdrop Circle -->
                   <circle cx="144" cy="144" r="102" fill="rgba(255,251,240,0.68)" />
 
-                  <!-- Neat Low-Tied Hair Knot Behind Neck (matching tied-back hairstyle in photo) -->
+                  <!-- Low-Tied Hair Knot Behind Neck -->
                   <path d="M 123 144 C 118 155, 124 164, 136 164 L 156 164 C 167 163, 171 154, 165 144 Z" fill="#261d1a" />
 
-                  <!-- Neck (Shortened by 20%) with Clean Flat Cel-Shaded Chin Shadow -->
+                  <!-- Neck -->
                   <path d="M 136 146 L 136 177 C 136 184, 156 184, 156 177 L 156 146 Z" fill="#f8d2be" />
                   <path d="M 136 149 C 141 158, 151 158, 156 149 L 156 160 C 150 165, 142 165, 136 160 Z" fill="#e6b39a" />
 
-                  <!-- Relaxed Left Arm (Viewer's Right) Emerging Smoothly from Right Sleeve Cuff -->
+                  <!-- Relaxed Left Arm (Viewer's Right) -->
                   <path d="M 186 186 L 198 284 L 212 284 L 199 184 Z" fill="#f8d2be" />
                   <path d="M 186 186 L 191 212 L 202 206 L 199 184 Z" fill="#e6b39a" />
 
-                  <!-- Waving Right Arm (Viewer's Left): Seamlessly Connected Inside Sleeve, Waves & Lowers to Rest -->
+                  <!-- Waving Right Arm (Viewer's Left) -->
                   <g class="portrait-upper-arm-wave">
-                    <!-- Upper Arm Emerging Strictly Through Left Sleeve Cuff Opening -->
                     <path d="M 96 183 L 90 223 C 90 230, 102 230, 102 223 L 106 189 Z" fill="#f8d2be" />
-                    <!-- Subtle Cel Shadow under Sleeve Cuff -->
                     <path d="M 96 183 L 93 207 L 103 211 L 106 189 Z" fill="#e6b39a" />
 
-                    <!-- Forearm & Open Five-Finger Hand Pivoting at Elbow Joint (96, 224) -->
                     <g class="portrait-forearm-wave">
-                      <!-- Rounded Elbow Cap + Smooth Forearm Down to Wrist -->
                       <path d="M 90 223 C 90 216, 102 216, 102 223 L 99 268 L 90 268 Z" fill="#f8d2be" />
-                      <!-- Delicate Inner Elbow Crease -->
                       <path d="M 92 224 Q 96 227, 100 224" fill="none" stroke="#dfa68c" stroke-width="1.3" stroke-linecap="round" />
 
-                      <!-- Friendly Five-Finger Hand (rotates up to wave, rests downward when lowered) -->
                       <g transform="translate(94.5, 275) rotate(180)">
-                        <!-- Palm -->
                         <path d="M -7.5 10 C -9.2 3, -8.5 -5, -5.8 -9 L 6.8 -9 C 9.2 -5, 9.2 3, 6.8 10 Z" fill="#f8d2be" />
-                        <!-- Thumb -->
                         <path d="M 6.8 3 C 11.2 -0.5, 15.8 -6, 14.6 -9.2 C 13.2 -11, 9.5 -7.8, 5.8 -3.2 Z" fill="#f5c9b3" />
-                        <!-- Index Finger -->
                         <rect x="4.0" y="-23.5" width="3.4" height="15.5" rx="1.7" fill="#f8d2be" transform="rotate(7 5.7 -9)" />
-                        <!-- Middle Finger -->
                         <rect x="0.2" y="-26.2" width="3.5" height="18" rx="1.75" fill="#f8d2be" transform="rotate(1.5 2.0 -9)" />
-                        <!-- Ring Finger -->
                         <rect x="-3.6" y="-24.5" width="3.4" height="16" rx="1.7" fill="#f8d2be" transform="rotate(-4.5 -1.9 -9)" />
-                        <!-- Pinky Finger -->
                         <rect x="-7.3" y="-20.2" width="3.1" height="12.8" rx="1.55" fill="#f5c9b3" transform="rotate(-11 -5.8 -9)" />
-                        <!-- Delicate Palm Crease -->
                         <path d="M -4 0 Q 1 -2.2, 5 0.5" fill="none" stroke="#e2aa90" stroke-width="1.15" stroke-linecap="round" />
                       </g>
                     </g>
                   </g>
 
-                  <!-- Slimmer Torso (Width Reduced by 20%) & Cream/Ochre Horizontal Striped Crewneck T-Shirt -->
+                  <!-- Slimmer Torso & Striped Crewneck T-Shirt -->
                   <g class="portrait-torso">
-                    <!-- Main Torso (Shoulder width 80px: x=106..186; Hem width 92px: x=100..192) -->
                     <path d="M 106 175 C 118 170, 130 169, 136 169 C 141 177, 151 177, 156 169 C 162 169, 174 170, 186 175 L 192 284 L 100 284 Z"
                           fill="url(#stripedTee)" />
-                    <!-- Subtle Flat Cel-Shaded Side Drape Shadows -->
                     <path d="M 106 175 L 113 196 L 109 284 L 100 284 Z" fill="rgba(166, 142, 86, 0.16)" />
                     <path d="M 186 175 L 179 196 L 183 284 L 192 284 Z" fill="rgba(166, 142, 86, 0.16)" />
-                    <!-- Crewneck Ribbed Trim -->
                     <path d="M 132 170 C 139 181, 153 181, 160 170" fill="none" stroke="#f8f4e8" stroke-width="4.2" stroke-linecap="round"/>
                     <path d="M 132 170 C 139 181, 153 181, 160 170" fill="none" stroke="#d5b762" stroke-width="1.25" stroke-linecap="round"/>
 
-                    <!-- Left Short Sleeve (Rendered Over Arm Root for Clean Cuff Overlap) -->
                     <path d="M 108 175 L 87 195 L 103 208 L 112 195 Z" fill="url(#stripedTee)" />
                     <path d="M 87 195 L 103 208" fill="none" stroke="#f8f4e8" stroke-width="2.4" stroke-linecap="round"/>
-                    <!-- Right Short Sleeve -->
                     <path d="M 184 175 L 205 195 L 189 208 L 180 195 Z" fill="url(#stripedTee)" />
                     <path d="M 205 195 L 189 208" fill="none" stroke="#f8f4e8" stroke-width="2.4" stroke-linecap="round"/>
                   </g>
 
-                  <!-- Head Group (with natural slight tilt & interactive look/nod) -->
+                  <!-- Head Group -->
                   <g class="portrait-head-group">
                     <g transform="rotate(-1.8 146 116)">
-                      <!-- Ears with Clean Inner Cel-Shadow -->
                       <ellipse cx="107.5" cy="117" rx="5.5" ry="9.8" fill="#f3c4ad" />
                       <path d="M 107.5 112 C 105.5 114, 105.5 120, 107.5 122" fill="none" stroke="#dfa68c" stroke-width="1.3" stroke-linecap="round"/>
                       <ellipse cx="184.5" cy="117" rx="5.5" ry="9.8" fill="#f3c4ad" />
                       <path d="M 184.5 112 C 186.5 114, 186.5 120, 184.5 122" fill="none" stroke="#dfa68c" stroke-width="1.3" stroke-linecap="round"/>
 
-                      <!-- Face Contour: Soft Cheek Fullness & Gentle Rounded-Tapered Chin/Jawline Arc -->
                       <path d="M 109 98 C 109 69, 183 69, 183 98 C 183 121, 177 140, 161 150.5 C 152 156.5, 140 156.5, 131 150.5 C 115 140, 109 121, 109 98 Z"
                             fill="#f8d2be" />
 
-                      <!-- Facial Features (capturing warm, alert, poised expression) -->
                       <g class="portrait-face-features">
-                        <!-- Soft Warm Cheek Blush -->
                         <ellipse cx="121" cy="123" rx="8.5" ry="4.8" fill="rgba(235, 148, 136, 0.28)" />
                         <ellipse cx="171" cy="123" rx="8.5" ry="4.8" fill="rgba(235, 148, 136, 0.28)" />
 
-                        <!-- Natural Soft-Arched Dark Espresso Eyebrows -->
                         <path d="M 118 100.5 Q 127.5 97.5, 136.5 100" fill="none" stroke="#352824" stroke-width="2.4" stroke-linecap="round"/>
                         <path d="M 155.5 100 Q 164.5 97.5, 174 100.5" fill="none" stroke="#352824" stroke-width="2.4" stroke-linecap="round"/>
 
-                        <!-- Bright, Expressive Rounded-Almond Eyes & Subtle Double-Eyelid Crease -->
                         <path d="M 120 110.2 Q 128 104.6, 136 110.5 Q 128 114.8, 120 110.2 Z" fill="#ffffff" />
                         <path d="M 156 110.5 Q 164 104.6, 172 110.2 Q 164 114.8, 156 110.5 Z" fill="#ffffff" />
 
@@ -1643,32 +1847,26 @@ It is a pleasure to have you in the next chapter!</p>
                           <circle cx="162.6" cy="108.7" r="1.4" fill="#ffffff" />
                         </g>
 
-                        <!-- Crisp Upper Lash Lines & Delicate Eyelid Folds -->
                         <path d="M 119.2 110.4 Q 128 104.2, 136.5 110.6" fill="none" stroke="#1d1412" stroke-width="2.2" stroke-linecap="round"/>
                         <path d="M 155.5 110.6 Q 164 104.2, 172.8 110.4" fill="none" stroke="#1d1412" stroke-width="2.2" stroke-linecap="round"/>
                         <path d="M 121.8 106.2 Q 128 103.0, 134.5 106.4" fill="none" stroke="#cf9980" stroke-width="1.05" stroke-linecap="round"/>
                         <path d="M 157.5 106.4 Q 164 103.0, 170.2 106.2" fill="none" stroke="#cf9980" stroke-width="1.05" stroke-linecap="round"/>
 
-                        <!-- Soft Rounded Nose Tip & Clean Cel-Shadow Underneath -->
                         <path d="M 145.5 111 L 144.3 121.5" fill="none" stroke="#e4ad93" stroke-width="1.4" stroke-linecap="round"/>
                         <path d="M 141.5 123.5 Q 146 126.2, 150.5 123.5" fill="none" stroke="#d4957a" stroke-width="1.7" stroke-linecap="round"/>
                         <ellipse cx="146" cy="125.8" rx="3.8" ry="1.5" fill="#e6b39a" />
 
-                        <!-- Calm, Warm Closed-Lip Smile -->
                         <path d="M 134.5 135.2 Q 141 133.6, 146 135.0 Q 151 133.6, 157.5 135.2 Q 146 140.5, 134.5 135.2 Z"
                               fill="#e3978a" />
                         <path d="M 134.2 135.0 Q 146 138.2, 157.8 135.0" fill="none" stroke="#b9685c" stroke-width="1.65" stroke-linecap="round"/>
                         <path d="M 141 140.8 Q 146 142.6, 151 140.8" fill="none" stroke="#e2a890" stroke-width="1.2" stroke-linecap="round"/>
                       </g>
 
-                      <!-- Crown Hair & Airy Side-Swept Bangs -->
                       <path d="M 107 109 C 103 73, 122 57, 147 57 C 172 57, 189 74, 185 110 C 182 94, 174 82, 163 77 C 158 88, 151 95, 143 99 C 147 90, 150 83, 151 76 C 143 87, 134 95, 124 100 C 129 91, 133 83, 135 76 C 124 85, 115 96, 107 109 Z"
                             fill="#2c221f" />
-                      <!-- Delicate Wispy Bang Strands & Natural Sideburns -->
                       <path d="M 157 76 C 155 86, 150 93, 144 99" fill="none" stroke="#2c221f" stroke-width="1.8" stroke-linecap="round"/>
                       <path d="M 108 103 C 108 110, 109 115, 110 119" fill="none" stroke="#2c221f" stroke-width="2.2" stroke-linecap="round"/>
                       <path d="M 184 103 C 184 110, 183 115, 182 119" fill="none" stroke="#2c221f" stroke-width="2.2" stroke-linecap="round"/>
-                      <!-- Subtle Hair Highlights -->
                       <path d="M 126 67 Q 137 62, 147 64" fill="none" stroke="rgba(255,248,236,0.16)" stroke-width="2.4" stroke-linecap="round"/>
                       <path d="M 156 66 Q 165 67, 172 72" fill="none" stroke="rgba(255,248,236,0.14)" stroke-width="2.1" stroke-linecap="round"/>
                     </g>
@@ -1721,30 +1919,36 @@ It is a pleasure to have you in the next chapter!</p>
   <!-- Hidden file picker for local preview attachment -->
   <input type="file" id="localAssetPicker" accept="image/*" hidden />
 
-  <!-- FULLSCREEN MEDIA PREVIEW DIALOG -->
-  <div class="media-dialog" id="mediaDialog" role="dialog" aria-modal="true" aria-labelledby="mediaDialogTitle" aria-hidden="true">
-    <button class="dialog-close" id="dialogClose" aria-label="Close fullscreen media">×</button>
-    <div class="dialog-canvas" id="dialogCanvas">
-      <h2 id="mediaDialogTitle">Presentation Board</h2>
-      <p id="dialogType">Media placeholder</p>
-    </div>
+  <!-- FLOATING PROJECT DETAIL SHEET -->
+  <div class="project-sheet-backdrop" id="projectSheet" role="dialog" aria-modal="true" aria-labelledby="projectSheetTitle" aria-hidden="true">
+    <article class="project-sheet-paper">
+      <button type="button" class="sheet-close" id="projectSheetClose" aria-label="Close project details">×</button>
+      <div class="sheet-grid">
+        <div class="sheet-left">
+          <h2 class="sheet-title" id="projectSheetTitle">Project Title</h2>
+          <div class="sheet-badge" id="projectSheetBadge"></div>
+          <div class="sheet-media-frame" id="projectSheetMedia"></div>
+        </div>
+        <div class="sheet-right" id="projectSheetBody"></div>
+      </div>
+    </article>
   </div>
 
-  <!-- PORTRAIT ORIENTATION PROMPT -->
-  <div class="rotate-overlay" aria-live="polite">
-    <svg viewBox="0 0 100 100" aria-hidden="true">
+  <!-- PORTRAIT / HALF-SCREEN VIEWPORT PROMPT -->
+  <div class="rotate-overlay" id="rotateOverlay" aria-live="polite">
+    <svg id="rotateOverlayIcon" viewBox="0 0 100 100" aria-hidden="true">
       <rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)" />
       <path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2" />
       <path d="M48 20h5" />
     </svg>
-    <h2>Turn the page sideways!</h2>
-    <p>This notebook is designed to be read in landscape mode. Please rotate your phone to explore.</p>
-    <p class="rotate-chinese">這本筆記本最適合橫向閱讀，請將手機轉為橫向。</p>
+    <h2 id="rotateOverlayTitle">Turn the page sideways!</h2>
+    <p id="rotateOverlayDesc">This notebook is designed to be read in landscape mode. Please rotate your phone to explore.</p>
+    <p class="rotate-chinese" id="rotateOverlaySub">這本筆記本最適合橫向閱讀，請將手機轉為橫向。</p>
   </div>
 
   <script>
     /* ===============================================================
-       1. CHAPTER STRUCTURE & PORTFOLIO DATA
+1. CHAPTER STRUCTURE & COMPLETE PORTFOLIO DATA
        =============================================================== */
     const sections = [
       { id: 'home', title: 'Home', label: 'Home' },
@@ -1757,45 +1961,133 @@ It is a pleasure to have you in the next chapter!</p>
       'soft-ground': [
         {
           id: 'own-bimonthly',
-          name: 'own bi.monthly（一個人生活）',
+          name: 'own bi.monthly',
           imagePrimary: 'assets/own vol.1.png',
-          imageSecondary: 'own vol.1.png'
+          imageSecondary: 'own vol.1.png',
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/own all vol..png',
+          detailMediaSecondary: 'assets/own all vol..PNG',
+          badge: '',
+          sections: [
+            {
+              heading: 'Background',
+              text: 'During COVID-19, most in-person campus activities were cancelled, and students were encouraged to self-isolate. Spending long periods alone in their dorm rooms became an emotionally exhausting challenge for many students, causing considerable psychological distress and, in some cases, leading to depression and anxiety.'
+            },
+            {
+              heading: 'Execution',
+              text: 'We founded own bi.monthly to accompany lonely young people to learn enjoying solitude. Through thoughtfully curated articles and chapters, our magazine offered an immersive and sustained emotional experience, while daily social media posts shared fresh perspectives on solitude and practical advice for spending time alone.'
+            }
+          ]
         },
         {
           id: 'osmanthus-tea',
           name: '桂有光 Osmanthus Tea Brand',
           imagePrimary: 'assets/YongAn Tea package.png',
-          imageSecondary: 'YongAn Tea package.png'
+          imageSecondary: 'YongAn Tea package.png',
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/YongAn Tea.png',
+          detailMediaSecondary: 'assets/YongAn Tea.PNG',
+          badge: '2023 Taiwan College student stationed-in rural community project competition 2nd Place',
+          sections: [
+            {
+              heading: 'Background',
+              text: 'Yong-An is a century-old oolong tea village on the outskirts of Taipei. Since reservoir construction flooded its farmland decades ago, population decline has left the village short of tea-making labour, making it difficult to win traditional oolong tea competitions, secure higher selling prices, and attract younger generations back to the village.'
+            },
+            {
+              heading: 'Execution',
+              text: 'Exploring the village\'s history, we discovered that the osmanthus trees scattered across its mountains were once used to produce a forgotten local speciality: osmanthus tea. After researching Taiwan\'s tea market and emerging trends, we launched a local brand centred on this century-old floral tea, helping Yong-An move beyond traditional oolong competition and reach new consumers.'
+            }
+          ]
         }
       ],
       'playful-works': [
         {
           id: 'vc-kungfu',
-          name: 'VC Kung Fu',
+          name: 'VC KungFu',
           polaroidPrimary: 'assets/VC KUNGFU Polaroid.png',
           polaroidSecondary: 'assets/VC KUNGFU Polaroid.PNG',
-          mediaSrc: 'assets/2023台灣坎城青年獅_presentation board.jpg'
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/2023台灣坎城青年獅_presentation board.jpg',
+          detailMediaSecondary: 'assets/2023台灣坎城青年獅_presentation board.JPG',
+          badge: '2023 Taiwan Cannes Young Lion Student Category · 1st Place\nProfessional Category · 4th',
+          sections: [
+            {
+              heading: 'Brief',
+              text: 'Following the pandemic, many people in Taiwan were unaware of the damage to their lung health. The challenge was to raise awareness of lung function and encourage more people to take action through early screening.'
+            },
+            {
+              heading: 'Idea',
+              text: 'Lung health is complex, and its problems are often invisible, making early screening feel unnecessary. To make the issue relatable, we borrowed the concept of “Qi” from Kung Fu. In Chinese, “Qi” means both air and vital energy. Even a Kung Fu master cannot perform a single move without enough Qi. We turned this cultural insight into an interactive website, allowing people to experience firsthand the limitations of poor lung capacity.'
+            }
+          ]
         },
         {
           id: 'oreo-cosmic',
           name: 'OREO COSMIC RADIO WAVE',
           polaroidPrimary: 'assets/OREO COSMIC RADIO WAVE Polaroid.png',
           polaroidSecondary: 'assets/OREO COSMIC RADIO WAVE Polaroid.PNG',
-          mediaSrc: 'assets/OREO Cosmic Wave.jpg'
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/OREO Cosmic Wave.jpg',
+          detailMediaSecondary: 'assets/OREO Cosmic Wave.JPG',
+          badge: 'Selected by the client from submissions across VML’s APAC offices.',
+          sections: [
+            {
+              heading: 'Objective',
+              text: 'Build awareness of Oreo’s new cosmic-themed flavors among Gen Z consumers in the Chinese market.'
+            },
+            {
+              heading: 'Strategy',
+              text: 'Building on the APAC campaign’s theme of the universe as a symbol of dreams, we uncovered a cultural distinction: unlike younger generations elsewhere, Chinese Gen Z aren’t necessarily dreaming of space travel. Instead, they believe in speaking their ambitions aloud, both to motivate themselves and attract people who can help. So we decided to help them make their loudest wish ever—loud enough for the entire universe to hear!'
+            },
+            {
+              heading: 'Idea',
+              text: 'We added a wishing QR code to Oreo packaging, letting consumers submit their dreams to be transmitted into space through an Oreo-shaped radio telescope, with the entire process livestreamed for everyone on Earth to witness.'
+            }
+          ]
         },
         {
           id: 'combat-song',
           name: 'Combat X Power Station',
           polaroidPrimary: 'assets/COMBAT SONG Polaroid.png',
           polaroidSecondary: 'assets/COMBAT SONG Polaroid.PNG',
-          mediaSrc: 'assets/康貝特200P EX｜動力火車完整版.mp4'
+          detailMediaType: 'video',
+          detailMediaPrimary: 'assets/康貝特200P EX｜動力火車完整版.mp4',
+          detailMediaSecondary: 'assets/康貝特200P EX｜動力火車完整版.MP4',
+          badge: '',
+          sections: [
+            {
+              heading: 'Objective',
+              text: 'Raise awareness of Combat 200P EX among its target audience of middle-aged working professionals in Taiwan.'
+            },
+            {
+              heading: 'Strategy',
+              text: 'Energy drink market in Taiwan is crowded with both products and advertisements. With a stronger energy boost than most competitors, Combat 200P EX needed to make that advantage unforgettable within seconds. Our challenge was to make its superior energizing effect stick in consumers’ minds, so that when they stood in front of a convenience store shelf, Combat would be their instinctive choice.'
+            },
+            {
+              heading: 'Idea',
+              text: 'We teamed up with Power Station, one of Taiwan’s most energetic pop duos, to create an irresistibly catchy commercial jingle embedded with alpha waves. The goal? Make viewers remember Combat 200P EX and feel energized just by watching the ad.'
+            }
+          ]
         },
         {
           id: 'dear-hollywood',
-          name: 'DEAR HOLLYWOOD, AI\u2019LL SUE YOU',
+          name: 'Dear Hollywood, AI’ll Sue You',
           polaroidPrimary: 'assets/Dear Hollywood Polaroid.png',
           polaroidSecondary: 'assets/Dear Hollywood Polaroid.PNG',
-          mediaSrc: 'assets/2025 New Star_presentation board.jpg'
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/2025 New Star_presentation board.jpg',
+          detailMediaSecondary: 'assets/2025 New Star_presentation board.JPG',
+          badge: '2025 MAD STARS NEW STARS\nExecutive Chairman’s Special Award',
+          sections: [
+            {
+              heading: 'Brief',
+              text: 'Develop a public campaign to overcome fear and foster engagement in the age of artificial intelligence.'
+            },
+            {
+              heading: 'Idea',
+              text: 'We started by questioning why people fear things. We realized that many fears are learned rather than experienced. Long before most people encountered AI firsthand, Hollywood had already cast it as a villain threatening humanity. That hardly seemed fair to AI! So we decided to give AI a voice of its own, hosting a press conference where it could defend itself, explain its intentions, and show how it could improve everyday life.'
+            }
+          ]
         }
       ],
       'thoughtful-dreams': [
@@ -1803,19 +2095,68 @@ It is a pleasure to have you in the next chapter!</p>
           id: 'emo-together',
           name: 'EmoTogether',
           cloudPrimary: 'assets/EmoTogether_cloud.png',
-          cloudSecondary: 'assets/EmoTogether_cloud.PNG'
+          cloudSecondary: 'assets/EmoTogether_cloud.PNG',
+          detailMediaType: 'website',
+          detailWebUrl: 'https://chienwen75.github.io/EmoTogether/',
+          badge: '',
+          sections: [
+            {
+              heading: 'Background',
+              text: 'Talking to AI has become a common way to cope with loneliness. Yet, because AI isn’t human, relying on it for emotional support over time may risk distancing people from real-world relationships.'
+            },
+            {
+              heading: 'Insight',
+              text: 'If AI learns from data created by real people, could we turn interacting with AI into an experience that makes us feel more connected to humanity, rather than further isolated from it?'
+            },
+            {
+              heading: 'Experiment',
+              text: 'Emotions are deeply personal yet universally shared. I used AI to create music inspired by expressions of joy, anger, and sadness from musicians worldwide. By responding to users’ facial expressions with corresponding music, AI becomes a bridge to others who share their feelings.'
+            }
+          ]
         },
         {
           id: 'memory-line',
-          name: 'Ring the Memory Line',
+          name: 'Ring The Memory Line',
           cloudPrimary: 'assets/Ring the Memory Line_cloud.png',
-          cloudSecondary: 'assets/Ring the Memory Line_cloud.PNG'
+          cloudSecondary: 'assets/Ring the Memory Line_cloud.PNG',
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/2024 創意戰鬥營_presentation board.jpg',
+          detailMediaSecondary: 'assets/2024 創意戰鬥營_presentation board.JPG',
+          badge: '2024 DigiAsia × 4A Taiwan Youth Competition 1st Place',
+          sections: [
+            {
+              heading: 'Brief',
+              text: 'Explore how generative AI can transform the digital creative industry through the AI4U initiative.'
+            },
+            {
+              heading: 'Idea',
+              text: 'AI should do more than improve efficiency. It should extend the reach of creativity to people often overlooked. In Taiwan, dementia is increasingly common. While regular conversation can help maintain communication abilities, not every family can afford daily therapy or provide constant companionship. We envisioned an AI companion that engages older adults with dementia in guided daily conversations, making cognitive and language stimulation more accessible to families who need it most.'
+            }
+          ]
         },
         {
           id: 'being-here',
           name: 'Being Here',
-          cloudPrimary: 'assets/Being Here_cloud.png',
-          cloudSecondary: 'assets/Being Here_cloud.PNG'
+          cloudPrimary: 'assets/Being Here.jpg',
+          cloudSecondary: 'assets/Being Here_cloud.png',
+          detailMediaType: 'image',
+          detailMediaPrimary: 'assets/Being Here.jpg',
+          detailMediaSecondary: 'assets/Being Here.JPG',
+          badge: '',
+          sections: [
+            {
+              heading: 'Background',
+              text: 'Parents often establish trust funds to financially protect their children after they’re gone. Yet, growing up requires more than financial security. Children also long for their parents’ presence, guidance, and the chance to truly know who their parents were.'
+            },
+            {
+              heading: 'Insight',
+              text: 'Death takes away the chance to get to know someone firsthand. But what if we could prepare future moments of connection in advance, allowing the relationship between parents and children to keep growing even after death?'
+            },
+            {
+              heading: 'Idea',
+              text: 'Using AI simulations to help parents imagine the support their children might need at future milestones, such as turning 18, graduating, or getting married. Parents can then record personal messages in advance, delivered when those moments finally arrive.'
+            }
+          ]
         }
       ]
     };
@@ -1958,7 +2299,7 @@ It is a pleasure to have you in the next chapter!</p>
     };
 
     /* ===============================================================
-       2. DOM REFERENCES & APPLICATION STATE
+2. DOM REFERENCES & APPLICATION STATE
        =============================================================== */
     const ui = {
       closed: document.getElementById('closedBook'),
@@ -1972,11 +2313,12 @@ It is a pleasure to have you in the next chapter!</p>
       tabs: document.getElementById('spreadTabs'),
       prev: document.getElementById('previousProject'),
       next: document.getElementById('nextProject'),
-      dialog: document.getElementById('mediaDialog'),
-      dialogCanvas: document.getElementById('dialogCanvas'),
-      dialogTitle: document.getElementById('mediaDialogTitle'),
-      dialogType: document.getElementById('dialogType'),
-      dialogClose: document.getElementById('dialogClose'),
+      sheet: document.getElementById('projectSheet'),
+      sheetClose: document.getElementById('projectSheetClose'),
+      sheetTitle: document.getElementById('projectSheetTitle'),
+      sheetBadge: document.getElementById('projectSheetBadge'),
+      sheetMedia: document.getElementById('projectSheetMedia'),
+      sheetBody: document.getElementById('projectSheetBody'),
       flipLayer: document.getElementById('pageFlipLayer'),
       filePicker: document.getElementById('localAssetPicker'),
       messageBtn: document.getElementById('messageToggleBtn'),
@@ -1990,11 +2332,12 @@ It is a pleasure to have you in the next chapter!</p>
     let lastFocus = null;
     const customUploadedObjects = {};
     let pendingUploadTarget = null;
+    let activeDetailContext = null;
 
     const homeSVG = '<svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>';
 
     /* ===============================================================
-       3. HELPER & COLLAGE RENDERING FUNCTIONS
+3. HELPER & COLLAGE RENDERING FUNCTIONS
        =============================================================== */
     const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g, c => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -2087,7 +2430,7 @@ It is a pleasure to have you in the next chapter!</p>
           <div class="sg-grass sg-grass--lower-left">${grassTufts.lowerLeft}</div>
           <div class="sg-grass sg-grass--lower-inner">${grassTufts.lowerInner}</div>
           <div class="sg-cluster sg-cluster--left">
-            <div class="sg-collage-item sg-item--own" data-sg-upload="own" title="own bi.monthly (Click to attach local PNG if previewing offline)">
+            <div class="sg-collage-item sg-item--own" data-sg-index="0" role="button" tabindex="0" aria-label="Open project: own bi.monthly">
               <div class="sg-own-photo-wrap">
                 <img src="${ownSrc}" data-alt-src="${escapeHTML(ownData.imageSecondary)}" data-cutout-key="own" alt="own bi.monthly Vol. 01 magazine cover" />
               </div>
@@ -2112,7 +2455,7 @@ It is a pleasure to have you in the next chapter!</p>
             <div class="sg-copy-group sg-copy--tea-top" aria-label="A fading village. A forgotten tea.">
               ${rightTopText.html}
             </div>
-            <div class="sg-collage-item sg-item--tea" data-sg-upload="tea" title="桂有光 Osmanthus Tea Brand (Click to attach local PNG if previewing offline)">
+            <div class="sg-collage-item sg-item--tea" data-sg-index="1" role="button" tabindex="0" aria-label="Open project: 桂有光 Osmanthus Tea Brand">
               <div class="sg-tea-photo-wrap">
                 <img src="${teaSrc}" data-alt-src="${escapeHTML(teaData.imageSecondary)}" data-cutout-key="tea" alt="桂有光 Osmanthus Tea Brand golden pouch package" />
               </div>
@@ -2147,13 +2490,11 @@ It is a pleasure to have you in the next chapter!</p>
             parent.innerHTML = `<div class="sg-cutout-fallback">
               <div class="sg-fallback-own-art"><div></div><div style="display:flex;gap:2px;"><span class="sg-fallback-own-vert">OWN</span><span class="sg-fallback-own-sub">一個人生活</span></div></div>
               <div class="sg-fallback-own-foot"><strong>Vol. 01 · 2022 April</strong><span>異鄉．亦鄉</span></div>
-              <span class="sg-fallback-attach-pill">Click to attach own vol.1.png</span>
             </div>`;
           } else {
             parent.innerHTML = `<div class="sg-cutout-fallback sg-cutout-fallback--tea">
               <div class="sg-tea-fold-line"></div>
               <div class="sg-tea-paper-label"><div class="sg-tea-red-seal"><span>永</span><span>安</span></div></div>
-              <span class="sg-fallback-attach-pill">Click to attach tea PNG</span>
             </div>`;
           }
         });
@@ -2205,10 +2546,10 @@ It is a pleasure to have you in the next chapter!</p>
         </svg>
 
         <div class="pi-slot pi-slot--1">
-          <div class="pi-polaroid" style="--tilt:-2.2deg;" data-pi-index="0" role="button" tabindex="0" aria-label="Open project: Lung Health matters">
+          <div class="pi-polaroid" style="--tilt:-2.2deg;" data-pi-index="0" role="button" tabindex="0" aria-label="Open project: VC KungFu">
             <span class="pi-washi-tape pi-washi-tape--yellow-gingham" style="--tape-rot:-2.5deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t1Start.toFixed(3)}s; --dev-dur:${d1.toFixed(3)}s;">
-              <img src="${p1Src}" data-alt-src="${escapeHTML(items[0].polaroidSecondary)}" data-pi-key="pi-0" alt="" />
+              <img src="${p1Src}" data-alt-src="${escapeHTML(items[0].polaroidSecondary)}" data-pi-key="pi-0" alt="VC KungFu" />
             </div>
           </div>
           <div class="pi-tagline pi-tagline--below pi-tagline--vc">${t1.html}</div>
@@ -2216,19 +2557,19 @@ It is a pleasure to have you in the next chapter!</p>
 
         <div class="pi-slot pi-slot--2">
           <div class="pi-tagline pi-tagline--above">${t2.html}</div>
-          <div class="pi-polaroid" style="--tilt:1.8deg;" data-pi-index="1" role="button" tabindex="0" aria-label="Open project: The universe is the biggest wishing well">
+          <div class="pi-polaroid" style="--tilt:1.8deg;" data-pi-index="1" role="button" tabindex="0" aria-label="Open project: OREO COSMIC RADIO WAVE">
             <span class="pi-washi-tape pi-washi-tape--blue-stars" style="--tape-rot:2.2deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t2Start.toFixed(3)}s; --dev-dur:${d2.toFixed(3)}s;">
-              <img src="${p2Src}" data-alt-src="${escapeHTML(items[1].polaroidSecondary)}" data-pi-key="pi-1" alt="" />
+              <img src="${p2Src}" data-alt-src="${escapeHTML(items[1].polaroidSecondary)}" data-pi-key="pi-1" alt="OREO COSMIC RADIO WAVE" />
             </div>
           </div>
         </div>
 
         <div class="pi-slot pi-slot--3">
-          <div class="pi-polaroid" style="--tilt:-1.6deg;" data-pi-index="2" role="button" tabindex="0" aria-label="Open project: Hear a shot of energy">
+          <div class="pi-polaroid" style="--tilt:-1.6deg;" data-pi-index="2" role="button" tabindex="0" aria-label="Open project: Combat X Power Station">
             <span class="pi-washi-tape pi-washi-tape--sage-stripe" style="--tape-rot:-1.8deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t3Start.toFixed(3)}s; --dev-dur:${d3.toFixed(3)}s;">
-              <img src="${p3Src}" data-alt-src="${escapeHTML(items[2].polaroidSecondary)}" data-pi-key="pi-2" alt="" />
+              <img src="${p3Src}" data-alt-src="${escapeHTML(items[2].polaroidSecondary)}" data-pi-key="pi-2" alt="Combat X Power Station" />
             </div>
           </div>
           <div class="pi-tagline pi-tagline--below pi-tagline--combat">${t3.html}</div>
@@ -2236,10 +2577,10 @@ It is a pleasure to have you in the next chapter!</p>
 
         <div class="pi-slot pi-slot--4">
           <div class="pi-tagline pi-tagline--above">${t4Top.html}</div>
-          <div class="pi-polaroid" style="--tilt:2.1deg;" data-pi-index="3" role="button" tabindex="0" aria-label="Open project: We knew AI as a villain before we knew it">
+          <div class="pi-polaroid" style="--tilt:2.1deg;" data-pi-index="3" role="button" tabindex="0" aria-label="Open project: Dear Hollywood, AI'll Sue You">
             <span class="pi-washi-tape pi-washi-tape--pink-crinkle" style="--tape-rot:2.8deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t4Start.toFixed(3)}s; --dev-dur:${d4.toFixed(3)}s;">
-              <img src="${p4Src}" data-alt-src="${escapeHTML(items[3].polaroidSecondary)}" data-pi-key="pi-3" alt="" />
+              <img src="${p4Src}" data-alt-src="${escapeHTML(items[3].polaroidSecondary)}" data-pi-key="pi-3" alt="Dear Hollywood, AI'll Sue You" />
             </div>
           </div>
           <div class="pi-tagline pi-tagline--below">${t4Bottom.html}</div>
@@ -2377,7 +2718,7 @@ It is a pleasure to have you in the next chapter!</p>
           slot.dataset.unattached = '1';
           slot.innerHTML = `<div class="td-cloud-fallback">
             <strong>${escapeHTML(titles[idx] || 'Dream Project')}</strong>
-            <small>Click to attach image</small>
+            <small>Click to explore project</small>
           </div>`;
         });
       });
@@ -2398,12 +2739,85 @@ It is a pleasure to have you in the next chapter!</p>
       }
       const td = document.getElementById('thoughtfulDreamsSpread');
       if (td) {
-        td.classList.remove('is-writing');
+        td.classList.remove('is-revealed');
         void td.offsetWidth;
-        td.classList.add('is-writing');
+        td.classList.add('is-revealed');
       }
     }
 
+    /* ===============================================================
+4. FLOATING PROJECT DETAIL SHEET OPEN / CLOSE
+       =============================================================== */
+    function openProjectDetail(sectionId, projectIndex) {
+      const list = projects[sectionId];
+      if (!list || !list[projectIndex]) return;
+      const item = list[projectIndex];
+      activeDetailContext = { sectionId, projectIndex };
+      lastFocus = document.activeElement;
+
+      ui.sheetTitle.textContent = item.name;
+      ui.sheetBadge.textContent = item.badge || '';
+
+      const customKey = `detail-${sectionId}-${projectIndex}`;
+      if (item.detailMediaType === 'video') {
+        const videoSrc = customUploadedObjects[customKey] || escapeHTML(item.detailMediaPrimary);
+        ui.sheetMedia.innerHTML = `<video controls playsinline preload="metadata" src="${videoSrc}"></video>`;
+      } else if (item.detailMediaType === 'website') {
+        const safeUrl = escapeHTML(item.detailWebUrl);
+        ui.sheetMedia.innerHTML = `<div class="sheet-web-wrap">
+          <iframe src="${safeUrl}" title="${escapeHTML(item.name)} interactive plugin" loading="lazy"></iframe>
+          <div class="sheet-web-bar">
+            <span>Interactive web experience</span>
+            <a class="sheet-web-link" href="${safeUrl}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+          </div>
+        </div>`;
+      } else {
+        const imgSrc = customUploadedObjects[customKey] || escapeHTML(item.detailMediaPrimary || '');
+        const altSrc = escapeHTML(item.detailMediaSecondary || '');
+        ui.sheetMedia.innerHTML = `<img src="${imgSrc}" data-alt-src="${altSrc}" alt="${escapeHTML(item.name)}" />`;
+        const detailImg = ui.sheetMedia.querySelector('img');
+        if (detailImg) {
+          detailImg.addEventListener('error', function onDetailImgError() {
+            const alt = this.getAttribute('data-alt-src');
+            if (alt && !this.dataset.triedAlt) {
+              this.dataset.triedAlt = '1';
+              this.src = alt;
+              return;
+            }
+            ui.sheetMedia.innerHTML = `<div class="sheet-media-placeholder" data-detail-upload="${customKey}" role="button" tabindex="0">
+              <strong>${escapeHTML(item.name)}</strong>
+              <span>Preview image not found locally. Click here to attach a local image file.</span>
+            </div>`;
+          });
+        }
+      }
+
+      ui.sheetBody.innerHTML = (item.sections || []).map(sec => `
+        <section class="sheet-section">
+          <h3 class="sheet-subheading">${escapeHTML(sec.heading)}</h3>
+          <p class="sheet-paragraph">${escapeHTML(sec.text)}</p>
+        </section>
+      `).join('');
+      ui.sheetBody.scrollTop = 0;
+
+      ui.sheet.classList.add('open');
+      ui.sheet.setAttribute('aria-hidden', 'false');
+      ui.sheetClose.focus();
+    }
+
+    function closeProjectDetail() {
+      if (!ui.sheet.classList.contains('open')) return;
+      const vid = ui.sheetMedia.querySelector('video');
+      if (vid) vid.pause();
+      ui.sheet.classList.remove('open');
+      ui.sheet.setAttribute('aria-hidden', 'true');
+      activeDetailContext = null;
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    /* ===============================================================
+5. NOTEBOOK NAVIGATION & TAB RENDERING
+       =============================================================== */
     function renderTabs(section) {
       const index = sections.findIndex(s => s.id === section);
       ui.tabs.innerHTML = sections.map((s, i) => {
@@ -2439,6 +2853,7 @@ It is a pleasure to have you in the next chapter!</p>
     }
 
     function setVisible(el, visible) {
+      if (!el) return;
       el.classList.toggle('is-hidden', !visible);
       el.setAttribute('aria-hidden', String(!visible));
     }
@@ -2451,8 +2866,9 @@ It is a pleasure to have you in the next chapter!</p>
     function navigate(section, { saveHistory = true, animate = true } = {}) {
       if (!sections.some(s => s.id === section)) return;
       if (transitionBusy) return;
+      closeProjectDetail();
       if (currentSection === section) {
-        if (section === 'soft-ground' || section === 'playful-works' || section === 'thoughtful-dreams') triggerSpreadAnimation();
+        if (section !== 'home') triggerSpreadAnimation();
         return;
       }
       if (saveHistory) updateHistory(section);
@@ -2504,15 +2920,8 @@ It is a pleasure to have you in the next chapter!</p>
       setTimeout(finish, 245);
     }
 
-    function hideMedia() {
-      if (!ui.dialog.classList.contains('open')) return;
-      ui.dialog.classList.remove('open');
-      ui.dialog.setAttribute('aria-hidden', 'true');
-      lastFocus?.focus();
-    }
-
     /* ===============================================================
-       4. COVER PORTRAIT INTERACTION & EVENT LISTENERS
+6. INTERACTIVE EVENTS & VIEWPORT RESPONSIVE CHECK
        =============================================================== */
     function setPortraitLook(lookClass) {
       if (!ui.portrait) return;
@@ -2554,36 +2963,47 @@ It is a pleasure to have you in the next chapter!</p>
         triggerSpreadAnimation();
         return;
       }
-      const sgFallback = e.target.closest('.sg-cutout-fallback');
-      if (sgFallback) {
-        const item = sgFallback.closest('[data-sg-upload]');
-        if (item) {
-          pendingUploadTarget = item.dataset.sgUpload;
-          ui.filePicker.click();
-          return;
-        }
+      const sgItem = e.target.closest('[data-sg-index]');
+      if (sgItem) {
+        openProjectDetail('soft-ground', Number(sgItem.dataset.sgIndex));
+        return;
       }
       const polaroid = e.target.closest('.pi-polaroid');
       if (polaroid) {
-        const idx = Number(polaroid.dataset.piIndex);
-        const photoWin = polaroid.querySelector('.pi-photo-window');
-        if (photoWin && photoWin.dataset.unattached === '1') {
-          pendingUploadTarget = `pi-${idx}`;
-          ui.filePicker.click();
-        }
+        openProjectDetail('playful-works', Number(polaroid.dataset.piIndex));
         return;
       }
       const cloud = e.target.closest('.td-cloud');
       if (cloud) {
-        const idx = Number(cloud.dataset.tdIndex);
-        const slot = cloud.querySelector('.td-cloud-slot');
-        if (slot && slot.dataset.unattached === '1') {
-          pendingUploadTarget = `td-${idx}`;
-          ui.filePicker.click();
-        }
+        openProjectDetail('thoughtful-dreams', Number(cloud.dataset.tdIndex));
+        return;
+      }
+      const detailPlaceholder = e.target.closest('[data-detail-upload]');
+      if (detailPlaceholder) {
+        pendingUploadTarget = detailPlaceholder.dataset.detailUpload;
+        ui.filePicker.click();
         return;
       }
     });
+
+    document.addEventListener('keydown', e => {
+      if (ui.sheet.classList.contains('open')) {
+        if (e.key === 'Escape') closeProjectDetail();
+        return;
+      }
+      if (e.key === 'Enter' || e.key === ' ') {
+        const sgItem = document.activeElement && document.activeElement.closest('[data-sg-index]');
+        if (sgItem) { e.preventDefault(); openProjectDetail('soft-ground', Number(sgItem.dataset.sgIndex)); return; }
+        const polaroid = document.activeElement && document.activeElement.closest('.pi-polaroid');
+        if (polaroid) { e.preventDefault(); openProjectDetail('playful-works', Number(polaroid.dataset.piIndex)); return; }
+        const cloud = document.activeElement && document.activeElement.closest('.td-cloud');
+        if (cloud) { e.preventDefault(); openProjectDetail('thoughtful-dreams', Number(cloud.dataset.tdIndex)); return; }
+      }
+      if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
+    });
+
+    ui.sheetClose.addEventListener('click', closeProjectDetail);
+    ui.sheet.addEventListener('click', e => { if (e.target === ui.sheet) closeProjectDetail(); });
 
     ui.filePicker.addEventListener('change', e => {
       const file = e.target.files && e.target.files[0];
@@ -2591,18 +3011,11 @@ It is a pleasure to have you in the next chapter!</p>
       customUploadedObjects[pendingUploadTarget] = URL.createObjectURL(file);
       pendingUploadTarget = null;
       ui.filePicker.value = '';
-      if (currentSection !== 'home') renderSection(currentSection);
-    });
-
-    ui.dialogClose.addEventListener('click', hideMedia);
-    ui.dialog.addEventListener('click', e => { if (e.target === ui.dialog) hideMedia(); });
-
-    document.addEventListener('keydown', e => {
-      if (ui.dialog.classList.contains('open')) {
-        if (e.key === 'Escape') hideMedia();
-        return;
+      if (activeDetailContext) {
+        openProjectDetail(activeDetailContext.sectionId, activeDetailContext.projectIndex);
+      } else if (currentSection !== 'home') {
+        renderSection(currentSection);
       }
-      if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
     });
 
     window.addEventListener('popstate', () => {
@@ -2614,6 +3027,45 @@ It is a pleasure to have you in the next chapter!</p>
       const requested = location.hash.replace('#', '');
       navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
     });
+
+    /* Half-Screen Desktop & Mobile Portrait Prompt */
+    const rotateOverlay = document.getElementById('rotateOverlay');
+    const rotateOverlayIcon = document.getElementById('rotateOverlayIcon');
+    const rotateOverlayTitle = document.getElementById('rotateOverlayTitle');
+    const rotateOverlayDesc = document.getElementById('rotateOverlayDesc');
+
+    const phoneRotateSVG = '<rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)" /><path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2" /><path d="M48 20h5" />';
+    const desktopExpandSVG = '<rect x="16" y="22" width="68" height="56" rx="7" /><line x1="16" y1="36" x2="84" y2="36" /><circle cx="24" cy="29" r="1.6" fill="currentColor" stroke="none" /><circle cx="31" cy="29" r="1.6" fill="currentColor" stroke="none" /><path d="M58 45h14v14M72 45 56 61M42 69H28V55M28 69l16-16" />';
+
+    function updateViewportPrompt() {
+      if (!rotateOverlay) return;
+      const isTouchDevice = window.matchMedia('(pointer: coarse)').matches && navigator.maxTouchPoints > 0;
+      const availW = window.screen && window.screen.availWidth ? window.screen.availWidth : window.innerWidth;
+      const isHalfOrLessDesktop = !isTouchDevice && (
+        window.innerWidth <= Math.ceil(availW / 2) + 8 ||
+        (window.innerWidth <= 900 && window.innerHeight > window.innerWidth)
+      );
+      const isMobilePortrait = isTouchDevice && window.innerWidth <= 900 && window.innerHeight > window.innerWidth;
+
+      if (isHalfOrLessDesktop) {
+        rotateOverlay.classList.add('is-visible', 'is-desktop-narrow');
+        if (rotateOverlayIcon) rotateOverlayIcon.innerHTML = desktopExpandSVG;
+        if (rotateOverlayTitle) rotateOverlayTitle.textContent = 'Open the notebook wide!';
+        if (rotateOverlayDesc) rotateOverlayDesc.textContent = 'Switch to full screen for a distraction-free read.';
+      } else if (isMobilePortrait) {
+        rotateOverlay.classList.add('is-visible');
+        rotateOverlay.classList.remove('is-desktop-narrow');
+        if (rotateOverlayIcon) rotateOverlayIcon.innerHTML = phoneRotateSVG;
+        if (rotateOverlayTitle) rotateOverlayTitle.textContent = 'Turn the page sideways!';
+        if (rotateOverlayDesc) rotateOverlayDesc.textContent = 'This notebook is designed to be read in landscape mode. Please rotate your phone to explore.';
+      } else {
+        rotateOverlay.classList.remove('is-visible', 'is-desktop-narrow');
+      }
+    }
+
+    updateViewportPrompt();
+    window.addEventListener('resize', updateViewportPrompt);
+    window.addEventListener('orientationchange', updateViewportPrompt);
 
     const startingSection = location.hash.replace('#', '');
     if (startingSection && startingSection !== 'home' && sections.some(s => s.id === startingSection)) {

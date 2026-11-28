@@ -803,20 +803,6 @@
       font: 600 17px/1 var(--hand);
       color: #283029;
     }
-    .sg-fallback-attach-pill {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      font: 600 9.5px/1.2 var(--body);
-      white-space: nowrap;
-      padding: 3px 8px;
-      border-radius: 99px;
-      background: rgba(255, 253, 246, 0.88);
-      border: 1px solid rgba(40, 48, 41, 0.22);
-      color: #364038;
-      opacity: 0.88;
-    }
 
     .sg-cutout-fallback--tea {
       align-items: center;
@@ -958,31 +944,6 @@
     @keyframes glyphStrokeDraw {
       0%   { clip-path: polygon(-20% -25%, -20% -25%, -40% 135%, -40% 135%); }
       100% { clip-path: polygon(-20% -25%, 145% -25%, 125% 135%, -40% 135%); }
-    }
-
-    /* Subtle Replay Animation Button */
-    .sg-replay-btn {
-      position: absolute;
-      right: 22px;
-      bottom: 18px;
-      z-index: 6;
-      width: 30px;
-      height: 30px;
-      border: 1px solid rgba(40, 48, 41, 0.22);
-      border-radius: 50%;
-      background: rgba(248, 245, 235, 0.72);
-      color: #535c54;
-      font: 600 17px/1 var(--hand);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      opacity: 0.55;
-      transition: opacity 0.2s, transform 0.25s, background 0.2s;
-    }
-    .sg-replay-btn:hover {
-      opacity: 0.95;
-      background: rgba(255, 253, 246, 0.95);
-      transform: rotate(-35deg);
     }
 
     /* ===============================================================
@@ -1444,6 +1405,11 @@
       transform: rotate(-0.8deg);
       padding-right: 28px;
     }
+    .sheet-title.sheet-title--compact {
+      font-size: clamp(25px, 2.6vw, 37px);
+      white-space: nowrap;
+      padding-right: 0;
+    }
 
     /* Dotted Notebook Paper Strip Badge (No Top-Left Sticker, Soft Pale Dots, Fit-Content Width) */
     .sheet-badge {
@@ -1491,6 +1457,11 @@
       height: auto;
       object-fit: contain;
       border-radius: 2px;
+    }
+    /* Enlarge own bi.monthly magazine spread by 25% while staying strictly within the frame */
+    .sheet-media-frame img.sheet-img--own {
+      transform: scale(1.25);
+      transform-origin: center center;
     }
     .sheet-media-frame video {
       display: block;
@@ -1669,11 +1640,11 @@
       .pi-tagline .hw-line { font-size: clamp(13px, 3.1vh, 18px); }
       .pi-tagline--vc .hw-line--hero { font-size: clamp(16px, 3.7vh, 22px); }
       .pi-tagline--vc .hw-line--sub { font-size: clamp(11px, 2.5vh, 14px); }
-      .sg-replay-btn { width: 25px; height: 25px; right: 14px; bottom: 12px; font-size: 14px; }
 
       .project-sheet-paper { padding: 14px 18px; }
       .sheet-grid { gap: 16px; }
       .sheet-title { font-size: clamp(22px, 5.2vh, 30px); }
+      .sheet-title.sheet-title--compact { font-size: clamp(19px, 4.4vh, 25px); }
       .sheet-badge { font-size: 11px; padding: 5px 10px; }
       .sheet-subheading { font-size: clamp(18px, 4.4vh, 23px); }
       .sheet-paragraph { font-size: 12px; line-height: 1.58; }
@@ -1967,6 +1938,7 @@ It is a pleasure to have you in the next chapter!</p>
           detailMediaType: 'image',
           detailMediaPrimary: 'assets/own all vol..png',
           detailMediaSecondary: 'assets/own all vol..PNG',
+          detailImgClass: 'sheet-img--own',
           badge: '',
           sections: [
             {
@@ -1982,6 +1954,7 @@ It is a pleasure to have you in the next chapter!</p>
         {
           id: 'osmanthus-tea',
           name: '桂有光 Osmanthus Tea Brand',
+          titleClass: 'sheet-title--compact',
           imagePrimary: 'assets/YongAn Tea package.png',
           imageSecondary: 'YongAn Tea package.png',
           detailMediaType: 'image',
@@ -2468,7 +2441,6 @@ It is a pleasure to have you in the next chapter!</p>
               ${rightBottomText.html}
             </div>
           </div>
-          <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay animation" title="Replay animation">↻</button>
         </div>
       </div>`;
     }
@@ -2585,8 +2557,6 @@ It is a pleasure to have you in the next chapter!</p>
           </div>
           <div class="pi-tagline pi-tagline--below">${t4Bottom.html}</div>
         </div>
-
-        <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay animation" title="Replay animation">↻</button>
       </div>`;
     }
 
@@ -2697,8 +2667,6 @@ It is a pleasure to have you in the next chapter!</p>
             <img src="${c2Src}" data-alt-src="${escapeHTML(dreams[2].cloudSecondary)}" data-td-key="td-2" alt="Being Here" />
           </div>
         </div>
-
-        <button type="button" class="sg-replay-btn" id="replayHandwriting" aria-label="Replay animation" title="Replay animation">↻</button>
       </div>`;
     }
 
@@ -2756,6 +2724,7 @@ It is a pleasure to have you in the next chapter!</p>
       lastFocus = document.activeElement;
 
       ui.sheetTitle.textContent = item.name;
+      ui.sheetTitle.className = 'sheet-title' + (item.titleClass ? ` ${item.titleClass}` : '');
       ui.sheetBadge.textContent = item.badge || '';
 
       const customKey = `detail-${sectionId}-${projectIndex}`;
@@ -2774,7 +2743,8 @@ It is a pleasure to have you in the next chapter!</p>
       } else {
         const imgSrc = customUploadedObjects[customKey] || escapeHTML(item.detailMediaPrimary || '');
         const altSrc = escapeHTML(item.detailMediaSecondary || '');
-        ui.sheetMedia.innerHTML = `<img src="${imgSrc}" data-alt-src="${altSrc}" alt="${escapeHTML(item.name)}" />`;
+        const imgClassAttr = item.detailImgClass ? ` class="${escapeHTML(item.detailImgClass)}"` : '';
+        ui.sheetMedia.innerHTML = `<img${imgClassAttr} src="${imgSrc}" data-alt-src="${altSrc}" alt="${escapeHTML(item.name)}" />`;
         const detailImg = ui.sheetMedia.querySelector('img');
         if (detailImg) {
           detailImg.addEventListener('error', function onDetailImgError() {
@@ -2957,10 +2927,6 @@ It is a pleasure to have you in the next chapter!</p>
       const tab = e.target.closest('[data-section]');
       if (tab) {
         navigate(tab.dataset.section);
-        return;
-      }
-      if (e.target.closest('#replayHandwriting')) {
-        triggerSpreadAnimation();
         return;
       }
       const sgItem = e.target.closest('[data-sg-index]');

@@ -1192,7 +1192,7 @@
       transform-origin: left center;
     }
     .sheet-title--compact {
-      font-size: clamp(23px, 2.42vw, 34px);
+      font-size: clamp(19.5px, 2.08vw, 29.5px);
       white-space: nowrap;
       padding-right: 0;
     }
@@ -1325,13 +1325,7 @@
     .board-lightbox.open { display: flex; }
     .board-lightbox-bar {
       position: absolute; top: 18px; left: 24px; right: 24px; z-index: 4;
-      display: flex; align-items: center; justify-content: space-between; pointer-events: none;
-    }
-    .board-lightbox-title {
-      padding: 7px 14px; border-radius: 6px;
-      background: rgba(252, 250, 243, 0.92); color: #252b24;
-      font: 700 clamp(18px, 1.9vw, 24px)/1 var(--hand);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.28); pointer-events: auto;
+      display: flex; align-items: center; justify-content: flex-end; pointer-events: none;
     }
     .board-lightbox-actions {
       display: flex; align-items: center; gap: 10px; pointer-events: auto;
@@ -1466,7 +1460,7 @@
 
       .project-sheet-card { padding: 14px 18px; }
       .sheet-title { font-size: clamp(20px, 5vh, 28px); }
-      .sheet-title--compact { font-size: clamp(17px, 4.2vh, 24px); }
+      .sheet-title--compact { font-size: clamp(15px, 3.7vh, 21px); }
       .sheet-badge { font-size: 11px; padding: 5px 10px; }
       .sheet-subheading { font-size: clamp(18px, 4.2vh, 24px); }
       .sheet-paragraph { font-size: 12px; line-height: 1.52; }
@@ -1735,9 +1729,8 @@ It is a pleasure to have you in the next chapter!</p>
   </div>
 
   <!-- FULLSCREEN PRESENTATION BOARD LIGHTBOX -->
-  <div class="board-lightbox" id="boardLightbox" role="dialog" aria-modal="true" aria-labelledby="boardLightboxTitle" aria-hidden="true">
+  <div class="board-lightbox" id="boardLightbox" role="dialog" aria-modal="true" aria-label="Presentation board fullscreen preview" aria-hidden="true">
     <div class="board-lightbox-bar">
-      <span class="board-lightbox-title" id="boardLightboxTitle">Presentation Board</span>
       <div class="board-lightbox-actions">
         <button type="button" class="board-lightbox-toggle" id="boardZoomToggleBtn">Zoom In +</button>
         <button type="button" class="board-lightbox-close" id="boardLightboxClose" aria-label="Close zoomed board">×</button>
@@ -1900,6 +1893,7 @@ It is a pleasure to have you in the next chapter!</p>
         {
           id: 'dear-hollywood',
           name: 'DEAR HOLLYWOOD, AI\u2019LL SUE YOU',
+          compactTitle: true,
           polaroidPrimary: 'assets/Dear Hollywood Polaroid.png',
           polaroidSecondary: 'assets/Dear Hollywood Polaroid.PNG',
           mediaType: 'image',
@@ -2138,7 +2132,6 @@ It is a pleasure to have you in the next chapter!</p>
       sheetMediaBox: document.getElementById('sheetMediaBox'),
       sheetRight: document.getElementById('sheetRight'),
       boardLightbox: document.getElementById('boardLightbox'),
-      boardLightboxTitle: document.getElementById('boardLightboxTitle'),
       boardZoomToggleBtn: document.getElementById('boardZoomToggleBtn'),
       boardLightboxClose: document.getElementById('boardLightboxClose'),
       boardLightboxStage: document.getElementById('boardLightboxStage'),
@@ -2800,7 +2793,6 @@ It is a pleasure to have you in the next chapter!</p>
 
     function openBoardLightbox(src, title) {
       lastLightboxFocus = document.activeElement;
-      ui.boardLightboxTitle.textContent = title;
       ui.boardLightboxImg.src = src;
       ui.boardLightboxImg.alt = title;
       setBoardZoom(false);

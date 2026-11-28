@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#d8c3a3" />
+  <meta name="theme-color" content="#d4bea0" />
   <meta name="description" content="The curated notebook and portfolio of Liu Chien-Wen." />
   <title>Liu Chien-Wen — Curated Notebook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,51 +26,33 @@
       --book-width: min(1140px, calc(100vw - 264px));
       --book-height: min(735px, calc(100dvh - 92px));
       --hand: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
-      --typewriter: 'Special Elite', 'Courier Prime', 'Courier New', monospace;
+      --typewriter: 'Special Elite', 'Courier New', monospace;
       --body: 'DM Sans', system-ui, -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; }
-    body { color: var(--ink); font-family: var(--body); background: #d6be9c; overflow: hidden; }
+    body { color: var(--ink); font-family: var(--body); background: #d5be9e; overflow: hidden; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; }
     button:focus-visible, a:focus-visible { outline: 3px solid #377ead; outline-offset: 4px; }
     ::selection { background: #efdb8f; color: #262b23; }
 
     /* ===============================================================
-       LIGHT HORIZONTAL NATURAL WOODGRAIN DESK BACKGROUND
+       LIGHT HORIZONTAL WOODGRAIN DESK BACKGROUND
        =============================================================== */
     .table {
       position: fixed; inset: 0; z-index: -1; overflow: hidden;
-      background-color: #dec8a8;
+      background-color: #dec9ac;
       background-image:
-        repeating-linear-gradient(180deg,
-          rgba(164, 128, 86, 0.08) 0px,
-          rgba(164, 128, 86, 0.08) 1px,
-          transparent 1px,
-          transparent 5px,
-          rgba(182, 146, 102, 0.06) 6px,
-          transparent 7px,
-          transparent 13px),
-        repeating-linear-gradient(179.4deg,
-          rgba(255, 246, 230, 0.14) 0px,
-          rgba(255, 246, 230, 0.14) 2px,
-          rgba(154, 118, 76, 0.07) 4px,
-          transparent 6px,
-          transparent 24px),
-        linear-gradient(180deg,
-          #e3ceb0 0%,
-          #d7be9b 14%,
-          #e5d1b4 31%,
-          #d9c09e 50%,
-          #e4cfb1 68%,
-          #d5bc98 85%,
-          #dfc8a7 100%);
+        repeating-linear-gradient(180deg, rgba(168, 128, 84, 0.08) 0px, rgba(168, 128, 84, 0.08) 1px, transparent 1px, transparent 7px),
+        repeating-linear-gradient(179.4deg, rgba(255, 246, 230, 0.22) 0px, rgba(182, 140, 92, 0.11) 4px, transparent 9px, transparent 22px),
+        repeating-linear-gradient(180.6deg, rgba(154, 114, 70, 0.09) 0px, transparent 3px, rgba(248, 236, 214, 0.16) 11px, transparent 29px),
+        linear-gradient(180deg, #dcc4a4 0%, #e4cfb2 26%, #d9c09e 54%, #e2ccb0 78%, #d4ba97 100%);
     }
     .table::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 48%, transparent 32%, rgba(92, 66, 38, 0.18) 100%);
+      background: radial-gradient(ellipse at 50% 48%, transparent 32%, rgba(92, 66, 38, 0.16) 100%);
     }
 
     .scene {
@@ -91,14 +73,14 @@
     }
 
     /* ===============================================================
-       CLOSED NOTEBOOK COVER (#home) — COTTON PLANT-FIBER PAPER & INTERACTION
+       CLOSED NOTEBOOK COVER (#home) — COTTON FIBER PAPER & 3-LAYER CLIP
        =============================================================== */
     .closed-book {
       width: min(900px, calc(100vw - 280px));
       height: var(--book-height);
       min-height: 300px;
       transform: translateX(-52px) rotate(-0.85deg);
-      filter: drop-shadow(14px 18px 16px rgba(60,38,22,.27));
+      filter: drop-shadow(14px 18px 16px rgba(60,38,22,.26));
     }
     .closed-book.enter { animation: openCoverBook .45s cubic-bezier(.16,.76,.26,1) both; }
     @keyframes openCoverBook {
@@ -114,17 +96,17 @@
     .cover {
       position: absolute; inset: 0; z-index: 2;
       border: 2px solid #383a32; border-radius: 6px 17px 18px 7px;
-      background-color: #f4f1e7;
+      background-color: #f3efe4;
       background-image:
-        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 52%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='pf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.48  0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pf)'/%3E%3Cg fill='none' stroke='%23786a54' stroke-linecap='round' opacity='0.26'%3E%3Cpath d='M18 28 Q26 24 34 27' stroke-width='0.75'/%3E%3Cpath d='M78 16 Q84 22 89 19' stroke-width='0.65'/%3E%3Cpath d='M148 34 Q157 31 163 36' stroke-width='0.75'/%3E%3Cpath d='M196 64 Q192 73 197 79' stroke-width='0.7'/%3E%3Cpath d='M42 94 Q49 101 56 97' stroke-width='0.75'/%3E%3Cpath d='M118 82 Q123 75 131 78' stroke-width='0.65'/%3E%3Cpath d='M174 128 Q168 136 173 142' stroke-width='0.75'/%3E%3Cpath d='M24 166 Q33 163 39 168' stroke-width='0.7'/%3E%3Cpath d='M92 152 Q99 158 106 154' stroke-width='0.75'/%3E%3Cpath d='M146 188 Q154 184 161 189' stroke-width='0.7'/%3E%3Cpath d='M64 204 Q71 198 78 202' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236c5b43' opacity='0.24'%3E%3Ccircle cx='32' cy='52' r='0.75'/%3E%3Ccircle cx='108' cy='42' r='0.9'/%3E%3Ccircle cx='182' cy='26' r='0.7'/%3E%3Ccircle cx='66' cy='124' r='0.85'/%3E%3Ccircle cx='144' cy='112' r='0.75'/%3E%3Ccircle cx='204' cy='168' r='0.85'/%3E%3Ccircle cx='48' cy='186' r='0.7'/%3E%3Ccircle cx='124' cy='196' r='0.9'/%3E%3C/g%3E%3C/svg%3E"),
-        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.022) 28px);
+        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, 0.48), transparent 50%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='pf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.45  0 0 0 0 0.41  0 0 0 0 0.34  0 0 0 0.095 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pf)'/%3E%3Cg fill='none' stroke='%238c8270' stroke-linecap='round' opacity='0.34'%3E%3Cpath d='M18 28 Q26 24 34 29' stroke-width='0.75'/%3E%3Cpath d='M146 22 Q151 31 148 39' stroke-width='0.65'/%3E%3Cpath d='M204 54 Q212 51 218 56' stroke-width='0.7'/%3E%3Cpath d='M62 78 Q58 88 64 96' stroke-width='0.75'/%3E%3Cpath d='M118 104 Q127 101 134 106' stroke-width='0.65'/%3E%3Cpath d='M186 128 Q181 138 187 146' stroke-width='0.7'/%3E%3Cpath d='M28 156 Q37 161 44 155' stroke-width='0.7'/%3E%3Cpath d='M96 176 Q102 185 98 193' stroke-width='0.65'/%3E%3Cpath d='M164 198 Q174 195 181 201' stroke-width='0.75'/%3E%3Cpath d='M48 214 Q56 218 63 212' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236e6454' opacity='0.32'%3E%3Ccircle cx='42' cy='19' r='0.8'/%3E%3Ccircle cx='112' cy='34' r='0.95'/%3E%3Ccircle cx='192' cy='26' r='0.7'/%3E%3Ccircle cx='24' cy='92' r='0.85'/%3E%3Ccircle cx='88' cy='62' r='0.65'/%3E%3Ccircle cx='162' cy='84' r='0.9'/%3E%3Ccircle cx='222' cy='108' r='0.75'/%3E%3Ccircle cx='54' cy='134' r='0.95'/%3E%3Ccircle cx='132' cy='148' r='0.7'/%3E%3Ccircle cx='206' cy='174' r='0.85'/%3E%3Ccircle cx='78' cy='204' r='0.8'/%3E%3Ccircle cx='144' cy='224' r='0.95'/%3E%3C/g%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.022) 28px),
+        linear-gradient(170deg, #f5f2e7 0%, #f0ece0 55%, #ece6d8 100%);
       box-shadow: inset -21px 0 25px rgba(68,55,35,.055), inset 6px 0 5px rgba(64,51,35,.085), 0 2px 2px rgba(39,28,16,.2);
       overflow: hidden;
       display: grid;
       grid-template-columns: 35.5% 64.5%;
     }
-
     /* Silver paperclip straddling the top edge of the cover & left papers */
     .cover-paperclip {
       position: absolute;
@@ -137,7 +119,7 @@
       pointer-events: none;
     }
 
-    /* LEFT SECTION: Paperclip Holding 3 Top-Aligned Sheets (Bottom-to-Top: Cream Welcome Card, Kraft Contact Sheet, "Contact Me" Tab) */
+    /* LEFT SECTION: Paperclip Holding 3 Top-Aligned Sheets */
     .cover-left {
       position: relative;
       height: 100%;
@@ -214,7 +196,7 @@
       font-weight: 700;
     }
 
-    /* Layer 2 (Middle): Speckled Kraft Paper Sheet — Clipped at Top Edge, Folded Up by Default */
+    /* Layer 2 (Middle): Speckled Kraft Paper Sheet — Folded Up by Default */
     .cover-vellum-sheet {
       position: absolute;
       top: 0;
@@ -354,7 +336,7 @@
       transition: transform 0.28s ease;
     }
     .portrait-upper-arm-wave {
-      transform-origin: 103px 184px;
+      transform-origin: 103px 188px;
       transform: rotate(0deg);
     }
     .portrait-forearm-wave {
@@ -466,7 +448,7 @@
     }
     .cover-tab-phrase--soft { top: 23.5%; }
     .cover-tab-phrase--playful { top: 47.5%; }
-    .cover-tab-phrase--thoughtful { top: 71.5%; }
+    .cover-tab-phrase--thoughtful { top: 71.5%; right: clamp(24px, 3vw, 38px); }
 
     /* ===============================================================
        HORIZONTAL STICKY INDEX TABS (SOFT GROUND / PLAYFUL IDEAS / THOUGHTFUL DREAMS)
@@ -507,6 +489,65 @@
     .cover-tabs .edge-tab--soft-ground { top: 23.5%; }
     .cover-tabs .edge-tab--playful-works { top: 47.5%; }
     .cover-tabs .edge-tab--thoughtful-dreams { top: 71.5%; }
+
+    /* 10-Second Onboarding Pointer Cursor (Cover & Inner Chapter First Visits) */
+    .cover-cursor-guide,
+    .floating-cursor-guide {
+      position: absolute;
+      width: clamp(26px, 2.4vw, 32px);
+      height: clamp(26px, 2.4vw, 32px);
+      pointer-events: none;
+      z-index: 14;
+      opacity: 0;
+      filter: drop-shadow(0 3px 6px rgba(36, 26, 14, 0.32));
+    }
+    .cover-cursor-guide {
+      top: calc(23.5% + clamp(14px, 1.4vw, 20px));
+      right: calc(-1 * clamp(116px, 10.9vw, 140px));
+    }
+    .sg-item--own .floating-cursor-guide {
+      right: 10%;
+      bottom: 12%;
+    }
+    .pi-polaroid .floating-cursor-guide {
+      right: 10%;
+      bottom: 13%;
+    }
+    .td-cloud--emo .floating-cursor-guide {
+      right: 37%;
+      bottom: 41%;
+    }
+    .cover-cursor-guide.is-active,
+    .floating-cursor-guide.is-active {
+      animation: coverCursorGuide10s 10s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    .cover-cursor-ripple {
+      transform-origin: 8px 6px;
+      opacity: 0;
+    }
+    .cover-cursor-guide.is-active .cover-cursor-ripple,
+    .floating-cursor-guide.is-active .cover-cursor-ripple {
+      animation: coverCursorRipple10s 10s ease-out forwards;
+    }
+    @keyframes coverCursorGuide10s {
+      0%   { opacity: 0; transform: translate(8px, 6px) scale(1); }
+      6%   { opacity: 1; transform: translate(0, 0) scale(1); }
+      14%  { opacity: 1; transform: translate(-2px, -2px) scale(0.90); }
+      20%  { opacity: 1; transform: translate(0, 0) scale(1); }
+      32%  { opacity: 1; transform: translate(-2px, -2px) scale(0.90); }
+      38%  { opacity: 1; transform: translate(0, 0) scale(1); }
+      52%  { opacity: 1; transform: translate(-2px, -2px) scale(0.90); }
+      58%  { opacity: 1; transform: translate(0, 0) scale(1); }
+      72%  { opacity: 1; transform: translate(-2px, -2px) scale(0.90); }
+      78%  { opacity: 1; transform: translate(0, 0) scale(1); }
+      92%  { opacity: 1; transform: translate(0, 0) scale(1); }
+      100% { opacity: 0; transform: translate(6px, 5px) scale(0.96); }
+    }
+    @keyframes coverCursorRipple10s {
+      0%, 13%, 31%, 51%, 71% { opacity: 0; transform: scale(0.5); }
+      16%, 34%, 54%, 74%      { opacity: 0.9; transform: scale(1.1); }
+      24%, 42%, 62%, 82%, 100%{ opacity: 0; transform: scale(1.9); }
+    }
 
     .home-icon {
       width: clamp(25px, 2.3vw, 31px); height: clamp(25px, 2.3vw, 31px); stroke: currentColor; fill: none;
@@ -552,7 +593,7 @@
        =============================================================== */
     .open-book {
       width: var(--book-width); height: var(--book-height); min-height: 300px;
-      filter: drop-shadow(11px 17px 17px rgba(51,33,19,.27));
+      filter: drop-shadow(11px 17px 17px rgba(51,33,19,.24));
     }
     .open-book::before {
       content: ''; position: absolute; inset: 5px -5px -8px;
@@ -569,7 +610,6 @@
         linear-gradient(90deg, #eae3d2 0%, #f6f2e5 3%, #f8f4e8 47%, #ebe4d3 49.5%, #d9d0be 50%, #f3efe2 51.5%, #f9f5e9 96%, #eae3d2 100%);
       box-shadow: inset 10px 0 13px rgba(67,46,27,.065), inset -9px 0 12px rgba(80,58,31,.065);
     }
-    /* Dense short hand-drawn sage-green brushstrokes */
     .spread-paper::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
       opacity: 0.80;
@@ -589,10 +629,6 @@
       position: relative; flex: 0 0 87px; display: flex; justify-content: space-between; align-items: center;
       padding: 19px clamp(32px,4.2vw,69px) 11px; z-index: 6;
     }
-    .spread-header::after {
-      content: ''; position: absolute; left: 4%; right: 4%; bottom: 7px;
-      border-bottom: 1px solid rgba(124,117,96,.15);
-    }
     .spread-title {
       margin: 0; font: 600 clamp(37px,3.7vw,60px)/1 var(--hand);
       transform: rotate(-1.7deg); letter-spacing: -.015em;
@@ -607,7 +643,6 @@
     }
     .project-viewport::-webkit-scrollbar { display: none; }
 
-    /* Full-Spread Collage Mode */
     .spread-paper.is-collage-spread .spread-header,
     .spread-paper.is-collage-spread .book-footer,
     .spread-paper.is-collage-spread .page-scribble {
@@ -616,6 +651,38 @@
     .spread-paper.is-collage-spread .project-viewport {
       overflow: hidden;
       scroll-snap-type: none;
+    }
+
+    /* Page Turn Overlay */
+    .page-flip-layer {
+      position: absolute; inset: 0; z-index: 9; pointer-events: none; perspective: 2000px; display: none;
+    }
+    .page-flip-layer.turn-forward,
+    .page-flip-layer.turn-backward { display: block; }
+    .flip-leaf {
+      position: absolute; top: 0; bottom: 0; width: 50%; transform-style: preserve-3d;
+    }
+    .flip-leaf-front, .flip-leaf-back {
+      position: absolute; inset: 0; backface-visibility: hidden;
+      background: linear-gradient(90deg, #ece5d4 0%, #f8f4e8 18%, #f4efe2 100%);
+      box-shadow: -8px 0 22px rgba(56, 42, 22, 0.16);
+    }
+    .flip-leaf-back { transform: rotateY(180deg); }
+    .page-flip-layer.turn-forward .flip-leaf {
+      right: 0; transform-origin: left center;
+      animation: pageTurnForward 0.72s cubic-bezier(0.32, 0.08, 0.24, 1) forwards;
+    }
+    .page-flip-layer.turn-backward .flip-leaf {
+      left: 0; transform-origin: right center;
+      animation: pageTurnBackward 0.72s cubic-bezier(0.32, 0.08, 0.24, 1) forwards;
+    }
+    @keyframes pageTurnForward {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(-180deg); }
+    }
+    @keyframes pageTurnBackward {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(180deg); }
     }
 
     /* ===============================================================
@@ -646,12 +713,7 @@
       opacity: 0.96;
       z-index: 2;
     }
-    .sg-grass svg {
-      display: block;
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    }
+    .sg-grass svg { display: block; width: 100%; height: auto; overflow: visible; }
     .sg-grass--top-center { top: 1.5%; right: 8.5%; width: clamp(124px, 12.6vw, 172px); transform: rotate(1.4deg); }
     .sg-grass--lower-left { bottom: 18%; left: 2.6%; width: clamp(102px, 10.5vw, 144px); transform: rotate(-2.2deg); }
     .sg-grass--lower-inner { bottom: 4.8%; right: 1.8%; width: clamp(92px, 9.5vw, 130px); transform: rotate(1.2deg); }
@@ -699,12 +761,7 @@
       box-shadow: 5px 8px 16px rgba(48, 37, 22, 0.19);
       overflow: hidden;
     }
-    .sg-own-photo-wrap img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .sg-own-photo-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
     .sg-item--tea {
       width: clamp(215px, 22.4vw, 292px);
@@ -741,109 +798,45 @@
       z-index: 4;
     }
 
-    /* Crafted Paper Cutout Preview Cards (fallback when local PNGs aren't mounted yet) */
+    /* Fallback preview cards if offline */
     .sg-cutout-fallback {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 12px 13px;
-      color: #283029;
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      justify-content: space-between; padding: 12px 13px; color: #283029;
       background: linear-gradient(165deg, #f3f2ed 0%, #e4e4df 100%);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .sg-fallback-own-art {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px;
+      flex: 1; display: grid; grid-template-columns: 1fr auto; gap: 8px;
       background: linear-gradient(180deg, #bcc6cf 0%, #8fa1b0 56%, #6a7d8c 100%);
-      border-radius: 2px;
-      padding: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-    .sg-fallback-own-art::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0; bottom: 26%;
-      height: 2px;
-      background: rgba(244, 246, 248, 0.65);
+      border-radius: 2px; padding: 10px; position: relative; overflow: hidden;
     }
     .sg-fallback-own-vert {
-      writing-mode: vertical-rl;
-      font: 700 clamp(26px, 2.7vw, 38px)/0.85 var(--body);
-      letter-spacing: 0.08em;
-      color: rgba(45, 56, 66, 0.72);
-      align-self: start;
+      writing-mode: vertical-rl; font: 700 clamp(26px, 2.7vw, 38px)/0.85 var(--body);
+      letter-spacing: 0.08em; color: rgba(45, 56, 66, 0.72); align-self: start;
     }
     .sg-fallback-own-sub {
-      writing-mode: vertical-rl;
-      font: 500 10px/1.2 var(--body);
-      letter-spacing: 0.16em;
-      color: rgba(45, 56, 66, 0.8);
-      align-self: start;
-      margin-top: 4px;
+      writing-mode: vertical-rl; font: 500 10px/1.2 var(--body);
+      letter-spacing: 0.16em; color: rgba(45, 56, 66, 0.8); align-self: start; margin-top: 4px;
     }
     .sg-fallback-own-foot {
-      padding-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      text-align: left;
+      padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; text-align: left;
     }
-    .sg-fallback-own-foot strong {
-      display: block;
-      font: 700 11px/1.2 var(--body);
-      color: #4f5d68;
-    }
-    .sg-fallback-own-foot span {
-      font: 600 17px/1 var(--hand);
-      color: #283029;
-    }
-
+    .sg-fallback-own-foot strong { display: block; font: 700 11px/1.2 var(--body); color: #4f5d68; }
+    .sg-fallback-own-foot span { font: 600 17px/1 var(--hand); color: #283029; }
     .sg-cutout-fallback--tea {
-      align-items: center;
-      justify-content: center;
+      align-items: center; justify-content: center;
       border-radius: 14% 14% 22% 22% / 12% 12% 24% 24%;
-      background:
-        radial-gradient(circle at 28% 24%, rgba(255, 246, 204, 0.65), transparent 45%),
-        linear-gradient(135deg, #e5c465 0%, #c99b36 48%, #dfb853 75%, #b38424 100%);
-      box-shadow: inset 0 10px 14px rgba(255, 248, 220, 0.35), inset 0 -10px 16px rgba(112, 78, 16, 0.35);
-    }
-    .sg-tea-fold-line {
-      position: absolute;
-      top: 34%;
-      left: 6%;
-      right: 6%;
-      height: 2px;
-      background: rgba(94, 65, 14, 0.35);
+      background: linear-gradient(135deg, #e5c465 0%, #c99b36 48%, #dfb853 75%, #b38424 100%);
     }
     .sg-tea-paper-label {
-      position: relative;
-      z-index: 2;
-      width: 44%;
-      aspect-ratio: 0.78;
-      background: #f8f6ef;
-      box-shadow: 0 3px 7px rgba(68, 47, 12, 0.24);
-      display: grid;
-      place-items: center;
-      padding: 8px;
+      position: relative; z-index: 2; width: 44%; aspect-ratio: 0.78;
+      background: #f8f6ef; box-shadow: 0 3px 7px rgba(68, 47, 12, 0.24);
+      display: grid; place-items: center; padding: 8px;
     }
     .sg-tea-red-seal {
-      width: 72%;
-      height: 76%;
-      border-radius: 50%;
-      background: #c83c2b;
-      color: #f8f6ef;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: 72%; height: 76%; border-radius: 50%; background: #c83c2b; color: #f8f6ef;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       font: 700 clamp(14px, 1.5vw, 20px)/1.05 serif;
-      letter-spacing: 0.05em;
     }
 
     /* Handwritten Typography Hugged Tightly to Each Object */
@@ -855,28 +848,10 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    .sg-copy--own {
-      margin-top: clamp(20px, 2.9vh, 32px);
-      align-self: flex-start;
-      margin-left: -4%;
-      transform: rotate(-1.4deg);
-    }
-    .sg-copy--tea-top {
-      margin-bottom: 10px;
-      align-self: flex-start;
-      margin-left: calc(2% + 12px);
-      transform: rotate(-1.1deg);
-    }
-    .sg-copy--tea-bottom {
-      margin-top: clamp(20px, 3.0vh, 34px);
-      align-self: flex-end;
-      transform: translateX(12%) rotate(-1.6deg);
-    }
-    .sg-copy--tea-bottom .hw-line {
-      font-size: clamp(27px, 2.65vw, 37px);
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
+    .sg-copy--own { margin-top: clamp(20px, 2.9vh, 32px); align-self: flex-start; margin-left: -4%; transform: rotate(-1.4deg); }
+    .sg-copy--tea-top { margin-bottom: 10px; align-self: flex-start; margin-left: calc(2% + 12px); transform: rotate(-1.1deg); }
+    .sg-copy--tea-bottom { margin-top: clamp(20px, 3.0vh, 34px); align-self: flex-end; transform: translateX(12%) rotate(-1.6deg); }
+    .sg-copy--tea-bottom .hw-line { font-size: clamp(27px, 2.65vw, 37px); font-weight: 700; letter-spacing: 0.01em; }
 
     .hw-line {
       display: block;
@@ -891,37 +866,16 @@
       transform: rotate(var(--rot, 0deg));
       transform-origin: left center;
     }
-    .hw-word {
-      display: inline-block;
-      white-space: nowrap;
-    }
-    .hw-space {
-      display: inline-block;
-      width: 0.27em;
-    }
-    .hw-highlight-target {
-      position: relative;
-      display: inline-block;
-      z-index: 1;
-    }
+    .hw-word { display: inline-block; white-space: nowrap; }
+    .hw-space { display: inline-block; width: 0.27em; }
+    .hw-highlight-target { position: relative; display: inline-block; z-index: 1; }
     .hw-underline-svg {
-      position: absolute;
-      left: -2%;
-      right: -1%;
-      bottom: -0.14em;
-      width: 103%;
-      height: 0.34em;
-      overflow: visible;
-      pointer-events: none;
-      z-index: -1;
+      position: absolute; left: -2%; right: -1%; bottom: -0.14em;
+      width: 103%; height: 0.34em; overflow: visible; pointer-events: none; z-index: -1;
     }
     .hw-underline-path {
-      fill: none;
-      stroke: var(--playful-works);
-      stroke-width: 5.2;
-      stroke-linecap: round;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
+      fill: none; stroke: var(--playful-works); stroke-width: 5.2; stroke-linecap: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
     }
     .soft-ground-spread.is-writing .hw-underline-path {
       animation: underlineSwipeDraw 0.42s cubic-bezier(0.22, 0.08, 0.25, 1) var(--u-delay, 1.5s) forwards;
@@ -949,27 +903,11 @@
     /* ===============================================================
        CHAPTER 02: PLAYFUL IDEAS — CLOTHESLINE POLAROIDS ON MEADOW
        =============================================================== */
-    .playful-ideas-spread {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    .pi-clothesline-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 3;
-    }
+    .playful-ideas-spread { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    .pi-clothesline-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
     .pi-slot {
-      position: absolute;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 4;
+      position: absolute; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; z-index: 4;
     }
     .pi-slot--1 { left: 14.5%; top: 35.27%; }
     .pi-slot--2 { left: 38.2%; top: 36.33%; }
@@ -996,26 +934,18 @@
     }
 
     .pi-washi-tape {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      width: 56px;
-      height: 24px;
+      position: absolute; top: -12px; left: 50%; width: 56px; height: 24px;
       transform: translateX(-50%) rotate(var(--tape-rot, -2deg));
-      z-index: 5;
-      pointer-events: none;
+      z-index: 5; pointer-events: none;
       box-shadow: 0 2px 4px rgba(48, 37, 21, 0.18);
       clip-path: polygon(
-        2% 0%, 98% 2%,
-        100% 18%, 97% 36%, 100% 54%, 98% 72%, 100% 90%, 97% 100%,
+        2% 0%, 98% 2%, 100% 18%, 97% 36%, 100% 54%, 98% 72%, 100% 90%, 97% 100%,
         3% 98%, 0% 82%, 3% 64%, 0% 46%, 2% 28%, 0% 10%
       );
     }
     .pi-washi-tape--yellow-gingham {
       background-color: #f6d56b;
-      background-image:
-        linear-gradient(90deg, rgba(255,255,255,0.48) 50%, transparent 50%),
-        linear-gradient(0deg, rgba(255,255,255,0.48) 50%, transparent 50%);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.48) 50%, transparent 50%), linear-gradient(0deg, rgba(255,255,255,0.48) 50%, transparent 50%);
       background-size: 11px 11px;
     }
     .pi-washi-tape--blue-stars {
@@ -1023,37 +953,22 @@
         radial-gradient(circle at 22% 34%, #fff8dc 1.3px, transparent 1.6px),
         radial-gradient(circle at 52% 66%, #fff8dc 1.2px, transparent 1.5px),
         radial-gradient(circle at 78% 30%, #fff8dc 1.3px, transparent 1.6px),
-        radial-gradient(circle at 36% 74%, #fff8dc 1.0px, transparent 1.3px),
         linear-gradient(135deg, #4b6fa8 0%, #5b80ba 100%);
     }
     .pi-washi-tape--sage-stripe {
-      background: repeating-linear-gradient(
-        -45deg,
-        #8db074 0px, #8db074 5px,
-        #eef3e6 5px, #eef3e6 9px
-      );
+      background: repeating-linear-gradient(-45deg, #8db074 0px, #8db074 5px, #eef3e6 5px, #eef3e6 9px);
     }
     .pi-washi-tape--pink-crinkle {
-      background:
-        linear-gradient(112deg, transparent 36%, rgba(255,255,255,0.34) 41%, rgba(168,78,108,0.16) 45%, transparent 52%),
-        linear-gradient(160deg, #eb94b0 0%, #df7e9e 100%);
+      background: linear-gradient(112deg, transparent 36%, rgba(255,255,255,0.34) 41%, rgba(168,78,108,0.16) 45%, transparent 52%), linear-gradient(160deg, #eb94b0 0%, #df7e9e 100%);
     }
 
     .pi-photo-window {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border: 1px solid rgba(56, 62, 54, 0.26);
-      background: rgba(244, 240, 228, 0.42);
-      overflow: hidden;
+      position: relative; width: 100%; aspect-ratio: 1 / 1;
+      border: 1px solid rgba(56, 62, 54, 0.26); background: rgba(244, 240, 228, 0.42); overflow: hidden;
     }
     .pi-photo-window img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.08;
-      filter: contrast(0.65) brightness(1.22) saturate(0.25);
+      display: block; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.08; filter: contrast(0.65) brightness(1.22) saturate(0.25);
     }
     .playful-ideas-spread.is-writing .pi-photo-window img {
       animation: polaroidPhotoDevelop var(--dev-dur, 1.3s) cubic-bezier(0.22, 0.08, 0.25, 1) var(--dev-start, 0.3s) forwards;
@@ -1065,55 +980,20 @@
     }
 
     .pi-tagline {
-      position: relative;
-      z-index: 5;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      position: relative; z-index: 5; pointer-events: none;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
     }
     .pi-tagline--below { margin-top: clamp(12px, 1.8vh, 20px); }
-    .pi-tagline--above {
-      position: absolute;
-      bottom: calc(100% + clamp(13px, 1.9vh, 21px));
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .pi-tagline .hw-line {
-      font-size: clamp(19px, 1.85vw, 25px);
-      line-height: 1.14;
-    }
-    .pi-tagline--vc .hw-line--hero {
-      font-size: clamp(24px, 2.35vw, 32px);
-      font-weight: 700;
-    }
-    .pi-tagline--vc .hw-line--sub {
-      font-size: clamp(15px, 1.38vw, 19px);
-      font-weight: 500;
-      color: #464e44;
-      margin-top: 2px;
-    }
-    .pi-tagline--combat {
-      transform: rotate(-5.2deg);
-    }
+    .pi-tagline--above { position: absolute; bottom: calc(100% + clamp(13px, 1.9vh, 21px)); left: 50%; transform: translateX(-50%); }
+    .pi-tagline .hw-line { font-size: clamp(19px, 1.85vw, 25px); line-height: 1.14; }
+    .pi-tagline--vc .hw-line--hero { font-size: clamp(24px, 2.35vw, 32px); font-weight: 700; }
+    .pi-tagline--vc .hw-line--sub { font-size: clamp(15px, 1.38vw, 19px); font-weight: 500; color: #464e44; margin-top: 2px; }
+    .pi-tagline--combat { transform: rotate(-5.2deg); }
 
-    .pi-hand-star {
-      display: inline-block;
-      width: 0.92em;
-      height: 0.92em;
-      margin-left: 0.22em;
-      vertical-align: -0.1em;
-      overflow: visible;
-    }
+    .pi-hand-star { display: inline-block; width: 0.92em; height: 0.92em; margin-left: 0.22em; vertical-align: -0.1em; overflow: visible; }
     .pi-hand-star-path {
-      fill: #f4ca40;
-      fill-opacity: 0;
-      stroke: #4c4328;
-      stroke-width: 1.5;
-      stroke-linejoin: round;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
+      fill: #f4ca40; fill-opacity: 0; stroke: #4c4328; stroke-width: 1.5; stroke-linejoin: round;
+      stroke-dasharray: 1; stroke-dashoffset: 1;
     }
     .playful-ideas-spread.is-writing .pi-hand-star-path {
       animation: starOutlineAndFill 0.55s ease var(--star-delay, 2.6s) forwards;
@@ -1127,44 +1007,22 @@
     /* ===============================================================
        CHAPTER 03: THOUGHTFUL DREAMS — AERIAL CLOUDS OVER MEADOW
        =============================================================== */
-    .thoughtful-dreams-spread {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
+    .thoughtful-dreams-spread { position: relative; width: 100%; height: 100%; overflow: hidden; }
     .td-mini-rack {
-      position: absolute;
-      right: 4.5%;
-      bottom: 4.2%;
-      width: clamp(190px, 20.5vw, 275px);
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0.92;
+      position: absolute; right: 4.5%; bottom: 4.2%;
+      width: clamp(190px, 20.5vw, 275px); z-index: 2; pointer-events: none; opacity: 0.92;
     }
-    .td-mini-rack svg {
-      display: block;
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    }
+    .td-mini-rack svg { display: block; width: 100%; height: auto; overflow: visible; }
 
     .td-center-tape {
-      position: absolute;
-      left: 50%;
-      top: 52.5%;
-      transform: translate(-50%, -50%) rotate(-1.8deg);
-      z-index: 6;
+      position: absolute; left: 50%; top: 52.5%;
+      transform: translate(-50%, -50%) rotate(-1.8deg); z-index: 6;
       padding: clamp(7px, 1vh, 11px) clamp(22px, 2.8vw, 36px);
       background-color: #a6cee1;
-      background-image:
-        linear-gradient(108deg, transparent 32%, rgba(255,255,255,0.34) 38%, rgba(72,118,144,0.14) 43%, transparent 50%),
-        linear-gradient(175deg, #b3d6e7 0%, #9cc6dc 100%);
+      background-image: linear-gradient(108deg, transparent 32%, rgba(255,255,255,0.34) 38%, rgba(72,118,144,0.14) 43%, transparent 50%), linear-gradient(175deg, #b3d6e7 0%, #9cc6dc 100%);
       box-shadow: 0 4px 10px rgba(48, 66, 78, 0.16);
       clip-path: polygon(
-        1.5% 0%, 98.5% 1.5%,
-        100% 16%, 97.5% 34%, 100% 52%, 98% 70%, 100% 88%, 97.5% 100%,
+        1.5% 0%, 98.5% 1.5%, 100% 16%, 97.5% 34%, 100% 52%, 98% 70%, 100% 88%, 97.5% 100%,
         2% 98.5%, 0% 82%, 2.5% 64%, 0% 46%, 2% 28%, 0% 10%
       );
       pointer-events: none;
@@ -1177,555 +1035,370 @@
       white-space: nowrap;
     }
 
-    /* Three Large Soft Clouds with 3x Noticeable Sky Swaying */
+    /* Three Large Clouds with 3x Noticeable Aerial Swaying & Drifting */
     .td-cloud {
       position: absolute;
       cursor: pointer;
       user-select: none;
       z-index: 3;
       will-change: transform;
-      animation: cloudGentleDrift var(--drift-dur, 7.6s) ease-in-out infinite alternate;
-    }
-    @keyframes cloudGentleDrift {
-      0%   { transform: translate(0px, 0px) rotate(0deg); }
-      50%  { transform: translate(calc(var(--drift-x, 14px) * 0.55), calc(var(--drift-y, -11px) * 0.65)) rotate(calc(var(--drift-rot, 1.3deg) * 0.6)); }
-      100% { transform: translate(var(--drift-x, 14px), var(--drift-y, -11px)) rotate(var(--drift-rot, 1.3deg)); }
     }
     .td-cloud:hover { z-index: 5; }
 
-    /* Top-Left Cloud: EmoTogether */
     .td-cloud--emo {
-      left: -4%;
-      top: -6%;
-      width: 63%;
-      height: 58%;
-      --drift-dur: 7.4s;
-      --drift-x: 13px;
-      --drift-y: -11px;
-      --drift-rot: 1.35deg;
+      left: -4%; top: -6%; width: 63%; height: 58%;
+      animation: cloudAerialDriftEmo 7.8s ease-in-out infinite;
     }
-    /* Mid-Right Cloud: Ring the Memory Line */
     .td-cloud--memory {
-      right: -5%;
-      top: 7%;
-      width: 60%;
-      height: 61%;
-      --drift-dur: 8.2s;
-      --drift-x: -15px;
-      --drift-y: 12px;
-      --drift-rot: -1.45deg;
+      right: -5%; top: 7%; width: 60%; height: 61%;
+      animation: cloudAerialDriftMem 8.6s ease-in-out infinite;
     }
-    /* Bottom-Left Cloud: Being Here */
     .td-cloud--being {
-      left: -4%;
-      bottom: -7%;
-      width: 61%;
-      height: 53%;
-      --drift-dur: 7.8s;
-      --drift-x: 14px;
-      --drift-y: -10px;
-      --drift-rot: 1.25deg;
+      left: -4%; bottom: -7%; width: 61%; height: 53%;
+      animation: cloudAerialDriftBeing 8.1s ease-in-out infinite;
+    }
+
+    @keyframes cloudAerialDriftEmo {
+      0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+      25%      { transform: translate(13px, -9px) rotate(1.1deg); }
+      55%      { transform: translate(6px, 8px) rotate(-0.8deg); }
+      80%      { transform: translate(-11px, -5px) rotate(0.7deg); }
+    }
+    @keyframes cloudAerialDriftMem {
+      0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+      28%      { transform: translate(-15px, 10px) rotate(-1.2deg); }
+      60%      { transform: translate(-5px, -9px) rotate(0.9deg); }
+      85%      { transform: translate(11px, 5px) rotate(-0.6deg); }
+    }
+    @keyframes cloudAerialDriftBeing {
+      0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+      30%      { transform: translate(14px, 8px) rotate(-1.0deg); }
+      62%      { transform: translate(-9px, -10px) rotate(1.1deg); }
+      85%      { transform: translate(7px, -4px) rotate(-0.5deg); }
     }
 
     .td-cloud-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
+      position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;
       filter: drop-shadow(0 10px 22px rgba(72, 102, 124, 0.14));
     }
-
     .td-tagline-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-      pointer-events: none;
-      z-index: 4;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      overflow: visible; pointer-events: none; z-index: 4;
     }
     .td-cloud-tagline {
-      font-family: var(--hand);
-      font-weight: 600;
-      font-size: 35px;
-      fill: #232722;
-      letter-spacing: 0.4px;
+      font-family: var(--hand); font-weight: 600; font-size: 35px; fill: #232722; letter-spacing: 0.4px;
     }
 
-    /* Feathered Inner Artwork Slot — Simultaneous Fade-in upon Page Flip */
     .td-cloud-slot {
-      position: absolute;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      z-index: 2;
+      position: absolute; display: grid; place-items: center; overflow: hidden; z-index: 2;
       -webkit-mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, #000 58%, rgba(0,0,0,0.45) 78%, transparent 98%);
       mask-image: radial-gradient(ellipse 46% 44% at 50% 50%, #000 58%, rgba(0,0,0,0.45) 78%, transparent 98%);
       transition: transform 0.35s cubic-bezier(.22,.8,.26,1);
     }
-    .td-cloud:hover .td-cloud-slot {
-      transform: scale(1.025);
-    }
-    .td-cloud--emo .td-cloud-slot {
-      left: 14%; top: 16%; width: 64%; height: 58%;
-    }
-    .td-cloud--memory .td-cloud-slot {
-      left: 22%; top: 24%; width: 63%; height: 56%;
-    }
-    .td-cloud--being .td-cloud-slot {
-      left: 11%; top: 23%; width: 58%; height: 58%;
-    }
+    .td-cloud:hover .td-cloud-slot { transform: scale(1.025); }
+    .td-cloud--emo .td-cloud-slot { left: 14%; top: 16%; width: 64%; height: 58%; }
+    .td-cloud--memory .td-cloud-slot { left: 22%; top: 24%; width: 63%; height: 56%; }
+    .td-cloud--being .td-cloud-slot { left: 11%; top: 23%; width: 58%; height: 58%; }
 
     .td-cloud-slot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0;
-      transform: scale(0.975);
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      opacity: 0; transform: scale(0.97);
     }
-    .thoughtful-dreams-spread.is-revealed .td-cloud-slot img {
-      animation: tdCloudImagesFadeIn 1.05s cubic-bezier(0.22, 0.72, 0.28, 1) 0.28s forwards;
+    .thoughtful-dreams-spread.is-writing .td-cloud-slot img {
+      animation: tdCloudImagesFadeIn 1.15s cubic-bezier(0.22, 0.08, 0.25, 1) 0.28s forwards;
     }
     @keyframes tdCloudImagesFadeIn {
-      from { opacity: 0; transform: scale(0.975); }
+      from { opacity: 0; transform: scale(0.97); }
       to   { opacity: 1; transform: scale(1); }
     }
     .td-cloud-fallback {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 12px;
-      color: #365063;
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 12px; color: #365063;
     }
-    .td-cloud-fallback strong {
-      font: 700 clamp(22px, 2.3vw, 32px)/1.05 var(--hand);
-      letter-spacing: -0.01em;
-    }
-    .td-cloud-fallback small {
-      margin-top: 4px;
-      font: 600 10px/1.2 var(--body);
-      letter-spacing: 0.08em;
-      opacity: 0.65;
-    }
+    .td-cloud-fallback strong { font: 700 clamp(22px, 2.3vw, 32px)/1.05 var(--hand); }
 
     /* ===============================================================
-       FLOATING PROJECT DETAIL SHEET (COVER-PAPER TEXTURE & DOTTED BADGE)
+       FLOATING PROJECT DETAIL SHEET (SAME COTTON FIBER PAPER AS COVER)
        =============================================================== */
-    .project-sheet-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 60;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(16px, 3vw, 36px);
-      background: rgba(38, 30, 20, 0.56);
-      backdrop-filter: blur(4px);
+    .project-sheet-overlay {
+      position: fixed; inset: 0; z-index: 45;
+      display: none; align-items: center; justify-content: center;
+      padding: clamp(14px, 2.4vh, 28px) clamp(16px, 2.8vw, 36px);
+      background: rgba(34, 28, 20, 0.46);
+      backdrop-filter: blur(3px);
     }
-    .project-sheet-backdrop.open {
+    .project-sheet-overlay.open {
       display: flex;
-      animation: sheetBackdropFade 0.24s ease forwards;
+      animation: sheetOverlayFade 0.24s ease forwards;
     }
-    @keyframes sheetBackdropFade {
+    @keyframes sheetOverlayFade {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
 
-    .project-sheet-paper {
+    .project-sheet-card {
       position: relative;
       width: min(1040px, 92vw);
       height: min(670px, 86dvh);
       border: 2px solid #383a32;
       border-radius: 8px 16px 17px 9px;
-      background-color: #f4f1e7;
+      background-color: #f3efe4;
       background-image:
-        radial-gradient(circle at 58% 36%, rgba(255, 252, 244, .52), transparent 52%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='spf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.48  0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23spf)'/%3E%3Cg fill='none' stroke='%23786a54' stroke-linecap='round' opacity='0.26'%3E%3Cpath d='M18 28 Q26 24 34 27' stroke-width='0.75'/%3E%3Cpath d='M78 16 Q84 22 89 19' stroke-width='0.65'/%3E%3Cpath d='M148 34 Q157 31 163 36' stroke-width='0.75'/%3E%3Cpath d='M196 64 Q192 73 197 79' stroke-width='0.7'/%3E%3Cpath d='M42 94 Q49 101 56 97' stroke-width='0.75'/%3E%3Cpath d='M118 82 Q123 75 131 78' stroke-width='0.65'/%3E%3Cpath d='M174 128 Q168 136 173 142' stroke-width='0.75'/%3E%3Cpath d='M24 166 Q33 163 39 168' stroke-width='0.7'/%3E%3Cpath d='M92 152 Q99 158 106 154' stroke-width='0.75'/%3E%3Cpath d='M146 188 Q154 184 161 189' stroke-width='0.7'/%3E%3Cpath d='M64 204 Q71 198 78 202' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236c5b43' opacity='0.24'%3E%3Ccircle cx='32' cy='52' r='0.75'/%3E%3Ccircle cx='108' cy='42' r='0.9'/%3E%3Ccircle cx='182' cy='26' r='0.7'/%3E%3Ccircle cx='66' cy='124' r='0.85'/%3E%3Ccircle cx='144' cy='112' r='0.75'/%3E%3Ccircle cx='204' cy='168' r='0.85'/%3E%3Ccircle cx='48' cy='186' r='0.7'/%3E%3Ccircle cx='124' cy='196' r='0.9'/%3E%3C/g%3E%3C/svg%3E"),
-        repeating-linear-gradient(0deg, transparent 0px, transparent 27px, rgba(110,100,80,.022) 28px);
-      box-shadow: 0 24px 60px rgba(32, 24, 14, 0.34), inset 0 1px 0 rgba(255, 253, 246, 0.85);
-      padding: clamp(24px, 3.4vh, 38px) clamp(26px, 3.6vw, 46px);
+        radial-gradient(circle at 62% 32%, rgba(255, 252, 244, 0.52), transparent 52%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='pf2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.45  0 0 0 0 0.41  0 0 0 0 0.34  0 0 0 0.095 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pf2)'/%3E%3Cg fill='none' stroke='%238c8270' stroke-linecap='round' opacity='0.34'%3E%3Cpath d='M18 28 Q26 24 34 29' stroke-width='0.75'/%3E%3Cpath d='M146 22 Q151 31 148 39' stroke-width='0.65'/%3E%3Cpath d='M204 54 Q212 51 218 56' stroke-width='0.7'/%3E%3Cpath d='M62 78 Q58 88 64 96' stroke-width='0.75'/%3E%3Cpath d='M118 104 Q127 101 134 106' stroke-width='0.65'/%3E%3Cpath d='M186 128 Q181 138 187 146' stroke-width='0.7'/%3E%3Cpath d='M28 156 Q37 161 44 155' stroke-width='0.7'/%3E%3Cpath d='M96 176 Q102 185 98 193' stroke-width='0.65'/%3E%3Cpath d='M164 198 Q174 195 181 201' stroke-width='0.75'/%3E%3Cpath d='M48 214 Q56 218 63 212' stroke-width='0.65'/%3E%3C/g%3E%3Cg fill='%236e6454' opacity='0.32'%3E%3Ccircle cx='42' cy='19' r='0.8'/%3E%3Ccircle cx='112' cy='34' r='0.95'/%3E%3Ccircle cx='192' cy='26' r='0.7'/%3E%3Ccircle cx='24' cy='92' r='0.85'/%3E%3Ccircle cx='88' cy='62' r='0.65'/%3E%3Ccircle cx='162' cy='84' r='0.9'/%3E%3Ccircle cx='222' cy='108' r='0.75'/%3E%3Ccircle cx='54' cy='134' r='0.95'/%3E%3Ccircle cx='132' cy='148' r='0.7'/%3E%3Ccircle cx='206' cy='174' r='0.85'/%3E%3Ccircle cx='78' cy='204' r='0.8'/%3E%3Ccircle cx='144' cy='224' r='0.95'/%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(170deg, #f6f3e8 0%, #f1ede0 56%, #ece6d7 100%);
+      box-shadow: 0 22px 48px rgba(38, 28, 16, 0.34), inset 0 1px 0 rgba(255, 253, 246, 0.85);
+      padding: clamp(22px, 3.2vh, 34px) clamp(26px, 3.6vw, 44px);
       overflow: hidden;
-      animation: sheetCardLift 0.28s cubic-bezier(.18,.82,.26,1) forwards;
+      animation: sheetCardPop 0.32s cubic-bezier(0.18, 0.82, 0.26, 1) forwards;
     }
-    @keyframes sheetCardLift {
-      from { opacity: 0; transform: translateY(12px) scale(0.975); }
+    @keyframes sheetCardPop {
+      from { opacity: 0; transform: translateY(14px) scale(0.97); }
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .sheet-close {
-      position: absolute;
-      top: clamp(14px, 2vh, 22px);
-      right: clamp(16px, 2.2vw, 24px);
-      z-index: 8;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(56, 58, 50, 0.45);
-      background: rgba(252, 250, 243, 0.92);
-      color: #283029;
-      font: 500 22px/1 var(--body);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(48, 37, 21, 0.14);
+      position: absolute; top: clamp(14px, 2.2vh, 22px); right: clamp(16px, 2.2vw, 24px);
+      z-index: 6; width: 38px; height: 38px;
+      border: 1.8px solid #383a32; border-radius: 50%;
+      background: #fcfaf3; color: #283029;
+      font: 600 22px/1 var(--body); display: grid; place-items: center;
+      cursor: pointer; box-shadow: 0 3px 8px rgba(48, 37, 21, 0.16);
       transition: transform 0.2s ease, background 0.2s ease;
     }
-    .sheet-close:hover {
-      background: #ffffff;
-      transform: rotate(90deg) scale(1.05);
-    }
+    .sheet-close:hover { background: #fffef9; transform: rotate(90deg) scale(1.06); }
 
     .sheet-grid {
-      width: 100%;
-      height: 100%;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: clamp(22px, 3.2vw, 44px);
-      align-items: stretch;
+      grid-template-columns: 49% 47%;
+      gap: 4%;
+      height: 100%;
+      min-height: 0;
     }
 
+    /* Left Column: Title + Dot-Grid Note Strip + Media Frame */
     .sheet-left {
       display: flex;
       flex-direction: column;
       min-height: 0;
-      gap: clamp(10px, 1.4vh, 14px);
+      gap: clamp(9px, 1.4vh, 14px);
     }
-
     .sheet-title {
       margin: 0;
-      font: 700 clamp(30px, 3.1vw, 44px)/1.02 var(--hand);
-      color: #232722;
-      letter-spacing: -0.01em;
-      transform: rotate(-0.8deg);
-      padding-right: 28px;
+      padding-right: 12px;
+      font: 700 clamp(27px, 2.85vw, 40px)/1.04 var(--hand);
+      color: #252b24;
+      transform: rotate(-1.1deg);
+      transform-origin: left center;
     }
-    .sheet-title.sheet-title--compact {
-      font-size: clamp(25px, 2.6vw, 37px);
+    .sheet-title--compact {
+      font-size: clamp(23px, 2.42vw, 34px);
       white-space: nowrap;
       padding-right: 0;
     }
 
-    /* Dotted Notebook Paper Strip Badge (No Top-Left Sticker, Soft Pale Dots, Fit-Content Width) */
+    /* Dot-Grid Notebook Paper Strip for Award / Feature Tag (No top-left sticker, faint dots) */
     .sheet-badge {
+      position: relative;
       display: inline-block;
       width: fit-content;
-      max-width: 100%;
-      white-space: pre-line;
-      padding: 8px 15px 7px;
-      border: 1px solid rgba(116, 108, 90, 0.34);
-      border-radius: 2px;
+      max-width: 96%;
+      padding: clamp(7px, 1vh, 10px) clamp(12px, 1.4vw, 17px);
       background-color: #fbf9f2;
       background-image:
-        radial-gradient(circle, rgba(72, 76, 68, 0.17) 0.85px, transparent 0.95px),
-        linear-gradient(175deg, #fdfbf6 0%, #f5f1e4 100%);
-      background-size: 11px 11px, 100% 100%;
-      background-position: 5px 5px, 0 0;
-      box-shadow: 1px 3px 7px rgba(56, 44, 26, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      font: 400 clamp(12.5px, 1.15vw, 14.5px)/1.42 var(--typewriter);
-      color: #2f352e;
-      transform: rotate(-0.6deg);
-    }
-    .sheet-badge:empty {
-      display: none;
+        radial-gradient(circle, rgba(68, 72, 62, 0.17) 0.85px, transparent 0.95px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='dn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.45  0 0 0 0 0.41  0 0 0 0 0.34  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23dn)'/%3E%3C/svg%3E");
+      background-size: 11px 11px, 120px 120px;
+      background-position: 6px 6px, 0 0;
+      border: 1px solid rgba(92, 88, 74, 0.34);
+      border-radius: 2px;
+      box-shadow: 1px 3px 7px rgba(54, 42, 24, 0.11);
+      font: 400 clamp(12.5px, 1.12vw, 14.5px)/1.36 var(--typewriter);
+      color: #2b302b;
+      transform: rotate(-0.55deg);
+      white-space: pre-line;
     }
 
-    .sheet-media-frame {
+    .sheet-media-box {
       position: relative;
       flex: 1;
       min-height: 0;
-      border: 1.5px solid rgba(56, 58, 50, 0.34);
+      width: 100%;
+      border: 1.5px solid rgba(56, 58, 50, 0.38);
       border-radius: 4px;
       background: rgba(255, 253, 247, 0.72);
-      box-shadow: inset 0 2px 8px rgba(56, 44, 26, 0.08), 0 4px 12px rgba(48, 37, 21, 0.08);
+      box-shadow: 3px 6px 14px rgba(48, 37, 21, 0.11);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
     }
-    .sheet-media-frame img {
+    .sheet-media-box img {
       display: block;
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 2px;
+      padding: 8px;
     }
-    /* Enlarge own bi.monthly magazine spread by 25% while staying strictly within the frame */
-    .sheet-media-frame img.sheet-img--own {
+    .sheet-media-box img.sheet-img--zoomed-own {
       transform: scale(1.25);
       transform-origin: center center;
     }
-    .sheet-media-frame video {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #1d1f1c;
-      border-radius: 2px;
-    }
-    .sheet-media-frame img.sheet-img--zoomable {
-      cursor: zoom-in;
-    }
+    .sheet-media-box.is-zoomable-board img { cursor: zoom-in; }
 
-    /* Bottom-Right Magnifier Button on Presentation Board Frames */
+    /* Magnifier Zoom Button in Bottom-Right Corner of Presentation Boards */
     .sheet-zoom-btn {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      z-index: 4;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(56, 58, 50, 0.45);
-      background: rgba(252, 250, 243, 0.94);
-      color: #283029;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      box-shadow: 0 3px 10px rgba(42, 32, 18, 0.18);
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      position: absolute; right: 12px; bottom: 12px; z-index: 5;
+      width: 40px; height: 40px;
+      border: 1.5px solid rgba(56, 58, 50, 0.45); border-radius: 50%;
+      background: rgba(252, 250, 243, 0.94); color: #283029;
+      display: grid; place-items: center; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(45, 36, 22, 0.22);
+      transition: transform 0.22s cubic-bezier(.22,.8,.26,1), background 0.2s ease, box-shadow 0.2s ease;
     }
     .sheet-zoom-btn:hover {
       background: #ffffff;
-      transform: scale(1.08);
-      box-shadow: 0 5px 14px rgba(42, 32, 18, 0.24);
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(45, 36, 22, 0.28);
     }
     .sheet-zoom-btn svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 19px; height: 19px; stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
     }
 
-    /* Fullscreen Presentation Board Lightbox (Fit-to-Screen & 1.8x Detail Zoom) */
-    .board-lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      display: none;
-      flex-direction: column;
-      background: rgba(24, 20, 15, 0.88);
-      backdrop-filter: blur(5px);
+    .sheet-media-box video {
+      display: block; width: 100%; height: 100%; object-fit: contain; background: #1c1e1b;
     }
-    .board-lightbox.open {
-      display: flex;
-      animation: sheetBackdropFade 0.2s ease forwards;
+    .sheet-embed-wrap {
+      width: 100%; height: 100%; display: flex; flex-direction: column;
     }
-    .board-lightbox-bar {
-      position: fixed;
-      top: 18px;
-      right: 22px;
-      z-index: 82;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .sheet-embed-wrap iframe {
+      flex: 1; width: 100%; border: 0; background: #14171a;
     }
-    .board-lightbox-pill {
-      height: 40px;
-      padding: 0 16px;
-      border-radius: 99px;
-      border: 1.5px solid rgba(255, 252, 244, 0.35);
-      background: rgba(252, 250, 243, 0.94);
-      color: #283029;
-      font: 600 13px/1 var(--body);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-      transition: background 0.18s ease, transform 0.18s ease;
+    .sheet-embed-bar {
+      flex: 0 0 auto; padding: 7px 12px; background: #f7f4ea;
+      border-top: 1px solid rgba(56, 58, 50, 0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      font: 400 12px/1.2 var(--typewriter); color: #364038;
     }
-    .board-lightbox-pill:hover {
-      background: #ffffff;
-      transform: translateY(-1px);
-    }
-    .board-lightbox-close {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255, 252, 244, 0.35);
-      background: rgba(252, 250, 243, 0.94);
-      color: #283029;
-      font: 500 22px/1 var(--body);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-      transition: background 0.18s ease, transform 0.2s ease;
-    }
-    .board-lightbox-close:hover {
-      background: #ffffff;
-      transform: rotate(90deg) scale(1.05);
-    }
-    .board-lightbox-stage {
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
-    }
-    .board-lightbox-stage.is-zoomed {
-      align-items: flex-start;
-      justify-content: flex-start;
-      cursor: grab;
-    }
-    .board-lightbox-stage.is-zoomed.is-dragging {
-      cursor: grabbing;
-      user-select: none;
-    }
-    .board-lightbox-stage img {
-      display: block;
-      max-width: 92vw;
-      max-height: 88dvh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 4px;
-      background: #f6f3ea;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
-      cursor: zoom-in;
-      transition: width 0.22s ease;
-    }
-    .board-lightbox-stage.is-zoomed img {
-      max-width: none;
-      max-height: none;
-      width: min(1760px, 165vw);
-      margin: auto;
-      cursor: zoom-out;
-    }
+    .sheet-embed-bar a { color: #2c5f78; font-weight: 700; text-decoration: none; }
+    .sheet-embed-bar a:hover { text-decoration: underline; }
 
-    .sheet-web-wrap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .sheet-web-wrap iframe {
-      flex: 1;
-      width: 100%;
-      min-height: 0;
-      border: 1px solid rgba(56, 58, 50, 0.24);
-      border-radius: 3px;
-      background: #121518;
-    }
-    .sheet-web-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 4px 6px 0;
-      font: 500 12px/1.3 var(--body);
-      color: #4f584f;
-    }
-    .sheet-web-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 5px 12px;
-      border-radius: 99px;
-      background: #a6cee1;
-      color: #24333c;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 2px 5px rgba(42, 62, 76, 0.16);
-      transition: filter 0.18s ease, transform 0.18s ease;
-    }
-    .sheet-web-link:hover {
-      filter: brightness(1.04);
-      transform: translateY(-1px);
-    }
-
-    .sheet-media-placeholder {
-      width: 100%;
-      height: 100%;
-      border: 1.5px dashed rgba(88, 86, 72, 0.36);
-      border-radius: 4px;
-      background: rgba(248, 245, 235, 0.65);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      gap: 8px;
-      color: #535c52;
-      cursor: pointer;
-    }
-    .sheet-media-placeholder strong {
-      font: 600 24px/1.1 var(--hand);
-      color: #2f372e;
-    }
-    .sheet-media-placeholder span {
-      font: 500 12px/1.5 var(--body);
-      max-width: 280px;
-      opacity: 0.8;
-    }
-
-    /* Right Column: Handwritten Subheadings + Typewriter Body Copy */
+    /* Right Column: Handwritten Subheadings + Typewriter Body Paragraphs */
     .sheet-right {
       display: flex;
       flex-direction: column;
-      min-height: 0;
+      gap: clamp(14px, 2.2vh, 22px);
       overflow-y: auto;
-      padding-top: clamp(6px, 1.2vh, 14px);
-      padding-right: 12px;
-      gap: clamp(16px, 2.4vh, 24px);
+      padding: clamp(4px, 1vh, 10px) clamp(8px, 1vw, 14px) clamp(12px, 2vh, 20px) 0;
       scrollbar-width: thin;
       scrollbar-color: rgba(116, 108, 90, 0.35) transparent;
     }
-    .sheet-right::-webkit-scrollbar { width: 5px; }
-    .sheet-right::-webkit-scrollbar-thumb { background: rgba(116, 108, 90, 0.35); border-radius: 99px; }
-
-    .sheet-section {
+    .sheet-section-block {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: clamp(4px, 0.7vh, 7px);
     }
     .sheet-subheading {
       margin: 0;
-      font: 700 clamp(23px, 2.25vw, 31px)/1.05 var(--hand);
+      font: 700 clamp(22px, 2.2vw, 30px)/1.05 var(--hand);
       color: #3f6835;
       letter-spacing: 0.01em;
     }
     .sheet-paragraph {
       margin: 0;
-      font: 400 clamp(13.5px, 1.24vw, 15.5px)/1.68 var(--typewriter);
-      color: #283029;
+      font: 400 clamp(13.5px, 1.2vw, 15.5px)/1.68 var(--typewriter);
+      color: #2b312c;
     }
 
     /* ===============================================================
-       VIEWPORT PROMPT OVERLAY (DESKTOP HALF-SCREEN & MOBILE PORTRAIT)
+       FULLSCREEN PRESENTATION BOARD LIGHTBOX (ZOOM & PAN)
        =============================================================== */
-    .rotate-overlay {
-      position: fixed; inset: 0; z-index: 100; display: none; flex-direction: column;
-      align-items: center; justify-content: center; gap: 22px; padding: 35px;
-      text-align: center; background: #eee7d8; color: #4c5148;
+    .board-lightbox {
+      position: fixed; inset: 0; z-index: 65; display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px; background: rgba(24, 24, 21, 0.88); backdrop-filter: blur(6px);
     }
-    .rotate-overlay.is-visible { display: flex; }
-    .rotate-overlay svg { width: 96px; height: 96px; stroke: currentColor; stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-    .rotate-overlay h2 { margin: 0; font: 600 44px/1 var(--hand); }
-    .rotate-overlay p { max-width: 360px; font: 500 14px/1.7 var(--body); margin: 0; }
+    .board-lightbox.open { display: flex; }
+    .board-lightbox-bar {
+      position: absolute; top: 18px; left: 24px; right: 24px; z-index: 4;
+      display: flex; align-items: center; justify-content: space-between; pointer-events: none;
+    }
+    .board-lightbox-title {
+      padding: 7px 14px; border-radius: 6px;
+      background: rgba(252, 250, 243, 0.92); color: #252b24;
+      font: 700 clamp(18px, 1.9vw, 24px)/1 var(--hand);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.28); pointer-events: auto;
+    }
+    .board-lightbox-actions {
+      display: flex; align-items: center; gap: 10px; pointer-events: auto;
+    }
+    .board-lightbox-toggle {
+      height: 40px; padding: 0 15px;
+      border: 1.5px solid rgba(255,255,255,0.35); border-radius: 99px;
+      background: rgba(252, 250, 243, 0.94); color: #283029;
+      font: 400 13px/1 var(--typewriter); cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.28); transition: background 0.18s ease;
+    }
+    .board-lightbox-toggle:hover { background: #ffffff; }
+    .board-lightbox-close {
+      width: 42px; height: 42px;
+      border: 1.5px solid rgba(255,255,255,0.35); border-radius: 50%;
+      background: rgba(252, 250, 243, 0.94); color: #283029;
+      font: 600 23px/1 var(--body); display: grid; place-items: center;
+      cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+    }
+    .board-lightbox-close:hover { background: #ffffff; }
+    .board-lightbox-stage {
+      width: min(1240px, 94vw); height: min(760px, 84dvh);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; border-radius: 8px;
+    }
+    .board-lightbox-stage img {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      border-radius: 4px; box-shadow: 0 18px 48px rgba(0,0,0,0.45);
+      cursor: zoom-in; user-select: none;
+      transition: transform 0.25s cubic-bezier(.22,.8,.26,1);
+    }
+    .board-lightbox-stage.is-zoomed img {
+      cursor: grab;
+      transition: none;
+    }
+    .board-lightbox-stage.is-zoomed.is-dragging img {
+      cursor: grabbing;
+    }
+
+    /* ===============================================================
+       RESPONSIVE OVERLAYS (DESKTOP HALF-SCREEN & MOBILE PORTRAIT)
+       =============================================================== */
+    .rotate-overlay,
+    .halfscreen-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 100;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 20px; padding: 35px; text-align: center;
+      background: #eee7d8; color: #4c5148;
+    }
+    .rotate-overlay svg,
+    .halfscreen-overlay svg {
+      width: 92px; height: 92px; stroke: currentColor; stroke-width: 1.6;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .rotate-overlay h2,
+    .halfscreen-overlay h2 {
+      margin: 0; font: 600 clamp(34px, 5vw, 46px)/1.05 var(--hand);
+    }
+    .rotate-overlay p,
+    .halfscreen-overlay p {
+      max-width: 360px; font: 500 15px/1.65 var(--body); margin: 0;
+    }
     .rotate-overlay .rotate-chinese { color: #7b7a6c; font-size: 13px; }
-    .rotate-overlay.is-desktop-narrow .rotate-chinese { display: none; }
 
-    /* ===============================================================
-       MOBILE LANDSCAPE & PORTRAIT RESPONSIVE SETTINGS
-       =============================================================== */
+    /* Show Desktop Half-Screen Prompt when window width <= 50% of screen width */
+    body.is-half-screen .halfscreen-overlay {
+      display: flex;
+    }
+
     @media (max-width: 1000px) and (orientation: landscape) {
       :root { --book-width: calc(100vw - 204px); --book-height: calc(100dvh - 35px); }
       .closed-book { width: min(740px, calc(100vw - 220px)); transform: translateX(-38px) rotate(-0.85deg); }
@@ -1744,6 +1417,18 @@
       .cover-notebook-title { font-size: clamp(24px, 6.2vh, 34px); }
       .cover-portrait-well { width: clamp(126px, 32vh, 178px); }
       .cover-tab-phrase { font-size: clamp(16px, 4.1vh, 22px); right: 10px; }
+      .cover-tab-phrase--thoughtful { right: 18px; }
+
+      .cover-cursor-guide {
+        top: calc(23.5% + clamp(10px, 2.5vh, 14px));
+        right: calc(-1 * clamp(88px, 22.5vh, 114px));
+        width: 22px;
+        height: 22px;
+      }
+      .floating-cursor-guide {
+        width: 22px;
+        height: 22px;
+      }
 
       .cover-tabs .edge-tab,
       .spread-tabs .edge-tab {
@@ -1776,17 +1461,18 @@
       .pi-tagline--vc .hw-line--hero { font-size: clamp(16px, 3.7vh, 22px); }
       .pi-tagline--vc .hw-line--sub { font-size: clamp(11px, 2.5vh, 14px); }
 
-      .project-sheet-paper { padding: 14px 18px; }
-      .sheet-grid { gap: 16px; }
-      .sheet-title { font-size: clamp(22px, 5.2vh, 30px); }
-      .sheet-title.sheet-title--compact { font-size: clamp(19px, 4.4vh, 25px); }
+      .project-sheet-card { padding: 14px 18px; }
+      .sheet-title { font-size: clamp(20px, 5vh, 28px); }
+      .sheet-title--compact { font-size: clamp(17px, 4.2vh, 24px); }
       .sheet-badge { font-size: 11px; padding: 5px 10px; }
-      .sheet-subheading { font-size: clamp(18px, 4.4vh, 23px); }
-      .sheet-paragraph { font-size: 12px; line-height: 1.58; }
+      .sheet-subheading { font-size: clamp(18px, 4.2vh, 24px); }
+      .sheet-paragraph { font-size: 12px; line-height: 1.52; }
     }
 
-    @media (max-width: 900px) and (orientation: portrait) {
-      .rotate-overlay { display: flex; }
+    @media (max-width: 900px) and (orientation: portrait) and (pointer: coarse) {
+      .rotate-overlay {
+        display: flex;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1797,7 +1483,7 @@
       }
       .hw-glyph { clip-path: none !important; }
       .hw-underline-path, .pi-hand-star-path { stroke-dashoffset: 0 !important; fill-opacity: 1 !important; }
-      .pi-photo-window img, .td-cloud-slot img { opacity: 1 !important; filter: none !important; transform: none !important; }
+      .pi-photo-window img, .td-cloud-slot img { opacity: 1 !important; filter: none !important; }
     }
   </style>
 </head>
@@ -1876,28 +1562,31 @@ It is a pleasure to have you in the next chapter!</p>
                 </defs>
 
                 <g clip-path="url(#portraitCircleClip)">
+                  <!-- Soft Warm Backdrop Circle -->
                   <circle cx="144" cy="144" r="102" fill="rgba(255,251,240,0.68)" />
 
-                  <!-- Low-Tied Hair Knot Behind Neck -->
+                  <!-- Neat Low-Tied Hair Knot Behind Neck -->
                   <path d="M 123 144 C 118 155, 124 164, 136 164 L 156 164 C 167 163, 171 154, 165 144 Z" fill="#261d1a" />
 
-                  <!-- Neck -->
+                  <!-- Neck (Shortened by 20%) with Clean Flat Cel-Shaded Chin Shadow -->
                   <path d="M 136 146 L 136 177 C 136 184, 156 184, 156 177 L 156 146 Z" fill="#f8d2be" />
                   <path d="M 136 149 C 141 158, 151 158, 156 149 L 156 160 C 150 165, 142 165, 136 160 Z" fill="#e6b39a" />
 
-                  <!-- Relaxed Left Arm (Viewer's Right) -->
-                  <path d="M 186 186 L 198 284 L 212 284 L 199 184 Z" fill="#f8d2be" />
-                  <path d="M 186 186 L 191 212 L 202 206 L 199 184 Z" fill="#e6b39a" />
+                  <!-- Relaxed Left Arm (Viewer's Right) Tucked Inside Sleeve — No Shoulder Triangle -->
+                  <path d="M 183 196 L 198 284 L 212 284 L 195 193 Z" fill="#f8d2be" />
+                  <path d="M 183 196 L 187 215 L 198 209 L 195 193 Z" fill="#e6b39a" />
 
-                  <!-- Waving Right Arm (Viewer's Left) -->
+                  <!-- Waving Right Arm (Viewer's Left): Tucked Cleanly Inside Sleeve — No Shoulder Triangle -->
                   <g class="portrait-upper-arm-wave">
-                    <path d="M 96 183 L 90 223 C 90 230, 102 230, 102 223 L 106 189 Z" fill="#f8d2be" />
-                    <path d="M 96 183 L 93 207 L 103 211 L 106 189 Z" fill="#e6b39a" />
+                    <path d="M 97 192 L 90 223 C 90 230, 102 230, 102 223 L 109 196 Z" fill="#f8d2be" />
+                    <path d="M 97 192 L 93 210 L 104 214 L 109 196 Z" fill="#e6b39a" />
 
+                    <!-- Forearm & Open Five-Finger Hand Pivoting at Elbow Joint (96, 224) -->
                     <g class="portrait-forearm-wave">
                       <path d="M 90 223 C 90 216, 102 216, 102 223 L 99 268 L 90 268 Z" fill="#f8d2be" />
                       <path d="M 92 224 Q 96 227, 100 224" fill="none" stroke="#dfa68c" stroke-width="1.3" stroke-linecap="round" />
 
+                      <!-- Friendly Five-Finger Hand -->
                       <g transform="translate(94.5, 275) rotate(180)">
                         <path d="M -7.5 10 C -9.2 3, -8.5 -5, -5.8 -9 L 6.8 -9 C 9.2 -5, 9.2 3, 6.8 10 Z" fill="#f8d2be" />
                         <path d="M 6.8 3 C 11.2 -0.5, 15.8 -6, 14.6 -9.2 C 13.2 -11, 9.5 -7.8, 5.8 -3.2 Z" fill="#f5c9b3" />
@@ -1910,7 +1599,7 @@ It is a pleasure to have you in the next chapter!</p>
                     </g>
                   </g>
 
-                  <!-- Slimmer Torso & Striped Crewneck T-Shirt -->
+                  <!-- Slimmer Torso (Width Reduced by 20%) & Striped Crewneck T-Shirt -->
                   <g class="portrait-torso">
                     <path d="M 106 175 C 118 170, 130 169, 136 169 C 141 177, 151 177, 156 169 C 162 169, 174 170, 186 175 L 192 284 L 100 284 Z"
                           fill="url(#stripedTee)" />
@@ -1919,13 +1608,15 @@ It is a pleasure to have you in the next chapter!</p>
                     <path d="M 132 170 C 139 181, 153 181, 160 170" fill="none" stroke="#f8f4e8" stroke-width="4.2" stroke-linecap="round"/>
                     <path d="M 132 170 C 139 181, 153 181, 160 170" fill="none" stroke="#d5b762" stroke-width="1.25" stroke-linecap="round"/>
 
+                    <!-- Left Short Sleeve -->
                     <path d="M 108 175 L 87 195 L 103 208 L 112 195 Z" fill="url(#stripedTee)" />
                     <path d="M 87 195 L 103 208" fill="none" stroke="#f8f4e8" stroke-width="2.4" stroke-linecap="round"/>
+                    <!-- Right Short Sleeve -->
                     <path d="M 184 175 L 205 195 L 189 208 L 180 195 Z" fill="url(#stripedTee)" />
                     <path d="M 205 195 L 189 208" fill="none" stroke="#f8f4e8" stroke-width="2.4" stroke-linecap="round"/>
                   </g>
 
-                  <!-- Head Group -->
+                  <!-- Head Group (with natural slight tilt & interactive look/nod) -->
                   <g class="portrait-head-group">
                     <g transform="rotate(-1.8 146 116)">
                       <ellipse cx="107.5" cy="117" rx="5.5" ry="9.8" fill="#f3c4ad" />
@@ -1993,6 +1684,13 @@ It is a pleasure to have you in the next chapter!</p>
         <button class="edge-tab edge-tab--soft-ground" data-section="soft-ground" data-look="look-right-top">Soft Ground</button>
         <button class="edge-tab edge-tab--playful-works" data-section="playful-works" data-look="look-right-mid">Playful Ideas</button>
         <button class="edge-tab edge-tab--thoughtful-dreams" data-section="thoughtful-dreams" data-look="look-right-low">Thoughtful Dreams</button>
+        <div class="cover-cursor-guide" id="coverCursorGuide" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <circle class="cover-cursor-ripple" cx="8" cy="6" r="6" fill="none" stroke="#ffffff" stroke-width="2" />
+            <path d="M 7.5 4.5 L 7.5 23.5 L 12.2 19.2 L 15.6 26.2 L 18.4 24.9 L 15.0 17.9 L 21.2 17.9 Z"
+                  fill="#ffffff" stroke="#283029" stroke-width="1.9" stroke-linejoin="round" />
+          </svg>
+        </div>
       </nav>
     </section>
 
@@ -2008,12 +1706,6 @@ It is a pleasure to have you in the next chapter!</p>
           </div>
         </header>
         <div class="project-viewport" id="projectViewport" tabindex="0" aria-label="Notebook spread content"></div>
-        <div class="book-footer">
-          <button class="foot-arrow" id="previousProject" aria-label="Previous project">↑</button>
-          <span class="slide-progress" id="slideProgress" aria-live="polite">01 / 03</span>
-          <button class="foot-arrow" id="nextProject" aria-label="Next project">↓</button>
-        </div>
-        <div class="page-scribble" aria-hidden="true">✳</div>
         <div class="page-flip-layer" id="pageFlipLayer" aria-hidden="true">
           <div class="flip-leaf"><div class="flip-leaf-front"></div><div class="flip-leaf-back"></div></div>
         </div>
@@ -2022,51 +1714,64 @@ It is a pleasure to have you in the next chapter!</p>
     </section>
   </main>
 
-  <!-- Hidden file picker for local preview attachment -->
-  <input type="file" id="localAssetPicker" accept="image/*" hidden />
-
   <!-- FLOATING PROJECT DETAIL SHEET -->
-  <div class="project-sheet-backdrop" id="projectSheet" role="dialog" aria-modal="true" aria-labelledby="projectSheetTitle" aria-hidden="true">
-    <article class="project-sheet-paper">
-      <button type="button" class="sheet-close" id="projectSheetClose" aria-label="Close project details">×</button>
+  <div class="project-sheet-overlay" id="projectDetailDialog" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-hidden="true">
+    <div class="project-sheet-card" id="projectSheetCard">
+      <button type="button" class="sheet-close" id="sheetCloseBtn" aria-label="Close project details">×</button>
       <div class="sheet-grid">
         <div class="sheet-left">
-          <h2 class="sheet-title" id="projectSheetTitle">Project Title</h2>
-          <div class="sheet-badge" id="projectSheetBadge"></div>
-          <div class="sheet-media-frame" id="projectSheetMedia"></div>
+          <h2 class="sheet-title" id="sheetTitle">Project Title</h2>
+          <div class="sheet-badge" id="sheetBadge" hidden></div>
+          <div class="sheet-media-box" id="sheetMediaBox"></div>
         </div>
-        <div class="sheet-right" id="projectSheetBody"></div>
+        <div class="sheet-right" id="sheetRight"></div>
       </div>
-    </article>
+    </div>
   </div>
 
   <!-- FULLSCREEN PRESENTATION BOARD LIGHTBOX -->
   <div class="board-lightbox" id="boardLightbox" role="dialog" aria-modal="true" aria-labelledby="boardLightboxTitle" aria-hidden="true">
     <div class="board-lightbox-bar">
-      <button type="button" class="board-lightbox-pill" id="boardLightboxZoomToggle">Zoom In +</button>
-      <button type="button" class="board-lightbox-close" id="boardLightboxClose" aria-label="Close enlarged board">×</button>
+      <span class="board-lightbox-title" id="boardLightboxTitle">Presentation Board</span>
+      <div class="board-lightbox-actions">
+        <button type="button" class="board-lightbox-toggle" id="boardZoomToggleBtn">Zoom In +</button>
+        <button type="button" class="board-lightbox-close" id="boardLightboxClose" aria-label="Close zoomed board">×</button>
+      </div>
     </div>
     <div class="board-lightbox-stage" id="boardLightboxStage">
       <img id="boardLightboxImg" src="" alt="" />
     </div>
-    <span id="boardLightboxTitle" hidden>Presentation Board</span>
   </div>
 
-  <!-- PORTRAIT / HALF-SCREEN VIEWPORT PROMPT -->
-  <div class="rotate-overlay" id="rotateOverlay" aria-live="polite">
-    <svg id="rotateOverlayIcon" viewBox="0 0 100 100" aria-hidden="true">
+  <!-- DESKTOP HALF-SCREEN PROMPT -->
+  <div class="halfscreen-overlay" aria-live="polite">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="14" y="20" width="72" height="54" rx="5" />
+      <line x1="14" y1="32" x2="86" y2="32" />
+      <path d="M 38 45 L 26 45 L 26 57" />
+      <path d="M 62 63 L 74 63 L 74 51" />
+      <line x1="26" y1="45" x2="42" y2="55" />
+      <line x1="74" y1="63" x2="58" y2="53" />
+    </svg>
+    <h2>Open the notebook wide!</h2>
+    <p>Switch to full screen for a distraction-free read.</p>
+  </div>
+
+  <!-- MOBILE PORTRAIT ORIENTATION PROMPT -->
+  <div class="rotate-overlay" aria-live="polite">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
       <rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)" />
       <path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2" />
       <path d="M48 20h5" />
     </svg>
-    <h2 id="rotateOverlayTitle">Turn the page sideways!</h2>
-    <p id="rotateOverlayDesc">This notebook is designed to be read in landscape mode. Please rotate your phone to explore.</p>
-    <p class="rotate-chinese" id="rotateOverlaySub">這本筆記本最適合橫向閱讀，請將手機轉為橫向。</p>
+    <h2>Turn the page sideways!</h2>
+    <p>This notebook is designed to be read in landscape mode. Please rotate your phone to explore.</p>
+    <p class="rotate-chinese">這本筆記本最適合橫向閱讀，請將手機轉為橫向。</p>
   </div>
 
   <script>
     /* ===============================================================
-1. CHAPTER STRUCTURE & COMPLETE PORTFOLIO DATA
+       1. CHAPTER STRUCTURE & COMPLETE PORTFOLIO DATA
        =============================================================== */
     const sections = [
       { id: 'home', title: 'Home', label: 'Home' },
@@ -2081,13 +1786,13 @@ It is a pleasure to have you in the next chapter!</p>
           id: 'own-bimonthly',
           name: 'own bi.monthly',
           imagePrimary: 'assets/own vol.1.png',
-          imageSecondary: 'own vol.1.png',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/own all vol..png',
-          detailMediaSecondary: 'assets/own all vol..PNG',
-          detailImgClass: 'sheet-img--own',
+          imageSecondary: 'assets/own vol.1.PNG',
+          mediaType: 'image',
+          detailMedia: 'assets/own all vol..png',
+          detailMediaAlt: 'assets/own all vol..PNG',
+          zoomDetailImage: true,
           badge: '',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Background',
               text: 'During COVID-19, most in-person campus activities were cancelled, and students were encouraged to self-isolate. Spending long periods alone in their dorm rooms became an emotionally exhausting challenge for many students, causing considerable psychological distress and, in some cases, leading to depression and anxiety.'
@@ -2101,14 +1806,14 @@ It is a pleasure to have you in the next chapter!</p>
         {
           id: 'osmanthus-tea',
           name: '桂有光 Osmanthus Tea Brand',
-          titleClass: 'sheet-title--compact',
+          compactTitle: true,
           imagePrimary: 'assets/YongAn Tea package.png',
-          imageSecondary: 'YongAn Tea package.png',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/YongAn Tea.png',
-          detailMediaSecondary: 'assets/YongAn Tea.PNG',
+          imageSecondary: 'assets/YongAn Tea package.PNG',
+          mediaType: 'image',
+          detailMedia: 'assets/YongAn Tea.png',
+          detailMediaAlt: 'assets/YongAn Tea.PNG',
           badge: '2023 Taiwan College student stationed-in rural community project competition 2nd Place',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Background',
               text: 'Yong-An is a century-old oolong tea village on the outskirts of Taipei. Since reservoir construction flooded its farmland decades ago, population decline has left the village short of tea-making labour, making it difficult to win traditional oolong tea competitions, secure higher selling prices, and attract younger generations back to the village.'
@@ -2126,12 +1831,11 @@ It is a pleasure to have you in the next chapter!</p>
           name: 'VC KungFu',
           polaroidPrimary: 'assets/VC KUNGFU Polaroid.png',
           polaroidSecondary: 'assets/VC KUNGFU Polaroid.PNG',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/2023台灣坎城青年獅_presentation board.jpg',
-          detailMediaSecondary: 'assets/2023台灣坎城青年獅_presentation board.JPG',
-          allowBoardZoom: true,
+          mediaType: 'image',
+          detailMedia: 'assets/2023台灣坎城青年獅_presentation board.jpg',
+          enableZoomMagnifier: true,
           badge: '2023 Taiwan Cannes Future Young Lion\n2023 Taiwan Cannes Young Lions 4th place',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Brief',
               text: 'Following the pandemic, many people in Taiwan were unaware of the damage to their lung health. The challenge was to raise awareness of lung function and encourage more people to take action through early screening.'
@@ -2147,11 +1851,10 @@ It is a pleasure to have you in the next chapter!</p>
           name: 'OREO COSMIC RADIO WAVE',
           polaroidPrimary: 'assets/OREO COSMIC RADIO WAVE Polaroid.png',
           polaroidSecondary: 'assets/OREO COSMIC RADIO WAVE Polaroid.PNG',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/OREO Cosmic Wave.jpg',
-          detailMediaSecondary: 'assets/OREO Cosmic Wave.JPG',
+          mediaType: 'image',
+          detailMedia: 'assets/OREO Cosmic Wave.jpg',
           badge: 'Selected by the client from submissions across VML’s APAC offices.',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Objective',
               text: 'Build awareness of Oreo’s new cosmic-themed flavors among Gen Z consumers in the Chinese market.'
@@ -2171,11 +1874,10 @@ It is a pleasure to have you in the next chapter!</p>
           name: 'Combat X Power Station',
           polaroidPrimary: 'assets/COMBAT SONG Polaroid.png',
           polaroidSecondary: 'assets/COMBAT SONG Polaroid.PNG',
-          detailMediaType: 'video',
-          detailMediaPrimary: 'assets/康貝特200P EX｜動力火車完整版.mp4',
-          detailMediaSecondary: 'assets/康貝特200P EX｜動力火車完整版.MP4',
+          mediaType: 'video',
+          detailMedia: 'assets/康貝特200P EX｜動力火車完整版.mp4',
           badge: '',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Objective',
               text: 'Raise awareness of Combat 200P EX among its target audience of middle-aged working professionals in Taiwan.'
@@ -2192,15 +1894,14 @@ It is a pleasure to have you in the next chapter!</p>
         },
         {
           id: 'dear-hollywood',
-          name: 'Dear Hollywood, AI’ll Sue You',
+          name: 'DEAR HOLLYWOOD, AI\u2019LL SUE YOU',
           polaroidPrimary: 'assets/Dear Hollywood Polaroid.png',
           polaroidSecondary: 'assets/Dear Hollywood Polaroid.PNG',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/2025 New Star_presentation board.jpg',
-          detailMediaSecondary: 'assets/2025 New Star_presentation board.JPG',
-          allowBoardZoom: true,
+          mediaType: 'image',
+          detailMedia: 'assets/2025 New Star_presentation board.jpg',
+          enableZoomMagnifier: true,
           badge: '2025 MAD STARS NEW STARS\nExecutive Chairman’s Special Award',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Brief',
               text: 'Develop a public campaign to overcome fear and foster engagement in the age of artificial intelligence.'
@@ -2218,10 +1919,10 @@ It is a pleasure to have you in the next chapter!</p>
           name: 'EmoTogether',
           cloudPrimary: 'assets/EmoTogether_cloud.png',
           cloudSecondary: 'assets/EmoTogether_cloud.PNG',
-          detailMediaType: 'website',
-          detailWebUrl: 'https://chienwen75.github.io/EmoTogether/',
+          mediaType: 'embed',
+          detailMedia: 'https://chienwen75.github.io/EmoTogether/',
           badge: '',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Background',
               text: 'Talking to AI has become a common way to cope with loneliness. Yet, because AI isn’t human, relying on it for emotional support over time may risk distancing people from real-world relationships.'
@@ -2241,12 +1942,11 @@ It is a pleasure to have you in the next chapter!</p>
           name: 'Ring The Memory Line',
           cloudPrimary: 'assets/Ring the Memory Line_cloud.png',
           cloudSecondary: 'assets/Ring the Memory Line_cloud.PNG',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/2024 創意戰鬥營_presentation board.jpg',
-          detailMediaSecondary: 'assets/2024 創意戰鬥營_presentation board.JPG',
-          allowBoardZoom: true,
+          mediaType: 'image',
+          detailMedia: 'assets/2024 創意戰鬥營_presentation board.jpg',
+          enableZoomMagnifier: true,
           badge: '2024 DigiAsia × 4A Taiwan Youth Competition 1st Place',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Brief',
               text: 'Explore how generative AI can transform the digital creative industry through the AI4U initiative.'
@@ -2260,13 +1960,12 @@ It is a pleasure to have you in the next chapter!</p>
         {
           id: 'being-here',
           name: 'Being Here',
-          cloudPrimary: 'assets/Being Here.jpg',
-          cloudSecondary: 'assets/Being Here_cloud.png',
-          detailMediaType: 'image',
-          detailMediaPrimary: 'assets/Being Here.jpg',
-          detailMediaSecondary: 'assets/Being Here.JPG',
+          cloudPrimary: 'assets/Being Here_cloud.png',
+          cloudSecondary: 'assets/Being Here_cloud.PNG',
+          mediaType: 'image',
+          detailMedia: 'assets/Being Here.jpg',
           badge: '',
-          sections: [
+          copyBlocks: [
             {
               heading: 'Background',
               text: 'Parents often establish trust funds to financially protect their children after they’re gone. Yet, growing up requires more than financial security. Children also long for their parents’ presence, guidance, and the chance to truly know who their parents were.'
@@ -2307,26 +2006,15 @@ It is a pleasure to have you in the next chapter!</p>
           <path d="M92 154 C85 114 79 80 73 56 C80 84 86 118 90 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M99 154 C106 114 112 80 118 56 C111 84 105 118 101 154 Z" fill="#77b04f" stroke="#4b7e2e" stroke-width="0.95"/>
           <path d="M94 154 C93 116 93 84 95 58 C97 84 98 116 97 154 Z" fill="#84bc5b" stroke="#4e8230" stroke-width="0.95"/>
-          <path d="M83 151 C68 128 52 111 35 101" stroke="#cbe0aa" stroke-width="1.35"/>
-          <path d="M90 151 C82 118 75 90 66 68" stroke="#d5e7b8" stroke-width="1.4"/>
-          <path d="M95 151 C95 118 95 90 95 66" stroke="#dcecc3" stroke-width="1.45"/>
-          <path d="M101 151 C109 118 116 90 125 68" stroke="#d5e7b8" stroke-width="1.4"/>
-          <path d="M108 151 C123 128 139 111 156 101" stroke="#cbe0aa" stroke-width="1.35"/>
           <g fill="#f4ca40" stroke="#c99a1e" stroke-width="0.7">
             <g transform="translate(19,63)"><path d="M0-5.5 L1.4-1.6 L5.2-1.6 L2.1 0.8 L3.2 4.6 L0 2.3 L-3.2 4.6 L-2.1 0.8 L-5.2-1.6 L-1.4-1.6 Z"/></g>
             <g transform="translate(72,22)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
             <g transform="translate(136,29)"><path d="M0-5.2 L1.3-1.5 L5-1.5 L2 0.7 L3.1 4.4 L0 2.2 L-3.1 4.4 L-2 0.7 L-5-1.5 L-1.3-1.5 Z"/></g>
             <g transform="translate(169,95)"><path d="M0-4.8 L1.2-1.4 L4.6-1.4 L1.8 0.7 L2.8 4 L0 2 L-2.8 4 L-1.8 0.7 L-4.6-1.4 L-1.2-1.4 Z"/></g>
           </g>
-          <g transform="translate(52,57) rotate(-14)">
-            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
-          </g>
-          <g transform="translate(118,43) rotate(10)">
-            <path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
-          </g>
-          <g transform="translate(161,72) rotate(26)">
-            <path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/>
-          </g>
+          <g transform="translate(52,57) rotate(-14)"><path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/></g>
+          <g transform="translate(118,43) rotate(10)"><path d="M-6.5 2 C-7.5 -5 -3 -10 0 -11 C3 -10 7.5 -5 6.5 2 C5.5 6.5 -5.5 6.5 -6.5 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/></g>
+          <g transform="translate(161,72) rotate(26)"><path d="M-6 2 C-7 -4.5 -2.8 -9.2 0 -10 C2.8 -9.2 7 -4.5 6 2 C5 6 -5 6 -6 2 Z" fill="#ea8c9e" stroke="#c35d72" stroke-width="0.95"/></g>
           <g transform="translate(32,83)"><circle cx="0" cy="0" r="4.8" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/><circle cx="0" cy="0" r="2.3" fill="#f2c438"/></g>
           <g transform="translate(92,43)"><circle cx="0" cy="0" r="5.2" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/><circle cx="0" cy="0" r="2.5" fill="#f2c438"/></g>
           <g transform="translate(143,58)"><circle cx="0" cy="0" r="4.6" fill="#fcfbf7" stroke="#6c8852" stroke-width="0.8"/><circle cx="0" cy="0" r="2.2" fill="#f2c438"/></g>
@@ -2422,7 +2110,7 @@ It is a pleasure to have you in the next chapter!</p>
     };
 
     /* ===============================================================
-2. DOM REFERENCES & APPLICATION STATE
+       2. DOM REFERENCES & APPLICATION STATE
        =============================================================== */
     const ui = {
       closed: document.getElementById('closedBook'),
@@ -2430,49 +2118,67 @@ It is a pleasure to have you in the next chapter!</p>
       paper: document.getElementById('spreadPaper'),
       title: document.getElementById('spreadTitle'),
       chapter: document.getElementById('chapterMark'),
-      headerCount: document.getElementById('headerCount'),
-      progress: document.getElementById('slideProgress'),
       viewport: document.getElementById('projectViewport'),
       tabs: document.getElementById('spreadTabs'),
-      prev: document.getElementById('previousProject'),
-      next: document.getElementById('nextProject'),
-      sheet: document.getElementById('projectSheet'),
-      sheetClose: document.getElementById('projectSheetClose'),
-      sheetTitle: document.getElementById('projectSheetTitle'),
-      sheetBadge: document.getElementById('projectSheetBadge'),
-      sheetMedia: document.getElementById('projectSheetMedia'),
-      sheetBody: document.getElementById('projectSheetBody'),
-      lightbox: document.getElementById('boardLightbox'),
-      lightboxStage: document.getElementById('boardLightboxStage'),
-      lightboxImg: document.getElementById('boardLightboxImg'),
-      lightboxZoomToggle: document.getElementById('boardLightboxZoomToggle'),
-      lightboxClose: document.getElementById('boardLightboxClose'),
-      lightboxTitle: document.getElementById('boardLightboxTitle'),
       flipLayer: document.getElementById('pageFlipLayer'),
-      filePicker: document.getElementById('localAssetPicker'),
       messageBtn: document.getElementById('messageToggleBtn'),
       coverLeft: document.getElementById('coverLeft'),
       vellumSheet: document.getElementById('coverVellumSheet'),
-      portrait: document.getElementById('coverPortrait')
+      portrait: document.getElementById('coverPortrait'),
+      cursorGuide: document.getElementById('coverCursorGuide'),
+      detailDialog: document.getElementById('projectDetailDialog'),
+      sheetCloseBtn: document.getElementById('sheetCloseBtn'),
+      sheetTitle: document.getElementById('sheetTitle'),
+      sheetBadge: document.getElementById('sheetBadge'),
+      sheetMediaBox: document.getElementById('sheetMediaBox'),
+      sheetRight: document.getElementById('sheetRight'),
+      boardLightbox: document.getElementById('boardLightbox'),
+      boardLightboxTitle: document.getElementById('boardLightboxTitle'),
+      boardZoomToggleBtn: document.getElementById('boardZoomToggleBtn'),
+      boardLightboxClose: document.getElementById('boardLightboxClose'),
+      boardLightboxStage: document.getElementById('boardLightboxStage'),
+      boardLightboxImg: document.getElementById('boardLightboxImg')
     };
 
     let currentSection = 'home';
     let transitionBusy = false;
     let lastFocus = null;
     let lastLightboxFocus = null;
-    const customUploadedObjects = {};
-    let pendingUploadTarget = null;
-    let activeDetailContext = null;
+    const guidedOnce = {
+      home: false,
+      'soft-ground': false,
+      'playful-works': false,
+      'thoughtful-dreams': false
+    };
 
     const homeSVG = '<svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>';
     const zoomMagnifierSVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><line x1="16" y1="16" x2="21" y2="21"/><line x1="11" y1="8.2" x2="11" y2="13.8"/><line x1="8.2" y1="11" x2="13.8" y2="11"/></svg>';
+    const renderFloatingCursorGuide = show => show
+      ? `<div class="floating-cursor-guide is-active" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <circle class="cover-cursor-ripple" cx="8" cy="6" r="6" fill="none" stroke="#ffffff" stroke-width="2" />
+            <path d="M 7.5 4.5 L 7.5 23.5 L 12.2 19.2 L 15.6 26.2 L 18.4 24.9 L 15.0 17.9 L 21.2 17.9 Z"
+                  fill="#ffffff" stroke="#283029" stroke-width="1.9" stroke-linejoin="round" />
+          </svg>
+        </div>`
+      : '';
 
     /* ===============================================================
-3. HELPER & COLLAGE RENDERING FUNCTIONS
+       3. HELPER & COLLAGE RENDERING FUNCTIONS
        =============================================================== */
     const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g, c => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[c]));
+
+    function checkDesktopHalfScreen() {
+      const isTouchPhone = window.matchMedia('(pointer: coarse)').matches && Math.min(window.screen.width, window.screen.height) < 600;
+      if (isTouchPhone) {
+        document.body.classList.remove('is-half-screen');
+        return;
+      }
+      const halfScreenThreshold = Math.floor((window.screen.availWidth || window.screen.width) * 0.5);
+      document.body.classList.toggle('is-half-screen', window.innerWidth <= halfScreenThreshold);
+    }
 
     function buildHandwrittenLines(linesConfig, startDelaySec) {
       let cursorTime = startDelaySec;
@@ -2535,11 +2241,10 @@ It is a pleasure to have you in the next chapter!</p>
     }
 
     /* Render Chapter 01: Soft Ground Two-Page Collage */
-    function renderSoftGroundSpread() {
+    function renderSoftGroundSpread(showGuide = false) {
       const ownData = projects['soft-ground'][0];
       const teaData = projects['soft-ground'][1];
-      const ownSrc = customUploadedObjects['own'] || escapeHTML(ownData.imagePrimary);
-      const teaSrc = customUploadedObjects['tea'] || escapeHTML(teaData.imagePrimary);
+      const ownGuideHTML = renderFloatingCursorGuide(showGuide);
 
       const leftText = buildHandwrittenLines([
         { text: 'During COVID,', rot: '-1.2deg', indent: '0px' },
@@ -2563,7 +2268,7 @@ It is a pleasure to have you in the next chapter!</p>
           <div class="sg-cluster sg-cluster--left">
             <div class="sg-collage-item sg-item--own" data-sg-index="0" role="button" tabindex="0" aria-label="Open project: own bi.monthly">
               <div class="sg-own-photo-wrap">
-                <img src="${ownSrc}" data-alt-src="${escapeHTML(ownData.imageSecondary)}" data-cutout-key="own" alt="own bi.monthly Vol. 01 magazine cover" />
+                <img src="${escapeHTML(ownData.imagePrimary)}" data-alt-src="${escapeHTML(ownData.imageSecondary)}" data-cutout-key="own" alt="own bi.monthly Vol. 01 magazine cover" />
               </div>
               <svg class="sg-outline-svg" viewBox="0 0 220 310" aria-hidden="true">
                 <g fill="none" stroke="#2a2e28" stroke-width="1.65" stroke-linecap="round">
@@ -2571,6 +2276,7 @@ It is a pleasure to have you in the next chapter!</p>
                   <path d="M 225 307 Q 108 309 -4 306" /><path d="M 2 314 Q 0 152 3 -5" />
                 </g>
               </svg>
+              ${ownGuideHTML}
             </div>
             <div class="sg-copy-group sg-copy--own" aria-label="During COVID, we learnt to be alone together.">
               ${leftText.html}
@@ -2588,7 +2294,7 @@ It is a pleasure to have you in the next chapter!</p>
             </div>
             <div class="sg-collage-item sg-item--tea" data-sg-index="1" role="button" tabindex="0" aria-label="Open project: 桂有光 Osmanthus Tea Brand">
               <div class="sg-tea-photo-wrap">
-                <img src="${teaSrc}" data-alt-src="${escapeHTML(teaData.imageSecondary)}" data-cutout-key="tea" alt="桂有光 Osmanthus Tea Brand golden pouch package" />
+                <img src="${escapeHTML(teaData.imagePrimary)}" data-alt-src="${escapeHTML(teaData.imageSecondary)}" data-cutout-key="tea" alt="桂有光 Osmanthus Tea Brand golden pouch package" />
               </div>
               <svg class="sg-outline-svg" viewBox="0 0 240 236" aria-hidden="true">
                 <path d="M 42 22 C 86 20, 154 20, 198 22 C 206 23, 210 34, 213 62 C 215 76, 218 84, 215 92 C 218 124, 220 162, 213 196 C 209 211, 197 215, 168 217 C 138 220, 102 220, 72 217 C 43 215, 31 211, 27 196 C 20 162, 22 124, 25 92 C 22 84, 25 76, 27 62 C 30 34, 34 23, 42 22 Z"
@@ -2623,7 +2329,6 @@ It is a pleasure to have you in the next chapter!</p>
             </div>`;
           } else {
             parent.innerHTML = `<div class="sg-cutout-fallback sg-cutout-fallback--tea">
-              <div class="sg-tea-fold-line"></div>
               <div class="sg-tea-paper-label"><div class="sg-tea-red-seal"><span>永</span><span>安</span></div></div>
             </div>`;
           }
@@ -2632,12 +2337,9 @@ It is a pleasure to have you in the next chapter!</p>
     }
 
     /* Render Chapter 02: Playful Ideas Clothesline Polaroids */
-    function renderPlayfulIdeasSpread() {
+    function renderPlayfulIdeasSpread(showGuide = false) {
       const items = projects['playful-works'];
-      const p1Src = customUploadedObjects['pi-0'] || escapeHTML(items[0].polaroidPrimary);
-      const p2Src = customUploadedObjects['pi-1'] || escapeHTML(items[1].polaroidPrimary);
-      const p3Src = customUploadedObjects['pi-2'] || escapeHTML(items[2].polaroidPrimary);
-      const p4Src = customUploadedObjects['pi-3'] || escapeHTML(items[3].polaroidPrimary);
+      const vcGuideHTML = renderFloatingCursorGuide(showGuide);
 
       const t1Start = 0.28;
       const t1 = buildHandwrittenLines([
@@ -2679,8 +2381,9 @@ It is a pleasure to have you in the next chapter!</p>
           <div class="pi-polaroid" style="--tilt:-2.2deg;" data-pi-index="0" role="button" tabindex="0" aria-label="Open project: VC KungFu">
             <span class="pi-washi-tape pi-washi-tape--yellow-gingham" style="--tape-rot:-2.5deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t1Start.toFixed(3)}s; --dev-dur:${d1.toFixed(3)}s;">
-              <img src="${p1Src}" data-alt-src="${escapeHTML(items[0].polaroidSecondary)}" data-pi-key="pi-0" alt="VC KungFu" />
+              <img src="${escapeHTML(items[0].polaroidPrimary)}" data-alt-src="${escapeHTML(items[0].polaroidSecondary)}" alt="VC KungFu" />
             </div>
+            ${vcGuideHTML}
           </div>
           <div class="pi-tagline pi-tagline--below pi-tagline--vc">${t1.html}</div>
         </div>
@@ -2690,7 +2393,7 @@ It is a pleasure to have you in the next chapter!</p>
           <div class="pi-polaroid" style="--tilt:1.8deg;" data-pi-index="1" role="button" tabindex="0" aria-label="Open project: OREO COSMIC RADIO WAVE">
             <span class="pi-washi-tape pi-washi-tape--blue-stars" style="--tape-rot:2.2deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t2Start.toFixed(3)}s; --dev-dur:${d2.toFixed(3)}s;">
-              <img src="${p2Src}" data-alt-src="${escapeHTML(items[1].polaroidSecondary)}" data-pi-key="pi-1" alt="OREO COSMIC RADIO WAVE" />
+              <img src="${escapeHTML(items[1].polaroidPrimary)}" data-alt-src="${escapeHTML(items[1].polaroidSecondary)}" alt="OREO COSMIC RADIO WAVE" />
             </div>
           </div>
         </div>
@@ -2699,7 +2402,7 @@ It is a pleasure to have you in the next chapter!</p>
           <div class="pi-polaroid" style="--tilt:-1.6deg;" data-pi-index="2" role="button" tabindex="0" aria-label="Open project: Combat X Power Station">
             <span class="pi-washi-tape pi-washi-tape--sage-stripe" style="--tape-rot:-1.8deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t3Start.toFixed(3)}s; --dev-dur:${d3.toFixed(3)}s;">
-              <img src="${p3Src}" data-alt-src="${escapeHTML(items[2].polaroidSecondary)}" data-pi-key="pi-2" alt="Combat X Power Station" />
+              <img src="${escapeHTML(items[2].polaroidPrimary)}" data-alt-src="${escapeHTML(items[2].polaroidSecondary)}" alt="Combat X Power Station" />
             </div>
           </div>
           <div class="pi-tagline pi-tagline--below pi-tagline--combat">${t3.html}</div>
@@ -2707,10 +2410,10 @@ It is a pleasure to have you in the next chapter!</p>
 
         <div class="pi-slot pi-slot--4">
           <div class="pi-tagline pi-tagline--above">${t4Top.html}</div>
-          <div class="pi-polaroid" style="--tilt:2.1deg;" data-pi-index="3" role="button" tabindex="0" aria-label="Open project: Dear Hollywood, AI'll Sue You">
+          <div class="pi-polaroid" style="--tilt:2.1deg;" data-pi-index="3" role="button" tabindex="0" aria-label="Open project: DEAR HOLLYWOOD, AI’LL SUE YOU">
             <span class="pi-washi-tape pi-washi-tape--pink-crinkle" style="--tape-rot:2.8deg;" aria-hidden="true"></span>
             <div class="pi-photo-window" style="--dev-start:${t4Start.toFixed(3)}s; --dev-dur:${d4.toFixed(3)}s;">
-              <img src="${p4Src}" data-alt-src="${escapeHTML(items[3].polaroidSecondary)}" data-pi-key="pi-3" alt="Dear Hollywood, AI'll Sue You" />
+              <img src="${escapeHTML(items[3].polaroidPrimary)}" data-alt-src="${escapeHTML(items[3].polaroidSecondary)}" alt="DEAR HOLLYWOOD, AI’LL SUE YOU" />
             </div>
           </div>
           <div class="pi-tagline pi-tagline--below">${t4Bottom.html}</div>
@@ -2728,19 +2431,15 @@ It is a pleasure to have you in the next chapter!</p>
             this.src = altSrc;
             return;
           }
-          const windowEl = this.parentElement;
-          if (windowEl) windowEl.dataset.unattached = '1';
           this.remove();
         });
       });
     }
 
     /* Render Chapter 03: Thoughtful Dreams Aerial Clouds */
-    function renderThoughtfulDreamsSpread() {
+    function renderThoughtfulDreamsSpread(showGuide = false) {
       const dreams = projects['thoughtful-dreams'];
-      const c0Src = customUploadedObjects['td-0'] || escapeHTML(dreams[0].cloudPrimary);
-      const c1Src = customUploadedObjects['td-1'] || escapeHTML(dreams[1].cloudPrimary);
-      const c2Src = customUploadedObjects['td-2'] || escapeHTML(dreams[2].cloudPrimary);
+      const emoGuideHTML = renderFloatingCursorGuide(showGuide);
 
       return `<div class="thoughtful-dreams-spread" id="thoughtfulDreamsSpread" aria-label="Thoughtful Dreams aerial sky view">
         <div class="td-mini-rack" aria-hidden="true">
@@ -2777,9 +2476,10 @@ It is a pleasure to have you in the next chapter!</p>
             <defs><path id="tdArcEmo" d="M 76 324 Q 316 382 546 292" /></defs>
             <text class="td-cloud-tagline"><textPath href="#tdArcEmo" startOffset="50%" text-anchor="middle">bring us closer to humanity, not itself</textPath></text>
           </svg>
-          <div class="td-cloud-slot" data-td-key="td-0">
-            <img src="${c0Src}" data-alt-src="${escapeHTML(dreams[0].cloudSecondary)}" data-td-key="td-0" alt="EmoTogether" />
+          <div class="td-cloud-slot">
+            <img src="${escapeHTML(dreams[0].cloudPrimary)}" data-alt-src="${escapeHTML(dreams[0].cloudSecondary)}" alt="EmoTogether" />
           </div>
+          ${emoGuideHTML}
         </div>
 
         <!-- Cloud 2: Ring the Memory Line (Original Pale Sky Blue) -->
@@ -2799,8 +2499,8 @@ It is a pleasure to have you in the next chapter!</p>
             <defs><path id="tdArcMemory" d="M 110 172 Q 286 72 492 130" /></defs>
             <text class="td-cloud-tagline"><textPath href="#tdArcMemory" startOffset="50%" text-anchor="middle">help us remember who we are</textPath></text>
           </svg>
-          <div class="td-cloud-slot" data-td-key="td-1">
-            <img src="${c1Src}" data-alt-src="${escapeHTML(dreams[1].cloudSecondary)}" data-td-key="td-1" alt="Ring the Memory Line" />
+          <div class="td-cloud-slot">
+            <img src="${escapeHTML(dreams[1].cloudPrimary)}" data-alt-src="${escapeHTML(dreams[1].cloudSecondary)}" alt="Ring the Memory Line" />
           </div>
         </div>
 
@@ -2821,8 +2521,8 @@ It is a pleasure to have you in the next chapter!</p>
             <defs><path id="tdArcBeing" d="M 76 162 A 206 116 0 1 1 414 296" /></defs>
             <text class="td-cloud-tagline"><textPath href="#tdArcBeing" startOffset="50%" text-anchor="middle">enable relationship to grow beyond death</textPath></text>
           </svg>
-          <div class="td-cloud-slot" data-td-key="td-2">
-            <img src="${c2Src}" data-alt-src="${escapeHTML(dreams[2].cloudSecondary)}" data-td-key="td-2" alt="Being Here" />
+          <div class="td-cloud-slot">
+            <img src="${escapeHTML(dreams[2].cloudPrimary)}" data-alt-src="${escapeHTML(dreams[2].cloudSecondary)}" alt="Being Here" />
           </div>
         </div>
       </div>`;
@@ -2841,149 +2541,24 @@ It is a pleasure to have you in the next chapter!</p>
           }
           const slot = this.parentElement;
           if (!slot) return;
-          slot.dataset.unattached = '1';
           slot.innerHTML = `<div class="td-cloud-fallback">
             <strong>${escapeHTML(titles[idx] || 'Dream Project')}</strong>
-            <small>Click to explore project</small>
           </div>`;
         });
       });
     }
 
     function triggerSpreadAnimation() {
-      const sg = document.getElementById('softGroundSpread');
-      if (sg) {
-        sg.classList.remove('is-writing');
-        void sg.offsetWidth;
-        sg.classList.add('is-writing');
-      }
-      const pi = document.getElementById('playfulIdeasSpread');
-      if (pi) {
-        pi.classList.remove('is-writing');
-        void pi.offsetWidth;
-        pi.classList.add('is-writing');
-      }
-      const td = document.getElementById('thoughtfulDreamsSpread');
-      if (td) {
-        td.classList.remove('is-revealed');
-        void td.offsetWidth;
-        td.classList.add('is-revealed');
-      }
-    }
-
-    /* ===============================================================
-4. FLOATING PROJECT DETAIL SHEET OPEN / CLOSE
-       =============================================================== */
-    function openProjectDetail(sectionId, projectIndex) {
-      const list = projects[sectionId];
-      if (!list || !list[projectIndex]) return;
-      const item = list[projectIndex];
-      activeDetailContext = { sectionId, projectIndex };
-      lastFocus = document.activeElement;
-
-      ui.sheetTitle.textContent = item.name;
-      ui.sheetTitle.className = 'sheet-title' + (item.titleClass ? ` ${item.titleClass}` : '');
-      ui.sheetBadge.textContent = item.badge || '';
-
-      const customKey = `detail-${sectionId}-${projectIndex}`;
-      if (item.detailMediaType === 'video') {
-        const videoSrc = customUploadedObjects[customKey] || escapeHTML(item.detailMediaPrimary);
-        ui.sheetMedia.innerHTML = `<video controls playsinline preload="metadata" src="${videoSrc}"></video>`;
-      } else if (item.detailMediaType === 'website') {
-        const safeUrl = escapeHTML(item.detailWebUrl);
-        ui.sheetMedia.innerHTML = `<div class="sheet-web-wrap">
-          <iframe src="${safeUrl}" title="${escapeHTML(item.name)} interactive plugin" loading="lazy"></iframe>
-          <div class="sheet-web-bar">
-            <span>Interactive web experience</span>
-            <a class="sheet-web-link" href="${safeUrl}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
-          </div>
-        </div>`;
-      } else {
-        const imgSrc = customUploadedObjects[customKey] || escapeHTML(item.detailMediaPrimary || '');
-        const altSrc = escapeHTML(item.detailMediaSecondary || '');
-        const classes = [];
-        if (item.detailImgClass) classes.push(item.detailImgClass);
-        if (item.allowBoardZoom) classes.push('sheet-img--zoomable');
-        const imgClassAttr = classes.length ? ` class="${escapeHTML(classes.join(' '))}"` : '';
-        const zoomBtnHTML = item.allowBoardZoom
-          ? `<button type="button" class="sheet-zoom-btn" id="sheetZoomBtn" aria-label="Enlarge presentation board" title="Enlarge presentation board">${zoomMagnifierSVG}</button>`
-          : '';
-        ui.sheetMedia.innerHTML = `<img${imgClassAttr} src="${imgSrc}" data-alt-src="${altSrc}" alt="${escapeHTML(item.name)}" />${zoomBtnHTML}`;
-        const detailImg = ui.sheetMedia.querySelector('img');
-        if (detailImg && item.allowBoardZoom) {
-          const triggerZoom = () => openBoardLightbox(detailImg.currentSrc || detailImg.src, item.name);
-          detailImg.addEventListener('click', triggerZoom);
-          const zoomBtn = document.getElementById('sheetZoomBtn');
-          if (zoomBtn) zoomBtn.addEventListener('click', triggerZoom);
+      ['softGroundSpread', 'playfulIdeasSpread', 'thoughtfulDreamsSpread'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('is-writing');
+          void el.offsetWidth;
+          el.classList.add('is-writing');
         }
-        if (detailImg) {
-          detailImg.addEventListener('error', function onDetailImgError() {
-            const alt = this.getAttribute('data-alt-src');
-            if (alt && !this.dataset.triedAlt) {
-              this.dataset.triedAlt = '1';
-              this.src = alt;
-              return;
-            }
-            ui.sheetMedia.innerHTML = `<div class="sheet-media-placeholder" data-detail-upload="${customKey}" role="button" tabindex="0">
-              <strong>${escapeHTML(item.name)}</strong>
-              <span>Preview image not found locally. Click here to attach a local image file.</span>
-            </div>`;
-          });
-        }
-      }
-
-      ui.sheetBody.innerHTML = (item.sections || []).map(sec => `
-        <section class="sheet-section">
-          <h3 class="sheet-subheading">${escapeHTML(sec.heading)}</h3>
-          <p class="sheet-paragraph">${escapeHTML(sec.text)}</p>
-        </section>
-      `).join('');
-      ui.sheetBody.scrollTop = 0;
-
-      ui.sheet.classList.add('open');
-      ui.sheet.setAttribute('aria-hidden', 'false');
-      ui.sheetClose.focus();
+      });
     }
 
-    function closeProjectDetail() {
-      if (!ui.sheet.classList.contains('open')) return;
-      closeBoardLightbox();
-      const vid = ui.sheetMedia.querySelector('video');
-      if (vid) vid.pause();
-      ui.sheet.classList.remove('open');
-      ui.sheet.setAttribute('aria-hidden', 'true');
-      activeDetailContext = null;
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-
-    function setBoardLightboxZoom(zoomed) {
-      ui.lightboxStage.classList.toggle('is-zoomed', zoomed);
-      ui.lightboxZoomToggle.textContent = zoomed ? 'Fit Screen −' : 'Zoom In +';
-    }
-
-    function openBoardLightbox(src, title) {
-      if (!src) return;
-      lastLightboxFocus = document.activeElement;
-      ui.lightboxTitle.textContent = title || 'Presentation Board';
-      ui.lightboxImg.src = src;
-      ui.lightboxImg.alt = title || 'Presentation Board';
-      setBoardLightboxZoom(false);
-      ui.lightbox.classList.add('open');
-      ui.lightbox.setAttribute('aria-hidden', 'false');
-      ui.lightboxClose.focus();
-    }
-
-    function closeBoardLightbox() {
-      if (!ui.lightbox.classList.contains('open')) return;
-      ui.lightbox.classList.remove('open');
-      ui.lightbox.setAttribute('aria-hidden', 'true');
-      setBoardLightboxZoom(false);
-      if (lastLightboxFocus && typeof lastLightboxFocus.focus === 'function') lastLightboxFocus.focus();
-    }
-
-    /* ===============================================================
-5. NOTEBOOK NAVIGATION & TAB RENDERING
-       =============================================================== */
     function renderTabs(section) {
       const index = sections.findIndex(s => s.id === section);
       ui.tabs.innerHTML = sections.map((s, i) => {
@@ -2996,20 +2571,23 @@ It is a pleasure to have you in the next chapter!</p>
 
     function renderSection(section) {
       const detail = sections.find(s => s.id === section);
+      const showGuide = !guidedOnce[section];
+      guidedOnce[section] = true;
+
       ui.paper.classList.add('is-collage-spread');
       ui.title.textContent = detail.title;
       ui.chapter.textContent = `Chapter ${detail.chapter}`;
 
       if (section === 'soft-ground') {
-        ui.viewport.innerHTML = renderSoftGroundSpread();
+        ui.viewport.innerHTML = renderSoftGroundSpread(showGuide);
         attachSoftGroundImageFallbacks();
         requestAnimationFrame(() => triggerSpreadAnimation());
       } else if (section === 'playful-works') {
-        ui.viewport.innerHTML = renderPlayfulIdeasSpread();
+        ui.viewport.innerHTML = renderPlayfulIdeasSpread(showGuide);
         attachPlayfulIdeasImageFallbacks();
         requestAnimationFrame(() => triggerSpreadAnimation());
       } else {
-        ui.viewport.innerHTML = renderThoughtfulDreamsSpread();
+        ui.viewport.innerHTML = renderThoughtfulDreamsSpread(showGuide);
         attachThoughtfulDreamsImageFallbacks();
         requestAnimationFrame(() => triggerSpreadAnimation());
       }
@@ -3018,8 +2596,19 @@ It is a pleasure to have you in the next chapter!</p>
       renderTabs(section);
     }
 
+    function playHomeCursorGuideOnce() {
+      if (!ui.cursorGuide) return;
+      if (!guidedOnce.home) {
+        guidedOnce.home = true;
+        ui.cursorGuide.classList.remove('is-active');
+        void ui.cursorGuide.offsetWidth;
+        ui.cursorGuide.classList.add('is-active');
+      } else {
+        ui.cursorGuide.classList.remove('is-active');
+      }
+    }
+
     function setVisible(el, visible) {
-      if (!el) return;
       el.classList.toggle('is-hidden', !visible);
       el.setAttribute('aria-hidden', String(!visible));
     }
@@ -3032,7 +2621,6 @@ It is a pleasure to have you in the next chapter!</p>
     function navigate(section, { saveHistory = true, animate = true } = {}) {
       if (!sections.some(s => s.id === section)) return;
       if (transitionBusy) return;
-      closeProjectDetail();
       if (currentSection === section) {
         if (section !== 'home') triggerSpreadAnimation();
         return;
@@ -3042,14 +2630,21 @@ It is a pleasure to have you in the next chapter!</p>
       const from = currentSection === 'home' ? ui.closed : ui.opened;
       const to = section === 'home' ? ui.closed : ui.opened;
 
+      if (currentSection === 'home' && ui.cursorGuide) {
+        ui.cursorGuide.classList.remove('is-active');
+      }
+
       const finish = () => {
         currentSection = section;
         if (section !== 'home') {
           renderSection(section);
-        } else if (ui.portrait) {
-          ui.portrait.classList.remove('is-waving');
-          void ui.portrait.offsetWidth;
-          ui.portrait.classList.add('is-waving');
+        } else {
+          if (ui.portrait) {
+            ui.portrait.classList.remove('is-waving');
+            void ui.portrait.offsetWidth;
+            ui.portrait.classList.add('is-waving');
+          }
+          playHomeCursorGuideOnce();
         }
         setVisible(from, false);
         setVisible(to, true);
@@ -3087,7 +2682,165 @@ It is a pleasure to have you in the next chapter!</p>
     }
 
     /* ===============================================================
-6. INTERACTIVE EVENTS & VIEWPORT RESPONSIVE CHECK
+       4. FLOATING PROJECT DETAIL SHEET & BOARD ZOOM LIGHTBOX
+       =============================================================== */
+    function openProjectDetail(sectionKey, projectIndex) {
+      const list = projects[sectionKey];
+      if (!list || !list[projectIndex]) return;
+      const item = list[projectIndex];
+      lastFocus = document.activeElement;
+
+      ui.sheetTitle.textContent = item.name;
+      ui.sheetTitle.classList.toggle('sheet-title--compact', Boolean(item.compactTitle));
+
+      if (item.badge) {
+        ui.sheetBadge.textContent = item.badge;
+        ui.sheetBadge.hidden = false;
+      } else {
+        ui.sheetBadge.textContent = '';
+        ui.sheetBadge.hidden = true;
+      }
+
+      ui.sheetMediaBox.classList.remove('is-zoomable-board');
+      if (item.mediaType === 'video') {
+        ui.sheetMediaBox.innerHTML = `<video controls playsinline preload="metadata" src="${escapeHTML(item.detailMedia)}"></video>`;
+      } else if (item.mediaType === 'embed') {
+        const safeUrl = escapeHTML(item.detailMedia);
+        ui.sheetMediaBox.innerHTML = `<div class="sheet-embed-wrap">
+          <iframe src="${safeUrl}" title="${escapeHTML(item.name)} interactive plugin" loading="lazy" allow="camera; microphone"></iframe>
+          <div class="sheet-embed-bar">
+            <span>Interactive Plugin Preview</span>
+            <a href="${safeUrl}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+          </div>
+        </div>`;
+      } else {
+        const src = escapeHTML(item.detailMedia || '');
+        const altSrc = escapeHTML(item.detailMediaAlt || '');
+        const zoomClass = item.zoomDetailImage ? ' class="sheet-img--zoomed-own"' : '';
+        const zoomBtnHTML = item.enableZoomMagnifier
+          ? `<button type="button" class="sheet-zoom-btn" id="sheetZoomBoardBtn" aria-label="Zoom in on presentation board" title="Zoom in to read board">${zoomMagnifierSVG}</button>`
+          : '';
+        if (item.enableZoomMagnifier) ui.sheetMediaBox.classList.add('is-zoomable-board');
+
+        ui.sheetMediaBox.innerHTML = `<img src="${src}" data-alt-src="${altSrc}"${zoomClass} alt="${escapeHTML(item.name)}" />${zoomBtnHTML}`;
+        const imgEl = ui.sheetMediaBox.querySelector('img');
+        if (imgEl) {
+          imgEl.addEventListener('error', function handleSheetImgErr() {
+            const alt = this.getAttribute('data-alt-src');
+            if (alt && !this.dataset.triedAlt) {
+              this.dataset.triedAlt = '1';
+              this.src = alt;
+            }
+          });
+          if (item.enableZoomMagnifier) {
+            imgEl.addEventListener('click', () => openBoardLightbox(imgEl.currentSrc || src, item.name));
+          }
+        }
+        const zoomBtn = document.getElementById('sheetZoomBoardBtn');
+        if (zoomBtn && imgEl) {
+          zoomBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            openBoardLightbox(imgEl.currentSrc || src, item.name);
+          });
+        }
+      }
+
+      ui.sheetRight.innerHTML = (item.copyBlocks || []).map(block => `
+        <section class="sheet-section-block">
+          <h3 class="sheet-subheading">${escapeHTML(block.heading)}</h3>
+          <p class="sheet-paragraph">${escapeHTML(block.text)}</p>
+        </section>
+      `).join('');
+      ui.sheetRight.scrollTop = 0;
+
+      ui.detailDialog.classList.add('open');
+      ui.detailDialog.setAttribute('aria-hidden', 'false');
+      ui.sheetCloseBtn.focus();
+    }
+
+    function closeProjectDetail() {
+      if (!ui.detailDialog.classList.contains('open')) return;
+      const activeVideo = ui.sheetMediaBox.querySelector('video');
+      if (activeVideo) activeVideo.pause();
+      ui.detailDialog.classList.remove('open');
+      ui.detailDialog.setAttribute('aria-hidden', 'true');
+      ui.sheetMediaBox.innerHTML = '';
+      lastFocus?.focus();
+    }
+
+    /* Fullscreen Presentation Board Lightbox (Zoom & Drag Pan) */
+    let lbZoomed = false;
+    let lbPan = { x: 0, y: 0 };
+    let lbDragStart = null;
+
+    function updateBoardTransform() {
+      if (!lbZoomed) {
+        ui.boardLightboxImg.style.transform = 'translate(0px, 0px) scale(1)';
+      } else {
+        ui.boardLightboxImg.style.transform = `translate(${lbPan.x}px, ${lbPan.y}px) scale(2.15)`;
+      }
+    }
+
+    function setBoardZoom(zoomed) {
+      lbZoomed = zoomed;
+      if (!lbZoomed) lbPan = { x: 0, y: 0 };
+      ui.boardLightboxStage.classList.toggle('is-zoomed', lbZoomed);
+      ui.boardZoomToggleBtn.textContent = lbZoomed ? 'Reset Zoom −' : 'Zoom In +';
+      updateBoardTransform();
+    }
+
+    function openBoardLightbox(src, title) {
+      lastLightboxFocus = document.activeElement;
+      ui.boardLightboxTitle.textContent = title;
+      ui.boardLightboxImg.src = src;
+      ui.boardLightboxImg.alt = title;
+      setBoardZoom(false);
+      ui.boardLightbox.classList.add('open');
+      ui.boardLightbox.setAttribute('aria-hidden', 'false');
+      ui.boardLightboxClose.focus();
+    }
+
+    function closeBoardLightbox() {
+      if (!ui.boardLightbox.classList.contains('open')) return;
+      ui.boardLightbox.classList.remove('open');
+      ui.boardLightbox.setAttribute('aria-hidden', 'true');
+      setBoardZoom(false);
+      lastLightboxFocus?.focus();
+    }
+
+    ui.boardZoomToggleBtn.addEventListener('click', () => setBoardZoom(!lbZoomed));
+    ui.boardLightboxClose.addEventListener('click', closeBoardLightbox);
+    ui.boardLightbox.addEventListener('click', e => {
+      if (e.target === ui.boardLightbox || e.target === ui.boardLightboxStage) closeBoardLightbox();
+    });
+
+    let dragMoved = false;
+    ui.boardLightboxImg.addEventListener('mousedown', e => {
+      if (!lbZoomed) return;
+      e.preventDefault();
+      dragMoved = false;
+      lbDragStart = { x: e.clientX - lbPan.x, y: e.clientY - lbPan.y };
+      ui.boardLightboxStage.classList.add('is-dragging');
+    });
+    window.addEventListener('mousemove', e => {
+      if (!lbDragStart) return;
+      dragMoved = true;
+      lbPan = { x: e.clientX - lbDragStart.x, y: e.clientY - lbDragStart.y };
+      updateBoardTransform();
+    });
+    window.addEventListener('mouseup', () => {
+      if (!lbDragStart) return;
+      lbDragStart = null;
+      ui.boardLightboxStage.classList.remove('is-dragging');
+    });
+    ui.boardLightboxImg.addEventListener('click', e => {
+      e.stopPropagation();
+      if (dragMoved) { dragMoved = false; return; }
+      setBoardZoom(!lbZoomed);
+    });
+
+    /* ===============================================================
+       5. COVER PORTRAIT INTERACTION & EVENT LISTENERS
        =============================================================== */
     function setPortraitLook(lookClass) {
       if (!ui.portrait) return;
@@ -3130,155 +2883,55 @@ It is a pleasure to have you in the next chapter!</p>
         openProjectDetail('soft-ground', Number(sgItem.dataset.sgIndex));
         return;
       }
-      const polaroid = e.target.closest('.pi-polaroid');
+      const polaroid = e.target.closest('[data-pi-index]');
       if (polaroid) {
         openProjectDetail('playful-works', Number(polaroid.dataset.piIndex));
         return;
       }
-      const cloud = e.target.closest('.td-cloud');
+      const cloud = e.target.closest('[data-td-index]');
       if (cloud) {
         openProjectDetail('thoughtful-dreams', Number(cloud.dataset.tdIndex));
         return;
       }
-      const detailPlaceholder = e.target.closest('[data-detail-upload]');
-      if (detailPlaceholder) {
-        pendingUploadTarget = detailPlaceholder.dataset.detailUpload;
-        ui.filePicker.click();
-        return;
-      }
+    });
+
+    ui.sheetCloseBtn.addEventListener('click', closeProjectDetail);
+    ui.detailDialog.addEventListener('click', e => {
+      if (e.target === ui.detailDialog) closeProjectDetail();
     });
 
     document.addEventListener('keydown', e => {
-      if (ui.lightbox.classList.contains('open')) {
-        if (e.key === 'Escape') closeBoardLightbox();
-        return;
-      }
-      if (ui.sheet.classList.contains('open')) {
-        if (e.key === 'Escape') closeProjectDetail();
-        return;
-      }
       if (e.key === 'Enter' || e.key === ' ') {
-        const sgItem = document.activeElement && document.activeElement.closest('[data-sg-index]');
+        const sgItem = document.activeElement?.closest('[data-sg-index]');
         if (sgItem) { e.preventDefault(); openProjectDetail('soft-ground', Number(sgItem.dataset.sgIndex)); return; }
-        const polaroid = document.activeElement && document.activeElement.closest('.pi-polaroid');
+        const polaroid = document.activeElement?.closest('[data-pi-index]');
         if (polaroid) { e.preventDefault(); openProjectDetail('playful-works', Number(polaroid.dataset.piIndex)); return; }
-        const cloud = document.activeElement && document.activeElement.closest('.td-cloud');
+        const cloud = document.activeElement?.closest('[data-td-index]');
         if (cloud) { e.preventDefault(); openProjectDetail('thoughtful-dreams', Number(cloud.dataset.tdIndex)); return; }
       }
-      if (e.key === 'Escape' && currentSection !== 'home') navigate('home');
-    });
-
-    ui.sheetClose.addEventListener('click', closeProjectDetail);
-    ui.sheet.addEventListener('click', e => { if (e.target === ui.sheet) closeProjectDetail(); });
-
-    ui.lightboxClose.addEventListener('click', closeBoardLightbox);
-    ui.lightboxZoomToggle.addEventListener('click', () => {
-      setBoardLightboxZoom(!ui.lightboxStage.classList.contains('is-zoomed'));
-    });
-    ui.lightboxImg.addEventListener('click', e => {
-      e.stopPropagation();
-      if (ui.lightboxStage.dataset.justDragged === '1') {
-        ui.lightboxStage.dataset.justDragged = '0';
-        return;
-      }
-      setBoardLightboxZoom(!ui.lightboxStage.classList.contains('is-zoomed'));
-    });
-    ui.lightboxStage.addEventListener('click', e => {
-      if (e.target === ui.lightboxStage) closeBoardLightbox();
-    });
-
-    /* Click-and-drag panning when Presentation Board is zoomed in */
-    let isPanningBoard = false;
-    let panStartX = 0;
-    let panStartY = 0;
-    let panScrollLeft = 0;
-    let panScrollTop = 0;
-    ui.lightboxStage.addEventListener('mousedown', e => {
-      if (!ui.lightboxStage.classList.contains('is-zoomed')) return;
-      isPanningBoard = true;
-      ui.lightboxStage.classList.add('is-dragging');
-      panStartX = e.clientX;
-      panStartY = e.clientY;
-      panScrollLeft = ui.lightboxStage.scrollLeft;
-      panScrollTop = ui.lightboxStage.scrollTop;
-    });
-    window.addEventListener('mousemove', e => {
-      if (!isPanningBoard) return;
-      const dx = e.clientX - panStartX;
-      const dy = e.clientY - panStartY;
-      if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
-        ui.lightboxStage.dataset.justDragged = '1';
-      }
-      ui.lightboxStage.scrollLeft = panScrollLeft - dx;
-      ui.lightboxStage.scrollTop = panScrollTop - dy;
-    });
-    window.addEventListener('mouseup', () => {
-      if (!isPanningBoard) return;
-      isPanningBoard = false;
-      ui.lightboxStage.classList.remove('is-dragging');
-    });
-
-    ui.filePicker.addEventListener('change', e => {
-      const file = e.target.files && e.target.files[0];
-      if (!file || !pendingUploadTarget) return;
-      customUploadedObjects[pendingUploadTarget] = URL.createObjectURL(file);
-      pendingUploadTarget = null;
-      ui.filePicker.value = '';
-      if (activeDetailContext) {
-        openProjectDetail(activeDetailContext.sectionId, activeDetailContext.projectIndex);
-      } else if (currentSection !== 'home') {
-        renderSection(currentSection);
+      if (e.key === 'Escape') {
+        if (ui.boardLightbox.classList.contains('open')) { closeBoardLightbox(); return; }
+        if (ui.detailDialog.classList.contains('open')) { closeProjectDetail(); return; }
+        if (currentSection !== 'home') navigate('home');
       }
     });
+
+    window.addEventListener('resize', checkDesktopHalfScreen);
+    checkDesktopHalfScreen();
 
     window.addEventListener('popstate', () => {
+      closeBoardLightbox();
+      closeProjectDetail();
       const requested = location.hash.replace('#', '');
       navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
     });
 
     window.addEventListener('hashchange', () => {
+      closeBoardLightbox();
+      closeProjectDetail();
       const requested = location.hash.replace('#', '');
       navigate(sections.some(s => s.id === requested) ? requested : 'home', { saveHistory: false, animate: false });
     });
-
-    /* Half-Screen Desktop & Mobile Portrait Prompt */
-    const rotateOverlay = document.getElementById('rotateOverlay');
-    const rotateOverlayIcon = document.getElementById('rotateOverlayIcon');
-    const rotateOverlayTitle = document.getElementById('rotateOverlayTitle');
-    const rotateOverlayDesc = document.getElementById('rotateOverlayDesc');
-
-    const phoneRotateSVG = '<rect x="34" y="13" width="32" height="55" rx="6" transform="rotate(-28 50 40)" /><path d="M22 66c9 14 28 20 46 12m-3-10 4 10-11 2" /><path d="M48 20h5" />';
-    const desktopExpandSVG = '<rect x="16" y="22" width="68" height="56" rx="7" /><line x1="16" y1="36" x2="84" y2="36" /><circle cx="24" cy="29" r="1.6" fill="currentColor" stroke="none" /><circle cx="31" cy="29" r="1.6" fill="currentColor" stroke="none" /><path d="M58 45h14v14M72 45 56 61M42 69H28V55M28 69l16-16" />';
-
-    function updateViewportPrompt() {
-      if (!rotateOverlay) return;
-      const isTouchDevice = window.matchMedia('(pointer: coarse)').matches && navigator.maxTouchPoints > 0;
-      const availW = window.screen && window.screen.availWidth ? window.screen.availWidth : window.innerWidth;
-      const isHalfOrLessDesktop = !isTouchDevice && (
-        window.innerWidth <= Math.ceil(availW / 2) + 8 ||
-        (window.innerWidth <= 900 && window.innerHeight > window.innerWidth)
-      );
-      const isMobilePortrait = isTouchDevice && window.innerWidth <= 900 && window.innerHeight > window.innerWidth;
-
-      if (isHalfOrLessDesktop) {
-        rotateOverlay.classList.add('is-visible', 'is-desktop-narrow');
-        if (rotateOverlayIcon) rotateOverlayIcon.innerHTML = desktopExpandSVG;
-        if (rotateOverlayTitle) rotateOverlayTitle.textContent = 'Open the notebook wide!';
-        if (rotateOverlayDesc) rotateOverlayDesc.textContent = 'Switch to full screen for a distraction-free read.';
-      } else if (isMobilePortrait) {
-        rotateOverlay.classList.add('is-visible');
-        rotateOverlay.classList.remove('is-desktop-narrow');
-        if (rotateOverlayIcon) rotateOverlayIcon.innerHTML = phoneRotateSVG;
-        if (rotateOverlayTitle) rotateOverlayTitle.textContent = 'Turn the page sideways!';
-        if (rotateOverlayDesc) rotateOverlayDesc.textContent = 'This notebook is designed to be read in landscape mode. Please rotate your phone to explore.';
-      } else {
-        rotateOverlay.classList.remove('is-visible', 'is-desktop-narrow');
-      }
-    }
-
-    updateViewportPrompt();
-    window.addEventListener('resize', updateViewportPrompt);
-    window.addEventListener('orientationchange', updateViewportPrompt);
 
     const startingSection = location.hash.replace('#', '');
     if (startingSection && startingSection !== 'home' && sections.some(s => s.id === startingSection)) {
@@ -3286,6 +2939,7 @@ It is a pleasure to have you in the next chapter!</p>
     } else {
       setVisible(ui.closed, true);
       setVisible(ui.opened, false);
+      playHomeCursorGuideOnce();
     }
   </script>
 </body>
